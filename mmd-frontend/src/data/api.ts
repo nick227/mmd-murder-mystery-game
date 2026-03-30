@@ -44,6 +44,7 @@ export async function postHostAction(
       'Content-Type': 'application/json',
       'x-host-key': hostKey,
     },
+    body: '{}',
   })
 }
 
@@ -78,4 +79,17 @@ export async function joinPlayerByCharacter(
 
 export async function fetchPlayerViewByCharacter(apiBase: string, gameId: string, characterId: string) {
   return request<PlayerApiView>(`${apiBase}/api/v1/play/${gameId}/character/${characterId}`)
+}
+
+export async function submitObjective(
+  apiBase: string,
+  gameId: string,
+  characterId: string,
+  objectiveId: string,
+) {
+  return request<{ message: string }>(`${apiBase}/api/v1/play/${gameId}/character/${characterId}/submit`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ objectiveId }),
+  })
 }

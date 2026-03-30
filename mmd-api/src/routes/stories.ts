@@ -1,7 +1,8 @@
 import { FastifyInstance } from 'fastify'
-import { prisma } from '../lib/prisma.js'
 import { toJsonSchema, serializeDates } from '../lib/utils.js'
 import { StoryListItemSchema, StorySchema, ErrorSchema } from '../schemas/index.js'
+import { listStoryFiles, loadStoryJson } from '../lib/storyJson.js'
+import { adaptGeneratedStoryToRuntime } from '../lib/generatedRuntimeAdapter.js'
 
 export async function storiesRoutes(fastify: FastifyInstance) {
 
@@ -17,10 +18,13 @@ export async function storiesRoutes(fastify: FastifyInstance) {
       },
     },
   }, async (_req, reply) => {
-    const stories = await prisma.story.findMany({
-      orderBy: { createdAt: 'desc' },
-      select: { id: true, title: true, summary: true, createdAt: true },
-    })
+    const files = await listStoryFiles()
+    const stories = files.map(item => ({
+      id: item.file,
+      title: item.file.replace(/\.json$/i, ''),
+      summary: 'Generated story JSON file.',
+      createdAt: item.createdAt,
+    }))
     return reply.send(serializeDates(stories))
   })
 
@@ -41,10 +45,19 @@ export async function storiesRoutes(fastify: FastifyInstance) {
       },
     },
   }, async (req, reply) => {
-    const story = await prisma.story.findUnique({ where: { id: req.params.id } })
-    if (!story) {
+    try {
+      const raw = await loadStoryJson(req.params.id)
+      const { runtimeStory } = adaptGeneratedStoryToRuntime(raw)
+      return reply.send(serializeDates({
+        id: req.params.id,
+        title: runtimeStory.title,
+        summary: runtimeStory.summary,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        dataJson: raw,
+      }))
+    } catch {
       return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Story not found' })
     }
-    return reply.send(serializeDates(story))
   })
 }

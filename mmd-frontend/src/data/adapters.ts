@@ -1,4 +1,4 @@
-import type { ApiGameEvent, FeedItem, PlayerApiView, ScreenData } from './types'
+import type { ApiGameEvent, FeedItem, ObjectiveItem, PlayerApiView, ScreenData } from './types'
 
 export function normaliseFeedEvent(event: ApiGameEvent): FeedItem {
   const payload = event.payload ?? {}
@@ -8,6 +8,23 @@ export function normaliseFeedEvent(event: ApiGameEvent): FeedItem {
     case 'SYSTEM':
     case 'ANNOUNCEMENT':
       text = typeof payload.message === 'string' ? payload.message : event.type
+      break
+    case 'JOIN': {
+      const name = typeof (payload as any).playerName === 'string' ? (payload as any).playerName : null
+      const index = typeof (payload as any).playerIndex === 'number' ? (payload as any).playerIndex : null
+      text = name ? `${name} joined.` : index !== null ? `Player ${index} joined.` : 'A player joined.'
+      break
+    }
+    case 'SUBMIT_OBJECTIVE': {
+      const index = typeof (payload as any).playerIndex === 'number' ? (payload as any).playerIndex : null
+      text = index !== null ? `Player ${index} submitted an objective.` : 'A player submitted an objective.'
+      break
+    }
+    case 'START_GAME':
+      text = typeof (payload as any).act === 'number' ? `Game started. Act ${(payload as any).act} has begun.` : 'Game started.'
+      break
+    case 'ADVANCE_ACT':
+      text = typeof (payload as any).act === 'number' ? `Act ${(payload as any).act} has begun.` : 'Act advanced.'
       break
     case 'ACT_CHANGED':
       text = typeof payload.act === 'number' ? `Act ${payload.act} has begun.` : 'Act changed.'
@@ -39,6 +56,9 @@ export function playerViewToScreenData(
   const items: string[] = Array.isArray(character.items) ? (character.items as string[]) : []
   const cards: Array<Record<string, unknown>> = Array.isArray(input.unlockedCards) ? input.unlockedCards : []
   const puzzles: Array<Record<string, unknown>> = Array.isArray(input.unlockedPuzzles) ? input.unlockedPuzzles : []
+
+  const instructionCards = cards.filter(card => String(card.type ?? '') === 'instruction')
+  const clueCards = cards.filter(card => String(card.type ?? '') === 'clue')
 
   const roomPlayers = (input.roomPlayers ?? []).map(player => ({
     id: player.id,
@@ -113,9 +133,9 @@ export function playerViewToScreenData(
     players: roomPlayers,
     feed,
     objectives: {
-      personal: cards.map((card, index) => ({
+      personal: instructionCards.map((card, index) => ({
         id: String(card.id ?? `card-${index}`),
-        text: String(card.text ?? 'Instruction card'),
+        text: String(card.text ?? 'Instruction'),
         completed: false,
         act: typeof card.act === 'number' ? card.act : undefined,
       })),
@@ -125,6 +145,9 @@ export function playerViewToScreenData(
         completed: false,
         group: true,
         act: typeof puzzle.act === 'number' ? puzzle.act : undefined,
+        intent: typeof (puzzle as Record<string, unknown>).intent === 'string'
+          ? ((puzzle as Record<string, unknown>).intent as ObjectiveItem['intent'])
+          : undefined,
       })),
     },
     profile: {
@@ -135,10 +158,10 @@ export function playerViewToScreenData(
         : 'Your persona is part of this story. Stay in character and pursue your goals.',
       secrets: secrets.map((value, index) => ({ id: `secret-${index}`, label: 'Secret', value })),
       items: items.map((value, index) => ({ id: `item-${index}`, label: 'Item', value })),
-      cards: cards.map((card, index) => ({
-        id: String(card.id ?? `card-${index}`),
-        label: String(card.type ?? 'Card'),
-        value: String(card.text ?? 'Instruction card'),
+      cards: clueCards.map((card, index) => ({
+        id: String(card.id ?? `clue-${index}`),
+        label: String(card.title ?? 'Clue'),
+        value: String(card.text ?? 'Clue'),
       })),
     },
     composer: {

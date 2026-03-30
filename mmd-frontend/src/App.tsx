@@ -62,14 +62,14 @@ export default function App() {
     : undefined
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-testid={`mode-${mode}`}>
       <header className="app-header">
         <div>
           <div className="app-header__eyebrow">{eyebrow}</div>
           <h1>{title}</h1>
         </div>
         <div className="app-header__actions">
-          {onReload ? <button onClick={onReload}>Reload</button> : null}
+          {onReload ? <button data-testid="reload" onClick={onReload}>Reload</button> : null}
           <span className="status-dot">{statusLabel}</span>
         </div>
       </header>

@@ -13,6 +13,14 @@ build/
 .cache/
 coverage/
 
+# --- Playwright ---
+mmd-frontend/test-results/
+mmd-frontend/playwright-report/
+
+# --- Local generated config artifacts ---
+mmd-frontend/vite.config.js
+mmd-frontend/vite.config.d.ts
+
 # --- TypeScript ---
 *.tsbuildinfo
 

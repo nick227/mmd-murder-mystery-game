@@ -38,6 +38,7 @@ export interface ObjectiveItem {
   completed: boolean
   group?: boolean
   act?: number
+  intent?: 'instruction' | 'clue' | 'puzzle' | 'reveal' | 'info'
 }
 
 export interface ProfileCardItem {
@@ -225,6 +226,7 @@ export interface HostApiGame {
   createdAt: string
   updatedAt: string
   players: HostApiGamePlayer[]
+  feed?: ApiGameEvent[]
 }
 
 export interface PlayerApiView {

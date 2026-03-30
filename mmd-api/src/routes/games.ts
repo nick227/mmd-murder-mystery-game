@@ -11,15 +11,15 @@ import {
   MessageSchema,
   ErrorSchema,
 } from '../schemas/index.js'
+import { loadStoryJson } from '../lib/storyJson.js'
+import { adaptGeneratedStoryToRuntime } from '../lib/generatedRuntimeAdapter.js'
 
 function withCharacterNames(game: any) {
-  const storyData = game.story?.dataJson as any
-  const characters: any[] = storyData?.characters ?? []
   return {
     ...serializeDates(game),
-    storyTitle: game.story?.title ?? game.name,
+    storyTitle: game.storyTitle ?? game.name,
     players: game.players.map((player: any) => {
-      const character = characters.find((item: any) => item.id === player.characterId)
+      const character = (game._characters ?? []).find((item: any) => item.characterId === player.characterId)
       return {
         ...serializeDates(player),
         characterName: character?.name ?? null,
@@ -44,32 +44,43 @@ export async function gamesRoutes(fastify: FastifyInstance) {
   }, async (req, reply) => {
     const body = validate(CreateGameBodySchema, req.body)
 
-    const story = await prisma.story.findUnique({ where: { id: body.storyId } })
-    if (!story) {
+    const storyFile = body.storyFile ?? body.storyId
+    if (!storyFile) {
+      return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Either storyFile or storyId is required' })
+    }
+    // Back-compat: older clients send `storyId` with a JSON filename.
+    // Only persist DB `storyId` when request explicitly uses `storyFile`.
+    const dbStoryId = body.storyFile ? (body.storyId ?? null) : null
+
+    let runtimeStory
+    try {
+      const raw = await loadStoryJson(storyFile)
+      runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
+    } catch {
       return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Story not found' })
     }
 
-    const storyData = story.dataJson as any
-    const characters: any[] = storyData?.characters ?? []
+    const characters = runtimeStory.playerOrder.map(id => runtimeStory.playersByCharacterId[id]).filter(Boolean)
 
     const game = await prisma.game.create({
       data: {
-        storyId: body.storyId,
+        storyFile,
+        storyId: dbStoryId,
         name: body.name,
         hostKey: generateKey('host'),
         scheduledTime: new Date(body.scheduledTime),
         locationText: body.locationText ?? null,
         players: {
           create: characters.map((char: any) => ({
-            characterId: char.id,
+            characterId: char.characterId,
             loginKey: generateKey('char'),
           })),
         },
       },
-      include: { players: true, story: true },
+      include: { players: true },
     })
 
-    return reply.status(201).send(withCharacterNames(game))
+    return reply.status(201).send(withCharacterNames({ ...game, storyTitle: runtimeStory.title, _characters: characters }))
   })
 
   fastify.get('/games', {
@@ -84,7 +95,7 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     const games = await prisma.game.findMany({
       orderBy: { scheduledTime: 'asc' },
       select: {
-        id: true, storyId: true, name: true,
+        id: true, storyFile: true, storyId: true, name: true,
         scheduledTime: true, startedAt: true,
         state: true, currentAct: true,
         locationText: true, createdAt: true, updatedAt: true,
@@ -116,7 +127,7 @@ export async function gamesRoutes(fastify: FastifyInstance) {
   }, async (req, reply) => {
     const game = await prisma.game.findUnique({
       where: { id: req.params.id },
-      include: { players: true, story: true },
+      include: { players: true, events: { orderBy: { createdAt: 'asc' } } },
     })
     if (!game) {
       return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
@@ -125,7 +136,20 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     if (hostKey !== game.hostKey) {
       return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
     }
-    return reply.send(withCharacterNames(game))
+    if (!game.storyFile) {
+      return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game has no storyFile' })
+    }
+    const raw = await loadStoryJson(game.storyFile)
+    const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
+    const characters = runtimeStory.playerOrder.map(id => runtimeStory.playersByCharacterId[id]).filter(Boolean)
+    return reply.send(withCharacterNames({
+      ...game,
+      feed: game.events,
+      storyTitle: runtimeStory.title,
+      _characters: characters,
+      storyId: game.storyFile,
+      storyFile: game.storyFile,
+    }))
   })
 
   fastify.post<{ Params: { id: string } }>('/games/:id/host/start', {
@@ -158,6 +182,14 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     const updated = await prisma.game.update({
       where: { id: game.id },
       data: { state: 'PLAYING', currentAct: 1, startedAt: new Date() },
+    })
+    await prisma.gameEvent.create({
+      data: {
+        gameId: game.id,
+        playerId: null,
+        type: 'START_GAME',
+        payload: { act: 1 },
+      },
     })
     return reply.send(serializeDates(updated))
   })
@@ -193,6 +225,14 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     const updated = await prisma.game.update({
       where: { id: game.id },
       data: { currentAct: game.currentAct + 1 },
+    })
+    await prisma.gameEvent.create({
+      data: {
+        gameId: game.id,
+        playerId: null,
+        type: 'ADVANCE_ACT',
+        payload: { act: updated.currentAct },
+      },
     })
     return reply.send(serializeDates(updated))
   })

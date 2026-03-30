@@ -1,15 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import {
-  createGame,
-  fetchHostGame,
-  fetchPlayerViewByCharacter,
-  fetchStories,
-  joinPlayerByCharacter,
-  postEndNight,
-  postHostAction,
-} from '../data/api'
-import { playerViewToScreenData } from '../data/adapters'
+import { normaliseFeedEvent, playerViewToScreenData } from '../data/adapters'
 import { defaultLauncherData, emptyScreenData } from '../data/mock'
+import { getGameSource, readGameSourceModeFromLocation } from '../data/sources/getGameSource'
 import type {
   FeedItem,
   HostApiGame,
@@ -17,6 +9,54 @@ import type {
   ScreenData,
   TabId,
 } from '../data/types'
+
+type LocalObjectiveEvent = {
+  type: 'OBJECTIVE_SUBMITTED'
+  gameId: string
+  playerIndex: number
+  objectiveId: string
+  at: string
+}
+
+function localEventsKey(gameId: string) {
+  return `mmd-local-events:${gameId}`
+}
+
+function readLocalObjectiveEvents(gameId: string): LocalObjectiveEvent[] {
+  try {
+    const raw = localStorage.getItem(localEventsKey(gameId))
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as unknown
+    return Array.isArray(parsed) ? (parsed as LocalObjectiveEvent[]) : []
+  } catch {
+    return []
+  }
+}
+
+function appendLocalObjectiveEvent(event: LocalObjectiveEvent) {
+  const existing = readLocalObjectiveEvents(event.gameId)
+  existing.push(event)
+  localStorage.setItem(localEventsKey(event.gameId), JSON.stringify(existing.slice(-200)))
+}
+
+function localGameKey(gameId: string) {
+  return `mmd-local-game:${gameId}`
+}
+
+function markActSolved(gameId: string) {
+  try {
+    const raw = localStorage.getItem(localGameKey(gameId))
+    if (!raw) return
+    const record = JSON.parse(raw) as { currentAct?: unknown; solvedActs?: unknown }
+    const currentAct = typeof record.currentAct === 'number' ? record.currentAct : null
+    if (!currentAct) return
+    const solvedActs = Array.isArray(record.solvedActs) ? (record.solvedActs as number[]) : []
+    if (!solvedActs.includes(currentAct)) solvedActs.push(currentAct)
+    localStorage.setItem(localGameKey(gameId), JSON.stringify({ ...record, solvedActs }))
+  } catch {
+    // ignore
+  }
+}
 
 function readQuery(name: string) {
   return new URLSearchParams(window.location.search).get(name)
@@ -36,18 +76,22 @@ function routeParts() {
   return window.location.pathname.split('/').filter(Boolean)
 }
 
-function buildPlayerPath(gameId: string, characterId: string, apiBase: string) {
-  const query = new URLSearchParams()
-  if (apiBase) query.set('api', apiBase)
+function buildPlayerPath(gameId: string, characterId: string, query: URLSearchParams) {
   const suffix = query.toString()
   return `${window.location.origin}/play/${gameId}/${characterId}${suffix ? `?${suffix}` : ''}`
 }
 
-function buildHostPath(gameId: string, hostKey: string, apiBase: string) {
-  const query = new URLSearchParams()
+function buildHostPath(gameId: string, hostKey: string, query: URLSearchParams) {
   query.set('hostKey', hostKey)
-  if (apiBase) query.set('api', apiBase)
   return `${window.location.origin}/host/${gameId}?${query.toString()}`
+}
+
+function buildShareQuery(params: { apiBase: string; source: 'api' | 'local'; storyFile: string | null }) {
+  const query = new URLSearchParams()
+  if (params.apiBase) query.set('api', params.apiBase)
+  if (params.source === 'local') query.set('source', 'local')
+  if (params.source === 'local' && params.storyFile) query.set('story', params.storyFile)
+  return query
 }
 
 function countdownParts(scheduledTime?: string) {
@@ -71,10 +115,13 @@ function storyHeroImage(title: string): string {
 
 function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
   const countdown = countdownParts(game.scheduledTime)
+  const source = readGameSourceModeFromLocation()
+  const storyFile = readQuery('story')
+  const shareQuery = buildShareQuery({ apiBase, source, storyFile })
   const playerLinks = game.players.map(player => ({
     characterId: player.characterId,
     label: player.characterName ?? player.playerName ?? `Character ${player.characterId}`,
-    url: buildPlayerPath(game.id, player.characterId, apiBase),
+    url: buildPlayerPath(game.id, player.characterId, shareQuery),
     joined: Boolean(player.joinedAt),
   }))
 
@@ -90,6 +137,22 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
     },
   ]
 
+  if (source === 'local') {
+    const events = readLocalObjectiveEvents(game.id)
+    const objectiveEvents: FeedItem[] = events
+      .filter(e => e.type === 'OBJECTIVE_SUBMITTED')
+      .slice(-20)
+      .map((e, index) => ({
+        id: `local-objective-${index}-${e.at}`,
+        type: 'announcement',
+        text: `Player ${e.playerIndex} submitted an objective.`,
+        timestamp: new Date(e.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      }))
+    feed.push(...objectiveEvents)
+  } else if (Array.isArray(game.feed) && game.feed.length) {
+    feed.push(...game.feed.slice(-20).map(normaliseFeedEvent))
+  }
+
   return {
     ...emptyScreenData,
     game: {
@@ -97,7 +160,9 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
       act: game.currentAct,
       title: game.state === 'SCHEDULED' ? 'Host lobby' : game.state === 'REVEAL' ? 'Reveal in progress' : `Act ${game.currentAct}`,
       subtitle: `${game.storyTitle ?? game.name} · Host control room`,
-      description: game.state === 'SCHEDULED'
+      description: game.stageText
+        ? String(game.stageText)
+        : game.state === 'SCHEDULED'
         ? 'Share character links, watch who joins, and start whenever the room is ready.'
         : game.state === 'REVEAL'
         ? 'Answers are live. Finish the game when you are ready.'
@@ -144,10 +209,7 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
       game.state === 'SCHEDULED'
         ? [{ id: 'start', label: 'Start Game', kind: 'primary' }]
         : game.state === 'PLAYING'
-        ? [
-            { id: 'next', label: game.currentAct >= 5 ? 'At Final Act' : `Next Act (${game.currentAct + 1})`, kind: 'primary', disabled: game.currentAct >= 5 },
-            { id: 'end', label: 'End Night', kind: 'danger' },
-          ]
+        ? [{ id: 'next', label: `Next Act (${game.currentAct + 1})`, kind: 'primary' }]
         : game.state === 'REVEAL'
         ? [{ id: 'finish', label: 'Finish Game', kind: 'primary' }]
         : [],
@@ -170,6 +232,22 @@ export function useTabState(defaultTab: TabId) {
 export function useViewMode() {
   const parts = routeParts()
   const apiBase = readQuery('api') ?? ''
+  const source = readQuery('source')
+
+  // Deterministic local harness routes:
+  // - /?source=local&host
+  // - /?source=local&player=0
+  if (source === 'local') {
+    const query = new URLSearchParams(window.location.search)
+    if (query.has('host')) {
+      return { mode: 'host' as const, apiBase, gameId: 'local', characterId: null, hostKey: 'local' }
+    }
+    const playerIndex = query.get('player')
+    if (playerIndex !== null) {
+      return { mode: 'player' as const, apiBase, gameId: 'local', characterId: `index:${playerIndex}`, hostKey: null }
+    }
+  }
+
   if (parts[0] === 'host' && parts[1]) {
     return { mode: 'host' as const, apiBase, gameId: parts[1], characterId: null, hostKey: readQuery('hostKey') }
   }
@@ -180,6 +258,8 @@ export function useViewMode() {
 }
 
 export function useLauncherState() {
+  const source = readGameSourceModeFromLocation()
+  const gameSource = getGameSource(source)
   const [screenData, setScreenData] = useState<ScreenData>({
     ...emptyScreenData,
     launcher: {
@@ -198,7 +278,7 @@ export function useLauncherState() {
     const apiBase = screenData.launcher?.apiBase ?? ''
     setLoading(true)
     setError('')
-    fetchStories(apiBase)
+    gameSource.fetchStories(apiBase)
       .then(stories => {
         setScreenData(current => ({
           ...current,
@@ -216,7 +296,7 @@ export function useLauncherState() {
       })
       .catch(err => setError((err as Error).message))
       .finally(() => setLoading(false))
-  }, [screenData.launcher?.apiBase])
+  }, [screenData.launcher?.apiBase, source])
 
   const handlers: RendererHandlers = useMemo(() => ({
     onLauncherFieldChange: (field, value) => {
@@ -250,11 +330,16 @@ export function useLauncherState() {
       setLoading(true)
       setError('')
       try {
-        const game = await createGame(launcher.apiBase, {
+        const game = await gameSource.createGame(launcher.apiBase, {
           storyId: launcher.form.storyId,
           name: launcher.form.name,
           scheduledTime: new Date(launcher.form.scheduledTime).toISOString(),
           locationText: launcher.form.locationText,
+        })
+        const shareQuery = buildShareQuery({
+          apiBase: launcher.apiBase,
+          source,
+          storyFile: source === 'local' ? launcher.form.storyId : null,
         })
         setScreenData(current => ({
           ...current,
@@ -265,10 +350,10 @@ export function useLauncherState() {
                   id: game.id,
                   name: game.name,
                   hostKey: game.hostKey,
-                  hostUrl: buildHostPath(game.id, game.hostKey, launcher.apiBase),
+                  hostUrl: buildHostPath(game.id, game.hostKey, shareQuery),
                   playerLinks: game.players.map(player => ({
                     label: player.characterName ?? `Character ${player.characterId}`,
-                    url: buildPlayerPath(game.id, player.characterId, launcher.apiBase),
+                    url: buildPlayerPath(game.id, player.characterId, shareQuery),
                   })),
                 },
               }
@@ -297,6 +382,9 @@ export function usePlayerScreenData(
   gameId: string | null,
   characterId: string | null,
 ) {
+  const source = readGameSourceModeFromLocation()
+  const gameSource = getGameSource(source)
+  const playerIndex = readQuery('player')
   const joinStorageKey = gameId && characterId ? `mmd-player-name:${gameId}:${characterId}` : ''
   const [screenData, setScreenData] = useState<ScreenData>(emptyScreenData)
   const [loading, setLoading] = useState(false)
@@ -309,7 +397,7 @@ export function usePlayerScreenData(
     setLoading(true)
     setError('')
     try {
-      const view = await fetchPlayerViewByCharacter(apiBase, gameId, characterId)
+      const view = await gameSource.fetchPlayerViewByCharacter(apiBase, gameId, characterId)
       setScreenData(playerViewToScreenData(view, joinDraft))
       if (view.playerName) {
         setJoined(true)
@@ -339,6 +427,24 @@ export function usePlayerScreenData(
           group: current.objectives.group.map(item => item.id === objectiveId ? { ...item, completed: !item.completed } : item),
         },
       }))
+
+      if (source === 'local' && gameId && playerIndex !== null) {
+        const indexNumber = Number(playerIndex)
+        if (Number.isInteger(indexNumber) && indexNumber >= 0) {
+          appendLocalObjectiveEvent({
+            type: 'OBJECTIVE_SUBMITTED',
+            gameId,
+            playerIndex: indexNumber,
+            objectiveId,
+            at: new Date().toISOString(),
+          })
+          markActSolved(gameId)
+        }
+      } else if (source === 'api' && gameId && characterId) {
+        void gameSource.submitObjective(apiBase, gameId, characterId, objectiveId)
+          .then(() => reload())
+          .catch(err => setError(err instanceof Error ? err.message : 'Failed to submit objective'))
+      }
     },
     onJoinNameChange: value => {
       setJoinDraft(value)
@@ -352,7 +458,7 @@ export function usePlayerScreenData(
       setLoading(true)
       setError('')
       try {
-        await joinPlayerByCharacter(apiBase, gameId, characterId, joinDraft.trim())
+        await gameSource.joinPlayerByCharacter(apiBase, gameId, characterId, joinDraft.trim())
         if (joinStorageKey) localStorage.setItem(joinStorageKey, joinDraft.trim())
         setJoined(true)
         await reload()
@@ -368,7 +474,7 @@ export function usePlayerScreenData(
     onComposerDraftChange: value => {
       setScreenData(current => ({ ...current, composer: { ...current.composer, draft: value, canSend: value.trim().length > 0 } }))
     },
-  }), [apiBase, gameId, characterId, joinDraft])
+  }), [apiBase, gameId, characterId, joinDraft, source, playerIndex])
 
   return { screenData, handlers, loading, error, reload, joined }
 }
@@ -378,6 +484,8 @@ export function useHostScreenData(
   gameId: string | null,
   hostKey: string | null,
 ) {
+  const source = readGameSourceModeFromLocation()
+  const gameSource = getGameSource(source)
   const [screenData, setScreenData] = useState<ScreenData>(emptyScreenData)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -387,7 +495,7 @@ export function useHostScreenData(
     setLoading(true)
     setError('')
     try {
-      const game = await fetchHostGame(apiBase, gameId, hostKey)
+      const game = await gameSource.fetchHostGame(apiBase, gameId, hostKey)
       setScreenData(buildHostScreen(game, apiBase))
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load host view')
@@ -419,9 +527,9 @@ export function useHostScreenData(
       setError('')
       try {
         if (actionId === 'start') {
-          await postHostAction(apiBase, gameId, hostKey, 'start')
+          await gameSource.postHostAction(apiBase, gameId, hostKey, 'start')
         } else if (actionId === 'next') {
-          await postHostAction(apiBase, gameId, hostKey, 'next-act')
+          await gameSource.postHostAction(apiBase, gameId, hostKey, 'next-act')
         } else if (actionId === 'end') {
           const who = window.prompt('Who did it?')?.trim()
           const how = window.prompt('How was it done?')?.trim()
@@ -430,9 +538,9 @@ export function useHostScreenData(
             setLoading(false)
             return
           }
-          await postEndNight(apiBase, gameId, hostKey, { who, how, why })
+          await gameSource.postEndNight(apiBase, gameId, hostKey, { who, how, why })
         } else if (actionId === 'finish') {
-          await postHostAction(apiBase, gameId, hostKey, 'done')
+          await gameSource.postHostAction(apiBase, gameId, hostKey, 'done')
         }
         await reload()
       } catch (err) {

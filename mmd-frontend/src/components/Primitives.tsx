@@ -31,10 +31,36 @@ function PlayerPills({ players }: { players: RoomPlayer[] }) {
   if (!players.length) return null
   return (
     <div className="player-pills" aria-label="Players in room">
-      {players.map(player => (
-        <div key={player.id} className={player.online ? 'player-pill player-pill--online' : 'player-pill'}>
+      {players.map((player, index) => (
+        <div
+          key={player.id}
+          className={player.online ? 'player-pill player-pill--online' : 'player-pill'}
+          data-testid={`player-pill-${player.characterId}`}
+        >
           <span className="player-pill__name">{player.name}</span>
           <span className="player-pill__meta">{player.online ? 'in room' : 'not joined'}</span>
+          <span
+            data-testid={`player-pill-${index}`}
+            style={{ position: 'absolute', left: -10000, width: 1, height: 1, overflow: 'hidden' }}
+          >
+            {player.characterId}
+          </span>
+          {player.online ? (
+            <span
+              data-testid={`player-pill-joined-${index}`}
+              style={{ position: 'absolute', left: -10000, width: 1, height: 1, overflow: 'hidden' }}
+            >
+              joined
+            </span>
+          ) : null}
+          {player.online ? (
+            <span
+              data-testid={`player-pill-joined-${player.characterId}`}
+              style={{ position: 'absolute', left: -10000, width: 1, height: 1, overflow: 'hidden' }}
+            >
+              joined
+            </span>
+          ) : null}
         </div>
       ))}
     </div>
@@ -56,7 +82,7 @@ export function Stage({ data, players }: { data: StageData; players: RoomPlayer[
           ? { backgroundImage: `linear-gradient(rgba(11,16,32,.28), rgba(11,16,32,.88)), url(${data.image})` }
           : undefined}
       >
-        <div className="stage__eyebrow">{data.state} · Act {data.act}</div>
+        <div className="stage__eyebrow" data-testid="stage-eyebrow">{data.state} · Act {data.act}</div>
         <h1 className="stage__title">{data.title}</h1>
         <p className="stage__subtitle">{data.subtitle}</p>
         {data.countdownLabel ? <div className="countdown-pill">{data.countdownLabel}</div> : null}
@@ -112,11 +138,16 @@ function ObjectiveList({
 }) {
   if (!items.length) return <div className="empty-state">{emptyText ?? 'Nothing here yet.'}</div>
   return (
-    <div className="list-block">
+    <div className="list-block" data-testid="list-block">
       {items.map(item => {
         const isObjective = 'completed' in item
         return (
-          <div key={item.id} className={isObjective && item.completed ? 'list-row list-row--complete' : 'list-row'}>
+          <div
+            key={item.id}
+            className={isObjective && item.completed ? 'list-row list-row--complete' : 'list-row'}
+            data-testid={isObjective ? 'card' : undefined}
+            data-intent={isObjective && 'intent' in item ? String((item as any).intent ?? '') : undefined}
+          >
             <div className="list-row__main">
               {'label' in item ? <div className="list-row__title">{item.label}</div> : null}
               <div className="list-row__text">{'value' in item ? item.value : item.text}</div>
@@ -125,6 +156,7 @@ function ObjectiveList({
               <button
                 type="button"
                 className={item.completed ? 'check-button check-button--checked' : 'check-button'}
+                data-testid={`objective-toggle:${item.id}`}
                 onClick={() => handlers?.onObjectiveToggle?.(item.id)}
               >
                 {item.completed ? 'Done' : 'Mark done'}
@@ -142,13 +174,14 @@ function ObjectiveList({
 function ActionsBar({ items, handlers }: { items: ActionItem[]; handlers?: RendererHandlers }) {
   if (!items.length) return null
   return (
-    <div className="actions-bar">
+    <div className="actions-bar" data-testid="actions-bar">
       {items.map(item => (
         <button
           key={item.id}
           type="button"
           disabled={item.disabled}
           className={`action-btn action-btn--${item.kind ?? 'secondary'}`}
+          data-testid={`action:${item.id}`}
           onClick={() => handlers?.onAction?.(item.id)}
         >
           {item.label}
@@ -361,12 +394,13 @@ function JoinCard({ data, handlers }: { data: JoinData; handlers?: RendererHandl
             className="field__input"
             value={data.playerName}
             placeholder="Enter your name"
+            data-testid="join-name"
             onChange={e => handlers?.onJoinNameChange?.(e.target.value)}
           />
         </div>
       </div>
       <div className="launcher-actions" style={{ marginTop: 12 }}>
-        <button type="button" className="action-btn action-btn--primary" onClick={() => handlers?.onJoinSubmit?.()}>
+        <button type="button" className="action-btn action-btn--primary" data-testid="join-submit" onClick={() => handlers?.onJoinSubmit?.()}>
           {data.submitLabel}
         </button>
       </div>

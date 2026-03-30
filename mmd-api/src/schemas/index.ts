@@ -22,11 +22,17 @@ export const StorySchema = StoryListItemSchema.extend({
 // ── Game schemas ──────────────────────────────────────────────────────────────
 
 export const CreateGameBodySchema = z.object({
-  storyId: z.string().min(1, 'storyId is required'),
+  // Hybrid story source: storyFile is the JSON filename in mmd-api/json.
+  storyFile: z.string().min(1).optional(),
+  // Legacy / future DB stories
+  storyId: z.string().min(1).optional(),
   name: z.string().min(1, 'name is required'),
   scheduledTime: z.string().datetime('must be ISO datetime'),
   locationText: z.string().optional(),
-})
+}).refine(
+  v => Boolean(v.storyFile || v.storyId),
+  { message: 'Either storyFile or storyId is required' },
+)
 
 const HostPlayerSchema = z.object({
   id: z.string(),
@@ -39,7 +45,8 @@ const HostPlayerSchema = z.object({
 
 export const GameSchema = z.object({
   id: z.string(),
-  storyId: z.string(),
+  storyId: z.string().nullable(),
+  storyFile: z.string().nullable(),
   name: z.string(),
   scheduledTime: z.string().datetime(),
   startedAt: z.string().datetime().nullable(),
@@ -54,6 +61,7 @@ export const GameHostViewSchema = GameSchema.extend({
   hostKey: z.string(),
   storyTitle: z.string().optional(),
   players: z.array(HostPlayerSchema),
+  feed: z.array(z.any()).optional(),
 })
 
 // ── Player schemas ────────────────────────────────────────────────────────────
@@ -92,6 +100,10 @@ export const PlayerViewSchema = z.object({
     track: TrackSchema,
     answer: z.string(),
   })).optional(),
+})
+
+export const SubmitObjectiveBodySchema = z.object({
+  objectiveId: z.string().min(1, 'objectiveId is required'),
 })
 
 // ── Host action schemas ───────────────────────────────────────────────────────

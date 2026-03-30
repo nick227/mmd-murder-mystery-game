@@ -14,7 +14,7 @@ model Story {
   id        String   @id @default(cuid())
   title     String
   summary   String
-  dataJson  Json     // full story blob (characters, acts, mysteries, puzzles, cards, etc.)
+  dataJson  Json     // legacy full story blob (characters, acts, mysteries, puzzles, cards, etc.)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -25,7 +25,12 @@ model Story {
 
 model Game {
   id            String    @id @default(cuid())
-  storyId       String
+  // Hybrid story source (preferred during playtesting):
+  // When present, the server loads mmd-api/json/<storyFile> at runtime.
+  storyFile     String?   // filename in mmd-api/json/*.json
+
+  // Legacy / future DB-backed story source:
+  storyId       String?
   name          String
   hostKey       String    @unique // secret token for host UI
   scheduledTime DateTime
@@ -40,7 +45,7 @@ model Game {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  story          Story               @relation(fields: [storyId], references: [id])
+  story          Story?              @relation(fields: [storyId], references: [id])
   players        GamePlayer[]
   mysteryAnswers GameMysteryAnswer[]
   events         GameEvent[]
@@ -114,4 +119,9 @@ enum GameEventType {
   ACT_CHANGED   // host advanced the act
   ANNOUNCEMENT  // host broadcast message
   STAGE_UPDATED // host updated stage title/text/image
+  SUBMISSION    // legacy (kept for compatibility)
+  JOIN
+  SUBMIT_OBJECTIVE
+  START_GAME
+  ADVANCE_ACT
 }
