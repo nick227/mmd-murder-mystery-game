@@ -38,6 +38,21 @@ export async function postHostAction(
   hostKey: string,
   action: 'start' | 'next-act' | 'done',
 ) {
+  if (action === 'start') {
+    return request<unknown>(`${apiBase}/api/v1/game/${gameId}/start`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-host-key': hostKey },
+      body: '{}',
+    })
+  }
+  if (action === 'next-act') {
+    return request<unknown>(`${apiBase}/api/v1/game/${gameId}/advance`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-host-key': hostKey },
+      body: '{}',
+    })
+  }
+  // 'done' remains on the legacy endpoint until End Night is migrated.
   return request<unknown>(`${apiBase}/api/v1/games/${gameId}/host/${action}`, {
     method: 'POST',
     headers: {
@@ -87,9 +102,10 @@ export async function submitObjective(
   characterId: string,
   objectiveId: string,
 ) {
-  return request<{ message: string }>(`${apiBase}/api/v1/play/${gameId}/character/${characterId}/submit`, {
+  // API authority submit endpoint (cardId = objectiveId)
+  return request<{ message: string }>(`${apiBase}/api/v1/game/${gameId}/submit`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ objectiveId }),
+    body: JSON.stringify({ characterId, cardId: objectiveId, act: 0 }),
   })
 }

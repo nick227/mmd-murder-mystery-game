@@ -167,6 +167,7 @@ export interface PageSchema {
 export interface RendererHandlers {
   onAction?: (actionId: string) => void
   onObjectiveToggle?: (objectiveId: string) => void
+  onObjectiveSubmit?: (objectiveId: string) => Promise<void>
   onComposerModeChange?: (mode: 'public' | 'private') => void
   onComposerRecipientChange?: (recipientId: string) => void
   onComposerDraftChange?: (value: string) => void
@@ -182,7 +183,15 @@ export interface ApiGameEvent {
   id: string
   gameId?: string
   playerId?: string | null
-  type: 'SYSTEM' | 'ACT_CHANGED' | 'ANNOUNCEMENT' | 'STAGE_UPDATED'
+  type:
+    | 'SYSTEM'
+    | 'ACT_CHANGED'
+    | 'ANNOUNCEMENT'
+    | 'STAGE_UPDATED'
+    | 'JOIN'
+    | 'SUBMIT_OBJECTIVE'
+    | 'START_GAME'
+    | 'ADVANCE_ACT'
   payload?: Record<string, unknown>
   createdAt?: string
 }

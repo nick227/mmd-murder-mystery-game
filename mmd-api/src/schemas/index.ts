@@ -106,6 +106,12 @@ export const SubmitObjectiveBodySchema = z.object({
   objectiveId: z.string().min(1, 'objectiveId is required'),
 })
 
+export const SubmitCardBodySchema = z.object({
+  characterId: z.string().min(1, 'characterId is required'),
+  cardId: z.string().min(1, 'cardId is required'),
+  act: z.number().int(),
+})
+
 // ── Host action schemas ───────────────────────────────────────────────────────
 
 export const AdvanceActBodySchema = z.object({}).optional()

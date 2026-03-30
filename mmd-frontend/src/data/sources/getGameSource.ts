@@ -1,15 +1,13 @@
 import { apiGameSource } from './apiGameSource'
-import { localJsonGameSource } from './localJsonGameSource'
 import type { GameSource } from './types'
 
-export type GameSourceMode = 'api' | 'local'
+export type GameSourceMode = 'api'
 
 export function readGameSourceModeFromLocation(): GameSourceMode {
-  const value = new URLSearchParams(window.location.search).get('source')
-  return value === 'local' ? 'local' : 'api'
+  return 'api'
 }
 
-export function getGameSource(mode: GameSourceMode): GameSource {
-  return mode === 'local' ? localJsonGameSource : apiGameSource
+export function getGameSource(_mode: GameSourceMode): GameSource {
+  return apiGameSource
 }
 

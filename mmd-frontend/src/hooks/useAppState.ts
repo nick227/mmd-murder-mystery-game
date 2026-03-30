@@ -10,53 +10,7 @@ import type {
   TabId,
 } from '../data/types'
 
-type LocalObjectiveEvent = {
-  type: 'OBJECTIVE_SUBMITTED'
-  gameId: string
-  playerIndex: number
-  objectiveId: string
-  at: string
-}
-
-function localEventsKey(gameId: string) {
-  return `mmd-local-events:${gameId}`
-}
-
-function readLocalObjectiveEvents(gameId: string): LocalObjectiveEvent[] {
-  try {
-    const raw = localStorage.getItem(localEventsKey(gameId))
-    if (!raw) return []
-    const parsed = JSON.parse(raw) as unknown
-    return Array.isArray(parsed) ? (parsed as LocalObjectiveEvent[]) : []
-  } catch {
-    return []
-  }
-}
-
-function appendLocalObjectiveEvent(event: LocalObjectiveEvent) {
-  const existing = readLocalObjectiveEvents(event.gameId)
-  existing.push(event)
-  localStorage.setItem(localEventsKey(event.gameId), JSON.stringify(existing.slice(-200)))
-}
-
-function localGameKey(gameId: string) {
-  return `mmd-local-game:${gameId}`
-}
-
-function markActSolved(gameId: string) {
-  try {
-    const raw = localStorage.getItem(localGameKey(gameId))
-    if (!raw) return
-    const record = JSON.parse(raw) as { currentAct?: unknown; solvedActs?: unknown }
-    const currentAct = typeof record.currentAct === 'number' ? record.currentAct : null
-    if (!currentAct) return
-    const solvedActs = Array.isArray(record.solvedActs) ? (record.solvedActs as number[]) : []
-    if (!solvedActs.includes(currentAct)) solvedActs.push(currentAct)
-    localStorage.setItem(localGameKey(gameId), JSON.stringify({ ...record, solvedActs }))
-  } catch {
-    // ignore
-  }
-}
+// Phase 1: localStorage state is no longer used by the frontend.
 
 function readQuery(name: string) {
   return new URLSearchParams(window.location.search).get(name)
@@ -86,11 +40,9 @@ function buildHostPath(gameId: string, hostKey: string, query: URLSearchParams) 
   return `${window.location.origin}/host/${gameId}?${query.toString()}`
 }
 
-function buildShareQuery(params: { apiBase: string; source: 'api' | 'local'; storyFile: string | null }) {
+function buildShareQuery(params: { apiBase: string }) {
   const query = new URLSearchParams()
   if (params.apiBase) query.set('api', params.apiBase)
-  if (params.source === 'local') query.set('source', 'local')
-  if (params.source === 'local' && params.storyFile) query.set('story', params.storyFile)
   return query
 }
 
@@ -116,8 +68,7 @@ function storyHeroImage(title: string): string {
 function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
   const countdown = countdownParts(game.scheduledTime)
   const source = readGameSourceModeFromLocation()
-  const storyFile = readQuery('story')
-  const shareQuery = buildShareQuery({ apiBase, source, storyFile })
+  const shareQuery = buildShareQuery({ apiBase })
   const playerLinks = game.players.map(player => ({
     characterId: player.characterId,
     label: player.characterName ?? player.playerName ?? `Character ${player.characterId}`,
@@ -137,19 +88,7 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
     },
   ]
 
-  if (source === 'local') {
-    const events = readLocalObjectiveEvents(game.id)
-    const objectiveEvents: FeedItem[] = events
-      .filter(e => e.type === 'OBJECTIVE_SUBMITTED')
-      .slice(-20)
-      .map((e, index) => ({
-        id: `local-objective-${index}-${e.at}`,
-        type: 'announcement',
-        text: `Player ${e.playerIndex} submitted an objective.`,
-        timestamp: new Date(e.at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      }))
-    feed.push(...objectiveEvents)
-  } else if (Array.isArray(game.feed) && game.feed.length) {
+  if (Array.isArray(game.feed) && game.feed.length) {
     feed.push(...game.feed.slice(-20).map(normaliseFeedEvent))
   }
 
@@ -232,21 +171,6 @@ export function useTabState(defaultTab: TabId) {
 export function useViewMode() {
   const parts = routeParts()
   const apiBase = readQuery('api') ?? ''
-  const source = readQuery('source')
-
-  // Deterministic local harness routes:
-  // - /?source=local&host
-  // - /?source=local&player=0
-  if (source === 'local') {
-    const query = new URLSearchParams(window.location.search)
-    if (query.has('host')) {
-      return { mode: 'host' as const, apiBase, gameId: 'local', characterId: null, hostKey: 'local' }
-    }
-    const playerIndex = query.get('player')
-    if (playerIndex !== null) {
-      return { mode: 'player' as const, apiBase, gameId: 'local', characterId: `index:${playerIndex}`, hostKey: null }
-    }
-  }
 
   if (parts[0] === 'host' && parts[1]) {
     return { mode: 'host' as const, apiBase, gameId: parts[1], characterId: null, hostKey: readQuery('hostKey') }
@@ -336,11 +260,7 @@ export function useLauncherState() {
           scheduledTime: new Date(launcher.form.scheduledTime).toISOString(),
           locationText: launcher.form.locationText,
         })
-        const shareQuery = buildShareQuery({
-          apiBase: launcher.apiBase,
-          source,
-          storyFile: source === 'local' ? launcher.form.storyId : null,
-        })
+        const shareQuery = buildShareQuery({ apiBase: launcher.apiBase })
         setScreenData(current => ({
           ...current,
           launcher: current.launcher
@@ -384,13 +304,11 @@ export function usePlayerScreenData(
 ) {
   const source = readGameSourceModeFromLocation()
   const gameSource = getGameSource(source)
-  const playerIndex = readQuery('player')
-  const joinStorageKey = gameId && characterId ? `mmd-player-name:${gameId}:${characterId}` : ''
   const [screenData, setScreenData] = useState<ScreenData>(emptyScreenData)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const [joined, setJoined] = useState(Boolean(joinStorageKey && localStorage.getItem(joinStorageKey)))
-  const [joinDraft, setJoinDraft] = useState(joinStorageKey ? (localStorage.getItem(joinStorageKey) ?? '') : '')
+  const [joined, setJoined] = useState(false)
+  const [joinDraft, setJoinDraft] = useState('')
 
   const reload = async () => {
     if (!gameId || !characterId) return
@@ -401,7 +319,6 @@ export function usePlayerScreenData(
       setScreenData(playerViewToScreenData(view, joinDraft))
       if (view.playerName) {
         setJoined(true)
-        if (joinStorageKey) localStorage.setItem(joinStorageKey, view.playerName)
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load game')
@@ -418,7 +335,7 @@ export function usePlayerScreenData(
   }, [apiBase, gameId, characterId])
 
   const handlers: RendererHandlers = useMemo(() => ({
-    onObjectiveToggle: objectiveId => {
+    onObjectiveSubmit: async objectiveId => {
       setScreenData(current => ({
         ...current,
         objectives: {
@@ -428,22 +345,14 @@ export function usePlayerScreenData(
         },
       }))
 
-      if (source === 'local' && gameId && playerIndex !== null) {
-        const indexNumber = Number(playerIndex)
-        if (Number.isInteger(indexNumber) && indexNumber >= 0) {
-          appendLocalObjectiveEvent({
-            type: 'OBJECTIVE_SUBMITTED',
-            gameId,
-            playerIndex: indexNumber,
-            objectiveId,
-            at: new Date().toISOString(),
-          })
-          markActSolved(gameId)
+      if (source === 'api' && gameId && characterId) {
+        try {
+          // Act is server-owned; pass client act only as informational.
+          await gameSource.submitObjective(apiBase, gameId, characterId, objectiveId)
+          await reload()
+        } catch (err) {
+          setError(err instanceof Error ? err.message : 'Failed to submit objective')
         }
-      } else if (source === 'api' && gameId && characterId) {
-        void gameSource.submitObjective(apiBase, gameId, characterId, objectiveId)
-          .then(() => reload())
-          .catch(err => setError(err instanceof Error ? err.message : 'Failed to submit objective'))
       }
     },
     onJoinNameChange: value => {
@@ -459,7 +368,6 @@ export function usePlayerScreenData(
       setError('')
       try {
         await gameSource.joinPlayerByCharacter(apiBase, gameId, characterId, joinDraft.trim())
-        if (joinStorageKey) localStorage.setItem(joinStorageKey, joinDraft.trim())
         setJoined(true)
         await reload()
       } catch (err) {
@@ -474,7 +382,7 @@ export function usePlayerScreenData(
     onComposerDraftChange: value => {
       setScreenData(current => ({ ...current, composer: { ...current.composer, draft: value, canSend: value.trim().length > 0 } }))
     },
-  }), [apiBase, gameId, characterId, joinDraft, source, playerIndex])
+  }), [apiBase, gameId, characterId, joinDraft, source])
 
   return { screenData, handlers, loading, error, reload, joined }
 }

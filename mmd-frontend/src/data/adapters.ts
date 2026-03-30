@@ -106,7 +106,9 @@ export function playerViewToScreenData(
   const stageText =
     input.stage?.text
     ?? (input.gameState === 'SCHEDULED'
-      ? 'Meet at the agreed location, check who is here, and wait for the host to begin.'
+      ? (input.playerName
+        ? 'You are joined. Waiting for the host to start the game.'
+        : 'Enter your name to join the room, then wait for the host to begin.')
       : input.gameState === 'REVEAL'
       ? 'The host has ended the night and is revealing the final answers.'
       : `You are in the live game. Follow your cards, message other players, and work the room.`)
@@ -138,6 +140,7 @@ export function playerViewToScreenData(
         text: String(card.text ?? 'Instruction'),
         completed: false,
         act: typeof card.act === 'number' ? card.act : undefined,
+        intent: 'instruction',
       })),
       group: puzzles.map((puzzle, index) => ({
         id: String(puzzle.id ?? `puzzle-${index}`),

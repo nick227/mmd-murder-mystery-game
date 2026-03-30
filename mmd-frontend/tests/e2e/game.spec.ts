@@ -18,18 +18,54 @@ for (const storyTitle of await storyTitlesToTest()) {
     // Separate contexts = separate storage/cookies (simulates two phones).
     const hostContext = await browser.newContext()
     const playerContext = await browser.newContext()
+    const player2Context = await browser.newContext()
     const launcherContext = await browser.newContext()
 
-    const launcherPage = await launcherContext.newPage()
-    const launcher = await GameHarness.openLauncher(launcherPage)
-    const { hostUrl, playerUrls } = await launcher.createGameViaLauncher({ storyTitle })
+    const customHostUrl = process.env.E2E_HOST_URL?.trim()
+    const customPlayerUrl = process.env.E2E_PLAYER_URL?.trim()
+    const customPlayer2Url = process.env.E2E_PLAYER2_URL?.trim()
+
+    let hostUrl: string
+    let playerUrl: string
+    let player2Url: string | null = null
+    if (customHostUrl && customPlayerUrl) {
+      hostUrl = customHostUrl
+      playerUrl = customPlayerUrl
+      player2Url = customPlayer2Url || null
+    } else {
+      const launcherPage = await launcherContext.newPage()
+      const launcher = await GameHarness.openLauncher(launcherPage)
+      const created = await launcher.createGameViaLauncher({ storyTitle })
+      hostUrl = created.hostUrl
+      playerUrl = created.playerUrls[0]!
+      player2Url = created.playerUrls[1] ?? null
+    }
 
     const hostPage = await hostContext.newPage()
     const playerPage = await playerContext.newPage()
+    const player2Page = await player2Context.newPage()
     const host = await GameHarness.hostFromUrl(hostPage, hostUrl)
-    const player = await GameHarness.playerFromUrl(playerPage, playerUrls[0]!)
+    const player = await GameHarness.playerFromUrl(playerPage, playerUrl)
+    const player2 = player2Url ? await GameHarness.playerFromUrl(player2Page, player2Url) : null
 
     await expect(hostPage.getByTestId('stage-eyebrow')).toContainText('SCHEDULED')
+
+    // 1) Pregame waiting state: player joins before host starts, sees waiting for host.
+    await player.ensureJoined('Player 0')
+    await expect(playerPage.locator('.stage__description')).toContainText('Waiting for the host')
+
+    // 3) Multi-player join (minimum 2)
+    if (player2) {
+      await player2.ensureJoined('Player 1')
+      await host.sync()
+      await expect(hostPage.getByTestId('player-pill-joined-0')).toBeVisible()
+      await expect(hostPage.getByTestId('player-pill-joined-1')).toBeVisible()
+    }
+
+    // 2) Refresh resilience: player refresh retains joined state.
+    await playerPage.reload()
+    await expect(playerPage.getByTestId('stage-eyebrow')).toBeVisible()
+    await expect(playerPage.getByTestId('join-name')).toHaveCount(0)
 
     await host.startGame()
     try {
@@ -42,9 +78,22 @@ for (const storyTitle of await storyTitlesToTest()) {
       throw new Error(`Host did not enter PLAYING. Status="${status}". ${(err as Error).message}`)
     }
 
-    await player.ensureJoined()
+    // Validate START_GAME is visible to host via feed (event log).
+    await expect(hostPage.getByText('Game started')).toBeVisible()
+
+    // Validate start propagates to player via server state.
+    await player.sync()
+    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('PLAYING')
+    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('Act 1')
+
     await host.sync()
     await expect(hostPage.getByTestId('player-pill-joined-0')).toBeVisible()
+
+    // Act 1 content visibility (not optional)
+    await player.sync()
+    await expect(playerPage.locator('.stage__description')).not.toHaveText('')
+    await expect.poll(async () => playerPage.locator('[data-testid^="objective-toggle:"]').count()).toBeGreaterThan(0)
+    await expect(playerPage.locator('[data-intent=\"clue\"], [data-intent=\"puzzle\"]').first()).toBeVisible()
 
     await player.submitObjective()
     await host.sync()
@@ -60,7 +109,19 @@ for (const storyTitle of await storyTitlesToTest()) {
     await player.sync()
     await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('Act 2')
 
-    await Promise.all([hostContext.close(), playerContext.close(), launcherContext.close()])
+    // 4) Multi-act progression (>2): advance to Act 3 and verify player sees it.
+    await host.advanceAct()
+    await expect(hostPage.getByTestId('stage-eyebrow')).toContainText('Act 3')
+    await expect.poll(async () => host.getAct()).toBe(3)
+
+    await player.sync()
+    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('Act 3')
+
+    // Refresh resilience after start: player refresh retains Act 1+ state (at least stays PLAYING).
+    await playerPage.reload()
+    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('PLAYING')
+
+    await Promise.all([hostContext.close(), playerContext.close(), player2Context.close(), launcherContext.close()])
   })
 }
 

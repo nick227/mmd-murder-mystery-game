@@ -6,6 +6,7 @@ import {
   GameSchema,
   GameHostViewSchema,
   AssignCharacterBodySchema,
+  SubmitCardBodySchema,
   SubmitAnswersBodySchema,
   MysteryAnswerSchema,
   MessageSchema,
@@ -192,6 +193,131 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       },
     })
     return reply.send(serializeDates(updated))
+  })
+
+  // ── API authority endpoints (no local simulation) ──────────────────────────
+
+  fastify.post<{ Params: { id: string } }>('/game/:id/start', {
+    schema: {
+      tags: ['Game'],
+      summary: 'Start the game (host)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      headers: {
+        type: 'object',
+        properties: { 'x-host-key': { type: 'string' } },
+        required: ['x-host-key'],
+      },
+      response: {
+        200: toJsonSchema(GameSchema),
+        400: toJsonSchema(ErrorSchema),
+        401: toJsonSchema(ErrorSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const game = await prisma.game.findUnique({ where: { id: req.params.id } })
+    if (!game) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
+    if (req.headers['x-host-key'] !== game.hostKey) return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
+    if (game.state !== 'SCHEDULED') return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: `Cannot start a game in state ${game.state}` })
+
+    const updated = await prisma.game.update({
+      where: { id: game.id },
+      data: { state: 'PLAYING', currentAct: 1, startedAt: new Date() },
+    })
+    await prisma.gameEvent.create({
+      data: { gameId: game.id, playerId: null, type: 'START_GAME', payload: { act: 1 } },
+    })
+    return reply.send(serializeDates(updated))
+  })
+
+  fastify.post<{ Params: { id: string } }>('/game/:id/advance', {
+    schema: {
+      tags: ['Game'],
+      summary: 'Advance act (host)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      headers: {
+        type: 'object',
+        properties: { 'x-host-key': { type: 'string' } },
+        required: ['x-host-key'],
+      },
+      response: {
+        200: toJsonSchema(GameSchema),
+        400: toJsonSchema(ErrorSchema),
+        401: toJsonSchema(ErrorSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const game = await prisma.game.findUnique({ where: { id: req.params.id } })
+    if (!game) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
+    if (req.headers['x-host-key'] !== game.hostKey) return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
+    if (game.state !== 'PLAYING') return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Game is not in PLAYING state' })
+    if (game.currentAct >= 5) return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Already at final act. Use end-night to conclude.' })
+
+    const updated = await prisma.game.update({
+      where: { id: game.id },
+      data: { currentAct: game.currentAct + 1 },
+    })
+    await prisma.gameEvent.create({
+      data: { gameId: game.id, playerId: null, type: 'ADVANCE_ACT', payload: { act: updated.currentAct } },
+    })
+    return reply.send(serializeDates(updated))
+  })
+
+  fastify.post<{ Params: { id: string } }>('/game/:id/submit', {
+    schema: {
+      tags: ['Game'],
+      summary: 'Submit a card/objective (player)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      body: toJsonSchema(SubmitCardBodySchema),
+      response: {
+        200: toJsonSchema(MessageSchema),
+        400: toJsonSchema(ErrorSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const body = validate(SubmitCardBodySchema, req.body)
+    const player = await prisma.gamePlayer.findFirst({
+      where: { gameId: req.params.id, characterId: body.characterId },
+      include: { game: { include: { story: true } } },
+    })
+    if (!player) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Invalid player' })
+
+    // Server owns act; store both the provided act and currentAct for debugging.
+    const runtimeRaw = player.game.storyFile ? await loadStoryJson(player.game.storyFile) : null
+    const runtimeStory = runtimeRaw ? adaptGeneratedStoryToRuntime(runtimeRaw).runtimeStory : null
+    const index = runtimeStory ? runtimeStory.playerOrder.indexOf(player.characterId) : -1
+
+    await prisma.gameEvent.create({
+      data: {
+        gameId: player.gameId,
+        playerId: player.id,
+        type: 'SUBMIT_OBJECTIVE',
+        payload: {
+          cardId: body.cardId,
+          cardType: 'objective',
+          act: player.game.currentAct,
+          providedAct: body.act,
+          characterId: player.characterId,
+          playerName: player.playerName,
+          playerIndex: index >= 0 ? index : null,
+        },
+      },
+    })
+    return reply.send({ message: 'Submitted' })
   })
 
   fastify.post<{ Params: { id: string } }>('/games/:id/host/next-act', {

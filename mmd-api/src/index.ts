@@ -32,12 +32,13 @@ async function buildApp() {
 
   // ── Error handler ──────────────────────────────────────────────────────────
   fastify.setErrorHandler((error, _req, reply) => {
-    const statusCode = error.statusCode ?? 500
+    const err = error as { statusCode?: number; name?: string; message?: string }
+    const statusCode = err.statusCode ?? 500
     fastify.log.error(error)
     reply.status(statusCode).send({
       statusCode,
-      error: error.name ?? 'Internal Server Error',
-      message: error.message ?? 'Something went wrong',
+      error: err.name ?? 'Internal Server Error',
+      message: err.message ?? 'Something went wrong',
     })
   })
 

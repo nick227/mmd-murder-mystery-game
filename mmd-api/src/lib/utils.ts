@@ -6,9 +6,14 @@ import { zodToJsonSchema } from 'zod-to-json-schema'
  * Strips the $schema key that zod-to-json-schema adds at the root.
  */
 export function toJsonSchema(schema: z.ZodTypeAny): object {
-  const jsonSchema = zodToJsonSchema(schema, { target: 'jsonSchema7' }) as Record<string, unknown>
-  const { $schema, ...rest } = jsonSchema
-  return rest
+  // Avoid importing zod-to-json-schema types (which can trigger deep type instantiation errors in TS).
+  const convert = zodToJsonSchema as unknown as (s: z.ZodTypeAny, opts: { target: 'jsonSchema7' }) => unknown
+  const jsonSchema = convert(schema, { target: 'jsonSchema7' }) as Record<string, unknown>
+  if (jsonSchema && typeof jsonSchema === 'object' && '$schema' in jsonSchema) {
+    const { $schema, ...rest } = jsonSchema
+    return rest
+  }
+  return jsonSchema ?? {}
 }
 
 /**
