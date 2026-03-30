@@ -1,0 +1,117 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Story {
+  id        String   @id @default(cuid())
+  title     String
+  summary   String
+  dataJson  Json     // full story blob (characters, acts, mysteries, puzzles, cards, etc.)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  games Game[]
+
+  @@map("stories")
+}
+
+model Game {
+  id            String    @id @default(cuid())
+  storyId       String
+  name          String
+  hostKey       String    @unique // secret token for host UI
+  scheduledTime DateTime
+  startedAt     DateTime?
+  state         GameState @default(SCHEDULED)
+  currentAct    Int       @default(0)
+  locationText  String?
+  // Stage fields: host-controlled shared display pushed to all players
+  stageTitle    String?
+  stageText     String?
+  stageImage    String?   // URL or relative path - store as-is, no DB-level validation
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  story          Story               @relation(fields: [storyId], references: [id])
+  players        GamePlayer[]
+  mysteryAnswers GameMysteryAnswer[]
+  events         GameEvent[]
+
+  @@map("games")
+}
+
+model GamePlayer {
+  id          String    @id @default(cuid())
+  gameId      String
+  characterId String    // references story character id
+  playerName  String?   // filled when guest opens link
+  loginKey    String    @unique // the URL token: /play/{gameId}/{loginKey}
+  joinedAt    DateTime?
+  createdAt   DateTime  @default(now())
+
+  game   Game        @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  events GameEvent[]
+
+  @@map("game_players")
+}
+
+model GameMysteryAnswer {
+  id        String   @id @default(cuid())
+  gameId    String
+  track     Track    // who | how | why
+  answer    String
+  enteredAt DateTime @default(now())
+
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@unique([gameId, track])
+  @@map("game_mystery_answers")
+}
+
+// Append-only event log - used for the shared room feed
+// All mutations that players should see are recorded here
+model GameEvent {
+  id        String        @id @default(cuid())
+  gameId    String
+  playerId  String?       // null for system/host events
+  type      GameEventType
+  payload   Json
+  createdAt DateTime      @default(now())
+
+  game   Game        @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  player GamePlayer? @relation(fields: [playerId], references: [id], onDelete: SetNull)
+
+  @@index([gameId, createdAt]) // primary query pattern: events for a game, ordered by time
+  @@index([playerId])
+  @@map("game_events")
+}
+
+enum GameState {
+  SCHEDULED
+  PLAYING
+  REVEAL
+  DONE
+}
+
+enum Track {
+  who
+  how
+  why
+}
+
+// Only event types that are actually emitted by the API
+// Add new types here only when a route emits them
+enum GameEventType {
+  SYSTEM        // generic host/system message
+  ACT_CHANGED   // host advanced the act
+  ANNOUNCEMENT  // host broadcast message
+  STAGE_UPDATED // host updated stage title/text/image
+}
