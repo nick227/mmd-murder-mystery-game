@@ -22,7 +22,6 @@ export const playerPageSchema: PageSchema = {
   tabs: [
     { id: 'lobby', label: 'Lobby' },
     { id: 'game', label: 'Game' },
-    { id: 'caseboard', label: 'Caseboard' },
     { id: 'profile', label: 'Profile' },
   ],
   // Player layouts are owned by first-class surface components (LobbySurface/GameSurface/ProfileSurface).
@@ -37,6 +36,7 @@ export const hostPageSchema: PageSchema = {
     root: [
       { id: 'stage', type: 'stage', bind: 'game' },
       { id: 'feed', type: 'feed', bind: 'feed' },
+      { id: 'host-info', type: 'host-info', bind: 'hostInfo' },
       { id: 'actions', type: 'actions', bind: 'gameActions' },
     ],
   },

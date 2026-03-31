@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { BottomNav } from './components/BottomNav'
 import { PageRenderer } from './components/PageRenderer'
 import { LobbySurface } from './components/surfaces/LobbySurface'
 import { GameSurface } from './components/surfaces/GameSurface'
 import { ProfileSurface } from './components/surfaces/ProfileSurface'
-import { CaseboardSurface } from './components/surfaces/CaseboardSurface'
 import {
   useHostScreenData,
   useLauncherState,
@@ -24,6 +23,7 @@ import './styles/app.css'
 export default function App() {
   const { mode, apiBase, gameId, characterId, hostKey } = useViewMode()
   const [activeTab, setActiveTab] = useTabState('game')
+  const [showInviteLinks, setShowInviteLinks] = useState(false)
 
   const launcher = useLauncherState()
   const player = usePlayerScreenData(apiBase, gameId, characterId)
@@ -31,12 +31,22 @@ export default function App() {
   const pins = usePinnedIds({ gameId, characterId })
 
   const state = mode === 'host' ? host : mode === 'player' ? player : launcher
-  const schema =
+  const schemaBase =
     mode === 'host'
       ? hostPageSchema
       : mode === 'player'
       ? (player.joined ? playerPageSchema : joinPageSchema)
       : launcherPageSchema
+  const schema =
+    mode === 'host' && !showInviteLinks
+      ? {
+          ...schemaBase,
+          layouts: {
+            ...schemaBase.layouts,
+            root: (schemaBase.layouts.root ?? []).filter(n => n.type !== 'host-info'),
+          },
+        }
+      : schemaBase
 
   const showTabs = Boolean(schema.tabs && (mode === 'player' ? player.joined : mode === 'host'))
   const playerSurfaceDefault = useMemo(() => {
@@ -83,6 +93,10 @@ export default function App() {
     : mode === 'host' ? () => void host.reload()
     : undefined
 
+  useEffect(() => {
+    if (mode !== 'host') setShowInviteLinks(false)
+  }, [mode])
+
   return (
     <div className="app-shell" data-testid={`mode-${mode}`}>
       <header className="app-header">
@@ -91,6 +105,11 @@ export default function App() {
           <h1>{title}</h1>
         </div>
         <div className="app-header__actions">
+          {mode === 'host' ? (
+            <button type="button" onClick={() => setShowInviteLinks(v => !v)}>
+              {showInviteLinks ? 'Hide invite links' : 'Invite links'}
+            </button>
+          ) : null}
           {onReload ? <button data-testid="reload" onClick={onReload}>Reload</button> : null}
           <span className="status-dot">{statusLabel}</span>
         </div>
@@ -99,12 +118,6 @@ export default function App() {
       {mode === 'player' && player.joined ? (
         activeTab === 'lobby' ? (
           <LobbySurface data={player.screenData} handlers={player.handlers} />
-        ) : activeTab === 'caseboard' ? (
-          <CaseboardSurface
-            data={player.screenData}
-            pinnedIds={pins.pinnedIds}
-            onOpenSource={() => setActiveTab('game')}
-          />
         ) : activeTab === 'profile' ? (
           <ProfileSurface data={player.screenData} />
         ) : (
