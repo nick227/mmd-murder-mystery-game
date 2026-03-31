@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { normaliseFeedEvent, playerViewToScreenData } from '../data/adapters'
 import { defaultLauncherData, emptyScreenData } from '../data/mock'
 import { getGameSource, readGameSourceModeFromLocation } from '../data/sources/getGameSource'
@@ -399,10 +399,20 @@ export function usePlayerScreenData(
   const [error, setError] = useState('')
   const [joined, setJoined] = useState(false)
   const [joinDraft, setJoinDraft] = useState('')
+  const joinDraftRef = useRef('')
   const [composerState, setComposerState] = useState<{ moveType: MoveType; draft: string; recipientId?: string; evidenceId?: string; location?: string }>({
     moveType: 'suspect' as MoveType,
     draft: '',
   })
+  const composerStateRef = useRef(composerState)
+
+  useEffect(() => {
+    joinDraftRef.current = joinDraft
+  }, [joinDraft])
+
+  useEffect(() => {
+    composerStateRef.current = composerState
+  }, [composerState])
 
   useEffect(() => {
     if (!gameId || !characterId) return
@@ -415,15 +425,16 @@ export function usePlayerScreenData(
     setError('')
     try {
       const view = await gameSource.fetchPlayerViewByCharacter(apiBase, gameId, characterId)
-      const base = playerViewToScreenData(view, joinDraft)
+      const base = playerViewToScreenData(view, joinDraftRef.current)
+      const latestComposer = composerStateRef.current
       const nextComposer = {
         ...base.composer,
         mode: 'public' as const,
-        moveType: composerState.moveType,
-        draft: composerState.draft,
-        recipientId: composerState.recipientId,
-        evidenceId: composerState.evidenceId,
-        location: composerState.location,
+        moveType: latestComposer.moveType,
+        draft: latestComposer.draft,
+        recipientId: latestComposer.recipientId,
+        evidenceId: latestComposer.evidenceId,
+        location: latestComposer.location,
       }
       setScreenData({ ...base, composer: { ...nextComposer, canSend: canSendMove(nextComposer) } })
       if (view.playerName) {
@@ -466,6 +477,7 @@ export function usePlayerScreenData(
       }
     },
     onJoinNameChange: value => {
+      joinDraftRef.current = value
       setJoinDraft(value)
       setScreenData(current => ({
         ...current,
@@ -490,35 +502,55 @@ export function usePlayerScreenData(
       setScreenData(current => ({ ...current, composer: { ...current.composer, mode } }))
     },
     onComposerMoveTypeChange: moveType => {
-      setComposerState(current => ({ ...current, moveType }))
+      setComposerState(current => {
+        const next = { ...current, moveType }
+        composerStateRef.current = next
+        return next
+      })
       setScreenData(current => {
         const next = { ...current.composer, moveType }
         return { ...current, composer: { ...next, canSend: canSendMove(next) } }
       })
     },
     onComposerRecipientChange: recipientId => {
-      setComposerState(current => ({ ...current, recipientId }))
+      setComposerState(current => {
+        const next = { ...current, recipientId }
+        composerStateRef.current = next
+        return next
+      })
       setScreenData(current => {
         const next = { ...current.composer, recipientId }
         return { ...current, composer: { ...next, canSend: canSendMove(next) } }
       })
     },
     onComposerEvidenceChange: evidenceId => {
-      setComposerState(current => ({ ...current, evidenceId }))
+      setComposerState(current => {
+        const next = { ...current, evidenceId }
+        composerStateRef.current = next
+        return next
+      })
       setScreenData(current => {
         const next = { ...current.composer, evidenceId }
         return { ...current, composer: { ...next, canSend: canSendMove(next) } }
       })
     },
     onComposerLocationChange: location => {
-      setComposerState(current => ({ ...current, location }))
+      setComposerState(current => {
+        const next = { ...current, location }
+        composerStateRef.current = next
+        return next
+      })
       setScreenData(current => {
         const next = { ...current.composer, location }
         return { ...current, composer: { ...next, canSend: canSendMove(next) } }
       })
     },
     onComposerDraftChange: value => {
-      setComposerState(current => ({ ...current, draft: value }))
+      setComposerState(current => {
+        const next = { ...current, draft: value }
+        composerStateRef.current = next
+        return next
+      })
       setScreenData(current => {
         const next = { ...current.composer, draft: value }
         return { ...current, composer: { ...next, canSend: canSendMove(next) } }
