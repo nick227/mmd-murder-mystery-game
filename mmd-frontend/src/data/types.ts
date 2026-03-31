@@ -1,6 +1,6 @@
 export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
-export type TabId = 'lobby' | 'game' | 'profile'
-export type ViewMode = 'launcher' | 'player' | 'host'
+export type TabId = 'lobby' | 'game' | 'profile' | 'host'
+export type ViewMode = 'launcher' | 'host' | 'room'
 export type FeedItemType = 'chat' | 'announcement' | 'system'
 export type FeedVariant = 'narration' | 'social' | 'mechanic' | 'room'
 export type MoveType = 'suspect' | 'accuse' | 'alibi' | 'share_clue' | 'searched' | 'solved'

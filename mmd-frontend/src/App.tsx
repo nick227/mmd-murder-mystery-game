@@ -24,7 +24,7 @@ import './styles/app.css'
 
 export default function App() {
   const { mode, apiBase, gameId, characterId, hostKey } = useViewMode()
-  const [activeTab, setActiveTab] = useTabState('game')
+  const [activeTab, setActiveTab] = useTabState(mode === 'room' ? 'lobby' : 'game')
   const [showInviteLinks, setShowInviteLinks] = useState(false)
 
   const launcher = useLauncherState()
@@ -32,24 +32,38 @@ export default function App() {
   const host = useHostScreenData(apiBase, gameId, hostKey)
   const pins = usePinnedIds({ gameId, characterId })
 
-  const state = mode === 'host' ? host : mode === 'player' ? player : launcher
+  const state =
+    mode === 'host' ? host
+    : mode === 'room' ? player
+    : launcher
+
   const schema =
     mode === 'host'
       ? hostPageSchema
-      : mode === 'player'
-      ? (player.joined ? playerPageSchema : joinPageSchema)
+      : mode === 'room'
+      ? playerPageSchema
       : launcherPageSchema
 
-  const showTabs = Boolean(schema.tabs && (mode === 'player' ? player.joined : mode === 'host'))
+  const showTabs =
+    mode === 'room'
+      ? true
+      : Boolean(schema.tabs && mode === 'host')
+
+  const tabs =
+    mode === 'room'
+      ? (hostKey
+          ? [...(playerPageSchema.tabs ?? []), { id: 'host' as const, label: 'Host' }]
+          : (playerPageSchema.tabs ?? []))
+      : (schema.tabs ?? [])
   const playerSurfaceDefault = useMemo(() => {
-    if (mode !== 'player') return null
+    if (mode !== 'room') return null
     const state = player.screenData.game.state
     return state === 'SCHEDULED' ? 'lobby' : 'game'
   }, [mode, player.screenData.game.state])
 
   const prevPlayerState = useRef<string | null>(null)
   useEffect(() => {
-    if (mode !== 'player' || !player.joined) return
+    if (mode !== 'room' || !player.joined) return
     const current = player.screenData.game.state
     if (prevPlayerState.current !== current) {
       prevPlayerState.current = current
@@ -67,6 +81,8 @@ export default function App() {
       ? 'Main menu'
       : mode === 'host'
       ? 'Host control room'
+      : mode === 'room' && hostKey
+      ? 'Room · Host'
       : `In game · ${state.screenData.profile.characterName || 'Joining character'}`
 
   const statusLabel =
@@ -78,15 +94,17 @@ export default function App() {
       ? 'Ready'
       : mode === 'host'
       ? 'Host live'
+      : mode === 'room' && hostKey
+      ? 'Host live'
       : 'Player live'
 
   const onReload =
-    mode === 'player' ? () => void player.reload()
+    mode === 'room' ? () => void player.reload()
     : mode === 'host' ? () => void host.reload()
     : undefined
 
   useEffect(() => {
-    if (mode !== 'host') setShowInviteLinks(false)
+    if (mode !== 'host' && mode !== 'room') setShowInviteLinks(false)
   }, [mode])
 
   return (
@@ -97,7 +115,7 @@ export default function App() {
           <h1>{title}</h1>
         </div>
         <div className="app-header__actions">
-          {mode === 'host' ? (
+          {mode === 'host' || (mode === 'room' && hostKey) ? (
             <button type="button" onClick={() => setShowInviteLinks(v => !v)}>
               Links
             </button>
@@ -107,8 +125,27 @@ export default function App() {
         </div>
       </header>
 
-      {mode === 'player' && player.joined ? (
-        activeTab === 'lobby' ? (
+      {mode === 'room' ? (
+        activeTab === 'host' ? (
+          <PageRenderer schema={hostPageSchema} data={host.screenData} handlers={host.handlers} />
+        ) : !player.joined ? (
+          activeTab === 'lobby' ? (
+            <>
+              <PageRenderer schema={joinPageSchema} data={player.screenData} handlers={player.handlers} />
+              <LobbySurface data={player.screenData} handlers={player.handlers} />
+            </>
+          ) : (
+            <main className="screen-stack">
+              <section className="panel">
+                <div className="panel__header">
+                  <h2>{activeTab === 'game' ? 'Game' : 'Profile'}</h2>
+                  <div className="panel__meta">Join first</div>
+                </div>
+                <div className="empty-state">Enter your name in Lobby to join.</div>
+              </section>
+            </main>
+          )
+        ) : activeTab === 'lobby' ? (
           <LobbySurface data={player.screenData} handlers={player.handlers} />
         ) : activeTab === 'profile' ? (
           <ProfileSurface data={player.screenData} />
@@ -124,22 +161,22 @@ export default function App() {
         />
       )}
 
-      {showTabs && schema.tabs ? (
-        <BottomNav tabs={schema.tabs} activeTab={activeTab} onChange={setActiveTab} />
+      {showTabs && tabs.length ? (
+        <BottomNav tabs={tabs} activeTab={activeTab} onChange={setActiveTab} />
       ) : null}
 
-      {mode === 'host' && showInviteLinks && state.screenData.hostInfo ? (
+      {(mode === 'host' || mode === 'room') && showInviteLinks && host.screenData.hostInfo ? (
         <BottomSheet
           open={true}
           onClose={() => setShowInviteLinks(false)}
           eyebrow="Host only"
           title="Invite links"
-          meta={`Game ${state.screenData.hostInfo.gameId}`}
+          meta={`Game ${host.screenData.hostInfo.gameId}`}
         >
           <RenderNode
             node={{ id: 'invite-links', type: 'host-info', bind: 'hostInfo' }}
-            data={state.screenData}
-            handlers={state.handlers}
+            data={host.screenData}
+            handlers={host.handlers}
           />
         </BottomSheet>
       ) : null}

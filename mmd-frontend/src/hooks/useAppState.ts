@@ -48,7 +48,7 @@ function routeParts() {
 
 function buildPlayerPath(gameId: string, characterId: string, query: URLSearchParams) {
   const suffix = query.toString()
-  return `${window.location.origin}/play/${gameId}/${characterId}${suffix ? `?${suffix}` : ''}`
+  return `${window.location.origin}/room/${gameId}/${characterId}${suffix ? `?${suffix}` : ''}`
 }
 
 function buildHostPath(gameId: string, hostKey: string, query: URLSearchParams) {
@@ -222,12 +222,30 @@ export function usePinnedIds(input: { gameId?: string | null; characterId?: stri
 export function useViewMode() {
   const parts = routeParts()
   const apiBase = readQuery('api') ?? ''
+  const hostKey = readQuery('hostKey')
+
+  if (parts[0] === 'room' && parts[1] && parts[2]) {
+    return { mode: 'room' as const, apiBase, gameId: parts[1], characterId: parts[2], hostKey }
+  }
 
   if (parts[0] === 'host' && parts[1]) {
+    // Back-compat: try to redirect host link into /room using locally-saved characterIds.
+    if (hostKey) {
+      const saved = readStoredGames().find(g => g.gameId === parts[1] && g.apiBase === apiBase)
+      const characterId = saved?.characterIds?.[0]
+      if (characterId) {
+        const query = new URLSearchParams(window.location.search)
+        window.history.replaceState({}, '', `/room/${parts[1]}/${characterId}?${query.toString()}`)
+        return { mode: 'room' as const, apiBase, gameId: parts[1], characterId, hostKey }
+      }
+    }
     return { mode: 'host' as const, apiBase, gameId: parts[1], characterId: null, hostKey: readQuery('hostKey') }
   }
   if (parts[0] === 'play' && parts[1] && parts[2]) {
-    return { mode: 'player' as const, apiBase, gameId: parts[1], characterId: parts[2], hostKey: null }
+    // Back-compat: redirect /play to /room preserving query.
+    const query = window.location.search
+    window.history.replaceState({}, '', `/room/${parts[1]}/${parts[2]}${query}`)
+    return { mode: 'room' as const, apiBase, gameId: parts[1], characterId: parts[2], hostKey }
   }
   return { mode: 'launcher' as const, apiBase, gameId: null, characterId: null, hostKey: null }
 }

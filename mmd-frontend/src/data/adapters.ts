@@ -1,6 +1,5 @@
 import type { ApiGameEvent, EvidenceItem, FeedItem, FeedVariant, ObjectiveItem, PlayerApiView, ScreenData } from './types'
 import { storyHeroImage } from '../utils/storyHeroImage'
-import { deriveHeatFromEvents, deriveTimelinePinsFromEvents } from '../gameplay/deriveSignals'
 import { portraitDataUrl } from '../utils/portrait'
 import { buildMoveChips, parseRichTokens } from '../gameplay/richTokens'
 
@@ -234,9 +233,6 @@ export function playerViewToScreenData(
   const feed = [...defaultSystem, ...doneThisActItem, ...feedFromApi, ...revealItems]
   const feedGrouped = buildNarrationStacking(applyNarrationBlockRule(feed))
 
-  const heat = deriveHeatFromEvents({ events: apiEvents, roomPlayers })
-  const timelinePins = deriveTimelinePinsFromEvents({ events: apiEvents })
-
   // Pregame only: hide spoilers (secrets, clues, inventory, story reveals). In PLAYING / REVEAL / DONE we
   // keep these visible so players can review materials after the game — do not strip on DONE.
   const hidePregameSpoilers = input.gameState === 'SCHEDULED'
@@ -304,8 +300,6 @@ export function playerViewToScreenData(
     view: {
       doNow: personal.filter(o => !o.completed).slice(0, 3),
       evidence: evidenceView,
-      heat,
-      timeline: timelinePins,
     },
     objectives: {
       personal,
@@ -369,7 +363,7 @@ export function playerViewToScreenData(
       title: 'Join your character',
       subtitle: `Enter your name to join as ${characterName}.`,
       playerName: playerNameDraft,
-      submitLabel: 'Join game',
+      submitLabel: 'Join room',
     },
   }
 }

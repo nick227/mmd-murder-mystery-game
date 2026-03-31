@@ -317,6 +317,13 @@ function HostInfoCard({ data, handlers }: { data: NonNullable<ScreenData['hostIn
               <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(link.url)}>
                 Copy link
               </button>
+              <button
+                type="button"
+                className="mini-btn"
+                onClick={() => (window.location.href = `${window.location.origin}/room/${data.gameId}/${link.characterId}?hostKey=${encodeURIComponent(data.hostKey)}`)}
+              >
+                Play as
+              </button>
             </div>
           </div>
         ))}

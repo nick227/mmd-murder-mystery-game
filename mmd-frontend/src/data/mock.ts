@@ -57,6 +57,6 @@ export const emptyScreenData: ScreenData = {
     title: 'Join game',
     subtitle: 'Enter your name to join the room.',
     playerName: '',
-    submitLabel: 'Join game',
+    submitLabel: 'Join room',
   },
 }
