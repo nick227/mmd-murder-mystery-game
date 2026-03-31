@@ -34,6 +34,10 @@ export const CreateGameBodySchema = z.object({
   { message: 'Either storyFile or storyId is required' },
 )
 
+export const RescheduleGameBodySchema = z.object({
+  scheduledTime: z.string().datetime('must be ISO datetime'),
+})
+
 const HostPlayerSchema = z.object({
   id: z.string(),
   characterId: z.string(),

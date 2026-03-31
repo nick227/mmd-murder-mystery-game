@@ -3,6 +3,7 @@ import { prisma } from '../lib/prisma.js'
 import { toJsonSchema, validate, generateKey, serializeDates } from '../lib/utils.js'
 import {
   CreateGameBodySchema,
+  RescheduleGameBodySchema,
   GameSchema,
   GameHostViewSchema,
   AssignCharacterBodySchema,
@@ -152,6 +153,42 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       storyId: game.storyFile,
       storyFile: game.storyFile,
     }))
+  })
+
+  fastify.post<{ Params: { id: string } }>('/games/:id/host/reschedule', {
+    schema: {
+      tags: ['Host Actions'],
+      summary: 'Reschedule a game (host)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      headers: {
+        type: 'object',
+        properties: { 'x-host-key': { type: 'string' } },
+        required: ['x-host-key'],
+      },
+      body: toJsonSchema(RescheduleGameBodySchema),
+      response: {
+        200: toJsonSchema(GameSchema),
+        400: toJsonSchema(ErrorSchema),
+        401: toJsonSchema(ErrorSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const body = validate(RescheduleGameBodySchema, req.body)
+    const game = await prisma.game.findUnique({ where: { id: req.params.id } })
+    if (!game) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
+    if (req.headers['x-host-key'] !== game.hostKey) return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
+    if (game.state !== 'SCHEDULED') return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: `Cannot reschedule a game in state ${game.state}` })
+
+    const updated = await prisma.game.update({
+      where: { id: game.id },
+      data: { scheduledTime: new Date(body.scheduledTime) },
+    })
+    return reply.send(serializeDates(updated))
   })
 
   fastify.post<{ Params: { id: string } }>('/games/:id/host/start', {
