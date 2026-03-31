@@ -16,6 +16,7 @@ import type {
 import { Feed as FeedComponent } from './feed/Feed'
 import { ComposerPanel } from './surfaces/ComposerPanel'
 import { intentBadgeLabel } from '../utils/uiText'
+import { BottomSheet } from './ui/BottomSheet'
 
 // ── Bound value resolver ──────────────────────────────────────────────────────
 // Supports top-level keys and one level of dot notation: "objectives.personal"
@@ -335,6 +336,17 @@ function HostInfoCard({ data, handlers }: { data: NonNullable<ScreenData['hostIn
 // ── Launcher card ─────────────────────────────────────────────────────────────
 
 function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: RendererHandlers }) {
+  const [showHostSetup, setShowHostSetup] = useState(false)
+  const [setupCharacterId, setSetupCharacterId] = useState<string | null>(null)
+  const [setupScheduledTime, setSetupScheduledTime] = useState<string>('')
+
+  // Open the host setup sheet right after creation.
+  if (data.createdGame && !showHostSetup && !setupScheduledTime) {
+    setShowHostSetup(true)
+    setSetupScheduledTime(data.createdGame.scheduledTime.slice(0, 16))
+    setSetupCharacterId(data.createdGame.playerLinks[0]?.characterId ?? null)
+  }
+
   const gamesByKey = new Map<string, {
     id: string
     apiBase: string
@@ -457,6 +469,63 @@ function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: Rende
           </div>
         ) : null}
       </section>
+
+      {data.createdGame && showHostSetup ? (
+        <BottomSheet
+          open={true}
+          onClose={() => setShowHostSetup(false)}
+          eyebrow="Host setup"
+          title="Enter the room"
+          meta="Pick who you’re playing and when to start"
+        >
+          <div className="field-grid">
+            <div className="field">
+              <label className="field__label">Scheduled time</label>
+              <input
+                className="field__input"
+                type="datetime-local"
+                value={setupScheduledTime}
+                onChange={e => setSetupScheduledTime(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="story-picker" style={{ marginTop: 12 }}>
+            <div className="field__label">Play as</div>
+            {data.createdGame.playerLinks.map(link => (
+              <button
+                key={link.characterId}
+                type="button"
+                className={setupCharacterId === link.characterId ? 'story-option story-option--active' : 'story-option'}
+                onClick={() => setSetupCharacterId(link.characterId)}
+              >
+                <strong>{link.label}</strong>
+                <span>{link.characterId}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="launcher-actions" style={{ marginTop: 12 }}>
+            <button
+              type="button"
+              className="action-btn action-btn--primary"
+              onClick={async () => {
+                const gameId = data.createdGame!.id
+                const hostKey = data.createdGame!.hostKey
+                const characterId = setupCharacterId ?? data.createdGame!.playerLinks[0]!.characterId
+                const scheduledIso = new Date(setupScheduledTime).toISOString()
+                await handlers?.onRescheduleGame?.(gameId, hostKey, scheduledIso)
+                const query = new URLSearchParams()
+                query.set('hostKey', hostKey)
+                if (data.apiBase) query.set('api', data.apiBase)
+                window.location.href = `/room/${gameId}/${characterId}?${query.toString()}`
+              }}
+            >
+              Enter room
+            </button>
+          </div>
+        </BottomSheet>
+      ) : null}
 
       <section className="panel">
         <div className="panel__header">

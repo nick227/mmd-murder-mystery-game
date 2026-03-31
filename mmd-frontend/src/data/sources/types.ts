@@ -12,6 +12,7 @@ export interface GameSource {
   ): Promise<HostApiGame>
   fetchHostGame(apiBase: string, gameId: string, hostKey: string): Promise<HostApiGame>
   cancelGame(apiBase: string, gameId: string, hostKey: string): Promise<ApiGameSummary>
+  rescheduleGame(apiBase: string, gameId: string, hostKey: string, scheduledTime: string): Promise<ApiGameSummary>
   postHostAction(apiBase: string, gameId: string, hostKey: string, action: HostAction): Promise<unknown>
   postEndNight(apiBase: string, gameId: string, hostKey: string, body: { who: string; how: string; why: string }): Promise<unknown>
 

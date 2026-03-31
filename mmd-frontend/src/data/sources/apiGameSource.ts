@@ -9,6 +9,7 @@ import {
   postEndNight,
   postHostAction,
   postMove,
+  rescheduleGame,
   submitObjective,
 } from '../api'
 import type { GameSource } from './types'
@@ -19,6 +20,7 @@ export const apiGameSource: GameSource = {
   createGame,
   fetchHostGame,
   cancelGame,
+  rescheduleGame,
   postHostAction,
   postEndNight,
   joinPlayerByCharacter,

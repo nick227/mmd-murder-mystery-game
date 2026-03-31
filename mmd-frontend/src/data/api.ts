@@ -94,6 +94,17 @@ export async function cancelGame(apiBase: string, gameId: string, hostKey: strin
   })
 }
 
+export async function rescheduleGame(apiBase: string, gameId: string, hostKey: string, scheduledTime: string) {
+  return request<ApiGameSummary>(`${apiBase}/api/v1/games/${gameId}/host/reschedule`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-host-key': hostKey,
+    },
+    body: JSON.stringify({ scheduledTime }),
+  })
+}
+
 export async function joinPlayerByCharacter(
   apiBase: string,
   gameId: string,

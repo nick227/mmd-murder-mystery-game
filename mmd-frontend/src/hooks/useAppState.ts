@@ -350,8 +350,10 @@ export function useLauncherState() {
                   id: game.id,
                   name: game.name,
                   hostKey: game.hostKey,
+                  scheduledTime: game.scheduledTime,
                   hostUrl: buildHostPath(game.id, game.hostKey, shareQuery),
                   playerLinks: game.players.map(player => ({
+                    characterId: player.characterId,
                     label: player.characterName ?? `Character ${player.characterId}`,
                     url: buildPlayerPath(game.id, player.characterId, shareQuery),
                   })),
@@ -361,6 +363,26 @@ export function useLauncherState() {
         }))
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to create game')
+      } finally {
+        setLoading(false)
+      }
+    },
+    onRescheduleGame: async (rescheduleGameId, rescheduleHostKey, scheduledTime) => {
+      const launcher = screenData.launcher
+      if (!launcher) return
+      setLoading(true)
+      setError('')
+      try {
+        await gameSource.rescheduleGame(launcher.apiBase, rescheduleGameId, rescheduleHostKey, scheduledTime)
+        const games = await gameSource.fetchGames(launcher.apiBase)
+        setScreenData(current => ({
+          ...current,
+          launcher: current.launcher
+            ? { ...current.launcher, allGames: games }
+            : current.launcher,
+        }))
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to reschedule game')
       } finally {
         setLoading(false)
       }

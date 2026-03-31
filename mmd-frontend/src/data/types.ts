@@ -159,8 +159,9 @@ export interface LauncherData {
     id: string
     name: string
     hostKey: string
+    scheduledTime: string
     hostUrl: string
-    playerLinks: Array<{ label: string; url: string }>
+    playerLinks: Array<{ characterId: string; label: string; url: string }>
   }
 }
 
@@ -254,6 +255,7 @@ export interface RendererHandlers {
   onLauncherFieldChange?: (field: keyof CreateGameFormData | 'apiBase', value: string) => void
   onCreateGame?: () => void
   onCancelGame?: (gameId: string, hostKey: string) => Promise<void>
+  onRescheduleGame?: (gameId: string, hostKey: string, scheduledTime: string) => Promise<void>
   onJoinNameChange?: (value: string) => void
   onJoinSubmit?: () => void
 }
