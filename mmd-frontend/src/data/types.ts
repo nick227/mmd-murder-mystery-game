@@ -141,10 +141,20 @@ export interface CreateGameFormData {
   locationText: string
 }
 
+export type StoredGameLink = {
+  gameId: string
+  apiBase: string
+  hostKey?: string
+  characterIds: string[]
+  lastSeenAt: string
+}
+
 export interface LauncherData {
   apiBase: string
   stories: StoryListItem[]
   form: CreateGameFormData
+  allGames: ApiGameSummary[]
+  savedGames: StoredGameLink[]
   createdGame?: {
     id: string
     name: string
@@ -243,6 +253,7 @@ export interface RendererHandlers {
   onCopyText?: (value: string) => void
   onLauncherFieldChange?: (field: keyof CreateGameFormData | 'apiBase', value: string) => void
   onCreateGame?: () => void
+  onCancelGame?: (gameId: string, hostKey: string) => Promise<void>
   onJoinNameChange?: (value: string) => void
   onJoinSubmit?: () => void
 }

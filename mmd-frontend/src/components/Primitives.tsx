@@ -327,82 +327,185 @@ function HostInfoCard({ data, handlers }: { data: NonNullable<ScreenData['hostIn
 // ── Launcher card ─────────────────────────────────────────────────────────────
 
 function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: RendererHandlers }) {
+  const activeGames = data.allGames.filter(g => g.state !== 'DONE' && g.state !== 'CANCELLED')
+  const historyGames = data.allGames.filter(g => g.state === 'DONE' || g.state === 'CANCELLED')
+
   return (
-    <section className="panel">
-      <div className="panel__header">
-        <h2>Playtest launcher</h2>
-        <div className="panel__meta">Create a scheduled game</div>
-      </div>
-      <div className="field-grid">
-        <div className="field">
-          <label className="field__label">API base</label>
-          <input
-            className="field__input"
-            value={data.apiBase}
-            placeholder="http://localhost:3000"
-            onChange={e => handlers?.onLauncherFieldChange?.('apiBase', e.target.value)}
-          />
+    <>
+      <section className="panel">
+        <div className="panel__header">
+          <h2>Playtest launcher</h2>
+          <div className="panel__meta">Create a scheduled game</div>
         </div>
-      </div>
-      <div className="story-picker" style={{ marginTop: 12 }}>
-        <div className="field__label">Story</div>
-        {!data.stories.length
-          ? <div className="empty-state">No stories loaded yet. Check API base and reload.</div>
-          : null}
-        {data.stories.map(story => (
-          <button
-            key={story.id}
-            type="button"
-            className={data.form.storyId === story.id ? 'story-option story-option--active' : 'story-option'}
-            onClick={() => handlers?.onLauncherFieldChange?.('storyId', story.id)}
-          >
-            <strong>{story.title}</strong>
-            <span>{story.summary}</span>
-          </button>
-        ))}
-      </div>
-      <div className="field-grid" style={{ marginTop: 12 }}>
-        <div className="field">
-          <label className="field__label">Game name</label>
-          <input className="field__input" value={data.form.name} onChange={e => handlers?.onLauncherFieldChange?.('name', e.target.value)} />
-        </div>
-        <div className="field">
-          <label className="field__label">Scheduled time</label>
-          <input className="field__input" type="datetime-local" value={data.form.scheduledTime} onChange={e => handlers?.onLauncherFieldChange?.('scheduledTime', e.target.value)} />
-        </div>
-        <div className="field">
-          <label className="field__label">Location</label>
-          <input className="field__input" value={data.form.locationText} onChange={e => handlers?.onLauncherFieldChange?.('locationText', e.target.value)} />
-        </div>
-      </div>
-      <div className="launcher-actions" style={{ marginTop: 12 }}>
-        <button type="button" className="action-btn action-btn--primary" onClick={() => handlers?.onCreateGame?.()}>
-          Create game
-        </button>
-      </div>
-      {data.createdGame ? (
-        <div className="created-box" style={{ marginTop: 12 }}>
-          <strong>{data.createdGame.name}</strong>
-          <code style={{ display: 'block', marginTop: 6 }}>{data.createdGame.hostUrl}</code>
-          <div className="link-row__actions link-row__actions--stack" style={{ marginTop: 8 }}>
-            <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(data.createdGame!.hostUrl)}>
-              Copy host link
-            </button>
+        <div className="field-grid">
+          <div className="field">
+            <label className="field__label">API base</label>
+            <input
+              className="field__input"
+              value={data.apiBase}
+              placeholder="http://localhost:3000"
+              onChange={e => handlers?.onLauncherFieldChange?.('apiBase', e.target.value)}
+            />
           </div>
-          {data.createdGame.playerLinks.map(link => (
-            <div key={link.url} className="link-row" style={{ marginTop: 10 }}>
-              <strong>{link.label}</strong>
-              <code>{link.url}</code>
-              <div className="link-row__actions">
-                <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(link.url)}>
-                  Copy link
-                </button>
-              </div>
-            </div>
+        </div>
+        <div className="story-picker" style={{ marginTop: 12 }}>
+          <div className="field__label">Story</div>
+          {!data.stories.length
+            ? <div className="empty-state">No stories loaded yet. Check API base and reload.</div>
+            : null}
+          {data.stories.map(story => (
+            <button
+              key={story.id}
+              type="button"
+              className={data.form.storyId === story.id ? 'story-option story-option--active' : 'story-option'}
+              onClick={() => handlers?.onLauncherFieldChange?.('storyId', story.id)}
+            >
+              <strong>{story.title}</strong>
+              <span>{story.summary}</span>
+            </button>
           ))}
         </div>
-      ) : null}
-    </section>
+        <div className="field-grid" style={{ marginTop: 12 }}>
+          <div className="field">
+            <label className="field__label">Game name</label>
+            <input className="field__input" value={data.form.name} onChange={e => handlers?.onLauncherFieldChange?.('name', e.target.value)} />
+          </div>
+          <div className="field">
+            <label className="field__label">Scheduled time</label>
+            <input className="field__input" type="datetime-local" value={data.form.scheduledTime} onChange={e => handlers?.onLauncherFieldChange?.('scheduledTime', e.target.value)} />
+          </div>
+          <div className="field">
+            <label className="field__label">Location</label>
+            <input className="field__input" value={data.form.locationText} onChange={e => handlers?.onLauncherFieldChange?.('locationText', e.target.value)} />
+          </div>
+        </div>
+        <div className="launcher-actions" style={{ marginTop: 12 }}>
+          <button type="button" className="action-btn action-btn--primary" onClick={() => handlers?.onCreateGame?.()}>
+            Create game
+          </button>
+        </div>
+        {data.createdGame ? (
+          <div className="created-box" style={{ marginTop: 12 }}>
+            <strong>{data.createdGame.name}</strong>
+            <code style={{ display: 'block', marginTop: 6 }}>{data.createdGame.hostUrl}</code>
+            <div className="link-row__actions link-row__actions--stack" style={{ marginTop: 8 }}>
+              <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(data.createdGame!.hostUrl)}>
+                Copy host link
+              </button>
+            </div>
+            {data.createdGame.playerLinks.map(link => (
+              <div key={link.url} className="link-row" style={{ marginTop: 10 }}>
+                <strong>{link.label}</strong>
+                <code>{link.url}</code>
+                <div className="link-row__actions">
+                  <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(link.url)}>
+                    Copy link
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : null}
+      </section>
+
+      <section className="panel">
+        <div className="panel__header">
+          <h2>Your links</h2>
+          <div className="panel__meta">Saved on this device</div>
+        </div>
+        {!data.savedGames.length ? (
+          <div className="empty-state">No saved games yet. Create a game or open a host/player link once.</div>
+        ) : (
+          <div className="link-list">
+            {data.savedGames.map(game => (
+              <div key={`${game.apiBase}:${game.gameId}`} className="link-row">
+                <strong>{game.gameId}</strong>
+                <div className="link-row__meta">{new Date(game.lastSeenAt).toLocaleString()}</div>
+                {game.hostKey ? (
+                  <code>{`${window.location.origin}/host/${game.gameId}?hostKey=${game.hostKey}${game.apiBase ? `&api=${encodeURIComponent(game.apiBase)}` : ''}`}</code>
+                ) : (
+                  <code>Host key not saved on this device.</code>
+                )}
+                <div className="link-row__actions link-row__actions--stack">
+                  {game.hostKey ? (
+                    <>
+                      <button
+                        type="button"
+                        className="mini-btn"
+                        onClick={() => (window.location.href = `${window.location.origin}/host/${game.gameId}?hostKey=${game.hostKey}${game.apiBase ? `&api=${encodeURIComponent(game.apiBase)}` : ''}`)}
+                      >
+                        Open host
+                      </button>
+                      <button
+                        type="button"
+                        className="mini-btn"
+                        onClick={() => handlers?.onCancelGame?.(game.gameId, game.hostKey!)}
+                      >
+                        Cancel game
+                      </button>
+                    </>
+                  ) : null}
+                </div>
+                {game.characterIds.map(characterId => {
+                  const url = `${window.location.origin}/play/${game.gameId}/${characterId}${game.apiBase ? `?api=${encodeURIComponent(game.apiBase)}` : ''}`
+                  return (
+                    <div key={characterId} className="link-row" style={{ marginTop: 10 }}>
+                      <strong>{`Player ${characterId}`}</strong>
+                      <code>{url}</code>
+                      <div className="link-row__actions">
+                        <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(url)}>
+                          Copy link
+                        </button>
+                        <button type="button" className="mini-btn" onClick={() => (window.location.href = url)}>
+                          Open
+                        </button>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section className="panel">
+        <div className="panel__header">
+          <h2>All games</h2>
+          <div className="panel__meta">Public server list</div>
+        </div>
+        {!data.allGames.length ? (
+          <div className="empty-state">No games yet.</div>
+        ) : (
+          <>
+            <div className="panel__meta" style={{ marginBottom: 8 }}>Active</div>
+            <div className="link-list">
+              {!activeGames.length ? (
+                <div className="empty-state">No active games.</div>
+              ) : activeGames.map(g => (
+                <div key={g.id} className="link-row">
+                  <strong>{g.name}</strong>
+                  <div className="link-row__meta">{g.state}</div>
+                  <code>{g.id}</code>
+                </div>
+              ))}
+            </div>
+            <div className="panel__meta" style={{ marginTop: 12, marginBottom: 8 }}>History</div>
+            <div className="link-list">
+              {!historyGames.length ? (
+                <div className="empty-state">No finished games yet.</div>
+              ) : historyGames.map(g => (
+                <div key={g.id} className="link-row">
+                  <strong>{g.name}</strong>
+                  <div className="link-row__meta">{g.state}</div>
+                  <code>{g.id}</code>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+    </>
   )
 }
 

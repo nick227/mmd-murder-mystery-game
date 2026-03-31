@@ -5,6 +5,8 @@ const DEFAULT_API_BASE = ''
 export const defaultLauncherData: LauncherData = {
   apiBase: DEFAULT_API_BASE,
   stories: [],
+  allGames: [],
+  savedGames: [],
   form: {
     apiBase: DEFAULT_API_BASE,
     storyId: '',

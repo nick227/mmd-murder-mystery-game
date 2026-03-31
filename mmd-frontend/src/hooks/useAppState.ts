@@ -3,6 +3,7 @@ import { normaliseFeedEvent, playerViewToScreenData } from '../data/adapters'
 import { defaultLauncherData, emptyScreenData } from '../data/mock'
 import { getGameSource, readGameSourceModeFromLocation } from '../data/sources/getGameSource'
 import { storyHeroImage } from '../utils/storyHeroImage'
+import { readStoredGames } from '../data/runningGamesRegistry'
 import type {
   FeedItem,
   HostApiGame,
@@ -252,14 +253,17 @@ export function useLauncherState() {
     const apiBase = screenData.launcher?.apiBase ?? ''
     setLoading(true)
     setError('')
-    gameSource.fetchStories(apiBase)
-      .then(stories => {
+    Promise.all([gameSource.fetchStories(apiBase), gameSource.fetchGames(apiBase)])
+      .then(([stories, games]) => {
+        const savedGames = readStoredGames()
         setScreenData(current => ({
           ...current,
           launcher: current.launcher
             ? {
                 ...current.launcher,
                 stories,
+                allGames: games,
+                savedGames,
                 form: {
                   ...current.launcher.form,
                   storyId: current.launcher.form.storyId || stories[0]?.id || '',
@@ -316,12 +320,14 @@ export function useLauncherState() {
           hostKey: game.hostKey,
           characterIds: game.players.map(p => p.characterId),
         })
+        const savedGames = readStoredGames()
         const shareQuery = buildShareQuery({ apiBase: launcher.apiBase })
         setScreenData(current => ({
           ...current,
           launcher: current.launcher
             ? {
                 ...current.launcher,
+                savedGames,
                 createdGame: {
                   id: game.id,
                   name: game.name,
@@ -337,6 +343,34 @@ export function useLauncherState() {
         }))
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to create game')
+      } finally {
+        setLoading(false)
+      }
+    },
+    onCancelGame: async (cancelGameId, cancelHostKey) => {
+      const launcher = screenData.launcher
+      if (!launcher) return
+      setLoading(true)
+      setError('')
+      try {
+        await gameSource.cancelGame(launcher.apiBase, cancelGameId, cancelHostKey)
+        const [stories, games] = await Promise.all([
+          gameSource.fetchStories(launcher.apiBase),
+          gameSource.fetchGames(launcher.apiBase),
+        ])
+        setScreenData(current => ({
+          ...current,
+          launcher: current.launcher
+            ? {
+                ...current.launcher,
+                stories,
+                allGames: games,
+                savedGames: readStoredGames(),
+              }
+            : current.launcher,
+        }))
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to cancel game')
       } finally {
         setLoading(false)
       }

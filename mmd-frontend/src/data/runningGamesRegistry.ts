@@ -1,10 +1,4 @@
-export type StoredGameLink = {
-  gameId: string
-  apiBase: string
-  hostKey?: string
-  characterIds: string[]
-  lastSeenAt: string
-}
+import type { StoredGameLink } from './types'
 
 const STORAGE_KEY = 'mmd:links:v1'
 
