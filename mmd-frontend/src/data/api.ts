@@ -1,4 +1,4 @@
-import type { HostApiGame, MoveType, PlayerApiView, StoryListItem } from './types'
+import type { ApiGameSummary, HostApiGame, MoveType, PlayerApiView, StoryListItem } from './types'
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(url, init)
@@ -24,6 +24,10 @@ export async function createGame(apiBase: string, body: {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   })
+}
+
+export async function fetchGames(apiBase: string) {
+  return request<ApiGameSummary[]>(`${apiBase}/api/v1/games`)
 }
 
 export async function fetchHostGame(apiBase: string, gameId: string, hostKey: string) {
@@ -76,6 +80,17 @@ export async function postEndNight(
       'x-host-key': hostKey,
     },
     body: JSON.stringify(body),
+  })
+}
+
+export async function cancelGame(apiBase: string, gameId: string, hostKey: string) {
+  return request<ApiGameSummary>(`${apiBase}/api/v1/games/${gameId}/host/cancel`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-host-key': hostKey,
+    },
+    body: '{}',
   })
 }
 

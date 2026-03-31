@@ -1,5 +1,5 @@
-export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE'
-export type TabId = 'lobby' | 'game' | 'caseboard' | 'profile'
+export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
+export type TabId = 'lobby' | 'game' | 'profile'
 export type ViewMode = 'launcher' | 'player' | 'host'
 export type FeedItemType = 'chat' | 'announcement' | 'system'
 export type FeedVariant = 'narration' | 'social' | 'mechanic' | 'room'
@@ -95,19 +95,6 @@ export interface EvidenceItem {
   image?: string
 }
 
-export interface HeatItem {
-  characterId: string
-  name: string
-  heat: number
-}
-
-export interface TimelinePin {
-  id: string
-  label: string
-  act?: number
-  sourceFeedId: string
-}
-
 export interface ActionItem {
   id: string
   label: string
@@ -181,8 +168,6 @@ export interface ScreenData {
   view?: {
     doNow: ObjectiveItem[]
     evidence: EvidenceItem[]
-    heat?: HeatItem[]
-    timeline?: TimelinePin[]
   }
   objectives: {
     personal: ObjectiveItem[]
@@ -322,6 +307,20 @@ export interface HostApiGame {
   updatedAt: string
   players: HostApiGamePlayer[]
   feed?: ApiGameEvent[]
+}
+
+export interface ApiGameSummary {
+  id: string
+  storyId: string | null
+  storyFile?: string | null
+  name: string
+  scheduledTime: string
+  startedAt: string | null
+  state: GameState
+  currentAct: number
+  locationText: string | null
+  createdAt: string
+  updatedAt: string
 }
 
 export interface PlayerApiView {
