@@ -12,6 +12,7 @@ import type {
   TabId,
 } from '../data/types'
 import { encodeClueToken, encodeLocationToken } from '../gameplay/richTokens'
+import { upsertCreatedGame, upsertHostLink, upsertPlayerLink } from '../data/runningGamesRegistry'
 
 function canSendMove(input: { moveType?: MoveType; draft: string; recipientId?: string; evidenceId?: string; location?: string }): boolean {
   const moveType = input.moveType ?? 'suspect'
@@ -309,6 +310,12 @@ export function useLauncherState() {
           scheduledTime: new Date(launcher.form.scheduledTime).toISOString(),
           locationText: launcher.form.locationText,
         })
+        upsertCreatedGame({
+          gameId: game.id,
+          apiBase: launcher.apiBase,
+          hostKey: game.hostKey,
+          characterIds: game.players.map(p => p.characterId),
+        })
         const shareQuery = buildShareQuery({ apiBase: launcher.apiBase })
         setScreenData(current => ({
           ...current,
@@ -362,6 +369,11 @@ export function usePlayerScreenData(
     moveType: 'suspect' as MoveType,
     draft: '',
   })
+
+  useEffect(() => {
+    if (!gameId || !characterId) return
+    upsertPlayerLink({ gameId, apiBase, characterId })
+  }, [apiBase, gameId, characterId])
 
   const reload = async () => {
     if (!gameId || !characterId) return
@@ -528,6 +540,11 @@ export function useHostScreenData(
   const [screenData, setScreenData] = useState<ScreenData>(emptyScreenData)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (!gameId || !hostKey) return
+    upsertHostLink({ gameId, apiBase, hostKey })
+  }, [apiBase, gameId, hostKey])
 
   const reload = async () => {
     if (!gameId || !hostKey) return
