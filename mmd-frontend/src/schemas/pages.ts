@@ -36,7 +36,6 @@ export const hostPageSchema: PageSchema = {
     root: [
       { id: 'stage', type: 'stage', bind: 'game' },
       { id: 'feed', type: 'feed', bind: 'feed' },
-      { id: 'host-info', type: 'host-info', bind: 'hostInfo' },
       { id: 'actions', type: 'actions', bind: 'gameActions' },
     ],
   },

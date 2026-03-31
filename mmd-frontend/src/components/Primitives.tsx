@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import type {
   ActionItem,
   ComposerData,
+  GameState,
   JoinData,
   LauncherData,
   LayoutNode,
@@ -327,8 +328,50 @@ function HostInfoCard({ data, handlers }: { data: NonNullable<ScreenData['hostIn
 // ── Launcher card ─────────────────────────────────────────────────────────────
 
 function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: RendererHandlers }) {
-  const activeGames = data.allGames.filter(g => g.state !== 'DONE' && g.state !== 'CANCELLED')
-  const historyGames = data.allGames.filter(g => g.state === 'DONE' || g.state === 'CANCELLED')
+  const gamesByKey = new Map<string, {
+    id: string
+    apiBase: string
+    name?: string
+    state?: GameState
+    scheduledTime?: string
+    lastSeenAt?: string
+    access?: { hostKey?: string; characterIds: string[] }
+  }>()
+
+  for (const g of data.allGames) {
+    const key = `${data.apiBase}:${g.id}`
+    gamesByKey.set(key, {
+      id: g.id,
+      apiBase: data.apiBase,
+      name: g.name,
+      state: g.state,
+      scheduledTime: g.scheduledTime,
+      access: { characterIds: [] },
+    })
+  }
+
+  for (const saved of data.savedGames) {
+    const key = `${saved.apiBase}:${saved.gameId}`
+    const existing = gamesByKey.get(key)
+    gamesByKey.set(key, {
+      id: saved.gameId,
+      apiBase: saved.apiBase,
+      name: existing?.name,
+      state: existing?.state,
+      scheduledTime: existing?.scheduledTime,
+      lastSeenAt: saved.lastSeenAt,
+      access: {
+        hostKey: saved.hostKey,
+        characterIds: saved.characterIds,
+      },
+    })
+  }
+
+  const mergedGames = Array.from(gamesByKey.values()).sort((a, b) => {
+    const aKey = a.lastSeenAt ?? a.scheduledTime ?? ''
+    const bKey = b.lastSeenAt ?? b.scheduledTime ?? ''
+    return bKey.localeCompare(aKey) || a.id.localeCompare(b.id)
+  })
 
   return (
     <>
@@ -410,99 +453,70 @@ function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: Rende
 
       <section className="panel">
         <div className="panel__header">
-          <h2>Your links</h2>
-          <div className="panel__meta">Saved on this device</div>
+          <h2>Games</h2>
+          <div className="panel__meta">Public + saved access</div>
         </div>
-        {!data.savedGames.length ? (
-          <div className="empty-state">No saved games yet. Create a game or open a host/player link once.</div>
-        ) : (
-          <div className="link-list">
-            {data.savedGames.map(game => (
-              <div key={`${game.apiBase}:${game.gameId}`} className="link-row">
-                <strong>{game.gameId}</strong>
-                <div className="link-row__meta">{new Date(game.lastSeenAt).toLocaleString()}</div>
-                {game.hostKey ? (
-                  <code>{`${window.location.origin}/host/${game.gameId}?hostKey=${game.hostKey}${game.apiBase ? `&api=${encodeURIComponent(game.apiBase)}` : ''}`}</code>
-                ) : (
-                  <code>Host key not saved on this device.</code>
-                )}
-                <div className="link-row__actions link-row__actions--stack">
-                  {game.hostKey ? (
-                    <>
-                      <button
-                        type="button"
-                        className="mini-btn"
-                        onClick={() => (window.location.href = `${window.location.origin}/host/${game.gameId}?hostKey=${game.hostKey}${game.apiBase ? `&api=${encodeURIComponent(game.apiBase)}` : ''}`)}
-                      >
-                        Open host
-                      </button>
-                      <button
-                        type="button"
-                        className="mini-btn"
-                        onClick={() => handlers?.onCancelGame?.(game.gameId, game.hostKey!)}
-                      >
-                        Cancel game
-                      </button>
-                    </>
-                  ) : null}
-                </div>
-                {game.characterIds.map(characterId => {
-                  const url = `${window.location.origin}/play/${game.gameId}/${characterId}${game.apiBase ? `?api=${encodeURIComponent(game.apiBase)}` : ''}`
-                  return (
-                    <div key={characterId} className="link-row" style={{ marginTop: 10 }}>
-                      <strong>{`Player ${characterId}`}</strong>
-                      <code>{url}</code>
-                      <div className="link-row__actions">
-                        <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(url)}>
-                          Copy link
-                        </button>
-                        <button type="button" className="mini-btn" onClick={() => (window.location.href = url)}>
-                          Open
-                        </button>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-
-      <section className="panel">
-        <div className="panel__header">
-          <h2>All games</h2>
-          <div className="panel__meta">Public server list</div>
-        </div>
-        {!data.allGames.length ? (
+        {!mergedGames.length ? (
           <div className="empty-state">No games yet.</div>
         ) : (
-          <>
-            <div className="panel__meta" style={{ marginBottom: 8 }}>Active</div>
-            <div className="link-list">
-              {!activeGames.length ? (
-                <div className="empty-state">No active games.</div>
-              ) : activeGames.map(g => (
-                <div key={g.id} className="link-row">
-                  <strong>{g.name}</strong>
-                  <div className="link-row__meta">{g.state}</div>
+          <div className="link-list">
+            {mergedGames.map(g => {
+              const stateLabel = g.state ?? (g.apiBase !== data.apiBase ? 'OTHER API' : 'UNKNOWN')
+              const hostUrl = g.access?.hostKey
+                ? `${window.location.origin}/host/${g.id}?hostKey=${g.access.hostKey}${g.apiBase ? `&api=${encodeURIComponent(g.apiBase)}` : ''}`
+                : null
+
+              return (
+                <div key={`${g.apiBase}:${g.id}`} className="link-row">
+                  <strong>{g.name ?? g.id}</strong>
+                  <div className="link-row__meta">{stateLabel}</div>
                   <code>{g.id}</code>
+
+                  {g.apiBase !== data.apiBase ? (
+                    <div className="link-row__meta">{g.apiBase}</div>
+                  ) : null}
+
+                  <div className="link-row__actions">
+                    {hostUrl ? (
+                      <>
+                        <button type="button" className="mini-btn" onClick={() => (window.location.href = hostUrl)}>
+                          Open host
+                        </button>
+                        <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(hostUrl)}>
+                          Copy host link
+                        </button>
+                        <button type="button" className="mini-btn" onClick={() => handlers?.onCancelGame?.(g.id, g.access!.hostKey!)}>
+                          Cancel game
+                        </button>
+                      </>
+                    ) : null}
+                  </div>
+
+                  {Array.isArray(g.access?.characterIds) && g.access!.characterIds.length ? (
+                    <div className="link-list" style={{ marginTop: 10 }}>
+                      {g.access!.characterIds.map(characterId => {
+                        const url = `${window.location.origin}/play/${g.id}/${characterId}${g.apiBase ? `?api=${encodeURIComponent(g.apiBase)}` : ''}`
+                        return (
+                          <div key={characterId} className="link-row">
+                            <strong>{`Player ${characterId}`}</strong>
+                            <code>{url}</code>
+                            <div className="link-row__actions">
+                              <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(url)}>
+                                Copy link
+                              </button>
+                              <button type="button" className="mini-btn" onClick={() => (window.location.href = url)}>
+                                Open
+                              </button>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  ) : null}
                 </div>
-              ))}
-            </div>
-            <div className="panel__meta" style={{ marginTop: 12, marginBottom: 8 }}>History</div>
-            <div className="link-list">
-              {!historyGames.length ? (
-                <div className="empty-state">No finished games yet.</div>
-              ) : historyGames.map(g => (
-                <div key={g.id} className="link-row">
-                  <strong>{g.name}</strong>
-                  <div className="link-row__meta">{g.state}</div>
-                  <code>{g.id}</code>
-                </div>
-              ))}
-            </div>
-          </>
+              )
+            })}
+          </div>
         )}
       </section>
     </>

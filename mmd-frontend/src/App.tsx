@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { BottomNav } from './components/BottomNav'
 import { PageRenderer } from './components/PageRenderer'
+import { BottomSheet } from './components/ui/BottomSheet'
+import { RenderNode } from './components/Primitives'
 import { LobbySurface } from './components/surfaces/LobbySurface'
 import { GameSurface } from './components/surfaces/GameSurface'
 import { ProfileSurface } from './components/surfaces/ProfileSurface'
@@ -31,22 +33,12 @@ export default function App() {
   const pins = usePinnedIds({ gameId, characterId })
 
   const state = mode === 'host' ? host : mode === 'player' ? player : launcher
-  const schemaBase =
+  const schema =
     mode === 'host'
       ? hostPageSchema
       : mode === 'player'
       ? (player.joined ? playerPageSchema : joinPageSchema)
       : launcherPageSchema
-  const schema =
-    mode === 'host' && !showInviteLinks
-      ? {
-          ...schemaBase,
-          layouts: {
-            ...schemaBase.layouts,
-            root: (schemaBase.layouts.root ?? []).filter(n => n.type !== 'host-info'),
-          },
-        }
-      : schemaBase
 
   const showTabs = Boolean(schema.tabs && (mode === 'player' ? player.joined : mode === 'host'))
   const playerSurfaceDefault = useMemo(() => {
@@ -107,7 +99,7 @@ export default function App() {
         <div className="app-header__actions">
           {mode === 'host' ? (
             <button type="button" onClick={() => setShowInviteLinks(v => !v)}>
-              {showInviteLinks ? 'Hide invite links' : 'Invite links'}
+              Links
             </button>
           ) : null}
           {onReload ? <button data-testid="reload" onClick={onReload}>Reload</button> : null}
@@ -134,6 +126,22 @@ export default function App() {
 
       {showTabs && schema.tabs ? (
         <BottomNav tabs={schema.tabs} activeTab={activeTab} onChange={setActiveTab} />
+      ) : null}
+
+      {mode === 'host' && showInviteLinks && state.screenData.hostInfo ? (
+        <BottomSheet
+          open={true}
+          onClose={() => setShowInviteLinks(false)}
+          eyebrow="Host only"
+          title="Invite links"
+          meta={`Game ${state.screenData.hostInfo.gameId}`}
+        >
+          <RenderNode
+            node={{ id: 'invite-links', type: 'host-info', bind: 'hostInfo' }}
+            data={state.screenData}
+            handlers={state.handlers}
+          />
+        </BottomSheet>
       ) : null}
     </div>
   )
