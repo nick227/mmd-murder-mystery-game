@@ -1,6 +1,6 @@
 import type { RuntimeCard, RuntimeStory } from './runtimeStory.js'
 
-export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE'
+export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
 
 function stableLocalId(input: string): string {
   let hash = 2166136261
