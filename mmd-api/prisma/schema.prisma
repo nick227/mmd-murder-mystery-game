@@ -104,6 +104,7 @@ enum GameState {
   PLAYING
   REVEAL
   DONE
+  CANCELLED
 }
 
 enum Track {

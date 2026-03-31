@@ -522,6 +522,40 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     return reply.send(serializeDates(updated))
   })
 
+  fastify.post<{ Params: { id: string } }>('/games/:id/host/cancel', {
+    schema: {
+      tags: ['Host Actions'],
+      summary: 'Cancel a game (soft-cancel, preserves history)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      headers: {
+        type: 'object',
+        properties: { 'x-host-key': { type: 'string' } },
+        required: ['x-host-key'],
+      },
+      response: {
+        200: toJsonSchema(GameSchema),
+        400: toJsonSchema(ErrorSchema),
+        401: toJsonSchema(ErrorSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const game = await prisma.game.findUnique({ where: { id: req.params.id } })
+    if (!game) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
+    if (req.headers['x-host-key'] !== game.hostKey) return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
+    if (game.state === 'DONE') return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Cannot cancel a DONE game' })
+
+    const updated = await prisma.game.update({
+      where: { id: game.id },
+      data: { state: 'CANCELLED' },
+    })
+    return reply.send(serializeDates(updated))
+  })
+
   fastify.post<{ Params: { id: string; playerId: string } }>('/games/:id/players/:playerId/assign', {
     schema: {
       tags: ['Host Actions'],

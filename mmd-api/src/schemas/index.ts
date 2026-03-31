@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 // ── Enums ────────────────────────────────────────────────────────────────────
 
-export const GameStateSchema = z.enum(['SCHEDULED', 'PLAYING', 'REVEAL', 'DONE'])
+export const GameStateSchema = z.enum(['SCHEDULED', 'PLAYING', 'REVEAL', 'DONE', 'CANCELLED'])
 export const TrackSchema = z.enum(['who', 'how', 'why'])
 
 // ── Story schemas ─────────────────────────────────────────────────────────────
