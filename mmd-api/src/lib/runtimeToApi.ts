@@ -19,6 +19,16 @@ function unlockedCardsForAct(cards: RuntimeCard[], currentAct: number) {
   return cards.filter(c => c.act <= currentAct)
 }
 
+function stableIndex(input: string, mod: number): number {
+  if (mod <= 0) return 0
+  let hash = 2166136261
+  for (let i = 0; i < input.length; i++) {
+    hash ^= input.charCodeAt(i)
+    hash = Math.imul(hash, 16777619)
+  }
+  return Math.abs(hash >>> 0) % mod
+}
+
 export function runtimeStoryToPlayerApiView(input: {
   story: RuntimeStory
   game: {
@@ -44,25 +54,43 @@ export function runtimeStoryToPlayerApiView(input: {
     return solved.has(card.act)
   })
 
-  const instructionCards = unlocked.filter(c => c.intent === 'instruction')
-  const clueCards = unlocked.filter(c => c.intent === 'clue')
-  const puzzleCards = unlocked.filter(c => c.intent === 'puzzle')
-  const revealCards = unlocked.filter(c => c.intent === 'reveal')
+  const playerCount = input.story.playerOrder.length
+  const myIndex = input.story.playerOrder.indexOf(input.me.characterId)
+
+  const visibleToMe = (card: RuntimeCard): boolean => {
+    // If a card has an explicit targetCharacterId that matches a real characterId, respect it.
+    const target = (card as any).targetCharacterId as string | null | undefined
+    if (typeof target === 'string' && input.story.playersByCharacterId[target]) {
+      return target === input.me.characterId
+    }
+    // Otherwise, deterministically assign per-player to avoid "everyone sees everything".
+    // This is a playability shim until the generator emits explicit ownership.
+    const ownerIndex = stableIndex(card.id, playerCount)
+    return ownerIndex === (myIndex >= 0 ? myIndex : 0)
+  }
+
+  const visible = unlocked.filter(card => {
+    if (card.intent === 'instruction' || card.intent === 'clue') return visibleToMe(card)
+    return true
+  })
+
+  const instructionCards = visible.filter(c => c.intent === 'instruction')
+  const clueCards = visible.filter(c => c.intent === 'clue')
+  const puzzleCards = visible.filter(c => c.intent === 'puzzle')
+  const revealCards = visible.filter(c => c.intent === 'reveal')
 
   const unlockedCards = [
     ...instructionCards.map((c, i) => ({ id: c.id ?? `inst-${i}`, text: c.text, act: c.act, type: 'instruction' })),
     ...clueCards.map((c, i) => ({ id: c.id ?? `clue-${i}`, text: c.text, act: c.act, type: 'clue' })),
-    ...puzzleCards.map((c, i) => ({ id: c.id ?? `puzzle-${i}`, text: c.text, act: c.act, type: 'puzzle' })),
     ...revealCards.map((c, i) => ({ id: c.id ?? `reveal-${i}`, text: c.text, act: c.act, type: 'reveal' })),
   ]
 
-  const newThisAct = unlocked.filter(c => c.act === input.game.currentAct && (c.intent === 'clue' || c.intent === 'puzzle' || c.intent === 'reveal'))
-  const unlockedPuzzles = newThisAct.map((c, index) => ({
-    id: c.id ?? `new-${index}`,
-    title: c.title ?? (c.intent === 'clue' ? 'Clue' : c.intent === 'puzzle' ? 'Puzzle' : 'Reveal'),
+  const unlockedPuzzles = puzzleCards.map((c, index) => ({
+    id: c.id ?? `puzzle-${index}`,
+    title: c.title ?? 'Puzzle',
     question: c.text,
     act: c.act,
-    intent: c.intent,
+    intent: 'puzzle',
   }))
 
   const me = input.story.playersByCharacterId[input.me.characterId]
@@ -85,6 +113,8 @@ export function runtimeStoryToPlayerApiView(input: {
     roomPlayers: input.game.players.map(p => ({
       id: p.id,
       characterId: p.characterId,
+      characterName: input.story.playersByCharacterId[p.characterId]?.name ?? null,
+      portrait: input.story.playersByCharacterId[p.characterId]?.image ?? null,
       playerName: p.playerName,
       joinedAt: p.joinedAt ? p.joinedAt.toISOString() : null,
     })),
@@ -92,7 +122,7 @@ export function runtimeStoryToPlayerApiView(input: {
     characterId: input.me.characterId,
     playerName: input.me.playerName,
     character: me
-      ? { id: me.characterId, name: me.name, archetype: me.archetype, biography: me.biography, secrets: me.secrets, items: [] }
+      ? { id: me.characterId, name: me.name, archetype: me.archetype, biography: me.biography, image: me.image ?? null, secrets: me.secrets, items: [] }
       : null,
     unlockedMysteries: [],
     unlockedPuzzles,
@@ -144,11 +174,12 @@ export function runtimeStoryToHostMeta(input: {
     storyTitle: input.story.title,
     stageTitle: stage?.title ?? null,
     stageText,
-    stageImage: null,
+    stageImage: stage?.image ?? null,
     players: input.game.players.map(p => ({
       id: p.id,
       characterId: p.characterId,
       characterName: characters[p.characterId]?.name ?? null,
+      portrait: characters[p.characterId]?.image ?? null,
       playerName: p.playerName,
       loginKey: p.loginKey,
       joinedAt: p.joinedAt ? p.joinedAt.toISOString() : null,

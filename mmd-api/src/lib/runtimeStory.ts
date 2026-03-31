@@ -58,6 +58,7 @@ export interface RuntimePlayer {
   name: string
   archetype?: string
   biography?: string
+  image?: string
   secrets: string[]
 }
 

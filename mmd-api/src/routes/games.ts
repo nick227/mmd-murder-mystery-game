@@ -10,6 +10,7 @@ import {
   SubmitAnswersBodySchema,
   MysteryAnswerSchema,
   MessageSchema,
+  PostMoveBodySchema,
   ErrorSchema,
 } from '../schemas/index.js'
 import { loadStoryJson } from '../lib/storyJson.js'
@@ -228,8 +229,18 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { state: 'PLAYING', currentAct: 1, startedAt: new Date() },
     })
+    let stageImage: string | null = null
+    if (game.storyFile) {
+      try {
+        const raw = await loadStoryJson(game.storyFile)
+        const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
+        stageImage = runtimeStory.stageByAct?.[1]?.image ?? null
+      } catch {
+        stageImage = null
+      }
+    }
     await prisma.gameEvent.create({
-      data: { gameId: game.id, playerId: null, type: 'START_GAME', payload: { act: 1 } },
+      data: { gameId: game.id, playerId: null, type: 'START_GAME', payload: { act: 1, stageImage } },
     })
     return reply.send(serializeDates(updated))
   })
@@ -266,8 +277,18 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { currentAct: game.currentAct + 1 },
     })
+    let stageImage: string | null = null
+    if (game.storyFile) {
+      try {
+        const raw = await loadStoryJson(game.storyFile)
+        const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
+        stageImage = runtimeStory.stageByAct?.[updated.currentAct]?.image ?? null
+      } catch {
+        stageImage = null
+      }
+    }
     await prisma.gameEvent.create({
-      data: { gameId: game.id, playerId: null, type: 'ADVANCE_ACT', payload: { act: updated.currentAct } },
+      data: { gameId: game.id, playerId: null, type: 'ADVANCE_ACT', payload: { act: updated.currentAct, stageImage } },
     })
     return reply.send(serializeDates(updated))
   })
@@ -318,6 +339,62 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       },
     })
     return reply.send({ message: 'Submitted' })
+  })
+
+  fastify.post<{ Params: { id: string } }>('/game/:id/move', {
+    schema: {
+      tags: ['Game'],
+      summary: 'Post a structured move (player, public)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      body: toJsonSchema(PostMoveBodySchema),
+      response: {
+        200: toJsonSchema(MessageSchema),
+        400: toJsonSchema(ErrorSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const body = validate(PostMoveBodySchema, req.body)
+    const player = await prisma.gamePlayer.findFirst({
+      where: { gameId: req.params.id, characterId: body.characterId },
+      include: { game: true },
+    })
+    if (!player) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Invalid player' })
+    if (player.game.state !== 'PLAYING') {
+      return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Game is not in PLAYING state' })
+    }
+
+    const runtimeRaw = player.game.storyFile ? await loadStoryJson(player.game.storyFile) : null
+    const runtimeStory = runtimeRaw ? adaptGeneratedStoryToRuntime(runtimeRaw).runtimeStory : null
+    const index = runtimeStory ? runtimeStory.playerOrder.indexOf(player.characterId) : -1
+    const targetName =
+      runtimeStory && typeof body.targetCharacterId === 'string'
+        ? (runtimeStory.playersByCharacterId[body.targetCharacterId]?.name ?? null)
+        : null
+
+    await prisma.gameEvent.create({
+      data: {
+        gameId: player.gameId,
+        playerId: player.id,
+        type: 'POST_MOVE' as any,
+        payload: {
+          act: player.game.currentAct,
+          moveType: body.moveType,
+          text: typeof body.text === 'string' ? body.text : null,
+          targetCharacterId: typeof body.targetCharacterId === 'string' ? body.targetCharacterId : null,
+          targetName,
+          characterId: player.characterId,
+          playerName: player.playerName,
+          playerIndex: index >= 0 ? index : null,
+        },
+      },
+    })
+
+    return reply.send({ message: 'Posted' })
   })
 
   fastify.post<{ Params: { id: string } }>('/games/:id/host/next-act', {

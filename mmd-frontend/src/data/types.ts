@@ -1,13 +1,41 @@
 export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE'
-export type TabId = 'game' | 'objectives' | 'profile'
+export type TabId = 'lobby' | 'game' | 'caseboard' | 'profile'
 export type ViewMode = 'launcher' | 'player' | 'host'
 export type FeedItemType = 'chat' | 'announcement' | 'system'
+export type FeedVariant = 'narration' | 'social' | 'mechanic' | 'room'
+export type MoveType = 'suspect' | 'accuse' | 'alibi' | 'share_clue' | 'searched' | 'solved'
+
+export type MediaKind = 'image' | 'video' | 'audio'
+export type MediaRatio = '16:9' | '4:3' | '1:1' | 'auto'
+export type MediaVariant = 'hero' | 'card' | 'thumb'
+export type MediaFallbackType = 'gradient' | 'initials' | 'icon'
+export type MediaFit = 'cover' | 'contain'
+export type MediaRole = 'decorative' | 'content' | 'avatar'
+
+export type MediaProps = {
+  kind?: MediaKind
+  src?: string
+  poster?: string
+  alt?: string
+  ratio?: MediaRatio
+  variant?: MediaVariant
+  fit?: MediaFit
+  priority?: boolean
+  sizes?: string
+  role?: MediaRole
+  onClick?: () => void
+  fallback?: {
+    type: MediaFallbackType
+    label?: string
+  }
+}
 
 export interface RoomPlayer {
   id: string
   name: string
   characterId: string
   online: boolean
+  portrait?: string
 }
 
 export interface StageData {
@@ -25,6 +53,17 @@ export interface StageData {
 export interface FeedItem {
   id: string
   type: FeedItemType
+  variant?: FeedVariant
+  media?: MediaProps
+  layout?: 'row' | 'cinematic'
+  stacking?: 'solo' | 'start' | 'mid' | 'end'
+  actDivider?: number
+  chips?: Array<{
+    kind: 'suspect' | 'clue' | 'location'
+    id?: string
+    label: string
+    image?: string
+  }>
   text: string
   author?: string
   visibility?: 'public' | 'private'
@@ -47,6 +86,28 @@ export interface ProfileCardItem {
   value: string
 }
 
+export interface EvidenceItem {
+  id: string
+  kind: 'clue' | 'puzzle' | 'reveal'
+  title: string
+  text: string
+  act?: number
+  image?: string
+}
+
+export interface HeatItem {
+  characterId: string
+  name: string
+  heat: number
+}
+
+export interface TimelinePin {
+  id: string
+  label: string
+  act?: number
+  sourceFeedId: string
+}
+
 export interface ActionItem {
   id: string
   label: string
@@ -59,12 +120,22 @@ export interface ComposerRecipient {
   label: string
 }
 
+export interface ComposerEvidenceOption {
+  id: string
+  label: string
+  image?: string
+}
+
 export interface ComposerData {
   mode: 'public' | 'private'
+  moveType?: MoveType
   draft: string
   placeholder?: string
   recipients: ComposerRecipient[]
   recipientId?: string
+  evidenceOptions?: ComposerEvidenceOption[]
+  evidenceId?: string
+  location?: string
   canSend?: boolean
 }
 
@@ -107,15 +178,24 @@ export interface ScreenData {
   game: StageData
   players: RoomPlayer[]
   feed: FeedItem[]
+  view?: {
+    doNow: ObjectiveItem[]
+    evidence: EvidenceItem[]
+    heat?: HeatItem[]
+    timeline?: TimelinePin[]
+  }
   objectives: {
     personal: ObjectiveItem[]
     group: ObjectiveItem[]
+    /** Story reveal cards (Cards tab only; not duplicated on Character). */
+    reveals: ObjectiveItem[]
     host?: ObjectiveItem[]
   }
   profile: {
     characterName: string
     archetype?: string
     biography?: string
+    portrait?: string
     secrets: ProfileCardItem[]
     items: ProfileCardItem[]
     cards: ProfileCardItem[]
@@ -170,6 +250,9 @@ export interface RendererHandlers {
   onObjectiveSubmit?: (objectiveId: string) => Promise<void>
   onComposerModeChange?: (mode: 'public' | 'private') => void
   onComposerRecipientChange?: (recipientId: string) => void
+  onComposerMoveTypeChange?: (moveType: MoveType) => void
+  onComposerEvidenceChange?: (evidenceId: string) => void
+  onComposerLocationChange?: (location: string) => void
   onComposerDraftChange?: (value: string) => void
   onComposerSend?: () => void
   onCopyText?: (value: string) => void
@@ -190,6 +273,7 @@ export interface ApiGameEvent {
     | 'STAGE_UPDATED'
     | 'JOIN'
     | 'SUBMIT_OBJECTIVE'
+    | 'POST_MOVE'
     | 'START_GAME'
     | 'ADVANCE_ACT'
   payload?: Record<string, unknown>
@@ -205,6 +289,8 @@ export interface ApiStage {
 export interface ApiRoomPlayer {
   id: string
   characterId: string
+  characterName?: string | null
+  portrait?: string | null
   playerName: string | null
   joinedAt: string | null
 }

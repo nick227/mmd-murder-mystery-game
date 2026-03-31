@@ -24,9 +24,14 @@ export const emptyScreenData: ScreenData = {
   },
   players: [],
   feed: [],
+  view: {
+    doNow: [],
+    evidence: [],
+  },
   objectives: {
     personal: [],
     group: [],
+    reveals: [],
     host: [],
   },
   profile: {

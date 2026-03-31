@@ -1,4 +1,4 @@
-import type { HostApiGame, PlayerApiView, StoryListItem } from './types'
+import type { HostApiGame, MoveType, PlayerApiView, StoryListItem } from './types'
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(url, init)
@@ -107,5 +107,17 @@ export async function submitObjective(
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ characterId, cardId: objectiveId, act: 0 }),
+  })
+}
+
+export async function postMove(
+  apiBase: string,
+  gameId: string,
+  body: { characterId: string; moveType: MoveType; text?: string; targetCharacterId?: string },
+) {
+  return request<{ message: string }>(`${apiBase}/api/v1/game/${gameId}/move`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
   })
 }

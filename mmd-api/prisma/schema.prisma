@@ -122,6 +122,7 @@ enum GameEventType {
   SUBMISSION    // legacy (kept for compatibility)
   JOIN
   SUBMIT_OBJECTIVE
+  POST_MOVE
   START_GAME
   ADVANCE_ACT
 }

@@ -38,6 +38,7 @@ const HostPlayerSchema = z.object({
   id: z.string(),
   characterId: z.string(),
   characterName: z.string().nullable().optional(),
+  portrait: z.string().nullable().optional(),
   playerName: z.string().nullable(),
   loginKey: z.string(),
   joinedAt: z.string().datetime().nullable(),
@@ -86,6 +87,8 @@ export const PlayerViewSchema = z.object({
   roomPlayers: z.array(z.object({
     id: z.string(),
     characterId: z.string(),
+    characterName: z.string().nullable().optional(),
+    portrait: z.string().nullable().optional(),
     playerName: z.string().nullable(),
     joinedAt: z.string().datetime().nullable(),
   })).default([]),
@@ -110,6 +113,15 @@ export const SubmitCardBodySchema = z.object({
   characterId: z.string().min(1, 'characterId is required'),
   cardId: z.string().min(1, 'cardId is required'),
   act: z.number().int(),
+})
+
+export const MoveTypeSchema = z.enum(['suspect', 'accuse', 'alibi', 'share_clue', 'searched', 'solved'])
+
+export const PostMoveBodySchema = z.object({
+  characterId: z.string().min(1, 'characterId is required'),
+  moveType: MoveTypeSchema,
+  text: z.string().optional(),
+  targetCharacterId: z.string().optional(),
 })
 
 // ── Host action schemas ───────────────────────────────────────────────────────

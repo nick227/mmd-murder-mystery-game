@@ -1,4 +1,4 @@
-import type { HostApiGame, PlayerApiView, StoryListItem } from '../types'
+import type { HostApiGame, MoveType, PlayerApiView, StoryListItem } from '../types'
 
 export type HostAction = 'start' | 'next-act' | 'done'
 
@@ -14,6 +14,7 @@ export interface GameSource {
 
   joinPlayerByCharacter(apiBase: string, gameId: string, characterId: string, playerName: string): Promise<{ message: string }>
   submitObjective(apiBase: string, gameId: string, characterId: string, objectiveId: string): Promise<{ message: string }>
+  postMove(apiBase: string, gameId: string, body: { characterId: string; moveType: MoveType; text?: string; targetCharacterId?: string }): Promise<{ message: string }>
   fetchPlayerViewByCharacter(apiBase: string, gameId: string, characterId: string): Promise<PlayerApiView>
 }
 

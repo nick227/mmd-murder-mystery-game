@@ -6,6 +6,7 @@ import {
   joinPlayerByCharacter,
   postEndNight,
   postHostAction,
+  postMove,
   submitObjective,
 } from '../api'
 import type { GameSource } from './types'
@@ -18,6 +19,7 @@ export const apiGameSource: GameSource = {
   postEndNight,
   joinPlayerByCharacter,
   submitObjective,
+  postMove,
   fetchPlayerViewByCharacter,
 }
 

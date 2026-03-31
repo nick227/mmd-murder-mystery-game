@@ -20,43 +20,17 @@ export const joinPageSchema: PageSchema = {
 export const playerPageSchema: PageSchema = {
   id: 'player-game',
   tabs: [
+    { id: 'lobby', label: 'Lobby' },
     { id: 'game', label: 'Game' },
-    { id: 'objectives', label: 'Objectives' },
-    { id: 'profile', label: 'Character' },
+    { id: 'caseboard', label: 'Caseboard' },
+    { id: 'profile', label: 'Profile' },
   ],
-  layouts: {
-    game: [
-      { id: 'stage', type: 'stage', bind: 'game' },
-      {
-        id: 'new-this-act-section',
-        type: 'section',
-        title: 'New this act',
-        children: [{ id: 'new-this-act-list', type: 'list', bind: 'objectives.group', emptyText: 'No new items this act.' }],
-      },
-      {
-        id: 'clues-section',
-        type: 'section',
-        title: 'Clues',
-        children: [{ id: 'clues-list', type: 'list', bind: 'profile.cards', emptyText: 'No clues yet.' }],
-      },
-      { id: 'composer', type: 'composer', bind: 'composer' },
-    ],
-    objectives: [
-      {
-        id: 'personal-section',
-        type: 'section',
-        title: 'Your objectives',
-        children: [{ id: 'personal-list', type: 'list', bind: 'objectives.personal', emptyText: 'No personal objectives yet.' }],
-      },
-    ],
-    profile: [
-      { id: 'character-profile', type: 'profile-card', bind: 'profile' },
-    ],
-  },
+  // Player layouts are owned by first-class surface components (LobbySurface/GameSurface/ProfileSurface).
+  // This schema only provides tab labels for BottomNav.
+  layouts: {},
 }
 
 export const hostPageSchema: PageSchema = {
-  ...playerPageSchema,
   id: 'host-game',
   tabs: undefined,
   layouts: {

@@ -62,6 +62,17 @@ function contentsFromCard(card: GeneratedCard): string | null {
   return asString(card.card_contents)
 }
 
+function imageFromCard(card: GeneratedCard): string | null {
+  // Optional, forward-compatible fields the generator may emit later.
+  // We do not require these; runtime remains playable without imagery.
+  const anyCard = card as any
+  return asString(anyCard.image)
+    ?? asString(anyCard.image_url)
+    ?? asString(anyCard.imageUrl)
+    ?? asString(anyCard.card_image)
+    ?? null
+}
+
 function stableLocalId(input: string): string {
   let hash = 2166136261
   for (let i = 0; i < input.length; i++) {
@@ -197,6 +208,7 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
       characterId,
       name: titleFromCard(card) ?? `Character ${characterId}`,
       biography: contentsFromCard(card) ?? undefined,
+      image: imageFromCard(card) ?? undefined,
       secrets: [],
     }
   }
@@ -217,7 +229,12 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
   const actCards = cards.filter(c => typeFromCard(c) === 'story_act')
   for (const card of actCards) {
     const act = cardAct(card) ?? 1
-    stageByAct[act] = { act, title: titleFromCard(card) ?? `Act ${act}`, text: contentsFromCard(card) ?? '' }
+    stageByAct[act] = {
+      act,
+      title: titleFromCard(card) ?? `Act ${act}`,
+      text: contentsFromCard(card) ?? '',
+      image: imageFromCard(card) ?? undefined,
+    }
   }
 
   const runtimeCards: RuntimeCard[] = []

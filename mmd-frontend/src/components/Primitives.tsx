@@ -12,6 +12,9 @@ import type {
   ScreenData,
   StageData,
 } from '../data/types'
+import { Feed as FeedComponent } from './feed/Feed'
+import { ComposerPanel } from './surfaces/ComposerPanel'
+import { intentBadgeLabel } from '../utils/uiText'
 
 // ── Bound value resolver ──────────────────────────────────────────────────────
 // Supports top-level keys and one level of dot notation: "objectives.personal"
@@ -70,7 +73,7 @@ function PlayerPills({ players }: { players: RoomPlayer[] }) {
 
 // ── Stage ─────────────────────────────────────────────────────────────────────
 
-export function Stage({ data, players }: { data: StageData; players: RoomPlayer[] }) {
+export function Stage({ data, players, showPlayers = true }: { data: StageData; players: RoomPlayer[]; showPlayers?: boolean }) {
   const safePercent = typeof data.countdownPercent === 'number'
     ? Math.max(0, Math.min(100, data.countdownPercent))
     : null
@@ -95,33 +98,7 @@ export function Stage({ data, players }: { data: StageData; players: RoomPlayer[
       ) : null}
       {data.banner ? <div className="banner">{data.banner}</div> : null}
       <p className="stage__description">{data.description}</p>
-      <PlayerPills players={players} />
-    </section>
-  )
-}
-
-// ── Feed ──────────────────────────────────────────────────────────────────────
-
-function Feed({ items }: { items: ScreenData['feed'] }) {
-  return (
-    <section className="panel">
-      <div className="panel__header">
-        <h2>Room feed</h2>
-        <div className="panel__meta">Live room updates</div>
-      </div>
-      <div className="feed-list">
-        {!items.length ? <div className="empty-state">No room updates yet.</div> : null}
-        {items.map(item => (
-          <article key={item.id} className={`feed-item feed-item--${item.type}`}>
-            <div className="feed-item__top">
-              <span>{item.author ?? item.type}</span>
-              <span>{item.timestamp ?? ''}</span>
-            </div>
-            {item.visibility ? <div className="feed-item__visibility">{item.visibility}</div> : null}
-            <div>{item.text}</div>
-          </article>
-        ))}
-      </div>
+      {showPlayers ? <PlayerPills players={players} /> : null}
     </section>
   )
 }
@@ -170,16 +147,6 @@ function ObjectiveList({
     '': 5,
   }
 
-  function intentLabel(intent: unknown): string {
-    const value = typeof intent === 'string' ? intent : ''
-    if (value === 'instruction') return 'Instruction'
-    if (value === 'clue') return 'Clue'
-    if (value === 'puzzle') return 'Puzzle'
-    if (value === 'reveal') return 'Reveal'
-    if (value === 'info') return 'Info'
-    return ''
-  }
-
   const orderedItems: Array<ObjectiveItem | ProfileCardItem> = useMemo(() => {
     if (!isObjectiveList) return items
     // Only sort "group/new this act" style lists (group flag set).
@@ -216,7 +183,7 @@ function ObjectiveList({
               {'label' in item ? <div className="list-row__title">{item.label}</div> : null}
               {isObjective && intent ? (
                 <div className="list-row__meta">
-                  <span className={`badge badge--intent badge--intent-${intent}`}>{intentLabel(intent)}</span>
+                  <span className={`badge badge--intent badge--intent-${intent}`}>{intentBadgeLabel(intent as ObjectiveItem['intent'])}</span>
                 </div>
               ) : null}
               <div className={expanded ? 'list-row__text list-row__text--expanded' : 'list-row__text'}>
@@ -357,63 +324,6 @@ function HostInfoCard({ data, handlers }: { data: NonNullable<ScreenData['hostIn
   )
 }
 
-// ── Composer card ─────────────────────────────────────────────────────────────
-
-function ComposerCard({ data, handlers }: { data: ComposerData; handlers?: RendererHandlers }) {
-  return (
-    <section className="panel composer-panel">
-      <div className="panel__header">
-        <h2>Messages</h2>
-        <div className="panel__meta">Public and private</div>
-      </div>
-      <div className="composer-toggle">
-        <button
-          type="button"
-          className={data.mode === 'public' ? 'mini-btn mini-btn--active' : 'mini-btn'}
-          onClick={() => handlers?.onComposerModeChange?.('public')}
-        >
-          Public
-        </button>
-        <button
-          type="button"
-          className={data.mode === 'private' ? 'mini-btn mini-btn--active' : 'mini-btn'}
-          onClick={() => handlers?.onComposerModeChange?.('private')}
-        >
-          Private
-        </button>
-      </div>
-      {data.mode === 'private' ? (
-        <select
-          className="composer-select"
-          value={data.recipientId ?? ''}
-          onChange={e => handlers?.onComposerRecipientChange?.(e.target.value)}
-        >
-          <option value="">Choose recipient</option>
-          {data.recipients.map(r => (
-            <option key={r.id} value={r.id}>{r.label}</option>
-          ))}
-        </select>
-      ) : null}
-      <textarea
-        className="composer-textarea"
-        placeholder={data.placeholder}
-        value={data.draft}
-        onChange={e => handlers?.onComposerDraftChange?.(e.target.value)}
-      />
-      <div className="composer-actions">
-        <button
-          type="button"
-          className="action-btn action-btn--primary"
-          disabled={!data.canSend}
-          onClick={() => handlers?.onComposerSend?.()}
-        >
-          Send
-        </button>
-      </div>
-    </section>
-  )
-}
-
 // ── Launcher card ─────────────────────────────────────────────────────────────
 
 function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: RendererHandlers }) {
@@ -546,7 +456,7 @@ export function RenderNode({ node, data, handlers }: {
       return <Stage data={(value as StageData) ?? data.game} players={data.players} />
 
     case 'feed':
-      return <Feed items={(value as ScreenData['feed']) ?? data.feed} />
+      return <FeedComponent items={(value as ScreenData['feed']) ?? data.feed} />
 
     case 'list':
       return (
@@ -570,7 +480,7 @@ export function RenderNode({ node, data, handlers }: {
 
     case 'composer': {
       const composer = (value as ComposerData) ?? data.composer
-      return <ComposerCard data={composer} handlers={handlers} />
+      return <ComposerPanel data={composer} handlers={handlers} />
     }
 
     case 'launcher': {

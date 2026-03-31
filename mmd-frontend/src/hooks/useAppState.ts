@@ -2,13 +2,27 @@ import { useEffect, useMemo, useState } from 'react'
 import { normaliseFeedEvent, playerViewToScreenData } from '../data/adapters'
 import { defaultLauncherData, emptyScreenData } from '../data/mock'
 import { getGameSource, readGameSourceModeFromLocation } from '../data/sources/getGameSource'
+import { storyHeroImage } from '../utils/storyHeroImage'
 import type {
   FeedItem,
   HostApiGame,
+  MoveType,
   RendererHandlers,
   ScreenData,
   TabId,
 } from '../data/types'
+import { encodeClueToken, encodeLocationToken } from '../gameplay/richTokens'
+
+function canSendMove(input: { moveType?: MoveType; draft: string; recipientId?: string; evidenceId?: string; location?: string }): boolean {
+  const moveType = input.moveType ?? 'suspect'
+  const needsTarget = moveType === 'suspect' || moveType === 'accuse'
+  const needsText = moveType === 'alibi' || moveType === 'solved'
+  if (needsTarget && !input.recipientId) return false
+  if (needsText && input.draft.trim().length === 0) return false
+  if (moveType === 'share_clue' && input.draft.trim().length === 0 && !input.evidenceId) return false
+  if (moveType === 'searched' && input.draft.trim().length === 0 && !input.location) return false
+  return true
+}
 
 // Phase 1: localStorage state is no longer used by the frontend.
 
@@ -57,17 +71,10 @@ function countdownParts(scheduledTime?: string) {
   return { label: `${minutes}m until start`, percent: Math.max(5, Math.min(100, pct)) }
 }
 
-function storyHeroImage(title: string): string {
-  const key = title.toLowerCase()
-  if (key.includes('diamond') || key.includes('hollywood')) {
-    return 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80'
-  }
-  return 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80'
-}
+// (moved) storyHeroImage -> src/utils/storyHeroImage.ts
 
 function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
   const countdown = countdownParts(game.scheduledTime)
-  const source = readGameSourceModeFromLocation()
   const shareQuery = buildShareQuery({ apiBase })
   const playerLinks = game.players.map(player => ({
     characterId: player.characterId,
@@ -123,6 +130,7 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
     objectives: {
       personal: [],
       group: [],
+      reveals: [],
       host: [
         { id: 'host-1', text: 'Watch joined status and wait until the room is ready.', completed: false },
         { id: 'host-2', text: 'Advance acts only when conversation energy drops.', completed: false },
@@ -166,6 +174,47 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
 export function useTabState(defaultTab: TabId) {
   const [activeTab, setActiveTab] = useState<TabId>(defaultTab)
   return [activeTab, setActiveTab] as const
+}
+
+function readPinnedIds(key: string): string[] {
+  try {
+    const raw = window.localStorage.getItem(key)
+    const parsed = raw ? JSON.parse(raw) : []
+    return Array.isArray(parsed) ? parsed.map(String) : []
+  } catch {
+    return []
+  }
+}
+
+function writePinnedIds(key: string, ids: string[]) {
+  try {
+    window.localStorage.setItem(key, JSON.stringify(ids))
+  } catch {
+    // ignore
+  }
+}
+
+export function usePinnedIds(input: { gameId?: string | null; characterId?: string | null }) {
+  // User-local UI memory only (view preference). Not authoritative game state.
+  // Intentionally stored per-device to avoid merging semantics until/unless we opt into server sync later.
+  const key = `mmd:view:pins:${String(input.gameId ?? '')}:${String(input.characterId ?? '')}`
+  const [pinnedIds, setPinnedIds] = useState<string[]>(() => readPinnedIds(key))
+
+  useEffect(() => {
+    setPinnedIds(readPinnedIds(key))
+  }, [key])
+
+  const togglePinned = (id: string) => {
+    setPinnedIds(current => {
+      const next = current.includes(id) ? current.filter(x => x !== id) : [...current, id]
+      writePinnedIds(key, next)
+      return next
+    })
+  }
+
+  const isPinned = (id: string) => pinnedIds.includes(id)
+
+  return { pinnedIds, togglePinned, isPinned }
 }
 
 export function useViewMode() {
@@ -309,6 +358,10 @@ export function usePlayerScreenData(
   const [error, setError] = useState('')
   const [joined, setJoined] = useState(false)
   const [joinDraft, setJoinDraft] = useState('')
+  const [composerState, setComposerState] = useState<{ moveType: MoveType; draft: string; recipientId?: string; evidenceId?: string; location?: string }>({
+    moveType: 'suspect' as MoveType,
+    draft: '',
+  })
 
   const reload = async () => {
     if (!gameId || !characterId) return
@@ -316,7 +369,17 @@ export function usePlayerScreenData(
     setError('')
     try {
       const view = await gameSource.fetchPlayerViewByCharacter(apiBase, gameId, characterId)
-      setScreenData(playerViewToScreenData(view, joinDraft))
+      const base = playerViewToScreenData(view, joinDraft)
+      const nextComposer = {
+        ...base.composer,
+        mode: 'public' as const,
+        moveType: composerState.moveType,
+        draft: composerState.draft,
+        recipientId: composerState.recipientId,
+        evidenceId: composerState.evidenceId,
+        location: composerState.location,
+      }
+      setScreenData({ ...base, composer: { ...nextComposer, canSend: canSendMove(nextComposer) } })
       if (view.playerName) {
         setJoined(true)
       }
@@ -342,6 +405,7 @@ export function usePlayerScreenData(
           ...current.objectives,
           personal: current.objectives.personal.map(item => item.id === objectiveId ? { ...item, completed: !item.completed } : item),
           group: current.objectives.group.map(item => item.id === objectiveId ? { ...item, completed: !item.completed } : item),
+          reveals: current.objectives.reveals,
         },
       }))
 
@@ -379,10 +443,77 @@ export function usePlayerScreenData(
     onComposerModeChange: mode => {
       setScreenData(current => ({ ...current, composer: { ...current.composer, mode } }))
     },
-    onComposerDraftChange: value => {
-      setScreenData(current => ({ ...current, composer: { ...current.composer, draft: value, canSend: value.trim().length > 0 } }))
+    onComposerMoveTypeChange: moveType => {
+      setComposerState(current => ({ ...current, moveType }))
+      setScreenData(current => {
+        const next = { ...current.composer, moveType }
+        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+      })
     },
-  }), [apiBase, gameId, characterId, joinDraft, source])
+    onComposerRecipientChange: recipientId => {
+      setComposerState(current => ({ ...current, recipientId }))
+      setScreenData(current => {
+        const next = { ...current.composer, recipientId }
+        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+      })
+    },
+    onComposerEvidenceChange: evidenceId => {
+      setComposerState(current => ({ ...current, evidenceId }))
+      setScreenData(current => {
+        const next = { ...current.composer, evidenceId }
+        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+      })
+    },
+    onComposerLocationChange: location => {
+      setComposerState(current => ({ ...current, location }))
+      setScreenData(current => {
+        const next = { ...current.composer, location }
+        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+      })
+    },
+    onComposerDraftChange: value => {
+      setComposerState(current => ({ ...current, draft: value }))
+      setScreenData(current => {
+        const next = { ...current.composer, draft: value }
+        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+      })
+    },
+    onComposerSend: async () => {
+      if (!gameId || !characterId) return
+      const moveType = screenData.composer.moveType ?? 'suspect'
+      const recipientId = screenData.composer.recipientId
+      const draft = screenData.composer.draft.trim()
+      const evidenceId = screenData.composer.evidenceId
+      const location = screenData.composer.location?.trim()
+
+      const evidence =
+        evidenceId && Array.isArray(screenData.composer.evidenceOptions)
+          ? screenData.composer.evidenceOptions.find(o => o.id === evidenceId) ?? null
+          : null
+
+      const clueToken = evidence ? ` ${encodeClueToken(evidence)}` : ''
+      const locationToken = location ? ` ${encodeLocationToken({ id: location, label: location })}` : ''
+
+      const text =
+        moveType === 'share_clue'
+          ? `${draft}${clueToken}`.trim()
+          : moveType === 'searched'
+          ? `${draft}${locationToken}`.trim()
+          : draft
+      try {
+        await gameSource.postMove(apiBase, gameId, {
+          characterId,
+          moveType,
+          text: text.length ? text : undefined,
+          targetCharacterId: recipientId,
+        })
+        setComposerState(current => ({ ...current, draft: '', evidenceId: undefined, location: undefined }))
+        await reload()
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to post move')
+      }
+    },
+  }), [apiBase, gameId, characterId, joinDraft, source, screenData.composer, gameSource])
 
   return { screenData, handlers, loading, error, reload, joined }
 }
@@ -425,6 +556,7 @@ export function useHostScreenData(
         ...current,
         objectives: {
           ...current.objectives,
+          reveals: current.objectives.reveals,
           host: (current.objectives.host ?? []).map(item => item.id === objectiveId ? { ...item, completed: !item.completed } : item),
         },
       }))
