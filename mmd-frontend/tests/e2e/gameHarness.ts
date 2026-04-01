@@ -47,7 +47,8 @@ export class GameHarness {
 
     await this.page.locator('.created-box').waitFor()
     const hostUrl = (await this.page.locator('.created-box code').first().innerText()).trim()
-    const playerUrls = (await this.page.locator('.created-box .link-row code').allInnerTexts()).map(t => t.trim())
+    await this.page.getByTestId('bottom-sheet').waitFor()
+    const playerUrls = (await this.page.locator('[data-testid="bottom-sheet"] .link-list .link-row code').allInnerTexts()).map(t => t.trim())
     if (!hostUrl) throw new Error('Missing hostUrl from launcher')
     if (!playerUrls.length) throw new Error('Missing playerUrls from launcher')
     return { hostUrl, playerUrls }

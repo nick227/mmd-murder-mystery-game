@@ -645,6 +645,22 @@ button { cursor: pointer; }
   color: #c9d2ff;
 }
 .link-row__meta { color: var(--muted); font-size: .78rem; }
+.link-row__title {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text);
+  transition: color 120ms ease;
+}
+.link-row__title:hover {
+  color: var(--accent);
+}
+.link-row__title strong {
+  font-weight: 600;
+}
 .link-row__actions { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
 .link-row__actions--stack { margin-bottom: 12px; }
 

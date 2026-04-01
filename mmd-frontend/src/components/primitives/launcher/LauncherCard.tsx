@@ -3,8 +3,11 @@ import type { LauncherData, RendererHandlers } from '../../../data/types'
 import { HostSetupSheet } from './HostSetupSheet'
 import { mergeLauncherGames } from './mergeLauncherGames'
 
+type Game = ReturnType<typeof mergeLauncherGames>[0]
+
 export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: RendererHandlers }) {
-  const [showHostSetup, setShowHostSetup] = useState(false)
+  const [sheetOpen, setSheetOpen] = useState(false)
+  const [activeGame, setActiveGame] = useState<Game | undefined>()
   const [setupCharacterId, setSetupCharacterId] = useState<string | null>(null)
   const [setupScheduledTime, setSetupScheduledTime] = useState('')
   const openedForGameIdRef = useRef<string | null>(null)
@@ -13,7 +16,8 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
     const cg = data.createdGame
     if (!cg || openedForGameIdRef.current === cg.id) return
     openedForGameIdRef.current = cg.id
-    setShowHostSetup(true)
+    setActiveGame(undefined)
+    setSheetOpen(true)
     setSetupScheduledTime(cg.scheduledTime.slice(0, 16))
     setSetupCharacterId(cg.playerLinks[0]?.characterId ?? null)
   }, [data.createdGame])
@@ -83,30 +87,20 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
                 Copy host link
               </button>
             </div>
-            {data.createdGame.playerLinks.map(link => (
-              <div key={link.url} className="link-row u-mt-10">
-                <strong>{link.label}</strong>
-                <code>{link.url}</code>
-                <div className="link-row__actions">
-                  <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(link.url)}>
-                    Copy link
-                  </button>
-                </div>
-              </div>
-            ))}
           </div>
         ) : null}
       </section>
 
-      {data.createdGame && showHostSetup ? (
+      {sheetOpen ? (
         <HostSetupSheet
+          game={activeGame}
           createdGame={data.createdGame}
           apiBase={data.apiBase}
           setupScheduledTime={setupScheduledTime}
           setupCharacterId={setupCharacterId}
           onScheduledTimeChange={setSetupScheduledTime}
           onCharacterIdChange={setSetupCharacterId}
-          onClose={() => setShowHostSetup(false)}
+          onClose={() => setSheetOpen(false)}
           handlers={handlers}
         />
       ) : null}
@@ -128,7 +122,16 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
 
               return (
                 <div key={`${g.apiBase}:${g.id}`} className="link-row">
-                  <strong>{g.name ?? g.id}</strong>
+                  <button
+                    type="button"
+                    className="link-row__title"
+                    onClick={() => {
+                      setActiveGame(g)
+                      setSheetOpen(true)
+                    }}
+                  >
+                    <strong>{g.name ?? g.id}</strong>
+                  </button>
                   <div className="link-row__meta">{stateLabel}</div>
                   <code>{g.id}</code>
 
@@ -151,28 +154,6 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
                       </>
                     ) : null}
                   </div>
-
-                  {Array.isArray(g.access?.characterIds) && g.access!.characterIds.length ? (
-                    <div className="link-list u-mt-10">
-                      {g.access!.characterIds.map(characterId => {
-                        const url = `${window.location.origin}/play/${g.id}/${characterId}${g.apiBase ? `?api=${encodeURIComponent(g.apiBase)}` : ''}`
-                        return (
-                          <div key={characterId} className="link-row">
-                            <strong>{`Player ${characterId}`}</strong>
-                            <code>{url}</code>
-                            <div className="link-row__actions">
-                              <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(url)}>
-                                Copy link
-                              </button>
-                              <button type="button" className="mini-btn" onClick={() => (window.location.href = url)}>
-                                Open
-                              </button>
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  ) : null}
                 </div>
               )
             })}
