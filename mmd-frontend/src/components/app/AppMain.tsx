@@ -1,6 +1,7 @@
 import type { PageSchema, RendererHandlers, ScreenData, TabId, ViewMode } from '../../data/types'
-import { PageRenderer } from '../PageRenderer'
 import { RoomRouter } from '../../app/RoomRouter'
+import { PageRenderer } from '../PageRenderer'
+import { ContentLoadingState } from './ContentLoadingState'
 
 export interface AppMainProps {
   mode: ViewMode
@@ -11,18 +12,25 @@ export interface AppMainProps {
   pageRendererActiveTab?: TabId
   /** Main column only; header and tabs stay visible (initial load / route change). */
   contentLoading?: boolean
+  contentLoadingLabel?: string
 }
 
 export function AppMain(props: AppMainProps) {
-  const { mode, activeTab, schema, pageData, pageHandlers, pageRendererActiveTab, contentLoading } = props
+  const {
+    mode,
+    activeTab,
+    schema,
+    pageData,
+    pageHandlers,
+    pageRendererActiveTab,
+    contentLoading,
+    contentLoadingLabel,
+  } = props
 
   if (contentLoading) {
     return (
-      <div className="app-main app-main--loading" role="status" aria-live="polite" aria-busy="true">
-        <div className="main-loading">
-          <div className="main-loading__spinner" aria-hidden />
-          <p className="main-loading__label">Loading…</p>
-        </div>
+      <div className="app-main app-main--loading">
+        <ContentLoadingState label={contentLoadingLabel} />
       </div>
     )
   }

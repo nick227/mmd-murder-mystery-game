@@ -181,7 +181,9 @@ button { cursor: pointer; }
   justify-content: center;
   min-height: min(52vh, 420px);
 }
-.main-loading {
+
+/* Reusable content-column loading (shell keeps header/tabs visible). */
+.content-loading {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,20 +195,20 @@ button { cursor: pointer; }
   width: 100%;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
 }
-.main-loading__spinner {
+.content-loading__spinner {
   width: 44px;
   height: 44px;
   border-radius: 999px;
   border: 3px solid var(--line);
   border-top-color: var(--accent);
-  animation: main-loading-spin 0.75s linear infinite;
+  animation: content-loading-spin 0.75s linear infinite;
 }
-@keyframes main-loading-spin {
+@keyframes content-loading-spin {
   to {
     transform: rotate(360deg);
   }
 }
-.main-loading__label {
+.content-loading__label {
   margin: 0;
   font-size: 1rem;
   line-height: 1.45;

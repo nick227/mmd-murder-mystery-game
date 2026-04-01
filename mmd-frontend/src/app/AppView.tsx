@@ -31,6 +31,7 @@ export interface AppViewProps {
     pageHandlers: RendererHandlers
     pageRendererActiveTab?: TabId
     contentLoading: boolean
+    contentLoadingLabel?: string
   }
   tabs: {
     showTabs: boolean
@@ -75,6 +76,7 @@ export function AppView(props: AppViewProps) {
         pageHandlers={main.pageHandlers}
         pageRendererActiveTab={main.pageRendererActiveTab}
         contentLoading={main.contentLoading}
+        contentLoadingLabel={main.contentLoadingLabel}
       />
 
       <AppTabs
