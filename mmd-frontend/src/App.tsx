@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { BottomNav } from './components/BottomNav'
 import { PageRenderer } from './components/PageRenderer'
 import { BottomSheet } from './components/ui/BottomSheet'
-import { RenderNode } from './components/Primitives'
+import { RenderNode } from './components/primitives'
 import { LobbySurface } from './components/surfaces/LobbySurface'
 import { GameSurface } from './components/surfaces/GameSurface'
 import { ProfileSurface } from './components/surfaces/ProfileSurface'
@@ -49,17 +49,14 @@ export default function App() {
       ? true
       : Boolean(schema.tabs && mode === 'host')
 
-  const tabs =
-    mode === 'room'
-      ? (hostKey
-          ? [...(playerPageSchema.tabs ?? []), { id: 'host' as const, label: 'Host' }]
-          : (playerPageSchema.tabs ?? []))
-      : (schema.tabs ?? [])
+  const tabs = mode === 'room' ? (playerPageSchema.tabs ?? []) : (schema.tabs ?? [])
   const playerSurfaceDefault = useMemo(() => {
     if (mode !== 'room') return null
     const state = player.screenData.game.state
     return state === 'SCHEDULED' ? 'lobby' : 'game'
   }, [mode, player.screenData.game.state])
+
+  const hostRoomGameControls = Boolean(hostKey) && player.screenData.game.state !== 'SCHEDULED'
 
   const prevPlayerState = useRef<string | null>(null)
   useEffect(() => {
@@ -126,13 +123,17 @@ export default function App() {
       </header>
 
       {mode === 'room' ? (
-        activeTab === 'host' ? (
-          <PageRenderer schema={hostPageSchema} data={host.screenData} handlers={host.handlers} />
-        ) : !player.joined ? (
+        !player.joined ? (
           activeTab === 'lobby' ? (
             <>
               <PageRenderer schema={joinPageSchema} data={player.screenData} handlers={player.handlers} />
-              <LobbySurface data={player.screenData} handlers={player.handlers} />
+              <LobbySurface
+                data={player.screenData}
+                handlers={player.handlers}
+                hostActions={hostKey ? host.screenData.gameActions : undefined}
+                hostHandlers={hostKey ? host.handlers : undefined}
+                hostError={hostKey ? host.error : undefined}
+              />
             </>
           ) : (
             <main className="screen-stack">
@@ -146,11 +147,24 @@ export default function App() {
             </main>
           )
         ) : activeTab === 'lobby' ? (
-          <LobbySurface data={player.screenData} handlers={player.handlers} />
+          <LobbySurface
+            data={player.screenData}
+            handlers={player.handlers}
+            hostActions={hostKey ? host.screenData.gameActions : undefined}
+            hostHandlers={hostKey ? host.handlers : undefined}
+            hostError={hostKey ? host.error : undefined}
+          />
         ) : activeTab === 'profile' ? (
           <ProfileSurface data={player.screenData} />
         ) : (
-          <GameSurface data={player.screenData} handlers={player.handlers} pins={pins} />
+          <GameSurface
+            data={player.screenData}
+            handlers={player.handlers}
+            pins={pins}
+            hostActions={hostRoomGameControls ? host.screenData.gameActions : undefined}
+            hostHandlers={hostRoomGameControls ? host.handlers : undefined}
+            hostError={hostRoomGameControls ? host.error : undefined}
+          />
         )
       ) : (
         <PageRenderer
