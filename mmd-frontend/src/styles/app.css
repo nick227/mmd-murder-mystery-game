@@ -187,33 +187,90 @@ button { cursor: pointer; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
   padding: 28px 20px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 20px;
+  border-left: 3px solid var(--accent);
   width: 100%;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24);
 }
-.content-loading__spinner {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 3px solid var(--line);
-  border-top-color: var(--accent);
-  animation: content-loading-spin 0.75s linear infinite;
+.content-loading__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  min-width: 52px;
+  color: var(--accent-2);
 }
-@keyframes content-loading-spin {
-  to {
-    transform: rotate(360deg);
+.content-loading__envelope {
+  width: 56px;
+  height: 44px;
+  overflow: visible;
+  animation: content-loading-envelope 2.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .content-loading__envelope,
+  .content-loading__envelope-flap {
+    animation: none;
   }
 }
-.content-loading__label {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.45;
-  color: var(--muted);
+.content-loading__envelope-flap {
+  transform-origin: 28px 12px;
+  animation: content-loading-flap 2.2s ease-in-out infinite;
+}
+@keyframes content-loading-envelope {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+@keyframes content-loading-flap {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.65;
+  }
+  55% {
+    opacity: 0.65;
+  }
+}
+.content-loading__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   text-align: center;
+  max-width: 22rem;
+}
+.content-loading__eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.content-loading__title {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  font-weight: 600;
+  color: var(--text);
+}
+.content-loading__detail {
+  margin: 0;
+  font-size: 0.97rem;
+  line-height: 1.5;
+  color: var(--muted);
 }
 
 .app-header {
