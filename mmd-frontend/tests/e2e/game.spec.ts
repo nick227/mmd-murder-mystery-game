@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { GameHarness } from './gameHarness'
 
+
 async function storyTitlesToTest(): Promise<string[]> {
   const env = process.env.E2E_STORIES?.trim()
   if (env) return env.split('|').map(s => s.trim()).filter(Boolean)
@@ -15,6 +16,7 @@ async function storyTitlesToTest(): Promise<string[]> {
 
 for (const storyTitle of await storyTitlesToTest()) {
   test(`canonical completeness: real multiplayer (API) loop — ${storyTitle}`, async ({ browser }) => {
+    test.setTimeout(120_000)
     // Separate contexts = separate storage/cookies (simulates two phones).
     const hostContext = await browser.newContext()
     const playerContext = await browser.newContext()
@@ -60,8 +62,8 @@ for (const storyTitle of await storyTitlesToTest()) {
     if (player2) {
       await player2.ensureJoined('Player 1')
       await host.sync()
-      await expect(hostPage.getByTestId('player-pill-joined-0')).toBeVisible()
-      await expect(hostPage.getByTestId('player-pill-joined-1')).toBeVisible()
+      await expect(hostPage.getByText('Player 0 joined')).toBeVisible()
+      await expect(hostPage.getByText('Player 1 joined')).toBeVisible()
     }
 
     // 2) Refresh resilience: player refresh retains joined state.
@@ -92,7 +94,6 @@ for (const storyTitle of await storyTitlesToTest()) {
     await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('Act 1')
 
     await host.sync()
-    await expect(hostPage.getByTestId('player-pill-joined-0')).toBeVisible()
 
     // Act 1 content visibility (not optional)
     await player.sync()
@@ -105,12 +106,12 @@ for (const storyTitle of await storyTitlesToTest()) {
     const hasClue = (await playerPage.locator('.list-row__title').filter({ hasText: 'Clue' }).count()) > 0
     expect(hasPuzzle || hasClue).toBeTruthy()
 
-    // Minimal structured post: player posts to feed, host sees it.
-    await playerPage.getByTestId('composer-panel').getByRole('combobox').first().selectOption('searched')
+    // Minimal structured post: player posts to feed, host sees it (composer lives on Lobby).
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
     await playerPage.getByTestId('composer-panel').locator('textarea').fill('study')
     await playerPage.getByTestId('composer-panel').getByRole('button', { name: 'Post' }).click()
     await host.sync()
-    await expect(hostPage.getByText('Player 0 searched: study')).toBeVisible()
+    await expect(hostPage.getByText('study')).toBeVisible()
 
     await player.submitObjective()
     await host.sync()

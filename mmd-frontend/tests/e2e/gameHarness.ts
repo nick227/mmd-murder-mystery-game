@@ -2,6 +2,8 @@ import type { Page } from '@playwright/test'
 
 export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE'
 
+const API_BASE = process.env.E2E_API_URL?.trim() || 'http://localhost:3000'
+
 function parseStageEyebrow(text: string): { state: GameState; act: number } {
   const trimmed = text.trim()
   const match = /^(SCHEDULED|PLAYING|REVEAL|DONE)\s+·\s+act\s+(\d+)$/i.exec(trimmed)
@@ -31,26 +33,50 @@ export class GameHarness {
   }
 
   async createGameViaLauncher(opts?: { storyTitle?: string }): Promise<{ hostUrl: string; playerUrls: string[] }> {
-    await this.page.getByText('Playtest launcher').waitFor()
+    await this.page.getByRole('heading', { name: 'Stories' }).waitFor({ timeout: 60_000 })
+
     if (opts?.storyTitle) {
-      // Story option renders <strong>{story.title}</strong>
-      const chosen = this.page.locator('.story-option', { hasText: opts.storyTitle }).first()
-      await chosen.waitFor()
-      await chosen.click()
+      await this.page
+        .locator('.story-option')
+        .filter({ hasText: opts.storyTitle })
+        .getByRole('button', { name: 'Create game' })
+        .click()
     } else {
-      const firstStory = this.page.locator('.story-option').first()
-      await firstStory.waitFor()
-      await firstStory.click()
+      await this.page.locator('.story-option').first().getByRole('button', { name: 'Create game' }).click()
     }
 
-    await this.page.getByText('Create game').click()
+    const sheet = this.page.getByTestId('bottom-sheet')
+    await sheet.waitFor()
+    await sheet.getByText('New game').waitFor()
 
-    await this.page.locator('.created-box').waitFor()
-    const hostUrl = (await this.page.locator('.created-box code').first().innerText()).trim()
-    await this.page.getByTestId('bottom-sheet').waitFor()
-    const playerUrls = (await this.page.locator('[data-testid="bottom-sheet"] .link-list .link-row code').allInnerTexts()).map(t => t.trim())
-    if (!hostUrl) throw new Error('Missing hostUrl from launcher')
-    if (!playerUrls.length) throw new Error('Missing playerUrls from launcher')
+    await sheet.locator('.field').filter({ hasText: 'Game title' }).locator('input').fill(`E2E ${Date.now()}`)
+    await sheet.locator('.field').filter({ hasText: 'Location' }).locator('input').fill('The library')
+
+    await sheet.locator('.story-option--row').first().click()
+
+    await sheet.getByRole('button', { name: 'Create game' }).click()
+
+    await this.page.waitForURL(/\/room\/[^/]+\/[^/]+(\?|$)/, { timeout: 60_000 })
+
+    const pageUrl = new URL(this.page.url())
+    const pathParts = pageUrl.pathname.split('/').filter(Boolean)
+    const gameId = pathParts[1]
+    const hostKey = pageUrl.searchParams.get('hostKey') ?? ''
+    const api = pageUrl.searchParams.get('api') ?? ''
+
+    if (!gameId || !hostKey) throw new Error('Expected room URL with game id and hostKey after create')
+
+    const origin = pageUrl.origin
+    const apiQuery = api ? `&api=${encodeURIComponent(api)}` : ''
+    const hostUrl = `${origin}/host/${gameId}?hostKey=${encodeURIComponent(hostKey)}${apiQuery}`
+
+    const publicRes = await fetch(`${API_BASE}/api/v1/games/${gameId}/public`)
+    if (!publicRes.ok) throw new Error(`GET public game failed: ${publicRes.status}`)
+    const pub = (await publicRes.json()) as { story: { characters: Array<{ characterId: string }> } }
+    const ids = pub.story.characters.map(c => c.characterId)
+    const apiPrefix = api ? `?api=${encodeURIComponent(api)}` : ''
+    const playerUrls = ids.map(characterId => `${origin}/room/${gameId}/${characterId}${apiPrefix}`)
+
     return { hostUrl, playerUrls }
   }
 
@@ -71,14 +97,12 @@ export class GameHarness {
 
   async submitObjective() {
     await this.ensureJoined()
-    // MVP: completing the first objective represents "submit card".
-    // We keep this as an intent so selectors can evolve independently.
+    await this.page.getByRole('button', { name: 'Game' }).click()
     const firstToggle = this.page.locator('[data-testid^="objective-toggle:"]').first()
     await firstToggle.click()
   }
 
   async ensureJoined(playerName = 'Playwright Player') {
-    // If the join UI is present, join; otherwise assume already joined.
     const joinInput = this.page.getByTestId('join-name')
     if (await joinInput.count()) {
       await joinInput.fill(playerName)
@@ -102,4 +126,3 @@ export class GameHarness {
     return parseStageEyebrow(eyebrow)
   }
 }
-
