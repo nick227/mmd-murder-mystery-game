@@ -46,6 +46,7 @@ export const emptyScreenData: ScreenData = {
   },
   composer: {
     mode: 'public',
+    postKind: 'suspect',
     draft: '',
     placeholder: 'Messaging is not wired to the backend yet.',
     recipients: [],

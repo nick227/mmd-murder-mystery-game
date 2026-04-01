@@ -3,7 +3,8 @@ export type TabId = 'lobby' | 'game' | 'profile'
 export type ViewMode = 'launcher' | 'host' | 'room'
 export type FeedItemType = 'chat' | 'announcement' | 'system'
 export type FeedVariant = 'narration' | 'social' | 'mechanic' | 'room'
-export type MoveType = 'suspect' | 'accuse' | 'alibi' | 'share_clue' | 'searched' | 'solved'
+/** What the player is posting to the public feed (API JSON still uses `moveType`). */
+export type PostKind = 'suspect' | 'accuse' | 'alibi' | 'share_clue' | 'searched' | 'solved'
 
 export type MediaKind = 'image' | 'video' | 'audio'
 export type MediaRatio = '16:9' | '4:3' | '1:1' | 'auto'
@@ -115,7 +116,7 @@ export interface ComposerEvidenceOption {
 
 export interface ComposerData {
   mode: 'public' | 'private'
-  moveType?: MoveType
+  postKind?: PostKind
   draft: string
   placeholder?: string
   recipients: ComposerRecipient[]
@@ -246,7 +247,7 @@ export interface RendererHandlers {
   onObjectiveSubmit?: (objectiveId: string) => Promise<void>
   onComposerModeChange?: (mode: 'public' | 'private') => void
   onComposerRecipientChange?: (recipientId: string) => void
-  onComposerMoveTypeChange?: (moveType: MoveType) => void
+  onComposerPostKindChange?: (postKind: PostKind) => void
   onComposerEvidenceChange?: (evidenceId: string) => void
   onComposerLocationChange?: (location: string) => void
   onComposerDraftChange?: (value: string) => void

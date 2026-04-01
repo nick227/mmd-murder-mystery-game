@@ -1,4 +1,5 @@
 import type { RoomPlayer } from '../../data/types'
+import { ui } from '../../utils/uiMarkers'
 import { Avatar } from './Avatar'
 
 interface Props {
@@ -11,7 +12,7 @@ export function PresenceRail({ players, size = 'compact', title = 'In the room' 
   if (!players.length) return null
 
   return (
-    <section className="panel presence-rail" data-size={size} aria-label={title}>
+    <section className="panel presence-rail" data-size={size} aria-label={title} {...ui('PresenceRail')}>
       <div className="panel__header">
         <h2>{title}</h2>
         <div className="panel__meta">{players.filter(p => p.online).length}/{players.length} online</div>

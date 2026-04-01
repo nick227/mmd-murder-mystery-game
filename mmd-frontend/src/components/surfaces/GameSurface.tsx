@@ -30,7 +30,7 @@ export function GameSurface({ data, handlers, pins, hostActions, hostHandlers, h
   const focusableEvidence = useMemo(() => data.view?.evidence ?? [], [data.view?.evidence])
 
   return (
-    <Surface testId="surface-game">
+    <Surface testId="surface-game" surface="game" dataUi="GameSurface">
       <PresenceRail players={data.players} size="compact" title="In the room" />
       {hostActions?.length ? (
         <Panel>
@@ -49,7 +49,7 @@ export function GameSurface({ data, handlers, pins, hostActions, hostHandlers, h
         items={focusableFeed}
         stage={data.game}
         title="Live timeline"
-        subtitle="Narration, moves, and room updates"
+        subtitle="Narration, feed posts, and room updates"
         onItemClick={(item) => setFocus({ kind: 'feed', item })}
       />
       <ComposerPanel data={data.composer} handlers={handlers} />

@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+import { ui } from '../../utils/uiMarkers'
 
 interface Props {
   open: boolean
@@ -12,7 +13,7 @@ export function BottomSheet({ open, onClose, eyebrow, title, meta, children }: P
   if (!open) return null
 
   return (
-    <div className="focus-sheet" data-testid="bottom-sheet">
+    <div className="focus-sheet" data-testid="bottom-sheet" {...ui('BottomSheet')}>
       <button type="button" className="focus-sheet__backdrop" aria-label="Close" onClick={onClose} />
       <section className="focus-sheet__panel" role="dialog" aria-modal="true">
         <div className="focus-sheet__header">

@@ -26,16 +26,16 @@ export function encodeLocationToken(input: { id: string; label: string }): strin
   return `[[location:${encodeURIComponent(input.id)}|${input.label}]]`
 }
 
-export function buildMoveChips(input: {
-  moveType: string
+/** Merge @ mentions from suspect/accuse plus inline clue/location chips. */
+export function buildFeedChips(input: {
+  postKind: string
   targetName: string | null
   chips: FeedItem['chips']
 }): FeedItem['chips'] {
   const out: RichChip[] = []
-  if ((input.moveType === 'suspect' || input.moveType === 'accuse') && input.targetName) {
+  if ((input.postKind === 'suspect' || input.postKind === 'accuse') && input.targetName) {
     out.push({ kind: 'suspect', label: input.targetName })
   }
   for (const chip of input.chips ?? []) out.push(chip)
   return out.length ? out : undefined
 }
-

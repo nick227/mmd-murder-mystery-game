@@ -57,7 +57,7 @@ function ProfileList({ title, items, emptyText }: { title: string; items: Profil
 
 export function ProfileSurface({ data }: Props) {
   return (
-    <Surface testId="surface-profile">
+    <Surface testId="surface-profile" surface="profile" dataUi="ProfileSurface">
       <ProfilePanel data={data.profile} />
       <ProfileList title="Secrets" items={data.profile.secrets} emptyText="No secrets yet." />
       <ProfileList title="Items" items={data.profile.items} emptyText="No items yet." />

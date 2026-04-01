@@ -22,7 +22,7 @@ export function Feed({
   onItemClick,
 }: Props) {
   return (
-    <Panel testId="feed">
+    <Panel testId="feed" dataUi="Feed">
       <PanelHeader title={title} meta={subtitle} />
       <div className="feed-list">
         {!items.length ? <EmptyState text={emptyText} /> : null}

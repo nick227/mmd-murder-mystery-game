@@ -1,4 +1,4 @@
-import type { ApiGameSummary, HostApiGame, MoveType, PlayerApiView, StoryListItem } from './types'
+import type { ApiGameSummary, HostApiGame, PlayerApiView, PostKind, StoryListItem } from './types'
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(url, init)
@@ -136,14 +136,20 @@ export async function submitObjective(
   })
 }
 
-export async function postMove(
+/** Player post to the room feed. Server route is still `/move`; JSON field remains `moveType`. */
+export async function postToFeed(
   apiBase: string,
   gameId: string,
-  body: { characterId: string; moveType: MoveType; text?: string; targetCharacterId?: string },
+  body: { characterId: string; postKind: PostKind; text?: string; targetCharacterId?: string },
 ) {
   return request<{ message: string }>(`${apiBase}/api/v1/game/${gameId}/move`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
+    body: JSON.stringify({
+      characterId: body.characterId,
+      moveType: body.postKind,
+      text: body.text,
+      targetCharacterId: body.targetCharacterId,
+    }),
   })
 }

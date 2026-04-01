@@ -23,7 +23,7 @@ export function LobbySurface({ data, hostActions, hostHandlers, hostError }: Pro
       : `Act ${data.game.act} is live. Go to Game to play.`
 
   return (
-    <Surface testId="surface-lobby">
+    <Surface testId="surface-lobby" surface="lobby" dataUi="LobbySurface">
       <PresenceRail players={data.players} size="large" title="In the room" />
       {hostActions?.length ? (
         <Panel>

@@ -21,6 +21,19 @@ body {
 button, input, textarea, select { font: inherit; }
 button { cursor: pointer; }
 
+/* ── Layout + accessibility utilities (primitives) ───────────────────────── */
+.u-sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.u-mt-12 { margin-top: 12px; }
+.u-mt-10 { margin-top: 10px; }
+.u-mt-8 { margin-top: 8px; }
+.u-stack { display: flex; flex-direction: column; gap: 10px; }
+
 .is-clickable {
   cursor: pointer;
   transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
@@ -238,16 +251,16 @@ button { cursor: pointer; }
 .progress-strip__bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
 
 .player-pills { display: flex; gap: 8px; overflow-x: auto; padding: 0 14px 14px; }
-.player-pill {
+.pill {
   min-width: 112px;
   background: var(--panel-2);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 10px;
 }
-.player-pill--online { outline: 1px solid rgba(94,194,255,.35); }
-.player-pill__name { display: block; font-weight: 600; }
-.player-pill__meta { color: var(--muted); font-size: .78rem; }
+.pill--online { outline: 1px solid rgba(94,194,255,.35); }
+.pill__name { display: block; font-weight: 600; }
+.pill__meta { color: var(--muted); font-size: .78rem; }
 
 /* ── Presence rail + avatars (future video-ready) ─────────────────────────── */
 .avatar {

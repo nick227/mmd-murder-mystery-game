@@ -7,22 +7,22 @@ import { readStoredGames } from '../data/runningGamesRegistry'
 import type {
   FeedItem,
   HostApiGame,
-  MoveType,
+  PostKind,
   RendererHandlers,
   ScreenData,
   TabId,
 } from '../data/types'
-import { encodeClueToken, encodeLocationToken } from '../gameplay/richTokens'
+import { encodeClueToken, encodeLocationToken } from '../utils/feedRichText'
 import { upsertCreatedGame, upsertHostLink, upsertPlayerLink } from '../data/runningGamesRegistry'
 
-function canSendMove(input: { moveType?: MoveType; draft: string; recipientId?: string; evidenceId?: string; location?: string }): boolean {
-  const moveType = input.moveType ?? 'suspect'
-  const needsTarget = moveType === 'suspect' || moveType === 'accuse'
-  const needsText = moveType === 'alibi' || moveType === 'solved'
+function composerCanSend(input: { postKind?: PostKind; draft: string; recipientId?: string; evidenceId?: string; location?: string }): boolean {
+  const postKind = input.postKind ?? 'suspect'
+  const needsTarget = postKind === 'suspect' || postKind === 'accuse'
+  const needsText = postKind === 'alibi' || postKind === 'solved'
   if (needsTarget && !input.recipientId) return false
   if (needsText && input.draft.trim().length === 0) return false
-  if (moveType === 'share_clue' && input.draft.trim().length === 0 && !input.evidenceId) return false
-  if (moveType === 'searched' && input.draft.trim().length === 0 && !input.location) return false
+  if (postKind === 'share_clue' && input.draft.trim().length === 0 && !input.evidenceId) return false
+  if (postKind === 'searched' && input.draft.trim().length === 0 && !input.location) return false
   return true
 }
 
@@ -440,8 +440,8 @@ export function usePlayerScreenData(
   const [joined, setJoined] = useState(false)
   const [joinDraft, setJoinDraft] = useState('')
   const joinDraftRef = useRef('')
-  const [composerState, setComposerState] = useState<{ moveType: MoveType; draft: string; recipientId?: string; evidenceId?: string; location?: string }>({
-    moveType: 'suspect' as MoveType,
+  const [composerState, setComposerState] = useState<{ postKind: PostKind; draft: string; recipientId?: string; evidenceId?: string; location?: string }>({
+    postKind: 'suspect',
     draft: '',
   })
   const composerStateRef = useRef(composerState)
@@ -470,13 +470,13 @@ export function usePlayerScreenData(
       const nextComposer = {
         ...base.composer,
         mode: 'public' as const,
-        moveType: latestComposer.moveType,
+        postKind: latestComposer.postKind,
         draft: latestComposer.draft,
         recipientId: latestComposer.recipientId,
         evidenceId: latestComposer.evidenceId,
         location: latestComposer.location,
       }
-      setScreenData({ ...base, composer: { ...nextComposer, canSend: canSendMove(nextComposer) } })
+      setScreenData({ ...base, composer: { ...nextComposer, canSend: composerCanSend(nextComposer) } })
       if (view.playerName) {
         setJoined(true)
       }
@@ -541,15 +541,15 @@ export function usePlayerScreenData(
     onComposerModeChange: mode => {
       setScreenData(current => ({ ...current, composer: { ...current.composer, mode } }))
     },
-    onComposerMoveTypeChange: moveType => {
+    onComposerPostKindChange: postKind => {
       setComposerState(current => {
-        const next = { ...current, moveType }
+        const next = { ...current, postKind }
         composerStateRef.current = next
         return next
       })
       setScreenData(current => {
-        const next = { ...current.composer, moveType }
-        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+        const next = { ...current.composer, postKind }
+        return { ...current, composer: { ...next, canSend: composerCanSend(next) } }
       })
     },
     onComposerRecipientChange: recipientId => {
@@ -560,7 +560,7 @@ export function usePlayerScreenData(
       })
       setScreenData(current => {
         const next = { ...current.composer, recipientId }
-        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+        return { ...current, composer: { ...next, canSend: composerCanSend(next) } }
       })
     },
     onComposerEvidenceChange: evidenceId => {
@@ -571,7 +571,7 @@ export function usePlayerScreenData(
       })
       setScreenData(current => {
         const next = { ...current.composer, evidenceId }
-        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+        return { ...current, composer: { ...next, canSend: composerCanSend(next) } }
       })
     },
     onComposerLocationChange: location => {
@@ -582,7 +582,7 @@ export function usePlayerScreenData(
       })
       setScreenData(current => {
         const next = { ...current.composer, location }
-        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+        return { ...current, composer: { ...next, canSend: composerCanSend(next) } }
       })
     },
     onComposerDraftChange: value => {
@@ -593,12 +593,12 @@ export function usePlayerScreenData(
       })
       setScreenData(current => {
         const next = { ...current.composer, draft: value }
-        return { ...current, composer: { ...next, canSend: canSendMove(next) } }
+        return { ...current, composer: { ...next, canSend: composerCanSend(next) } }
       })
     },
     onComposerSend: async () => {
       if (!gameId || !characterId) return
-      const moveType = screenData.composer.moveType ?? 'suspect'
+      const postKind = screenData.composer.postKind ?? 'suspect'
       const recipientId = screenData.composer.recipientId
       const draft = screenData.composer.draft.trim()
       const evidenceId = screenData.composer.evidenceId
@@ -613,22 +613,22 @@ export function usePlayerScreenData(
       const locationToken = location ? ` ${encodeLocationToken({ id: location, label: location })}` : ''
 
       const text =
-        moveType === 'share_clue'
+        postKind === 'share_clue'
           ? `${draft}${clueToken}`.trim()
-          : moveType === 'searched'
+          : postKind === 'searched'
           ? `${draft}${locationToken}`.trim()
           : draft
       try {
-        await gameSource.postMove(apiBase, gameId, {
+        await gameSource.postToFeed(apiBase, gameId, {
           characterId,
-          moveType,
+          postKind,
           text: text.length ? text : undefined,
           targetCharacterId: recipientId,
         })
         setComposerState(current => ({ ...current, draft: '', evidenceId: undefined, location: undefined }))
         await reload()
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to post move')
+        setError(err instanceof Error ? err.message : 'Failed to post to feed')
       }
     },
   }), [apiBase, gameId, characterId, joinDraft, source, screenData.composer, gameSource])

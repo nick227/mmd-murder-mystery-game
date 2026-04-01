@@ -1,5 +1,5 @@
 import type { PageSchema, RendererHandlers, ScreenData, TabId } from '../data/types'
-import { RenderNode } from './Primitives'
+import { RenderNode } from './primitives'
 
 interface Props {
   schema: PageSchema

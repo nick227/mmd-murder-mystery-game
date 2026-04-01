@@ -1,4 +1,4 @@
-import type { ComposerData, MoveType, RendererHandlers } from '../../data/types'
+import type { ComposerData, PostKind, RendererHandlers } from '../../data/types'
 import { Panel } from '../ui/Panel'
 import { PanelHeader } from '../ui/PanelHeader'
 
@@ -8,32 +8,32 @@ interface Props {
 }
 
 export function ComposerPanel({ data, handlers }: Props) {
-  const moveType = data.moveType ?? 'suspect'
-  const needsTarget = moveType === 'suspect' || moveType === 'accuse'
-  const needsText = moveType === 'alibi' || moveType === 'solved'
-  const needsEvidencePicker = moveType === 'share_clue'
-  const needsLocationPicker = moveType === 'searched'
+  const postKind = data.postKind ?? 'suspect'
+  const needsTarget = postKind === 'suspect' || postKind === 'accuse'
+  const needsText = postKind === 'alibi' || postKind === 'solved'
+  const needsEvidencePicker = postKind === 'share_clue'
+  const needsLocationPicker = postKind === 'searched'
 
   const placeholder =
-    moveType === 'alibi' ? 'Your alibi (short).'
-    : moveType === 'share_clue' ? 'Optional note…'
-    : moveType === 'searched' ? 'Optional note…'
-    : moveType === 'solved' ? 'What did you solve? (short)'
+    postKind === 'alibi' ? 'Your alibi (short).'
+    : postKind === 'share_clue' ? 'Optional note…'
+    : postKind === 'searched' ? 'Optional note…'
+    : postKind === 'solved' ? 'What did you solve? (short)'
     : 'Optional note…'
 
   return (
-    <Panel testId="composer-panel" className="composer-panel">
-      <PanelHeader title="Make a move" meta="Public" />
+    <Panel testId="composer-panel" className="composer-panel" dataUi="ComposerPanel">
+      <PanelHeader title="Post to feed" meta="Public" />
       <select
         className="composer-select"
-        value={moveType}
+        value={postKind}
         onChange={e => {
           const value = e.target.value
-          const next: MoveType =
+          const next: PostKind =
             value === 'suspect' || value === 'accuse' || value === 'alibi' || value === 'share_clue' || value === 'searched' || value === 'solved'
               ? value
               : 'suspect'
-          handlers?.onComposerMoveTypeChange?.(next)
+          handlers?.onComposerPostKindChange?.(next)
         }}
       >
         <option value="suspect">Suspect</option>
@@ -50,7 +50,7 @@ export function ComposerPanel({ data, handlers }: Props) {
           value={data.recipientId ?? ''}
           onChange={e => handlers?.onComposerRecipientChange?.(e.target.value)}
         >
-          <option value="">{moveType === 'suspect' ? 'Who do you suspect?' : 'Who are you accusing?'}</option>
+          <option value="">{postKind === 'suspect' ? 'Who do you suspect?' : 'Who are you accusing?'}</option>
           {data.recipients.map(r => (
             <option key={r.id} value={r.id}>{r.label}</option>
           ))}
@@ -89,6 +89,7 @@ export function ComposerPanel({ data, handlers }: Props) {
         <button
           type="button"
           className="action-btn action-btn--secondary"
+          data-action="post"
           disabled={!data.canSend || !handlers?.onComposerSend || (needsTarget && !data.recipientId) || (needsText && !data.draft.trim())}
           onClick={() => handlers?.onComposerSend?.()}
         >
@@ -98,4 +99,3 @@ export function ComposerPanel({ data, handlers }: Props) {
     </Panel>
   )
 }
-

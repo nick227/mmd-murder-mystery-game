@@ -1,9 +1,13 @@
 import type { PropsWithChildren } from 'react'
 
-export function Panel(props: PropsWithChildren<{ testId?: string; className?: string }>) {
+export function Panel({ testId, className, dataUi, children }: PropsWithChildren<{ testId?: string; className?: string; dataUi?: string }>) {
   return (
-    <section className={props.className ? `panel ${props.className}` : 'panel'} data-testid={props.testId}>
-      {props.children}
+    <section
+      className={className ? `panel ${className}` : 'panel'}
+      data-testid={testId}
+      {...(dataUi ? { 'data-ui': dataUi } : {})}
+    >
+      {children}
     </section>
   )
 }

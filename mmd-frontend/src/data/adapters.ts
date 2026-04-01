@@ -1,7 +1,7 @@
 import type { ApiGameEvent, EvidenceItem, FeedItem, FeedVariant, ObjectiveItem, PlayerApiView, ScreenData } from './types'
 import { storyHeroImage } from '../utils/storyHeroImage'
 import { portraitDataUrl } from '../utils/portrait'
-import { buildMoveChips, parseRichTokens } from '../gameplay/richTokens'
+import { buildFeedChips, parseRichTokens } from '../utils/feedRichText'
 
 export function normaliseFeedEvent(event: ApiGameEvent): FeedItem {
   const payload = event.payload ?? {}
@@ -34,29 +34,29 @@ export function normaliseFeedEvent(event: ApiGameEvent): FeedItem {
     case 'POST_MOVE': {
       const index = typeof (payload as any).playerIndex === 'number' ? (payload as any).playerIndex : null
       const actor = index !== null ? `Player ${index}` : 'A player'
-      const moveType = typeof (payload as any).moveType === 'string' ? String((payload as any).moveType) : ''
+      const postKind = typeof (payload as any).moveType === 'string' ? String((payload as any).moveType) : ''
       const targetName = typeof (payload as any).targetName === 'string' ? String((payload as any).targetName) : null
       const rawTextBody = typeof (payload as any).text === 'string' ? String((payload as any).text) : ''
       const { text: textBody, chips } = parseRichTokens(rawTextBody)
 
-      if (moveType === 'suspect') {
+      if (postKind === 'suspect') {
         text = targetName ? `${actor} suspects ${targetName}.` : `${actor} voiced a suspicion.`
-      } else if (moveType === 'accuse') {
+      } else if (postKind === 'accuse') {
         text = targetName ? `${actor} accuses ${targetName}.` : `${actor} made an accusation.`
-      } else if (moveType === 'alibi') {
+      } else if (postKind === 'alibi') {
         text = textBody ? `${actor} claims an alibi: ${textBody}` : `${actor} claimed an alibi.`
-      } else if (moveType === 'share_clue') {
+      } else if (postKind === 'share_clue') {
         text = textBody ? `${actor} shared a clue: ${textBody}` : `${actor} shared a clue.`
-      } else if (moveType === 'searched') {
+      } else if (postKind === 'searched') {
         text = textBody ? `${actor} searched: ${textBody}` : `${actor} searched.`
-      } else if (moveType === 'solved') {
+      } else if (postKind === 'solved') {
         text = textBody ? `${actor} solved a puzzle: ${textBody}` : `${actor} solved a puzzle.`
       } else {
-        text = textBody ? `${actor}: ${textBody}` : `${actor} posted a move.`
+        text = textBody ? `${actor}: ${textBody}` : `${actor} posted to the feed.`
       }
 
-      variant = moveType === 'solved' ? 'mechanic' : 'social'
-      const finalChips = buildMoveChips({ moveType, targetName, chips })
+      variant = postKind === 'solved' ? 'mechanic' : 'social'
+      const finalChips = buildFeedChips({ postKind, targetName, chips })
       return {
         id: event.id,
         type: 'chat',
@@ -349,9 +349,9 @@ export function playerViewToScreenData(
 
     composer: {
       mode: 'public',
-      moveType: 'suspect',
+      postKind: 'suspect',
       draft: '',
-      placeholder: 'Pick a move…',
+      placeholder: 'What are you posting?',
       recipients: roomPlayers
         .filter(player => player.online && player.id !== input.playerId)
         .map(player => ({ id: player.characterId, label: player.name })),
