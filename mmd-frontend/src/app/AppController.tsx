@@ -13,6 +13,7 @@ import { deriveAppShellSurface } from './deriveAppShellSurface'
 import { AppView } from './AppView'
 import { RoomProvider, type RoomContextValue } from './roomContext'
 import { useRoomTabSync } from './useRoomTabSync'
+import { AuthProvider } from '../auth/AuthProvider'
 
 export function AppController() {
   const { mode, apiBase, gameId, characterId, hostKey } = useViewMode()
@@ -43,8 +44,6 @@ export function AppController() {
     return g === 'SCHEDULED' ? 'lobby' : 'game'
   }, [mode, player.screenData.game.state])
 
-  const hostRoomGameControls = Boolean(hostKey) && player.screenData.game.state !== 'SCHEDULED'
-
   useRoomTabSync({
     mode,
     joined: player.joined,
@@ -56,7 +55,13 @@ export function AppController() {
   const title =
     mode === 'launcher'
       ? 'Murder Mystery Dinner'
-      : state.screenData.game.subtitle || 'Game room'
+      : (() => {
+        const gameName = state.screenData.game.subtitle || 'Game room'
+        const isScheduled = state.screenData.game.state === 'SCHEDULED'
+        const t = state.screenData.game.scheduledTime
+        const when = isScheduled && t ? new Date(t).toLocaleString() : ''
+        return when ? `${gameName} · ${when}` : gameName
+      })()
 
   const eyebrow =
     mode === 'launcher'
@@ -71,14 +76,8 @@ export function AppController() {
     state.loading
       ? 'Loading…'
       : state.error
-      ? `Error: ${state.error}`
-      : mode === 'launcher'
-      ? 'Ready'
-      : mode === 'host'
-      ? 'Host live'
-      : mode === 'room' && hostKey
-      ? 'Host live'
-      : 'Player live'
+      ? 'Issue'
+      : 'Connected'
 
   const onReload =
     mode === 'room' ? () => void player.reload()
@@ -103,6 +102,36 @@ export function AppController() {
 
   const hostLobbyActions = hostKey ? host.screenData.gameActions : undefined
 
+  // Create enhanced handlers that can handle player-links action
+  const enhancedHostHandlers = useMemo(() => {
+    if (!host.handlers) return undefined
+    return {
+      ...host.handlers,
+      onAction: async (actionId: string) => {
+        if (actionId === 'player-links') {
+          setShowInviteLinks(true)
+          return
+        }
+        return host.handlers.onAction?.(actionId)
+      },
+    }
+  }, [host.handlers])
+
+  // Also enhance the main state handlers for host mode
+  const enhancedStateHandlers = useMemo(() => {
+    if (mode !== 'host' || !state.handlers) return state.handlers
+    return {
+      ...state.handlers,
+      onAction: async (actionId: string) => {
+        if (actionId === 'player-links') {
+          setShowInviteLinks(true)
+          return
+        }
+        return state.handlers.onAction?.(actionId)
+      },
+    }
+  }, [mode, state.handlers])
+
   const roomValue: RoomContextValue | null =
     mode === 'room'
       ? {
@@ -110,35 +139,48 @@ export function AppController() {
           screenData: player.screenData,
           handlers: player.handlers,
           pins,
-          hostHandlers: hostKey ? host.handlers : undefined,
+          hostHandlers: hostKey ? enhancedHostHandlers : undefined,
           hostError: hostKey ? host.error : undefined,
           hostLobbyActions,
-          hostGameActions: hostRoomGameControls ? host.screenData.gameActions : undefined,
         }
       : null
 
   const inviteOpen =
     (mode === 'host' || mode === 'room') && showInviteLinks && host.screenData.hostInfo
 
+  const contentLoading =
+    (mode === 'room' || mode === 'host') && state.loading
+
   const view = (
     <AppView
-      mode={mode}
-      title={title}
-      eyebrow={eyebrow}
-      statusLabel={statusLabel}
-      onReload={onReload}
-      showInviteButton={mode === 'host' || (mode === 'room' && Boolean(hostKey))}
-      onToggleInvite={() => setShowInviteLinks(v => !v)}
-      shellSurface={shellSurface}
-      gameState={state.screenData.game.state}
-      showTabs={showTabs}
-      activeTab={activeTab}
-      onTabChange={setActiveTab}
-      tabs={tabs}
-      schema={schema}
-      pageData={state.screenData}
-      pageHandlers={state.handlers}
-      pageRendererActiveTab={showTabs ? activeTab : undefined}
+      shell={{
+        mode,
+        shellSurface,
+        gameState: state.screenData.game.state,
+        showTabs,
+        activeTab,
+      }}
+      header={{
+        title,
+        eyebrow,
+        statusLabel,
+      }}
+      main={{
+        mode,
+        activeTab,
+        schema,
+        pageData: state.screenData,
+        pageHandlers: enhancedStateHandlers,
+        pageRendererActiveTab: showTabs ? activeTab : undefined,
+        contentLoading,
+      }}
+      tabs={{
+        showTabs,
+        activeTab,
+        onTabChange: setActiveTab,
+        tabs,
+      }}
+      actions={{ onReload }}
       inviteSheet={
         inviteOpen && host.screenData.hostInfo
           ? {
@@ -152,5 +194,9 @@ export function AppController() {
     />
   )
 
-  return <RoomProvider value={roomValue}>{view}</RoomProvider>
+  return (
+    <AuthProvider>
+      <RoomProvider value={roomValue}>{view}</RoomProvider>
+    </AuthProvider>
+  )
 }
