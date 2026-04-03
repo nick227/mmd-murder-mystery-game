@@ -4,7 +4,7 @@ export type HostAction = 'start' | 'next-act' | 'done'
 
 export interface GameSource {
   fetchStories(apiBase: string): Promise<StoryListItem[]>
-  fetchGames(apiBase: string): Promise<ApiGameSummary[]>
+  fetchGames(apiBase: string, options?: { limit?: number; offset?: number }): Promise<ApiGameSummary[]>
   fetchPublicGame(apiBase: string, gameId: string): Promise<ApiPublicGameView>
   createGame(
     apiBase: string,

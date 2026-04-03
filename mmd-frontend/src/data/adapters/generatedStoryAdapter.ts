@@ -24,6 +24,10 @@ interface GeneratedStoryRun {
   runId?: unknown
   playerCount?: unknown
   cards?: unknown
+  storyTitle?: unknown
+  story_title?: unknown
+  title?: unknown
+  userPrompt?: unknown
   [key: string]: unknown
 }
 
@@ -48,6 +52,34 @@ function asCardArray(value: unknown): GeneratedCard[] | null {
 function firstMeta(cards: GeneratedCard[], title: string): string | null {
   const found = cards.find(c => asString(c.card_type) === 'story_meta' && asString(c.card_title) === title)
   return found ? asString(found.card_contents) : null
+}
+
+function normalizeTitle(value: string | null): string | null {
+  if (!value) return null
+  const normalized = value.trim().replace(/\s+/g, ' ')
+  return normalized.length ? normalized : null
+}
+
+function titleFromRunId(runId: string | null): string | null {
+  const raw = normalizeTitle(runId)
+  if (!raw) return null
+  const stripped = raw
+    .replace(/-\d{10,}-[a-z0-9]+$/i, '')
+    .replace(/-\d{10,}$/i, '')
+    .trim()
+  return normalizeTitle(stripped) ?? raw
+}
+
+function deriveStoryTitle(run: GeneratedStoryRun, cards: GeneratedCard[]): string {
+  return (
+    normalizeTitle(firstMeta(cards, 'Story title'))
+    ?? normalizeTitle(asString(run.storyTitle))
+    ?? normalizeTitle(asString(run.story_title))
+    ?? normalizeTitle(asString(run.title))
+    ?? titleFromRunId(asString(run.runId))
+    ?? normalizeTitle(asString(run.userPrompt))
+    ?? 'Untitled story'
+  )
 }
 
 function cardAct(value: GeneratedCard): number | null {
@@ -131,7 +163,7 @@ export function adaptGeneratedStoryRunToRuntime(
     diagnostics.push({ level: 'error', message: 'Expected root.cards to be an array', path: 'cards' })
   }
 
-  const storyTitle = firstMeta(cards, 'Story title') ?? 'Untitled story'
+  const storyTitle = deriveStoryTitle(run, cards)
   const storyDescription = firstMeta(cards, 'Story description') ?? 'Generated story JSON loaded locally.'
   const playerCount = asNumber(run.playerCount) ?? 0
   if (!asString(run.runId)) {

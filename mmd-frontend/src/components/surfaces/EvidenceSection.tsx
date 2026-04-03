@@ -16,7 +16,7 @@ interface Props {
 export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemClick }: Props) {
   const ordered = sortEvidence(items)
   const availableKinds = useMemo(() => {
-    const preferredOrder: EvidenceItem['kind'][] = ['clue', 'puzzle', 'reveal']
+    const preferredOrder: EvidenceItem['kind'][] = ['clue', 'puzzle', 'item', 'treasure', 'info', 'reveal']
     return preferredOrder.filter(kind => ordered.some(item => item.kind === kind))
   }, [ordered])
   const defaultKind: EvidenceItem['kind'] = availableKinds.includes('clue') ? 'clue' : (availableKinds[0] ?? 'clue')

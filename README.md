@@ -1,3 +1,5 @@
+![Alt text](https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/dezgo_3d28f3918e9da323.jpg)
+
 # MMD — Murder Mystery Dinner Game
 
 Host a murder mystery dinner with a lightweight “game master” console and player dashboards. The host controls pacing (acts + reveal), and players get character-specific info that unlocks over time.

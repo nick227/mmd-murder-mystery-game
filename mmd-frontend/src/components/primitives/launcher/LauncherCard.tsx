@@ -7,6 +7,9 @@ import { Media } from '../../ui/Media'
 import { CreateEditGameSheet } from './CreateEditGameSheet'
 import { useAuth } from '../../../hooks/useAuth'
 
+const GAMES_PER_PAGE = 10
+const INITIAL_LOAD_LIMIT = 20
+
 type Game = ReturnType<typeof mergeLauncherGames>[0]
 
 function formatScheduledTime(scheduledTime?: string) {
@@ -20,7 +23,10 @@ function formatScheduledTime(scheduledTime?: string) {
   }).format(date)
 }
 
-export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: RendererHandlers }) {
+export function LauncherCard({ data, handlers }: { 
+  data: LauncherData; 
+  handlers?: RendererHandlers;
+}) {
   const { user, isLoading, login } = useAuth()
   const [sheetOpen, setSheetOpen] = useState(false)
   const [activeGame, setActiveGame] = useState<Game | undefined>()
@@ -31,6 +37,9 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
   const [createStoryId, setCreateStoryId] = useState<string>('')
   const [authError, setAuthError] = useState('')
   const [authenticating, setAuthenticating] = useState(false)
+  
+  const loadingMore = data.loadingMore ?? false
+  const hasMoreGames = data.hasMoreGames ?? false
 
   useEffect(() => {
     const cg = data.createdGame
@@ -41,6 +50,19 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
   }, [data.createdGame])
 
   const mergedGames = mergeLauncherGames(data)
+  
+  // Separate API games (with story enrichment) from stored games
+  const apiGameIds = new Set(data.allGames.map(g => g.id))
+  const apiGames = mergedGames.filter(g => apiGameIds.has(g.id))
+  const storedGamesOnly = mergedGames.filter(g => !apiGameIds.has(g.id))
+  
+  // Show paginated API games + all stored games
+  const displayedGames = [...apiGames.slice(0, data.allGames.length), ...storedGamesOnly]
+  
+  const handleLoadMore = async () => {
+    if (loadingMore || !hasMoreGames) return
+    await handlers?.onLoadMoreGames?.()
+  }
   const editSheetStories =
     editMode === 'create' && createStoryId
       ? data.stories.filter(story => story.id === createStoryId)
@@ -143,6 +165,12 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
             setEditSheetOpen(false)
             setCreateStoryId('')
           }}
+          onSuccess={() => {
+            // Close sheets after successful create submission
+            setEditSheetOpen(false)
+            setSheetOpen(false)
+            setCreateStoryId('')
+          }}
           onSubmit={async draft => {
             if (editMode === 'create') {
               await handlers?.onLauncherSubmitGame?.({
@@ -172,11 +200,24 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
       ) : null}
 
       <section className="panel">
-        {!mergedGames.length ? (
+        {!displayedGames.length ? (
           <div className="empty-state">No games yet.</div>
         ) : (
-          <div className="link-list">
-            {mergedGames.map(g => {
+          <>
+            <div className="link-list">
+              {displayedGames.map((g) => {
+              // Debug logging for first few games
+              if (displayedGames.indexOf(g) < 3) {
+                console.log('Game data:', {
+                  id: g.id,
+                  name: g.name,
+                  state: g.state,
+                  storyTitle: g.storyTitle,
+                  apiBase: g.apiBase,
+                  dataApiBase: data.apiBase
+                })
+              }
+              
               const stateLabel = g.state ?? (g.apiBase !== data.apiBase ? 'OTHER API' : 'UNKNOWN')
               const hostUrl = g.access?.hostKey
                 ? `${window.location.origin}/host/${g.id}?hostKey=${g.access.hostKey}${g.apiBase ? `&api=${encodeURIComponent(g.apiBase)}` : ''}`
@@ -257,6 +298,20 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
               )
             })}
           </div>
+          
+          {hasMoreGames && (
+            <div className="u-mt-12 u-text-center">
+              <button
+                type="button"
+                className="action-btn action-btn--secondary"
+                onClick={handleLoadMore}
+                disabled={loadingMore}
+              >
+                {loadingMore ? 'Loading...' : 'Load more games'}
+              </button>
+            </div>
+          )}
+        </>
         )}
       </section>
     </>

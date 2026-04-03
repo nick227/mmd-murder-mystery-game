@@ -1,4 +1,5 @@
 import type { RuntimeCard, RuntimeStory } from './runtimeStory.js'
+import { runtimeVisibilityDebug } from './runtimeVisibilityDebug.js'
 
 export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
 
@@ -8,6 +9,18 @@ function stageForAct(story: RuntimeStory, currentAct: number) {
 
 function unlockedCardsForAct(cards: RuntimeCard[], currentAct: number) {
   return cards.filter(c => c.act <= currentAct)
+}
+
+function maxActForStory(story: RuntimeStory): number {
+  let maxAct = 1
+  for (const key of Object.keys(story.stageByAct ?? {})) {
+    const n = Number(key)
+    if (Number.isInteger(n) && n > maxAct) maxAct = n
+  }
+  for (const card of story.cards) {
+    if (typeof card.act === 'number' && Number.isFinite(card.act) && card.act > maxAct) maxAct = card.act
+  }
+  return maxAct
 }
 
 function stableIndex(input: string, mod: number): number {
@@ -37,14 +50,18 @@ export function runtimeStoryToPlayerApiView(input: {
   feed: Array<{ id: string; type: string; payload: any; createdAt: Date }>
 }) {
   const solved = new Set(input.solvedActs)
-  const stage = stageForAct(input.story, input.game.currentAct)
+  const maxAct = maxActForStory(input.story)
+  const isScheduled = input.game.state === 'SCHEDULED'
+  const isPlaying = input.game.state === 'PLAYING'
+  const isReveal = input.game.state === 'REVEAL'
+  const isDone = input.game.state === 'DONE'
 
-  const unlocked = unlockedCardsForAct(input.story.cards, input.game.currentAct).filter(card => {
-    if (card.intent !== 'reveal') return true
-    const reveal = card as any
-    if (!reveal.hiddenUntilSolved) return true
-    return solved.has(card.act)
-  })
+  const stageAct =
+    isScheduled ? 1
+    : isReveal || isDone ? maxAct
+    : input.game.currentAct
+
+  const stage = stageForAct(input.story, stageAct)
 
   const playerCount = input.story.playerOrder.length
   const myIndex = input.story.playerOrder.indexOf(input.me.characterId)
@@ -74,23 +91,119 @@ export function runtimeStoryToPlayerApiView(input: {
     return ownerIndex === (myIndex >= 0 ? myIndex : 0)
   }
 
-  const visible = unlocked.filter(card => {
-    if (card.intent === 'instruction' || card.intent === 'clue') return visibleToMe(card)
-    return true
-  })
+  const actLimit =
+    isDone ? Number.POSITIVE_INFINITY
+    : isScheduled ? 0
+    : input.game.currentAct
 
-  const instructionCards = visible.filter(c => c.intent === 'instruction')
-  const clueCards = visible.filter(c => c.intent === 'clue')
-  const puzzleCards = visible.filter(c => c.intent === 'puzzle')
-  const revealCards = visible.filter(c => c.intent === 'reveal')
+  const unlockedByAct = (card: RuntimeCard): boolean =>
+    isDone ? true
+    : card.act <= actLimit
+
+  const isCardType = (card: RuntimeCard, type: string): boolean =>
+    String(card.source?.cardType ?? '') === type
+
+  const hostSpeechCards = input.story.cards.filter(c => isCardType(c, 'host_speech'))
+  const visibleHostSpeechCards =
+    isDone
+      ? hostSpeechCards
+      : isScheduled
+      ? hostSpeechCards.filter(c => c.act === 1)
+      : isPlaying
+      ? hostSpeechCards.filter(c => c.act === input.game.currentAct)
+      : isReveal
+      ? hostSpeechCards.filter(c => c.act === maxAct)
+      : []
+
+  const playableCards =
+    isScheduled
+      ? []
+      : input.story.cards.filter(unlockedByAct)
+
+  const visibleInstructions = playableCards.filter(c => c.intent === 'instruction' && (isDone ? true : visibleToMe(c)))
+  const visibleClues = playableCards.filter(c => c.intent === 'clue' && (isDone ? true : visibleToMe(c)))
+  const visiblePuzzles = playableCards.filter(c => c.intent === 'puzzle')
+
+  const visibleReveals = (() => {
+    if (isScheduled) return [] as RuntimeCard[]
+    if (isDone) return input.story.cards.filter(c => c.intent === 'reveal')
+    if (isReveal) return input.story.cards.filter(c => c.intent === 'reveal')
+
+    return playableCards.filter(card => {
+      if (card.intent !== 'reveal') return false
+      return solved.has(card.act)
+    })
+  })()
+
+  const visibleInfoCards = (() => {
+    const pregameActLimit = 1
+    const infoActLimit = isDone ? Number.POSITIVE_INFINITY : isScheduled ? pregameActLimit : actLimit
+    return input.story.cards.filter(card => {
+      if (card.intent !== 'info') return false
+      if (!isDone && card.act > infoActLimit) return false
+      if (isCardType(card, 'host_speech')) return false
+      if (isCardType(card, 'secret')) return false
+      if (isCardType(card, 'item')) return false
+      if (isCardType(card, 'treasure')) return false
+      return true
+    })
+  })()
+
+  const visibleTreasures = (() => {
+    if (isScheduled) return [] as RuntimeCard[]
+    return input.story.cards.filter(card => {
+      if (!isCardType(card, 'treasure')) return false
+      return unlockedByAct(card)
+    })
+  })()
+
+  const me = input.story.playersByCharacterId[input.me.characterId]
+
+  const visibleInventoryItems = (() => {
+    const pregameActLimit = 1
+    const itemActLimit = isDone ? Number.POSITIVE_INFINITY : isScheduled ? pregameActLimit : actLimit
+    const items = me?.items ?? []
+    return items.filter(item => typeof item.act === 'number' && item.act <= itemActLimit)
+  })()
+
+  const visibleItemCardItems = (() => {
+    const pregameActLimit = 1
+    const itemActLimit = isDone ? Number.POSITIVE_INFINITY : isScheduled ? pregameActLimit : actLimit
+    const myName = me?.name ?? null
+
+    return input.story.cards
+      .filter(card => isCardType(card, 'item'))
+      .filter(card => {
+        if (!isDone && card.act > itemActLimit) return false
+        const linked = typeof (card as any).linked_character === 'string' ? String((card as any).linked_character) : null
+        // Unlinked item cards are treated as "global" items (visible to all).
+        if (!linked) return true
+        return Boolean(myName && linked === myName)
+      })
+      .map((card, index) => ({
+        id: card.id ?? `item-card-${index}`,
+        name: card.title ?? 'Item',
+        description: card.text ?? '',
+        act: card.act,
+        locationRef: null,
+      }))
+  })()
+
+  const visibleItems = (() => {
+    const byId = new Map<string, (typeof visibleInventoryItems)[number]>()
+    for (const item of [...visibleInventoryItems, ...visibleItemCardItems]) {
+      byId.set(item.id, item)
+    }
+    return Array.from(byId.values()).sort((a, b) => a.act - b.act || a.name.localeCompare(b.name))
+  })()
 
   const unlockedCards = [
-    ...instructionCards.map((c, i) => ({ id: c.id ?? `inst-${i}`, text: c.text, act: c.act, type: 'instruction' })),
-    ...clueCards.map((c, i) => ({ id: c.id ?? `clue-${i}`, text: c.text, act: c.act, type: 'clue', suspectName: (c as any).suspectName ?? null })),
-    ...revealCards.map((c, i) => ({ id: c.id ?? `reveal-${i}`, text: c.text, act: c.act, type: 'reveal' })),
+    ...visibleInstructions.map((c, i) => ({ id: c.id ?? `inst-${i}`, text: c.text, act: c.act, type: 'instruction' })),
+    ...visibleClues.map((c, i) => ({ id: c.id ?? `clue-${i}`, text: c.text, act: c.act, type: 'clue', suspectName: (c as any).suspectName ?? null })),
+    ...visibleReveals.map((c, i) => ({ id: c.id ?? `reveal-${i}`, text: c.text, act: c.act, type: 'reveal' })),
   ]
 
-  const unlockedPuzzles = puzzleCards.map((c, index) => ({
+  const unlockedPuzzles = visiblePuzzles.map((c, index) => ({
     id: c.id ?? `puzzle-${index}`,
     title: c.title ?? 'Puzzle',
     question: c.text,
@@ -98,13 +211,63 @@ export function runtimeStoryToPlayerApiView(input: {
     intent: 'puzzle',
   }))
 
-  const me = input.story.playersByCharacterId[input.me.characterId]
-  const feed = input.feed.map((e) => ({
+  const actStartByAct = new Map<number, Date>()
+  for (const e of input.feed) {
+    if (e.type === 'START_GAME') actStartByAct.set(1, e.createdAt)
+    if (e.type === 'ADVANCE_ACT') {
+      const act = typeof e.payload?.act === 'number' ? e.payload.act : null
+      if (act) actStartByAct.set(act, e.createdAt)
+    }
+  }
+
+  const baseFeed = input.feed.map((e) => ({
     id: e.id,
     type: e.type,
     payload: e.payload,
     createdAt: e.createdAt.toISOString(),
   }))
+
+  const hostSpeechFeed = visibleHostSpeechCards.map((c, index) => ({
+    id: `host-speech:${c.id ?? `host-${index}`}`,
+    type: 'ANNOUNCEMENT',
+    payload: { message: c.text, cardType: 'host_speech', cardId: c.id ?? null, act: c.act },
+    createdAt: (actStartByAct.get(c.act) ?? input.game.scheduledTime ?? new Date()).toISOString(),
+  }))
+
+  const treasureFeed = visibleTreasures.map((c, index) => ({
+    id: `treasure:${c.id ?? `treasure-${index}`}`,
+    type: 'ANNOUNCEMENT',
+    payload: {
+      message: `${c.title ? `${c.title}\n` : ''}${c.text}`,
+      cardType: 'treasure',
+      cardId: c.id ?? null,
+      act: c.act,
+    },
+    createdAt: (actStartByAct.get(c.act) ?? input.game.scheduledTime ?? new Date()).toISOString(),
+  }))
+
+  const stageText = stage?.text
+    ? (visibleHostSpeechCards.length
+        ? `${stage.text}\n\nRead this now:\n${visibleHostSpeechCards.map(c => c.text).join('\n\n')}`
+        : stage.text)
+    : (visibleHostSpeechCards.length ? `Read this now:\n${visibleHostSpeechCards.map(c => c.text).join('\n\n')}` : null)
+
+  runtimeVisibilityDebug({
+    gameId: input.game.id,
+    state: input.game.state,
+    currentAct: input.game.currentAct,
+    solvedActs: input.solvedActs,
+    storyCards: input.story.cards,
+    bundles: input.story.bundles,
+    visibleClues,
+    visiblePuzzles,
+    visibleReveals: visibleReveals as any,
+    visibleHostSpeech: visibleHostSpeechCards,
+    visibleTreasures,
+    visibleInfoCards,
+    visibleItems,
+    returnedSecretsCount: (isScheduled || isDone) ? (me?.secrets?.length ?? 0) : 0,
+  })
 
   return {
     gameId: input.game.id,
@@ -116,8 +279,8 @@ export function runtimeStoryToPlayerApiView(input: {
     scheduledTime: input.game.scheduledTime.toISOString(),
     locationText: input.game.locationText,
     storyImage: input.storyImage ?? null,
-    stage: stage ? { title: stage.title, text: stage.text, image: stage.image } : null,
-    feed,
+    stage: stage ? { title: stage.title, text: stageText ?? stage.text, image: stage.image } : null,
+    feed: [...baseFeed, ...hostSpeechFeed, ...treasureFeed].sort((a, b) => a.createdAt.localeCompare(b.createdAt)),
     roomPlayers: input.game.players.map(p => ({
       id: p.id,
       characterId: p.characterId,
@@ -130,8 +293,42 @@ export function runtimeStoryToPlayerApiView(input: {
     characterId: input.me.characterId,
     playerName: input.me.playerName,
     character: me
-      ? { id: me.characterId, name: me.name, archetype: me.archetype, biography: me.biography, image: me.image ?? null, secrets: me.secrets, items: me.items }
+      ? {
+          id: me.characterId,
+          name: me.name,
+          archetype: me.archetype,
+          biography: me.biography,
+          image: me.image ?? null,
+          secrets: isScheduled || isDone ? me.secrets : [],
+          items: visibleInventoryItems.map(item => item.name),
+        }
       : null,
+    visibleInfoCards: visibleInfoCards.map((c, index) => ({
+      id: c.id ?? `info-${index}`,
+      act: c.act,
+      title: c.title ?? null,
+      text: c.text,
+      cardType: String(c.source?.cardType ?? 'info'),
+    })),
+    visibleItems: visibleItems.map((item, index) => ({
+      id: item.id ?? `item-${index}`,
+      act: item.act,
+      name: item.name,
+      description: item.description,
+      locationRef: item.locationRef ?? null,
+    })),
+    visibleHostSpeech: visibleHostSpeechCards.map((c, index) => ({
+      id: c.id ?? `host-${index}`,
+      act: c.act,
+      title: c.title ?? null,
+      text: c.text,
+    })),
+    visibleTreasures: visibleTreasures.map((c, index) => ({
+      id: c.id ?? `treasure-${index}`,
+      act: c.act,
+      title: c.title ?? null,
+      text: c.text,
+    })),
     unlockedMysteries: [],
     unlockedPuzzles,
     unlockedCards,

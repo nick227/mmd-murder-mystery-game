@@ -31,6 +31,7 @@ export interface RuntimeClueCard extends RuntimeCardBase {
   suspectName?: string | null
   clueType?: string | null
   clueWeight?: string | null
+  evidenceType?: string | null
 }
 
 export interface RuntimeInfoCard extends RuntimeCardBase {

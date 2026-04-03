@@ -1,0 +1,1306 @@
+{
+  "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Visions of the Crystal Orb-1775223642333-eol76l",
+  "playerCount": 3,
+  "userPrompt": "Psychic Convention",
+  "storyStyle": "weird, bizarre, funny, strange",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/dezgo_ec9c35d448c98d2e.jpg",
+  "cards": [
+    {
+      "card_id": "0f132c09-b7de-4467-80fd-837a941762bd",
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Visions of the Crystal Orb",
+      "act": 1
+    },
+    {
+      "card_id": "5c823c2f-4f3f-4b26-96e0-32038ef2144f",
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Step into the enigmatic 1970s Psychic Convention where mystics and skeptics collide in a battle for the legendary Crystal Orb of Omniscience. When the charismatic host is mysteriously murdered during a seance, chaos erupts as psychic powers falter and alliances shift. Players must navigate eerie humor and supernatural suspicion to unravel a truth as elusive as a prophecy.",
+      "act": 1
+    },
+    {
+      "card_id": "f3bd0cb1-024d-4e6d-9187-7ac8dc63e5f4",
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "PG-13 — moderate suspense and thematic elements",
+      "act": 1
+    },
+    {
+      "card_id": "fd93d905-3049-42e7-b40f-65972d4a36ac",
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "supernatural, 1970s, ensemble cast, locked room, dark humor, mystery, psychic powers",
+      "act": 1
+    },
+    {
+      "card_id": "515bd01c-7499-4379-adda-70b16ce94d94",
+      "card_type": "person",
+      "card_title": "Madame Zolga",
+      "card_contents": "The enigmatic and flamboyant host of the convention, known for her dramatic flair and uncanny ability to command attention. Her mysterious past and sudden death cast a long shadow over the event.",
+      "act": 1
+    },
+    {
+      "card_id": "1de0cdac-19d3-4a10-b424-dbdf20487437",
+      "card_type": "person",
+      "card_title": "Professor Alaric Voss",
+      "card_contents": "A skeptical academic who reluctantly attends the convention to debunk psychic phenomena but finds himself entangled in the chaos when the orb disappears.",
+      "act": 1
+    },
+    {
+      "card_id": "4f5bedfd-866a-42ad-8667-48bd4ff5f5b6",
+      "card_type": "person",
+      "card_title": "Sister Mirabella",
+      "card_contents": "A serene aura painter whose calm demeanor masks a fierce determination to protect the secrets of the psychic community.",
+      "act": 1
+    },
+    {
+      "card_id": "b48edb0b-8066-4efb-890e-427167c3b964",
+      "card_type": "location",
+      "card_title": "The Grand Hall",
+      "card_contents": "The main event space of the convention, adorned with velvet drapes and neon lights, where seances and competitions unfold amid thick incense smoke and flickering fluorescents.",
+      "act": 1
+    },
+    {
+      "card_id": "74e4d7cf-b839-4d17-af45-a00beb127250",
+      "card_type": "location",
+      "card_title": "The Crystal Chamber",
+      "card_contents": "A secured side room where the Crystal Orb of Omniscience was kept before its disappearance, lined with protective sigils and guarded by mystical wards.",
+      "act": 1
+    },
+    {
+      "card_id": "840c04bb-b761-4e2f-b8c9-ee06db488a6f",
+      "card_type": "location",
+      "card_title": "The Hotel Lobby",
+      "card_contents": "A faded 1970s lobby with cracked marble floors and a flickering chandelier, serving as a crossroads for attendees and a place where whispered alliances and betrayals take shape.",
+      "act": 1
+    },
+    {
+      "card_id": "903bc4ee-009e-4f9f-99cc-f18d413b02db",
+      "card_type": "item",
+      "card_title": "Crystal Orb of Omniscience",
+      "card_contents": "A legendary relic said to grant vivid visions of the future capable of altering fate, central to the convention's competition and the catalyst for the ensuing chaos.",
+      "act": 1
+    },
+    {
+      "card_id": "6305da92-6d8d-4f14-ad33-3df01095ddf2",
+      "card_type": "item",
+      "card_title": "Crystal-tipped Scepter",
+      "card_contents": "Madame Zolga's theatrical seance prop, used as the murder weapon, symbolizing both power and the fragility of the psychic realm.",
+      "act": 1
+    },
+    {
+      "card_id": "6388191d-7324-443a-8566-284cb64780a2",
+      "card_type": "item",
+      "card_title": "The Seance Recordings",
+      "card_contents": "A collection of audio tapes capturing Madame Zolga's final seance, containing cryptic messages and distorted voices that may hold clues to the mystery.",
+      "act": 1
+    },
+    {
+      "card_id": "54e1ef2d-8ad7-4a1b-9816-438ac4ccb9a2",
+      "card_type": "character",
+      "card_title": "Evelyn Starfire - The Aura Painter",
+      "card_contents": "A flamboyant artist known for capturing the unseen colors of auras on canvas, Evelyn claims her paintings reveal hidden truths about people's souls. She arrived at the convention with a new technique she insists can predict death moments before it happens. Fiercely competitive and prone to dramatic outbursts, Evelyn resents Madame Zolga’s dominance and coveted the Crystal Orb to validate her art and silence skeptics. Her volatile temper and obsession with spiritual authenticity make her a prime suspect.",
+      "act": 1
+    },
+    {
+      "card_id": "ac587511-c135-4f40-83d6-f7075cf30f9b",
+      "card_type": "character",
+      "card_title": "Dr. Felix Marlowe - The Skeptic Investigator",
+      "card_contents": "A sharply dressed, no-nonsense psychologist who openly mocks the psychic community, Dr. Marlowe attends the convention undercover to debunk their claims. His presence is a thorn in the side of many attendees, especially Madame Zolga, who saw him as a threat to her legacy. Though he denies any belief in the supernatural, his meticulous nature and secretive behavior suggest he might have more at stake than just disproving psychic phenomena. Could his rational mind have orchestrated the perfect crime?",
+      "act": 2
+    },
+    {
+      "card_id": "1d3dbdc6-34fd-4634-90d8-cca08829088b",
+      "card_type": "character",
+      "card_title": "Madame Seraphina - The Tarot Enchantress",
+      "card_contents": "With a voice like velvet and a gaze that pierces the soul, Madame Seraphina is a revered tarot reader whose prophecies have made and broken reputations. She was Madame Zolga’s closest rival and rumored to covet the Crystal Orb for its legendary power to amplify her visions. Seraphina’s calm exterior masks a ruthless ambition and a willingness to manipulate fate itself. Her cryptic warnings and secretive alliances cast a long shadow of suspicion over her role in the murder and the orb’s disappearance.",
+      "act": 3
+    },
+    {
+      "card_id": "10e8872d-c139-4d13-ab4c-c5e036de6b0c",
+      "card_type": "clue",
+      "card_title": "Whispers Beneath the Velvet",
+      "card_contents": "In the room where incense smoke twirls with flickering lights, seek the stage where Madame Zolga held court. Beneath the velvet drapes and ornate carvings, a secret lies hidden—listen for the faintest creak or seam that betrays a hidden door.",
+      "act": 1,
+      "linked_character": "Evelyn Starfire - The Aura Painter",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "da7acc82-c741-47fe-a750-14217d38895b",
+      "card_type": "clue",
+      "card_title": "The Podium's Silent Secret",
+      "card_contents": "Examine the base where the host once commanded the room; its surface ornate, yet a subtle line divides what seems whole. Press or pry with care—this is no ordinary stand, but a keeper of secrets, guarding the orb that fuels visions.",
+      "act": 2,
+      "linked_character": "Dr. Felix Marlowe - The Skeptic Investigator",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "bff979eb-8f0e-43ad-9eca-9044b80d2663",
+      "card_type": "clue",
+      "card_title": "Echoes of the Crystal Tipped Scepter",
+      "card_contents": "Recall the weapon's gleam that ended the seance's trance; its crystal tip a mirror to the prize concealed. Where the scepter once pointed, the truth waits in shadow—unlock the hidden chamber to restore the fractured fates.",
+      "act": 3,
+      "linked_character": "Madame Seraphina - The Tarot Enchantress",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "1a0f36ed-63c5-4f3f-971c-2c3a59c23b22",
+      "card_type": "clue",
+      "card_title": "Crystal-Tipped Scepter with Smudged Fingerprints",
+      "card_contents": "The ornate scepter used to stab Madame Zolga is found near her body, with smudged fingerprints partially wiped off, suggesting a hurried attempt to conceal the assailant's identity.",
+      "clue_type": "artifact",
+      "suspect_name": "Dr. Felix Marlowe",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "c5ec1eac-739d-4348-bf36-612b5f867a91",
+      "card_type": "clue",
+      "card_title": "Dr. Felix Marlowe's Secret Skepticism",
+      "card_contents": "Known for his undercover investigations, Dr. Felix Marlowe openly doubts psychic phenomena and was attending the convention to expose frauds, giving him a motive to stop Madame Zolga.",
+      "clue_type": "fact",
+      "suspect_name": "Dr. Felix Marlowe",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "3a387fdb-0d4d-4949-b5c9-76b212edab63",
+      "card_type": "clue",
+      "card_title": "Disrupted Psychic Powers During Seance",
+      "card_contents": "Attendees report their visions became blurred and contradictory exactly when the murder occurred, coinciding with flickering lights and heavy incense smoke in the Grand Hall during seance.",
+      "clue_type": "fact",
+      "suspect_name": "Madame Zolga",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "8bf1fb36-b87f-490f-9e61-0b3ef024d3b7",
+      "card_type": "clue",
+      "card_title": "Evelyn Starfire's Aura Paints Show Anxiety",
+      "card_contents": "Evelyn Starfire's aura paintings from the night reveal unusual spikes of fear and agitation among the group, especially around the time of the murder, hinting at rising tensions.",
+      "clue_type": "derived",
+      "suspect_name": "Evelyn Starfire",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "3aa55a62-e8d7-46dc-86ad-bc655b2dac50",
+      "card_type": "clue",
+      "card_title": "Madame Seraphina's Tarot Deck Missing a Card",
+      "card_contents": "Madame Seraphina's tarot deck is found incomplete, with the Death card missing, symbolically linked to the murder but possibly a red herring or distraction.",
+      "clue_type": "artifact",
+      "suspect_name": "Madame Seraphina",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "c5ebdafa-e7ec-42e6-b3a3-148417b3d87a",
+      "card_type": "clue",
+      "card_title": "The Locked Grand Hall During Seance",
+      "card_contents": "The Grand Hall was locked from the inside during the seance, making it impossible for anyone to enter or leave unnoticed, intensifying the mystery around how the murder was committed.",
+      "clue_type": "fact",
+      "suspect_name": "Madame Zolga",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "3a66d61f-c011-4fdb-ae2a-fa095454d84d",
+      "card_type": "clue",
+      "card_title": "Dr. Felix Marlowe's Knowledge of the Grand Hall Layout",
+      "card_contents": "Dr. Felix Marlowe demonstrated detailed knowledge of the Grand Hall’s layout and lighting controls, allowing him to manipulate the environment during the seance to create confusion.",
+      "clue_type": "derived",
+      "suspect_name": "Dr. Felix Marlowe",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "7b97f999-4706-4062-a695-f49d427373b4",
+      "card_type": "clue",
+      "card_title": "Incense Smoke Masking the Murder",
+      "card_contents": "The thick incense smoke in the Grand Hall during the seance was unusually intense, likely used to obscure vision and cover sounds, aiding the murderer’s stealthy attack.",
+      "clue_type": "fact",
+      "suspect_name": "Madame Zolga",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "99f87560-cab2-4d71-8dc5-09c0d6f34b2b",
+      "card_type": "clue",
+      "card_title": "Madame Seraphina’s Alibi is Vague",
+      "card_contents": "Madame Seraphina claims to have been preparing her tarot readings in a corner of the Grand Hall, but no one can confirm her exact whereabouts at the time of the murder.",
+      "clue_type": "fact",
+      "suspect_name": "Madame Seraphina",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "f9533a71-3c90-4128-a2b3-dae91d94c26b",
+      "card_type": "clue",
+      "card_title": "Fingerprint Analysis Report",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nFingerprint Analysis Report Summary:\n- Sample 1: Crystal-Tipped Scepter bears smudged fingerprints exhibiting partial loops and whorls, indicating a complex pattern rather than a clean print.\n- Sample 2: Door Handle at the Grand Hall entrance was wiped clean; no fingerprints detected, suggesting deliberate removal or avoidance of contact.\n- Sample 3: Victim's Robe shows no fingerprints, implying the victim did not grasp the scepter prior to the attack or that prints were removed.\nAdditional Notes:\n- The fingerprint pattern on the scepter does not match any known prints from the registered attendees, including the victim and staff.\n- The smudging and partial patterns suggest the scepter was forcefully grabbed or wrestled over during the stabbing, causing prints to smear.\n- The absence of prints on the victim’s robe and the cleaned door handle hint at an attempt to obscure the assailant's identity.\n- The unique partial loops and whorls pattern may indicate the assailant wore gloves that partially retained their fingerprint ridges or that the print was transferred indirectly.\n- This report supports the theory of a struggle immediately before or during the stabbing, consistent with witness seance logs describing sudden commotion.\n- The forensic findings imply the fingerprints were left in haste and altered by movement, complicating direct identification but confirming physical contact with the scepter during the attack.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "4c816a68-be2d-48e9-8aa9-82e0819255df",
+      "card_type": "clue",
+      "card_title": "Witness Seance Log",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nEntry 1: 8:00 PM - Seance begins, lights dimmed, incense lit, and all attendees seated in a circle. Madame Zolga holds the crystal-tipped scepter, which she uses to channel the spirits.\n\nEntry 2: 8:10 PM - Madame Zolga initiates the invocation, waving the scepter slowly over the circle. Attendees report feeling a sudden chill.\n\nEntry 3: 8:15 PM - The scepter is passed briefly to a participant for a demonstration, then returned to Madame Zolga. Fingerprints on the scepter are noted to be clear and distinct at this time.\n\nEntry 4: 8:20 PM - Madame Zolga resumes holding the scepter firmly, chanting an incantation. Some attendees notice a faint shimmer around the orb displayed nearby.\n\nEntry 5: 8:22 PM - Sudden commotion: a struggle breaks out near Madame Zolga. Witnesses hear a sharp gasp and a thud. Madame Zolga is found stabbed with the crystal-tipped scepter still in her hand.\n\nEntry 6: 8:23 PM - Attendees note the scepter’s fingerprints have become smudged and partially wiped, suggesting a violent grip and movement during the attack.\n\nEntry 7: 8:25 PM - The Crystal Orb is missing from its pedestal. Psychic powers among attendees begin to falter and visions become erratic.\n\nNotes: The scepter was in the victim's hand at the time of stabbing. The smudged fingerprints likely resulted from a struggle, indicating the attacker may have forcibly grabbed or wrested the scepter during the assault.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "165fad43-107c-4b34-8734-861ec2946f68",
+      "card_type": "clue",
+      "card_title": "Forensic Pattern Report",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nDetailed Forensic Pattern Report:\n- The crystal-tipped scepter recovered from the crime scene shows a series of smudged fingerprints concentrated along the shaft and near the crystal tip.\n- The fingerprint pattern reveals partial loops and whorls, but the smudging obscures full ridge detail, indicative of rapid, forceful movement.\n- Analysis suggests the scepter was gripped tightly with a twisting motion, consistent with a struggle between the victim and assailant.\n- The smudging pattern corresponds with abrupt contact and movement, likely caused when the scepter was used as a stabbing weapon.\n- No clear, complete fingerprints match any of the known attendees, suggesting the assailant attempted to wipe or smear their prints during the incident.\n- Additional notes: The pattern of smudging and pressure points implies the victim may have initially held the scepter before it was wrested away or forcibly moved during the attack.\n- This forensic evidence supports the theory that the stabbing was a sudden, violent act involving close physical contact and struggle over the weapon.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_003",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "96ca4706-a308-42dc-a5c0-8728236b6a8c",
+      "card_type": "solution",
+      "card_title": "Answer to Fingerprint Puzzle",
+      "card_contents": "The physical pattern described under \"Crystal-Tipped Scepter with Smudged Fingerprints\" ties to the circumstances of the death at Grand Hall during seance.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_unlock_001",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "e8ef60ea-b153-4e86-bdcf-986dc629acac",
+      "card_type": "puzzle",
+      "card_title": "Who Left the Smudged Fingerprints on the Crystal-Tipped Scepter?",
+      "card_contents": "In the eerie Grand Hall during seance where Madame Zolga was theatrically stabbed, the crystal-tipped scepter bears smudged fingerprints with a unique pattern. Considering the forensic and witness logs, what does the physical pattern described under \"Crystal-Tipped Scepter with Smudged Fingerprints\" reveal about the circumstances of the death?\n\nVictim: Madame Zolga\nLocation: Grand Hall during seance",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_1_evidence_001",
+        "bundle_1_evidence_002",
+        "bundle_1_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_001"
+      ],
+      "required_card_ids": [
+        "f9533a71-3c90-4128-a2b3-dae91d94c26b",
+        "4c816a68-be2d-48e9-8aa9-82e0819255df",
+        "165fad43-107c-4b34-8734-861ec2946f68"
+      ],
+      "unlock_card_ids": [
+        "96ca4706-a308-42dc-a5c0-8728236b6a8c"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "3921c26c-06ed-4475-a0fd-c314d8b7eb54",
+      "card_type": "clue",
+      "card_title": "Transcript of Dr. Felix Marlowe's Interview",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nInterview Transcript of Dr. Felix Marlowe:\n\nInterviewer: Dr. Marlowe, can you describe your observations during the seance?\n\nMarlowe: Certainly. I have always been skeptical of psychic claims, but I attended hoping to observe something genuine. Early on, I noticed inconsistencies in the aura readings, particularly near the east wing of the Grand Hall. The colors seemed to flicker unnaturally, almost as if the readings were being manipulated or affected by some external factor.\n\nInterviewer: Did you witness anything unusual?\n\nMarlowe: Yes. About fifteen minutes before the murder, I overheard a heated argument near the crystal display case. Voices were hushed but intense. It seemed related to the Crystal Orb itself, though I couldn't catch the exact words.\n\nInterviewer: Anything else?\n\nMarlowe: Later, I saw a shadowy figure lurking near the velvet drapes adjacent to the stage area. The figure was partially obscured by the smoke from incense, but their presence felt deliberate, as if they were waiting or watching.\n\nInterviewer: Did you notice anything about the Crystal Orb's placement?\n\nMarlowe: I questioned its authenticity. It was oddly positioned during the seance, not in the typical central spot but slightly off to the side near the east wing. This struck me as unusual, possibly to misdirect attention.\n\nInterviewer: Thank you, Dr. Marlowe. Your insights are invaluable.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "transcripts"
+    },
+    {
+      "card_id": "cf978feb-b9a3-4d60-be3d-f28531aac7d4",
+      "card_type": "clue",
+      "card_title": "Security Ledger from Grand Hall during seance",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nSecurity Ledger Entries:\n\nEntry 1: 8:15 PM - Security personnel logged unusual movement near the east wing curtain, noting a shadowy figure briefly seen lurking behind the drapery. This area is adjacent to the stage but partially obscured from main lighting.\n\nEntry 2: 8:30 PM - The crystal-tipped scepter was last recorded resting on the podium beside the stage, the designated spot for Madame Zolga during her seance. No one else was logged as touching the scepter after this time.\n\nEntry 3: 8:45 PM - The security camera feed was briefly obscured by thick incense smoke near the velvet drapes, which are located on the west side of the Grand Hall, close to the entrance and the display case holding the Crystal Orb.\n\nEntry 4: 9:00 PM - The Crystal Orb was reported missing from its display case at center stage, triggering an immediate lockdown of the Grand Hall.\n\nAdditional Notes:\n- The east wing curtain area is notable for limited visibility and is a known spot for private conversations among attendees.\n- The timing of the scepter's last known location and the camera obstruction coincide closely with the estimated time of Madame Zolga's murder.\n- The incense smoke, a usual part of the seance ambiance, was unusually dense at this time, possibly used to mask movement or tamper with surveillance.\n\nThis ledger provides a timeline and spatial clues critical to pinpointing the physical location implicated in the murder and the disappearance of the orb.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "0a55c317-08b0-4871-a419-012e4911c163",
+      "card_type": "solution",
+      "card_title": "Solution: Location Implicated by Cross-Reference",
+      "card_contents": "Cross-referencing \"Dr. Felix Marlowe's Secret Skepticism\" isolates which part of Grand Hall during seance the physical detail implicates.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_unlock_002",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "54620299-aa7c-4d7c-8b2c-c5ffb55ecb81",
+      "card_type": "puzzle",
+      "card_title": "Cross-Reference Puzzle: Locating the Physical Detail",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nUsing the clues from Dr. Felix Marlowe's secret skepticism and the security ledger, which specific part of the Grand Hall during seance does the physical detail implicate in the murder?\n\nUnlocking this will reveal a crucial insight into the crime scene's layout and help narrow down the suspect's location.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_001",
+        "bundle_2_evidence_001",
+        "bundle_2_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_002"
+      ],
+      "required_card_ids": [
+        "96ca4706-a308-42dc-a5c0-8728236b6a8c",
+        "3921c26c-06ed-4475-a0fd-c314d8b7eb54",
+        "cf978feb-b9a3-4d60-be3d-f28531aac7d4"
+      ],
+      "unlock_card_ids": [
+        "0a55c317-08b0-4871-a419-012e4911c163"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "4925c316-2b0d-4dff-bbb3-3a0ef76aab23",
+      "card_type": "clue",
+      "card_title": "Seance Participant Log",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nParticipant Log:\n- 8:00 PM: All participants seated in a semicircle facing the Crystal Orb, arranged by specialty: tarot readers left, aura painters center, clairvoyants right (east wing), skeptic near back.\n- 8:10 PM: Madame Zolga lights incense at the central altar; smoke begins to fill the room.\n- 8:15 PM: Invocation begins; participants focus on the orb.\n- 8:25 PM: Several participants near the east wing begin to show signs of confusion and distraction.\n- 8:30 PM: Sudden flickering of fluorescent lights noted specifically above the east wing seating area.\n- 8:35 PM: Participants near east wing report blurred visions and contradictory psychic impressions.\n- 8:40 PM: A participant seated near the east wing stands abruptly, complaining of dizziness.\n- 8:45 PM: Disruptions in psychic readings intensify near east wing; other areas report stable readings.\n- 8:50 PM: Madame Zolga calls for calm but is interrupted by a loud crash near the east wing.\n- 8:55 PM: Lights flicker more violently above east wing; some participants begin to pack belongings.\n\nNotes:\n- The east wing was under a loose fluorescent light fixture that flickered intermittently.\n- Several participants near the east wing were closest to the altar but also nearest to a side exit.\n- The skeptic was observed moving towards the east wing during the flickering.\n\nThis detailed timeline highlights the east wing as the focal point of psychic disturbances during the seance.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "7d80f376-a6ab-492d-ba74-c6f7de5624f6",
+      "card_type": "clue",
+      "card_title": "Psychic Power Disruption Report",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nDetailed Report on Psychic Power Disruptions:\n\n- Tarot readers positioned near the west wing consistently reported clear, vivid visions throughout the seance, unaffected by any disturbances.\n- Aura painters stationed around the central altar noted significant distortions in the colors they perceived, describing hues as \"muddy\" or \"off-spectrum,\" indicating an unusual interference with their usual aura-reading abilities.\n- Clairvoyants located near the east wing experienced the most severe disruptions: their prophecies became blurred, contradictory, and often reversed in meaning, causing confusion and distrust among participants.\n- The skeptical investigator, who remained detached from psychic practices, recorded unusual electromagnetic interference localized specifically near the east wing, correlating with the area where the most severe psychic disruptions were reported.\n\nAdditional Observations:\n- The east wing was also the site of a loose fluorescent light fixture flickering intermittently, which some participants mentioned as distracting or unsettling.\n- Physical evidence such as the crystal-tipped scepter with traces of velvet fibers and the broken incense holder were found near the east wing and central altar, respectively, possibly linking physical disturbances to the psychic disruptions.\n\nSummary:\nThe east wing of the Grand Hall during the seance is the focal point of both psychic power disturbances and electromagnetic anomalies, suggesting a strong correlation between physical disruptions and the breakdown of psychic abilities in that area.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "56d103dd-a8f7-41b0-94b8-459fd22d7d7d",
+      "card_type": "clue",
+      "card_title": "Physical Evidence Inventory",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nPhysical Evidence Inventory:\n- Crystal-tipped scepter with traces of velvet fibers found near east wing, suggesting a struggle or contact with a participant wearing velvet garments.\n- Broken incense holder discovered at the central altar, indicating possible disturbance during the ritual but no direct link to the murder.\n- Flickering fluorescent light fixture above the east wing found loose, with electrical wiring exposed and intermittent sparks observed.\n\nAdditional Notes:\n- The loose fluorescent light above the east wing was reported to flicker erratically starting around 8:30 PM, coinciding with the onset of psychic disruptions.\n- Velvet fibers on the scepter match the distinctive cloak worn by one of the key suspects seated near the east wing.\n- The broken incense holder at the central altar is consistent with incense used to mask odors but was found shattered, possibly from a sudden movement or confrontation.\n\nThis inventory highlights the east wing as a critical area where physical disturbances and electrical anomalies coincide, potentially explaining the psychic power disruptions experienced during the seance.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_003",
+      "hidden_until_solved": false,
+      "evidence_type": "lists"
+    },
+    {
+      "card_id": "26eefcc9-3071-49a9-9ae0-e182557afdcd",
+      "card_type": "solution",
+      "card_title": "Solution: Location Implicated by Disrupted Psychic Powers",
+      "card_contents": "Cross-referencing \"Disrupted Psychic Powers During Seance\" isolates which part of Grand Hall during seance the physical detail implicates.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_unlock_003",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "008000b6-78b5-409d-8ced-05d334fd0434",
+      "card_type": "puzzle",
+      "card_title": "Cross-Reference Puzzle: Disrupted Psychic Powers During Seance",
+      "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nMultiple reports describe disruptions in psychic powers during the seance, particularly near a specific part of the Grand Hall. Cross-referencing the participant log, disruption report, and physical evidence inventory, which part of the Grand Hall during seance does the physical detail implicate as the source of the psychic disruptions?\n\nUnlock this clue to better understand the scene: A loose fluorescent light fixture flickers ominously, casting shadows over a crucial spot in the hall.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_002",
+        "bundle_3_evidence_001",
+        "bundle_3_evidence_002",
+        "bundle_3_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_003"
+      ],
+      "required_card_ids": [
+        "0a55c317-08b0-4871-a419-012e4911c163",
+        "4925c316-2b0d-4dff-bbb3-3a0ef76aab23",
+        "7d80f376-a6ab-492d-ba74-c6f7de5624f6",
+        "56d103dd-a8f7-41b0-94b8-459fd22d7d7d"
+      ],
+      "unlock_card_ids": [
+        "26eefcc9-3071-49a9-9ae0-e182557afdcd"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "6171a77a-3caf-463b-84ef-0ebc0e4b0748",
+      "card_type": "clue",
+      "card_title": "Evelyn Starfire's Aura Paints Show Anxiety",
+      "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nEvelyn Starfire's aura paintings provide a vivid, symbolic representation of the emotional atmosphere tied to various access credentials worn by attendees during the seance. \n\nEntry 1: The painting depicts a distinct flicker of deep blue anxiety surrounding the Grand Hall entrance badge, suggesting a subtle but tense energy linked to those holding this credential.\n\nEntry 2: A shimmering red aura pulses strongly near the backstage pass holder's lanyard, indicating heightened emotional intensity and possibly stress or urgency connected with backstage access.\n\nEntry 3: The general admission wristbands emit a faint green glow, representing calm or neutrality, but this is notably overshadowed by the more dominant anxious blue and intense red auras.\n\nEntry 4: Most strikingly, the anxiety aura intensifies dramatically around the crystal-tipped scepter itself, which was found embedded in Madame Zolga, hinting at a direct connection between the murder weapon and the access credentials that govern movement and influence within the Grand Hall.\n\nThese aura variations suggest that backstage passes and the scepter’s proximity are closely tied to emotional states and possibly to the unfolding of the murder, with backstage access being a key factor in the heightened anxiety and tension during the seance.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "1440927a-2202-41f6-8bbc-edecc794c067",
+      "card_type": "clue",
+      "card_title": "Guest List and Access Credentials Ledger",
+      "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nThis ledger records the guest list alongside their assigned access credentials, which determined their movement and influence during the event:\n\nEntry 1: Evelyn Starfire - Access: Backstage Pass\n- Allowed access to restricted areas behind the stage and seance setup.\n- Enabled proximity to the Crystal Orb and ceremonial items.\n\nEntry 2: Dr. Felix Marlowe - Access: Investigator Badge\n- Granted investigative privileges and limited backstage access.\n- Could question attendees and inspect evidence but restricted from certain private areas.\n\nEntry 3: Madame Zolga - Access: Host Credentials\n- Full access to all areas including the Grand Hall and backstage.\n- Exclusive control over the Crystal Orb and seance proceedings.\n\nEntry 4: Simon the Skeptic - Access: General Admission Wristband\n- Limited to public areas within the Grand Hall.\n- No backstage or restricted zone access.\n\nThis ledger highlights the hierarchy of access and suggests which credentials could influence the unfolding events during the seance, especially considering proximity to the victim and the stolen Crystal Orb.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "ledgers"
+    },
+    {
+      "card_id": "7da3c95a-e9da-4eec-8edb-aa7bf43fbe42",
+      "card_type": "clue",
+      "card_title": "Security Log of Grand Hall Entry",
+      "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nSecurity Log of Grand Hall Entry:\nEntry 1: 7:00 PM - Evelyn Starfire scanned backstage pass at the Grand Hall entrance. Access granted without incident.\nEntry 2: 7:05 PM - Dr. Felix Marlowe entered wearing an investigator badge, which allowed immediate clearance through security checkpoints.\nEntry 3: 7:10 PM - Madame Zolga, the host, entered with host credentials that provided unrestricted access to all areas, including the seance circle and equipment storage.\nEntry 4: 7:15 PM - Simon the Skeptic entered with a general admission wristband, which limited movement to audience areas only.\n\nAdditional Notes:\n- The log indicates that only those with backstage passes, investigator badges, or host credentials had access to restricted areas where the crystal-tipped scepter was kept.\n- General admission wristbands did not permit entry beyond the audience seating, limiting Simon's access.\n- The timing of entries suggests that Madame Zolga was the last with full access before the seance began, highlighting the importance of host credentials during the event.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_003",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "4c9b7aa5-34a2-42fb-8ad0-bd87217977db",
+      "card_type": "solution",
+      "card_title": "Answer: Access Credential That Mattered",
+      "card_contents": "The \"Evelyn Starfire's Aura Paints Show Anxiety\" material shows which access or credential mattered at Grand Hall during seance.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_unlock_004",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "dfd999a1-b6bb-4ac0-b07d-b1ce92c8b88a",
+      "card_type": "puzzle",
+      "card_title": "Which Access Credential Mattered Most?",
+      "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nDuring the seance when Madame Zolga was found stabbed, the psychic powers were faltering and the attendees' access credentials influenced their abilities and anxieties. Using the evidence from Evelyn Starfire's aura paintings and the access logs, which access or credential mattered most at Grand Hall during seance?",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_puzzle",
+      "puzzle_type": "elimination",
+      "required_card_refs": [
+        "bundle_unlock_003",
+        "bundle_4_evidence_001",
+        "bundle_4_evidence_002",
+        "bundle_4_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_004"
+      ],
+      "required_card_ids": [
+        "26eefcc9-3071-49a9-9ae0-e182557afdcd",
+        "6171a77a-3caf-463b-84ef-0ebc0e4b0748",
+        "1440927a-2202-41f6-8bbc-edecc794c067",
+        "7da3c95a-e9da-4eec-8edb-aa7bf43fbe42"
+      ],
+      "unlock_card_ids": [
+        "4c9b7aa5-34a2-42fb-8ad0-bd87217977db"
+      ],
+      "hidden_until_solved": false
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [
+      {
+        "stage": "item_agent",
+        "attempt": 1,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "Crystal Orb of Omniscience, Crystal-tipped Scepter, The Seance Recordings"
+      },
+      {
+        "stage": "item_agent",
+        "attempt": 2,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "Crystal Orb of Omniscience, Crystal-tipped Scepter, The Seance Recordings"
+      }
+    ],
+    "warning_log": [
+      {
+        "stage": "item_agent",
+        "reason": "best_effort_items",
+        "message": "item_agent failed strict per-character item generation; emitting best-effort set (0 items)."
+      }
+    ],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "In the neon-lit, velvet-draped Grand Hall of the 13th Annual Psychic Convention, a motley crew of clairvoyants, tarot readers, aura painters, and one suspiciously normal skeptic have gathered to compete for the legendary Crystal Orb of Omniscience—a rumored relic said to grant visions of the future so vivid they can alter fate itself. But when the eccentric host, Madame Zolga, is found theatrically stabbed with a crystal-tipped scepter in the middle of her own seance, the orb vanishes, and the psychic powers of the attendees start going haywire—visions blur, prophecies contradict, and paranoia spirals. Set in a timeless, slightly warped 1970s hotel conference room where incense smoke mingles with flickering fluorescent lights, the mood is equal parts eerie and absurd, as social cliques of mystics jockey for influence while trying to unmask the murderer before their own futures are rewritten. The tension crackles with bizarre humor and supernatural suspicion, inviting players to untangle a murder mystery where the truth is as slippery as a psychic's prediction.",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "playability_history": [
+    {
+      "step_name": "story_blurb_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "story_metadata_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "world_building_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "characters_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "treasure_hunt_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "case_state_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "item_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_roster_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_target_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_draft_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_finalize_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_evidence_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_visible_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_linker_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "structural_preflight_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "solvability_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_structure_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "post_final_invariants_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_integrity_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "mvp_quality_gate_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    }
+  ],
+  "story_title": "Visions of the Crystal Orb",
+  "story_description": "Step into the enigmatic 1970s Psychic Convention where mystics and skeptics collide in a battle for the legendary Crystal Orb of Omniscience. When the charismatic host is mysteriously murdered during a seance, chaos erupts as psychic powers falter and alliances shift. Players must navigate eerie humor and supernatural suspicion to unravel a truth as elusive as a prophecy.",
+  "story_rating": "PG-13 — moderate suspense and thematic elements",
+  "story_themes": "supernatural, 1970s, ensemble cast, locked room, dark humor, mystery, psychic powers",
+  "world": "Set in a smoky, velvet-draped hotel conference room trapped in a timeless 1970s haze, the Grand Hall of the 13th Annual Psychic Convention pulses with neon glow and flickering fluorescent lights. Incense smoke curls through the stale air, mingling with the hum of whispered secrets and the occasional nervous laugh. This is a place where the mundane and the mystical collide—a liminal space where clairvoyants and skeptics alike gather to test their fates against the legendary Crystal Orb of Omniscience. The hotel itself, an aging relic of faded glamour, feels suspended between eras, its peeling wallpaper and cracked mirrors reflecting fractured visions of what might be. Here, time seems to warp, and reality bends just enough to make every shadow suspect and every glance a potential clue. The atmosphere is thick with paranoia and absurdity, a carnival of eccentric personalities jockeying for power and truth in a world where nothing is quite as it seems.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Madame Zolga",
+        "summary": "The enigmatic and flamboyant host of the convention, known for her dramatic flair and uncanny ability to command attention. Her mysterious past and sudden death cast a long shadow over the event."
+      },
+      {
+        "name": "Professor Alaric Voss",
+        "summary": "A skeptical academic who reluctantly attends the convention to debunk psychic phenomena but finds himself entangled in the chaos when the orb disappears."
+      },
+      {
+        "name": "Sister Mirabella",
+        "summary": "A serene aura painter whose calm demeanor masks a fierce determination to protect the secrets of the psychic community."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Grand Hall",
+        "summary": "The main event space of the convention, adorned with velvet drapes and neon lights, where seances and competitions unfold amid thick incense smoke and flickering fluorescents."
+      },
+      {
+        "name": "The Crystal Chamber",
+        "summary": "A secured side room where the Crystal Orb of Omniscience was kept before its disappearance, lined with protective sigils and guarded by mystical wards."
+      },
+      {
+        "name": "The Hotel Lobby",
+        "summary": "A faded 1970s lobby with cracked marble floors and a flickering chandelier, serving as a crossroads for attendees and a place where whispered alliances and betrayals take shape."
+      }
+    ],
+    "items": [
+      {
+        "name": "Crystal Orb of Omniscience",
+        "summary": "A legendary relic said to grant vivid visions of the future capable of altering fate, central to the convention's competition and the catalyst for the ensuing chaos."
+      },
+      {
+        "name": "Crystal-tipped Scepter",
+        "summary": "Madame Zolga's theatrical seance prop, used as the murder weapon, symbolizing both power and the fragility of the psychic realm."
+      },
+      {
+        "name": "The Seance Recordings",
+        "summary": "A collection of audio tapes capturing Madame Zolga's final seance, containing cryptic messages and distorted voices that may hold clues to the mystery."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Dr. Felix Marlowe - The Skeptic Investigator",
+      "victim": "Madame Zolga",
+      "location": "Grand Hall during seance",
+      "murder_solution": "Dr. Felix Marlowe, attending undercover to debunk psychics, murdered Madame Zolga with the crystal-tipped scepter during her seance to stop her from using the Crystal Orb to manipulate the convention's outcomes. He exploited the chaos of the flickering lights and incense smoke to strike unnoticed, knowing the attendees' powers would falter and sow confusion. His motive was to prevent the orb's dangerous influence from corrupting the future and to discredit the psychic community. The locked room setting and the disruption of psychic abilities gave him the perfect cover to commit the crime and steal the orb."
+    },
+    "treasure": {
+      "object": "Crystal Orb of Omniscience",
+      "hiding_place": "inside the hollow base of Madame Zolga's podium",
+      "treasure_solution": "The Crystal Orb was concealed within a secret compartment in the base of Madame Zolga's ornate podium, designed to keep it close during her seances. Players could discover it by examining the podium's structure and noticing a subtle seam or mechanism. The orb's recovery is crucial as it holds the key to restoring the attendees' faltering psychic powers and resolving the chaos unleashed by the murder."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "evelyn_starfire_the_aura_painter",
+        "name": "Evelyn Starfire - The Aura Painter",
+        "title": "Evelyn Starfire - The Aura Painter",
+        "card_id": "54e1ef2d-8ad7-4a1b-9816-438ac4ccb9a2",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "dr_felix_marlowe_the_skeptic_investigator",
+        "name": "Dr. Felix Marlowe - The Skeptic Investigator",
+        "title": "Dr. Felix Marlowe - The Skeptic Investigator",
+        "card_id": "ac587511-c135-4f40-83d6-f7075cf30f9b",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "madame_seraphina_the_tarot_enchantress",
+        "name": "Madame Seraphina - The Tarot Enchantress",
+        "title": "Madame Seraphina - The Tarot Enchantress",
+        "card_id": "1d3dbdc6-34fd-4634-90d8-cca08829088b",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "dr_felix_marlowe_the_skeptic_investigator",
+    "killer_name": "Dr. Felix Marlowe - The Skeptic Investigator",
+    "victim_name": "Madame Zolga",
+    "murder": {
+      "location": "Grand Hall during seance",
+      "method": "",
+      "motive": "",
+      "summary": "Dr. Felix Marlowe, attending undercover to debunk psychics, murdered Madame Zolga with the crystal-tipped scepter during her seance to stop her from using the Crystal Orb to manipulate the convention's outcomes. He exploited the chaos of the flickering lights and incense smoke to strike unnoticed, knowing the attendees' powers would falter and sow confusion. His motive was to prevent the orb's dangerous influence from corrupting the future and to discredit the psychic community. The locked room setting and the disruption of psychic abilities gave him the perfect cover to commit the crime and steal the orb.",
+      "opportunity": "",
+      "window_start": null,
+      "window_end": null
+    },
+    "treasure": {
+      "object": "Crystal Orb of Omniscience",
+      "hiding_place": "inside the hollow base of Madame Zolga's podium",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "evelyn_starfire_the_aura_painter",
+        "dr_felix_marlowe_the_skeptic_investigator",
+        "madame_seraphina_the_tarot_enchantress"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "worker_error": "Error: canon_validate: suspect_name \"Dr. Felix Marlowe\" (base \"Dr. Felix Marlowe\") is not in the playable roster or canonical victim",
+  "pipeline_failure": {
+    "failed_step": "clue_roster_validator_agent",
+    "failed_step_index": 10,
+    "saved_at": "2026-04-03T13:41:23.457Z"
+  },
+  "costAccounting": {
+    "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+    "requestCount": 16,
+    "requests": [
+      {
+        "index": 1,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 827,
+        "completion_tokens": 520,
+        "total_tokens": 1347,
+        "created_at": "2026-04-03T13:49:14.143Z"
+      },
+      {
+        "index": 2,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 826,
+        "completion_tokens": 450,
+        "total_tokens": 1276,
+        "created_at": "2026-04-03T13:49:20.239Z"
+      },
+      {
+        "index": 3,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 822,
+        "completion_tokens": 502,
+        "total_tokens": 1324,
+        "created_at": "2026-04-03T13:49:27.747Z"
+      },
+      {
+        "index": 4,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 820,
+        "completion_tokens": 529,
+        "total_tokens": 1349,
+        "created_at": "2026-04-03T13:49:35.158Z"
+      },
+      {
+        "index": 5,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1286,
+        "completion_tokens": 341,
+        "total_tokens": 1627,
+        "created_at": "2026-04-03T13:49:41.649Z"
+      },
+      {
+        "index": 6,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1286,
+        "completion_tokens": 420,
+        "total_tokens": 1706,
+        "created_at": "2026-04-03T13:49:47.474Z"
+      },
+      {
+        "index": 7,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1286,
+        "completion_tokens": 269,
+        "total_tokens": 1555,
+        "created_at": "2026-04-03T13:49:51.279Z"
+      },
+      {
+        "index": 8,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1189,
+        "completion_tokens": 374,
+        "total_tokens": 1563,
+        "created_at": "2026-04-03T13:49:56.193Z"
+      },
+      {
+        "index": 9,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1189,
+        "completion_tokens": 374,
+        "total_tokens": 1563,
+        "created_at": "2026-04-03T13:50:03.465Z"
+      },
+      {
+        "index": 10,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1276,
+        "completion_tokens": 393,
+        "total_tokens": 1669,
+        "created_at": "2026-04-03T13:50:08.440Z"
+      },
+      {
+        "index": 11,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1276,
+        "completion_tokens": 330,
+        "total_tokens": 1606,
+        "created_at": "2026-04-03T13:50:12.911Z"
+      },
+      {
+        "index": 12,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1276,
+        "completion_tokens": 275,
+        "total_tokens": 1551,
+        "created_at": "2026-04-03T13:50:17.658Z"
+      },
+      {
+        "index": 13,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1304,
+        "completion_tokens": 319,
+        "total_tokens": 1623,
+        "created_at": "2026-04-03T13:50:21.991Z"
+      },
+      {
+        "index": 14,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1304,
+        "completion_tokens": 273,
+        "total_tokens": 1577,
+        "created_at": "2026-04-03T13:50:25.679Z"
+      },
+      {
+        "index": 15,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1304,
+        "completion_tokens": 296,
+        "total_tokens": 1600,
+        "created_at": "2026-04-03T13:50:29.858Z"
+      },
+      {
+        "index": 16,
+        "runId": "Visions of the Crystal Orb-1775223642333-eol76l",
+        "stepName": "solvability_validator_agent",
+        "requestType": "json",
+        "schemaName": "solvability_validation",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 10214,
+        "completion_tokens": 9,
+        "total_tokens": 10223,
+        "created_at": "2026-04-03T13:50:31.454Z"
+      }
+    ],
+    "totals": {
+      "prompt_tokens": 27485,
+      "completion_tokens": 5674,
+      "total_tokens": 33159
+    }
+  },
+  "pipeline_resume": {
+    "from_file": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Visions of the Crystal Orb-1775223642333-eol76l\\result.json",
+    "resumed_step": "clue_roster_validator_agent",
+    "resumed_at": "2026-04-03T13:49:05.615Z"
+  },
+  "clue_targets": [
+    {
+      "target_id": "1a0f36ed-63c5-4f3f-971c-2c3a59c23b22",
+      "fact": "The physical pattern described under \"Crystal-Tipped Scepter with Smudged Fingerprints\" ties to the circumstances of the death at Grand Hall during seance.",
+      "category": "object",
+      "act": 1,
+      "puzzle_type_hint": "item_combination",
+      "suspect_name": "Dr. Felix Marlowe"
+    },
+    {
+      "target_id": "c5ec1eac-739d-4348-bf36-612b5f867a91",
+      "fact": "Cross-referencing \"Dr. Felix Marlowe's Secret Skepticism\" isolates which part of Grand Hall during seance the physical detail implicates.",
+      "category": "location",
+      "act": 2,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Dr. Felix Marlowe"
+    },
+    {
+      "target_id": "3a387fdb-0d4d-4949-b5c9-76b212edab63",
+      "fact": "Cross-referencing \"Disrupted Psychic Powers During Seance\" isolates which part of Grand Hall during seance the physical detail implicates.",
+      "category": "location",
+      "act": 3,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Madame Zolga"
+    },
+    {
+      "target_id": "8bf1fb36-b87f-490f-9e61-0b3ef024d3b7",
+      "fact": "The \"Evelyn Starfire's Aura Paints Show Anxiety\" material shows which access or credential mattered at Grand Hall during seance.",
+      "category": "access",
+      "act": 3,
+      "puzzle_type_hint": "elimination",
+      "suspect_name": "Evelyn Starfire"
+    }
+  ],
+  "puzzle_bundle_drafts": [
+    {
+      "clue_target": {
+        "target_id": "1a0f36ed-63c5-4f3f-971c-2c3a59c23b22",
+        "fact": "The physical pattern described under \"Crystal-Tipped Scepter with Smudged Fingerprints\" ties to the circumstances of the death at Grand Hall during seance.",
+        "category": "object",
+        "act": 1,
+        "puzzle_type_hint": "item_combination",
+        "suspect_name": "Dr. Felix Marlowe"
+      },
+      "puzzle_type": "item_combination",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Fingerprint Analysis Report",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nSample 1: Crystal-Tipped Scepter - Smudged fingerprints with partial loops and whorls\nSample 2: Door Handle - Clean, no prints\nSample 3: Victim's Robe - No prints detected\nNotes: Fingerprint pattern on scepter inconsistent with known attendees' prints."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Witness Seance Log",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nEntry 1: 8:00 PM - Seance begins, lights dimmed, incense lit\nEntry 2: 8:15 PM - Madame Zolga holds crystal-tipped scepter, begins invocation\nEntry 3: 8:22 PM - Sudden commotion, Madame Zolga found stabbed with scepter\nEntry 4: 8:25 PM - Crystal Orb missing, psychic powers falter\nNotes: Scepter was in victim's hand before stabbing; fingerprints may have been smudged during struggle."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Forensic Pattern Report",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nPattern Observed: Smudged fingerprint pattern on crystal-tipped scepter matches partial loops and whorls consistent with a struggle\nAdditional Notes: Pattern suggests scepter was gripped tightly and moved abruptly during stabbing incident."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Who Left the Smudged Fingerprints on the Crystal-Tipped Scepter?",
+          "card_contents": "In the eerie Grand Hall during seance where Madame Zolga was theatrically stabbed, the crystal-tipped scepter bears smudged fingerprints with a unique pattern. Considering the forensic and witness logs, what does the physical pattern described under \"Crystal-Tipped Scepter with Smudged Fingerprints\" reveal about the circumstances of the death?\n\nVictim: Madame Zolga\nLocation: Grand Hall during seance",
+          "unlocked_item": "You have unlocked the clue: The nature of the fingerprint smudges hints at a struggle involving the scepter itself."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Answer to Fingerprint Puzzle",
+          "card_contents": "The physical pattern described under \"Crystal-Tipped Scepter with Smudged Fingerprints\" ties to the circumstances of the death at Grand Hall during seance."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "c5ec1eac-739d-4348-bf36-612b5f867a91",
+        "fact": "Cross-referencing \"Dr. Felix Marlowe's Secret Skepticism\" isolates which part of Grand Hall during seance the physical detail implicates.",
+        "category": "location",
+        "act": 2,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Dr. Felix Marlowe"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Transcript of Dr. Felix Marlowe's Interview",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nEntry 1: Marlowe expressed doubt about psychic phenomena, noting inconsistencies in aura readings near the east wing.\nEntry 2: He mentioned overhearing a heated argument near the crystal display case shortly before the murder.\nEntry 3: Marlowe recounted seeing a shadowy figure lurking by the velvet drapes adjacent to the stage area.\nEntry 4: He questioned the authenticity of the Crystal Orb's placement during the seance."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Security Ledger from Grand Hall during seance",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nEntry 1: 8:15 PM - Unusual movement detected near the east wing curtain.\nEntry 2: 8:30 PM - Crystal-tipped scepter last recorded on the podium beside the stage.\nEntry 3: 8:45 PM - Security camera briefly obscured by thick incense smoke near the velvet drapes.\nEntry 4: 9:00 PM - Orb reported missing from the display case at center stage."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Cross-Reference Puzzle: Locating the Physical Detail",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nUsing the clues from Dr. Felix Marlowe's secret skepticism and the security ledger, which specific part of the Grand Hall during seance does the physical detail implicate in the murder?\n\nUnlocking this will reveal a crucial insight into the crime scene's layout and help narrow down the suspect's location.",
+          "unlocked_item": "You have unlocked a detailed map of the Grand Hall highlighting key areas relevant to the investigation."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: Location Implicated by Cross-Reference",
+          "card_contents": "Cross-referencing \"Dr. Felix Marlowe's Secret Skepticism\" isolates which part of Grand Hall during seance the physical detail implicates."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "3a387fdb-0d4d-4949-b5c9-76b212edab63",
+        "fact": "Cross-referencing \"Disrupted Psychic Powers During Seance\" isolates which part of Grand Hall during seance the physical detail implicates.",
+        "category": "location",
+        "act": 3,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Madame Zolga"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Seance Participant Log",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nEntries:\n- 8:00 PM: Participants seated in a semicircle facing the Crystal Orb.\n- 8:15 PM: Madame Zolga begins invocation; incense lit near center altar.\n- 8:30 PM: Sudden flickering of fluorescent lights noted near east wing.\n- 8:45 PM: Disruptions in psychic readings reported from participants near the east wing.\n"
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Psychic Power Disruption Report",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nSummary:\n- Tarot readers near the west wing reported clear visions.\n- Aura painters near the central altar experienced color distortions.\n- Clairvoyants near the east wing described blurred and contradictory prophecies.\n- Skeptic investigator noted unusual electromagnetic interference near the east wing.\n"
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Physical Evidence Inventory",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\nItems:\n- Crystal-tipped scepter with traces of velvet fibers found near east wing.\n- Broken incense holder discovered at central altar.\n- Flickering fluorescent light fixture above east wing found loose.\n"
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Cross-Reference Puzzle: Disrupted Psychic Powers During Seance",
+          "card_contents": "Victim: Madame Zolga\nLocation: Grand Hall during seance\n\nMultiple reports describe disruptions in psychic powers during the seance, particularly near a specific part of the Grand Hall. Cross-referencing the participant log, disruption report, and physical evidence inventory, which part of the Grand Hall during seance does the physical detail implicate as the source of the psychic disruptions?\n\nUnlock this clue to better understand the scene: A loose fluorescent light fixture flickers ominously, casting shadows over a crucial spot in the hall.",
+          "unlocked_item": "A flickering fluorescent light fixture above the east wing is a key clue."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: Location Implicated by Disrupted Psychic Powers",
+          "card_contents": "Cross-referencing \"Disrupted Psychic Powers During Seance\" isolates which part of Grand Hall during seance the physical detail implicates: the east wing."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "8bf1fb36-b87f-490f-9e61-0b3ef024d3b7",
+        "fact": "The \"Evelyn Starfire's Aura Paints Show Anxiety\" material shows which access or credential mattered at Grand Hall during seance.",
+        "category": "access",
+        "act": 3,
+        "puzzle_type_hint": "elimination",
+        "suspect_name": "Evelyn Starfire"
+      },
+      "puzzle_type": "elimination",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Evelyn Starfire's Aura Paints Show Anxiety",
+          "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nEntry 1: Evelyn's aura painting reveals a flicker of deep blue anxiety around the Grand Hall entrance badge.\nEntry 2: The painting highlights a shimmering red aura near the backstage pass holder's lanyard.\nEntry 3: A faint green aura glows around the general admission wristbands, but it is overshadowed by the anxious blue.\nEntry 4: The anxiety aura intensifies near the crystal-tipped scepter, suggesting a link to access credentials."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Guest List and Access Credentials Ledger",
+          "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nEntry 1: Evelyn Starfire - Access: Backstage Pass\nEntry 2: Dr. Felix Marlowe - Access: Investigator Badge\nEntry 3: Madame Zolga - Access: Host Credentials\nEntry 4: Simon the Skeptic - Access: General Admission Wristband"
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Security Log of Grand Hall Entry",
+          "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nEntry 1: 7:00 PM - Evelyn Starfire scanned backstage pass.\nEntry 2: 7:05 PM - Dr. Felix Marlowe entered with investigator badge.\nEntry 3: 7:10 PM - Madame Zolga entered with host credentials.\nEntry 4: 7:15 PM - Simon the Skeptic entered with general admission wristband."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Which Access Credential Mattered Most?",
+          "card_contents": "Canonical victim: Madame Zolga\nCanonical location: Grand Hall during seance\n\nDuring the seance when Madame Zolga was found stabbed, the psychic powers were faltering and the attendees' access credentials influenced their abilities and anxieties. Using the evidence from Evelyn Starfire's aura paintings and the access logs, which access or credential mattered most at Grand Hall during seance?",
+          "unlocked_item": "You have unlocked the key insight into how access credentials influenced the psychic atmosphere."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Answer: Access Credential That Mattered",
+          "card_contents": "The \"Evelyn Starfire's Aura Paints Show Anxiety\" material shows which access or credential mattered at Grand Hall during seance."
+        }
+      ]
+    }
+  ],
+  "puzzle_bundles": [
+    {
+      "bundle_id": "puzzle_bundle_001",
+      "act": 1,
+      "puzzle_type": "item_combination",
+      "clue_target": "The physical pattern described under \"Crystal-Tipped Scepter with Smudged Fingerprints\" ties to the circumstances of the death at Grand Hall during seance.",
+      "card_ids": [
+        "f9533a71-3c90-4128-a2b3-dae91d94c26b",
+        "4c816a68-be2d-48e9-8aa9-82e0819255df",
+        "165fad43-107c-4b34-8734-861ec2946f68",
+        "96ca4706-a308-42dc-a5c0-8728236b6a8c",
+        "e8ef60ea-b153-4e86-bdcf-986dc629acac"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_002",
+      "act": 2,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Dr. Felix Marlowe's Secret Skepticism\" isolates which part of Grand Hall during seance the physical detail implicates.",
+      "card_ids": [
+        "3921c26c-06ed-4475-a0fd-c314d8b7eb54",
+        "cf978feb-b9a3-4d60-be3d-f28531aac7d4",
+        "0a55c317-08b0-4871-a419-012e4911c163",
+        "54620299-aa7c-4d7c-8b2c-c5ffb55ecb81"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_003",
+      "act": 3,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Disrupted Psychic Powers During Seance\" isolates which part of Grand Hall during seance the physical detail implicates.",
+      "card_ids": [
+        "4925c316-2b0d-4dff-bbb3-3a0ef76aab23",
+        "7d80f376-a6ab-492d-ba74-c6f7de5624f6",
+        "56d103dd-a8f7-41b0-94b8-459fd22d7d7d",
+        "26eefcc9-3071-49a9-9ae0-e182557afdcd",
+        "008000b6-78b5-409d-8ced-05d334fd0434"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_004",
+      "act": 3,
+      "puzzle_type": "elimination",
+      "clue_target": "The \"Evelyn Starfire's Aura Paints Show Anxiety\" material shows which access or credential mattered at Grand Hall during seance.",
+      "card_ids": [
+        "6171a77a-3caf-463b-84ef-0ebc0e4b0748",
+        "1440927a-2202-41f6-8bbc-edecc794c067",
+        "7da3c95a-e9da-4eec-8edb-aa7bf43fbe42",
+        "4c9b7aa5-34a2-42fb-8ad0-bd87217977db",
+        "dfd999a1-b6bb-4ac0-b07d-b1ce92c8b88a"
+      ]
+    }
+  ],
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  }
+}

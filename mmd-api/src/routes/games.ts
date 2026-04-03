@@ -34,6 +34,45 @@ async function readStageImageForAct(storyFile: string | null, act: number): Prom
   }
 }
 
+async function readConcealedAnnouncements(storyFile: string | null): Promise<Array<Record<string, unknown>>> {
+  if (!storyFile) return []
+  try {
+    const raw = await loadStoryJson(storyFile)
+    const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
+    const concealed = runtimeStory.cards
+      .filter(card => {
+        const cardType = String(card.source?.cardType ?? '')
+        return card.intent === 'reveal' || cardType === 'secret' || (card as any).hiddenUntilSolved === true
+      })
+      .sort((a, b) => a.act - b.act || String(a.title ?? '').localeCompare(String(b.title ?? '')))
+
+    const seen = new Set<string>()
+    const announcements: Array<Record<string, unknown>> = []
+    for (let i = 0; i < concealed.length; i++) {
+      const card = concealed[i]
+      const dedupeKey = card.id ?? `${card.act}:${card.title ?? ''}:${card.text}`
+      if (seen.has(dedupeKey)) continue
+      seen.add(dedupeKey)
+
+      const title = typeof card.title === 'string' ? card.title.trim() : ''
+      const text = typeof card.text === 'string' ? card.text.trim() : ''
+      const message = `${title ? `${title}\n` : ''}${text}`.trim()
+      if (!message) continue
+
+      announcements.push({
+        message,
+        cardType: String(card.source?.cardType ?? card.intent ?? 'reveal'),
+        cardId: card.id ?? null,
+        act: card.act,
+        revealedByHost: true,
+      })
+    }
+    return announcements
+  } catch {
+    return []
+  }
+}
+
 function withCharacterNames(game: any) {
   return {
     ...withCreatorFields(game),
@@ -186,17 +225,35 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     return reply.status(201).send(withCharacterNames({ ...game, storyTitle: runtimeStory.title, _characters: characters }))
   })
 
-  fastify.get('/games', {
+  fastify.get<{
+  Querystring: { limit?: string; offset?: string }
+}>('/games', {
     schema: {
       tags: ['Games'],
       summary: 'List all games',
+      querystring: {
+        type: 'object',
+        properties: { 
+          limit: { type: 'string', description: 'Maximum number of games to return' },
+          offset: { type: 'string', description: 'Number of games to skip' }
+        },
+      },
       response: {
         200: toJsonSchema(GameSchema.array()),
       },
     },
-  }, async (_req, reply) => {
+  }, async (req, reply) => {
+    const limit = req.query.limit ? parseInt(req.query.limit) : undefined
+    const offset = req.query.offset ? parseInt(req.query.offset) : 0
+    
     const games = await prisma.game.findMany({
-      orderBy: { scheduledTime: 'asc' },
+      orderBy: [
+        { state: 'asc' }, // SCHEDULED games first, then PLAYING, etc.
+        { scheduledTime: 'desc' }, // Newest scheduled time within each state
+        { createdAt: 'desc' }, // Newest creation as tiebreaker
+      ],
+      skip: offset,
+      take: limit,
       select: {
         id: true, storyFile: true, storyId: true, name: true,
         ownerUserId: true, creatorName: true, creatorAvatar: true,
@@ -687,6 +744,28 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { state: 'REVEAL' },
     })
+    const concealedAnnouncements = await readConcealedAnnouncements(game.storyFile)
+    const revealEvents = await Promise.all(
+      concealedAnnouncements.map(payload =>
+        prisma.gameEvent.create({
+          data: {
+            gameId: game.id,
+            playerId: null,
+            type: 'ANNOUNCEMENT',
+            payload: payload as any,
+          },
+        })
+      )
+    )
+    for (const event of revealEvents) {
+      publishRoomEvent({
+        gameId: game.id,
+        eventId: event.id,
+        eventType: String(event.type),
+        gameState: updated.state,
+        currentAct: updated.currentAct,
+      })
+    }
     publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })
 
     return reply.send(serializeDates(answers))

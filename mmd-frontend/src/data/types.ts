@@ -34,6 +34,7 @@ export type MediaProps = {
 export interface RoomPlayer {
   id: string
   name: string
+  joinedName?: string
   characterId: string
   online: boolean
   portrait?: string
@@ -100,7 +101,7 @@ export interface ProfileCardItem {
 
 export interface EvidenceItem {
   id: string
-  kind: 'clue' | 'puzzle' | 'reveal'
+  kind: 'clue' | 'puzzle' | 'reveal' | 'item' | 'treasure' | 'info'
   title: string
   text: string
   act?: number
@@ -187,6 +188,8 @@ export interface LauncherData {
   savedGames: StoredGameLink[]
   activeGamePublic?: ApiPublicGameView | null
   activeGamePublicKey?: string | null
+  loadingMore?: boolean
+  hasMoreGames?: boolean
   createdGame?: {
     id: string
     name: string
@@ -298,6 +301,7 @@ export interface RendererHandlers {
   onRescheduleGame?: (gameId: string, hostKey: string, scheduledTime: string) => Promise<void>
   onJoinNameChange?: (value: string) => void
   onJoinSubmit?: () => void
+  onLoadMoreGames?: () => Promise<void>
 }
 
 export interface ApiGameEvent {
@@ -423,6 +427,10 @@ export interface PlayerApiView {
   characterId: string
   playerName: string | null
   character: Record<string, unknown> | null
+  visibleInfoCards?: Array<Record<string, unknown>>
+  visibleItems?: Array<Record<string, unknown>>
+  visibleHostSpeech?: Array<Record<string, unknown>>
+  visibleTreasures?: Array<Record<string, unknown>>
   unlockedMysteries: Array<Record<string, unknown>>
   unlockedPuzzles: Array<Record<string, unknown>>
   unlockedCards: Array<Record<string, unknown>>

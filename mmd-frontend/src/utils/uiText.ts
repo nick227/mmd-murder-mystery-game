@@ -19,6 +19,9 @@ export function evidenceKindLabel(kind: EvidenceItem['kind']): string {
   if (kind === 'clue') return 'Clue'
   if (kind === 'puzzle') return 'Puzzle'
   if (kind === 'reveal') return 'Reveal'
+  if (kind === 'item') return 'Item'
+  if (kind === 'treasure') return 'Treasure'
+  if (kind === 'info') return 'Info'
   return 'Evidence'
 }
 
@@ -38,4 +41,3 @@ export function initialsFromName(name: string): string {
   const last = parts.length > 1 ? (parts[parts.length - 1]?.[0] ?? '') : ''
   return `${first}${last}`.toUpperCase()
 }
-

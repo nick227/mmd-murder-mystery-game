@@ -23,6 +23,10 @@ interface GeneratedStoryRun {
   playerCount?: unknown
   cards?: unknown
   storyBlurb?: unknown
+  storyTitle?: unknown
+  story_title?: unknown
+  title?: unknown
+  userPrompt?: unknown
   [key: string]: unknown
 }
 
@@ -41,6 +45,36 @@ function asCardArray(value: unknown): GeneratedCard[] | null {
 function firstMeta(cards: GeneratedCard[], title: string): string | null {
   const found = cards.find(c => asString(c.card_type) === 'story_meta' && asString(c.card_title) === title)
   return found ? asString(found.card_contents) : null
+}
+
+function normalizeTitle(value: string | null): string | null {
+  if (!value) return null
+  const normalized = value.trim().replace(/\s+/g, ' ')
+  return normalized.length ? normalized : null
+}
+
+function titleFromRunId(runId: string | null): string | null {
+  const raw = normalizeTitle(runId)
+  if (!raw) return null
+
+  // Expected format: "<title>-<timestamp>-<suffix>"
+  const stripped = raw
+    .replace(/-\d{10,}-[a-z0-9]+$/i, '')
+    .replace(/-\d{10,}$/i, '')
+    .trim()
+  return normalizeTitle(stripped) ?? raw
+}
+
+function deriveStoryTitle(run: GeneratedStoryRun, cards: GeneratedCard[]): string {
+  return (
+    normalizeTitle(firstMeta(cards, 'Story title'))
+    ?? normalizeTitle(asString(run.storyTitle))
+    ?? normalizeTitle(asString(run.story_title))
+    ?? normalizeTitle(asString(run.title))
+    ?? titleFromRunId(asString(run.runId))
+    ?? normalizeTitle(asString(run.userPrompt))
+    ?? 'Untitled story'
+  )
 }
 
 function cardAct(value: GeneratedCard): number | null {
@@ -83,6 +117,104 @@ function stableLocalId(input: string): string {
   return `local-${(hash >>> 0).toString(16)}`
 }
 
+function stableIndex(input: string, mod: number): number {
+  if (mod <= 0) return 0
+  let hash = 2166136261
+  for (let i = 0; i < input.length; i++) {
+    hash ^= input.charCodeAt(i)
+    hash = Math.imul(hash, 16777619)
+  }
+  return Math.abs(hash >>> 0) % mod
+}
+
+function normalizeKey(value: string): string {
+  return value.trim().replace(/\s+/g, ' ').toLowerCase()
+}
+
+function extractTaggedValue(text: string | null, tags: string[]): string | null {
+  if (!text) return null
+  for (const tag of tags) {
+    const re = new RegExp(`^\\s*${tag}\\s*:\\s*(.+)$`, 'im')
+    const m = text.match(re)
+    if (!m?.[1]) continue
+    const value = m[1].trim()
+    if (value.length) return value
+  }
+  return null
+}
+
+function pushNarrativeDriftDiagnostics(input: {
+  cards: GeneratedCard[]
+  diagnostics: AdapterDiagnostic[]
+  knownVictims: Set<string>
+  knownLocations: Set<string>
+}) {
+  const victimMentions = new Map<string, { sample: string; count: number; cardId?: string; cardType?: string }>()
+  const locationMentions = new Map<string, { sample: string; count: number; cardId?: string; cardType?: string }>()
+
+  for (const card of input.cards) {
+    const text = contentsFromCard(card)
+    const cardId = idFromCard(card) ?? undefined
+    const cardType = typeFromCard(card) ?? undefined
+
+    const victim = extractTaggedValue(text, ['Canonical victim', 'Victim'])
+    if (victim) {
+      const key = normalizeKey(victim)
+      const prev = victimMentions.get(key)
+      if (prev) prev.count += 1
+      else victimMentions.set(key, { sample: victim, count: 1, cardId, cardType })
+    }
+
+    const location = extractTaggedValue(text, ['Canonical location', 'Location'])
+    if (location) {
+      const key = normalizeKey(location)
+      const prev = locationMentions.get(key)
+      if (prev) prev.count += 1
+      else locationMentions.set(key, { sample: location, count: 1, cardId, cardType })
+    }
+  }
+
+  for (const [key, mention] of victimMentions.entries()) {
+    if (input.knownVictims.has(key)) continue
+    input.diagnostics.push({
+      level: 'warn',
+      message: `Canonical victim "${mention.sample}" does not match any person/character card title (seen in ${mention.count} card(s)).`,
+      cardId: mention.cardId,
+      cardType: mention.cardType,
+      path: 'card_contents',
+    })
+  }
+
+  for (const [key, mention] of locationMentions.entries()) {
+    if (input.knownLocations.has(key)) continue
+    input.diagnostics.push({
+      level: 'warn',
+      message: `Canonical location "${mention.sample}" does not match any location card title (seen in ${mention.count} card(s)).`,
+      cardId: mention.cardId,
+      cardType: mention.cardType,
+      path: 'card_contents',
+    })
+  }
+
+  if (victimMentions.size > 1) {
+    const labels = Array.from(victimMentions.values()).map(v => v.sample).slice(0, 5).join(' | ')
+    input.diagnostics.push({
+      level: 'warn',
+      message: `Multiple canonical victim labels detected: ${labels}${victimMentions.size > 5 ? ' | …' : ''}`,
+      path: 'card_contents',
+    })
+  }
+
+  if (locationMentions.size > 1) {
+    const labels = Array.from(locationMentions.values()).map(v => v.sample).slice(0, 5).join(' | ')
+    input.diagnostics.push({
+      level: 'warn',
+      message: `Multiple canonical location labels detected: ${labels}${locationMentions.size > 5 ? ' | …' : ''}`,
+      path: 'card_contents',
+    })
+  }
+}
+
 function requiredString(
   diagnostics: AdapterDiagnostic[],
   card: GeneratedCard,
@@ -108,6 +240,9 @@ function intentFromCardType(cardType: string): RuntimeCardIntent | null {
   if (cardType === 'secret') return 'info'
   if (cardType === 'item') return 'info'
   if (cardType === 'treasure') return 'info'
+  // Forward-compatible worldbuilding cards (treated as info).
+  if (cardType === 'person') return 'info'
+  if (cardType === 'location') return 'info'
   return null
 }
 
@@ -141,30 +276,9 @@ function ensurePlayerObjective(story: RuntimeStory, diagnostics: AdapterDiagnost
   const hasInstruction = story.cards.some(c => c.intent === 'instruction')
   if (hasInstruction) return
 
-  const firstPuzzle = story.cards.find(c => c.intent === 'puzzle')
-  if (firstPuzzle) {
-    diagnostics.push({ level: 'warn', message: 'No instruction cards found; promoting first puzzle to an instruction.' })
-    story.cards.push({
-      id: stableLocalId(`${story.id}:promoted-instruction:${firstPuzzle.id}`),
-      act: firstPuzzle.act,
-      intent: 'instruction',
-      title: firstPuzzle.title ?? 'Objective',
-      text: firstPuzzle.text,
-      source: { cardType: 'synthetic', cardId: 'promoted-puzzle' },
-      targetCharacterId: null,
-    })
-    return
-  }
-
-  diagnostics.push({ level: 'warn', message: 'No instruction or puzzle cards found; injecting fallback instruction.' })
-  story.cards.push({
-    id: stableLocalId(`${story.id}:fallback-instruction:act1`),
-    act: 1,
-    intent: 'instruction',
-    title: 'Objective',
-    text: 'Introduce yourself in character, ask one question, and share one suspicion.',
-    source: { cardType: 'synthetic', cardId: 'fallback-instruction' },
-    targetCharacterId: null,
+  diagnostics.push({
+    level: 'warn',
+    message: 'No instruction cards found (expected game_card entries); no synthetic instruction fallback will be injected.',
   })
 }
 
@@ -173,15 +287,9 @@ function ensureActPlayable(story: RuntimeStory, diagnostics: AdapterDiagnostic[]
   for (const act of acts) {
     const hasActContent = story.cards.some(c => c.act === act && (c.intent === 'instruction' || c.intent === 'puzzle'))
     if (hasActContent) continue
-    diagnostics.push({ level: 'warn', message: `Act ${act} has no instruction/puzzle; injecting fallback instruction.` })
-    story.cards.push({
-      id: stableLocalId(`${story.id}:fallback-instruction:act${act}`),
-      act,
-      intent: 'instruction',
-      title: `Act ${act} objective`,
-      text: 'Share one new theory and ask another player about their alibi.',
-      source: { cardType: 'synthetic', cardId: `fallback-instruction-act-${act}` },
-      targetCharacterId: null,
+    diagnostics.push({
+      level: 'warn',
+      message: `Act ${act} has no instruction/puzzle content; no synthetic instruction fallback will be injected.`,
     })
   }
 }
@@ -227,7 +335,7 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
   if (!asString(run.runId)) diagnostics.push({ level: 'warn', message: 'Missing runId (recommended for traceability)', path: 'runId' })
   if (!asNumber(run.playerCount)) diagnostics.push({ level: 'warn', message: 'Missing playerCount (recommended for playtest UX)', path: 'playerCount' })
 
-  const storyTitle = firstMeta(cards, 'Story title') ?? 'Untitled story'
+  const storyTitle = deriveStoryTitle(run, cards)
   // Prefer root-level storyBlurb (richer, set by story_blurb_agent) over the story_meta card.
   const storyDescription = asString(run.storyBlurb) ?? firstMeta(cards, 'Story description') ?? 'Generated story JSON loaded locally.'
   const playerCount = asNumber(run.playerCount) ?? 0
@@ -241,12 +349,16 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
     const characterId = idFromCard(card)
     if (!characterId) continue
     playerOrder.push(characterId)
-    // Support 'Name — Archetype' title pattern (Grunge+ schema).
+    // Support 'Name — Archetype' or 'Name, Archetype' title patterns.
     // Short name is the display/match key; archetype is pulled from title or explicit field.
     const fullTitle = titleFromCard(card) ?? `Character ${characterId}`
     const emDashIdx = fullTitle.indexOf(' \u2014 ')
-    const displayName = emDashIdx >= 0 ? fullTitle.slice(0, emDashIdx).trim() : fullTitle
-    const titleArchetype = emDashIdx >= 0 ? fullTitle.slice(emDashIdx + 3).trim() : undefined
+    const commaIdx = fullTitle.indexOf(', ')
+    const sepIdx = emDashIdx >= 0 ? emDashIdx : commaIdx
+    const sepLen = emDashIdx >= 0 ? 3 : 2
+    
+    const displayName = sepIdx >= 0 ? fullTitle.slice(0, sepIdx).trim() : fullTitle
+    const titleArchetype = sepIdx >= 0 ? fullTitle.slice(sepIdx + sepLen).trim() : undefined
     const archetype = asString((card as any).archetype) ?? titleArchetype ?? undefined
     fullTitleByCharacterId[characterId] = fullTitle
     playersByCharacterId[characterId] = {
@@ -269,6 +381,29 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
     if (full && full !== p.name) characterIdByName[full] = p.characterId  // full title key
   }
 
+  const personNames = cards
+    .filter(c => typeFromCard(c) === 'person')
+    .map(c => titleFromCard(c))
+    .filter((v): v is string => Boolean(v))
+  const locationNames = cards
+    .filter(c => typeFromCard(c) === 'location')
+    .map(c => titleFromCard(c))
+    .filter((v): v is string => Boolean(v))
+
+  pushNarrativeDriftDiagnostics({
+    cards,
+    diagnostics,
+    knownVictims: new Set([
+      ...Object.values(playersByCharacterId).map(p => normalizeKey(p.name)),
+      ...Object.values(fullTitleByCharacterId).map(v => normalizeKey(v)),
+      ...personNames.map(v => normalizeKey(v)),
+    ]),
+    knownLocations: new Set(locationNames.map(v => normalizeKey(v))),
+  })
+
+  const assignableCharacterIds =
+    playerOrder.length > 0 ? playerOrder.slice() : Object.keys(playersByCharacterId)
+
   const secretsByCharacterId: Record<string, string[]> = {}
   const secretCards = cards.filter(c => typeFromCard(c) === 'secret')
   for (const card of secretCards) {
@@ -288,10 +423,18 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
   const itemCards = cards.filter(c => typeFromCard(c) === 'item')
   for (const card of itemCards) {
     const linkedName = asString(card.linked_character)
-    const targetId = linkedName ? characterIdByName[linkedName] : null
+    const linkedId = asString(card.linked_character_id)
+    const itemCardId = idFromCard(card)
+    let targetId = (linkedName ? characterIdByName[linkedName] : null) ?? linkedId
+    let autoAssigned = false
+
+    if (!targetId && assignableCharacterIds.length > 0) {
+      const key = itemCardId ?? `${titleFromCard(card) ?? 'item'}:${contentsFromCard(card) ?? ''}`
+      targetId = assignableCharacterIds[stableIndex(key, assignableCharacterIds.length)]
+      autoAssigned = true
+    }
     if (!targetId) continue
 
-    const itemCardId = idFromCard(card)
     if (!itemCardId) continue
 
     const act = cardAct(card) ?? 1
@@ -302,6 +445,16 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
       act,
       locationRef: asString(card.location_ref) ?? null,
     })
+
+    if (autoAssigned) {
+      diagnostics.push({
+        level: 'warn',
+        message: `Item card auto-assigned to character "${playersByCharacterId[targetId]?.name ?? targetId}" because linked_character was missing.`,
+        cardId: itemCardId,
+        cardType: 'item',
+        path: 'linked_character',
+      })
+    }
   }
   for (const [characterId, items] of Object.entries(itemsByCharacterId)) {
     if (playersByCharacterId[characterId]) playersByCharacterId[characterId].items = items
@@ -337,7 +490,10 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
     // Normalise linked_character to the short display name so visibleToMe
     // comparison (linked_character === player.name) is always short vs short.
     // Resolves both 'Lena Voss' and 'Lena Voss — The Underground Queen' to 'Lena Voss'.
-    const resolvedCharId = linkedCharacterRaw ? characterIdByName[linkedCharacterRaw] : null
+    let resolvedCharId = linkedCharacterRaw ? characterIdByName[linkedCharacterRaw] : null
+    if (!resolvedCharId && cardType === 'item' && assignableCharacterIds.length > 0) {
+      resolvedCharId = assignableCharacterIds[stableIndex(cardId, assignableCharacterIds.length)]
+    }
     const linkedCharacter = resolvedCharId
       ? (playersByCharacterId[resolvedCharId]?.name ?? linkedCharacterRaw)
       : linkedCharacterRaw
@@ -378,6 +534,7 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
         suspectName: asString(card.suspect_name) ?? null,
         clueType: asString(card.clue_type) ?? null,
         clueWeight: asString(card.clue_weight) ?? null,
+        evidenceType: asString(card.evidence_type) ?? null,
       } as any)
       continue
     }
@@ -398,13 +555,21 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
       continue
     }
 
-    if (intent === 'reveal') {
-      runtimeCards.push({
-        ...(base as any),
-        intent,
-        bundleId: asString(card.bundle_id) ?? null,
-        hiddenUntilSolved: typeof card.hidden_until_solved === 'boolean' ? card.hidden_until_solved : undefined,
-      } as any)
+    if (intent === 'reveal' || cardType === 'solution') {
+      const bundleId = asString(card.bundle_id) ?? null
+      const hiddenUntilSolved = typeof card.hidden_until_solved === 'boolean' ? card.hidden_until_solved : undefined
+      const revealCard = { 
+        ...(base as any), 
+        intent: 'reveal', 
+        bundleId,
+        hiddenUntilSolved,
+      } as any
+      runtimeCards.push(revealCard)
+
+      if (bundleId) {
+        const bundle = (bundlesById[bundleId] ??= { id: bundleId, act, cards: [] })
+        bundle.cards.push(revealCard)
+      }
       continue
     }
 

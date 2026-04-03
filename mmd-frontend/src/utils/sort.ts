@@ -4,7 +4,10 @@ function evidenceKindRank(kind: EvidenceItem['kind']): number {
   // Prefer showing reveals first, then puzzles, then clues.
   if (kind === 'reveal') return 0
   if (kind === 'puzzle') return 1
-  return 2
+  if (kind === 'clue') return 2
+  if (kind === 'treasure') return 3
+  if (kind === 'item') return 4
+  return 5
 }
 
 export function sortEvidence(items: EvidenceItem[]): EvidenceItem[] {
@@ -26,4 +29,3 @@ export function sortEvidence(items: EvidenceItem[]): EvidenceItem[] {
     })
     .map(x => x.item)
 }
-

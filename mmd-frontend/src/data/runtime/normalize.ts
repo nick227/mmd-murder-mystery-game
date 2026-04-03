@@ -41,31 +41,10 @@ function ensurePlayerObjective(story: RuntimeStory, diagnostics: AdapterDiagnost
   const hasInstruction = story.cards.some(c => c.intent === 'instruction')
   if (hasInstruction) return
 
-  const firstPuzzle = story.cards.find(c => c.intent === 'puzzle')
-  if (firstPuzzle) {
-    diagnostics.push({ level: 'warn', message: 'No instruction cards found; promoting first puzzle to an instruction.' })
-    story.cards.push({
-      id: stableLocalId(`${story.id}:promoted-instruction:${firstPuzzle.id}`),
-      act: firstPuzzle.act,
-      intent: 'instruction',
-      title: firstPuzzle.title ?? 'Objective',
-      text: firstPuzzle.text,
-      source: { cardType: 'synthetic', cardId: 'promoted-puzzle' },
-      targetCharacterId: null,
-    } as RuntimeCard)
-    return
-  }
-
-  diagnostics.push({ level: 'warn', message: 'No instruction or puzzle cards found; injecting fallback instruction.' })
-  story.cards.push({
-    id: stableLocalId(`${story.id}:fallback-instruction:act1`),
-    act: 1,
-    intent: 'instruction',
-    title: 'Objective',
-    text: 'Introduce yourself in character, ask one question, and share one suspicion.',
-    source: { cardType: 'synthetic', cardId: 'fallback-instruction' },
-    targetCharacterId: null,
-  } as RuntimeCard)
+  diagnostics.push({
+    level: 'warn',
+    message: 'No instruction cards found (expected game_card entries); no synthetic instruction fallback will be injected.',
+  })
 }
 
 function ensureActPlayable(story: RuntimeStory, diagnostics: AdapterDiagnostic[]) {
@@ -73,16 +52,10 @@ function ensureActPlayable(story: RuntimeStory, diagnostics: AdapterDiagnostic[]
   for (const act of acts) {
     const hasActContent = story.cards.some(c => c.act === act && (c.intent === 'instruction' || c.intent === 'puzzle'))
     if (hasActContent) continue
-    diagnostics.push({ level: 'warn', message: `Act ${act} has no instruction/puzzle; injecting fallback instruction.` })
-    story.cards.push({
-      id: stableLocalId(`${story.id}:fallback-instruction:act${act}`),
-      act,
-      intent: 'instruction',
-      title: `Act ${act} objective`,
-      text: 'Share one new theory and ask another player about their alibi.',
-      source: { cardType: 'synthetic', cardId: `fallback-instruction-act-${act}` },
-      targetCharacterId: null,
-    } as RuntimeCard)
+    diagnostics.push({
+      level: 'warn',
+      message: `Act ${act} has no instruction/puzzle content; no synthetic instruction fallback will be injected.`,
+    })
   }
 }
 
@@ -106,4 +79,3 @@ export function normalizeRuntimeStory(input: RuntimeStory, diagnostics: AdapterD
 
   return story
 }
-

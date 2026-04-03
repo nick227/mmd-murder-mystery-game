@@ -133,6 +133,16 @@ export function runtimeStoryToPlayerApiView(input: {
   const clueCards = unlocked.filter(c => c.intent === 'clue')
   const puzzleCards = unlocked.filter(c => c.intent === 'puzzle')
   const revealCards = unlocked.filter(c => c.intent === 'reveal')
+  const infoCards = unlocked.filter(c => c.intent === 'info')
+  const hostSpeechCards = infoCards.filter(c => c.source.cardType === 'host_speech')
+  const treasureCards = infoCards.filter(c => c.source.cardType === 'treasure')
+
+  const visibleInfoCards = infoCards
+    .filter(c => c.source.cardType !== 'host_speech' && c.source.cardType !== 'treasure' && c.source.cardType !== 'secret' && c.source.cardType !== 'item')
+    .map((c, index) => ({ id: c.id ?? `info-${index}`, act: c.act, title: c.title ?? null, text: c.text, cardType: c.source.cardType }))
+
+  const visibleHostSpeech = hostSpeechCards.map((c, index) => ({ id: c.id ?? `host-${index}`, act: c.act, title: c.title ?? null, text: c.text }))
+  const visibleTreasures = treasureCards.map((c, index) => ({ id: c.id ?? `treasure-${index}`, act: c.act, title: c.title ?? null, text: c.text }))
 
   const unlockedCards = [
     ...instructionCards.map((c, i) => ({ id: c.id ?? `inst-${i}`, text: c.text, act: c.act, type: 'instruction' })),
@@ -166,10 +176,13 @@ export function runtimeStoryToPlayerApiView(input: {
     character: me
       ? { id: me.characterId, name: me.name, archetype: me.archetype, biography: me.biography, secrets: me.secrets, items: [] }
       : null,
+    visibleInfoCards,
+    visibleItems: [],
+    visibleHostSpeech,
+    visibleTreasures,
     unlockedMysteries: [],
     unlockedPuzzles,
     unlockedCards,
     mysteryAnswers: input.state === 'REVEAL' ? (input.revealAnswers ?? []) : undefined,
   }
 }
-

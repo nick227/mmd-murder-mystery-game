@@ -1,0 +1,2187 @@
+{
+  "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+  "playerCount": 4,
+  "userPrompt": "Prom Night",
+  "storyStyle": "creative, fun, spooky",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/dezgo_4c5455b0014d392f.jpg",
+  "cards": [
+    {
+      "card_id": "db2ee7e9-acbe-4ce9-8202-d6547e1f4aaa",
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Midnight Masquerade: The Prom Reunion",
+      "act": 1
+    },
+    {
+      "card_id": "44d1d78d-b600-44ac-b677-03708b82c863",
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Step back to the neon-lit night of the Class of '89 prom reunion, where old friendships and secrets collide under the glittering chandeliers. When a priceless heirloom resurfaces and a shocking crime unfolds, every guest becomes a suspect. Navigate tangled pasts and hidden motives to uncover the truth before the final dance.",
+      "act": 1
+    },
+    {
+      "card_id": "d61c36b7-1ccd-423f-995a-ddc74c728ff3",
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "PG-13 — suspenseful themes, mild violence references",
+      "act": 1
+    },
+    {
+      "card_id": "d7871c5c-f14b-4823-850f-ef9b9c4e3171",
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "retro, reunion, mystery, suspense, ensemble cast, 1980s, high school, secrets",
+      "act": 1
+    },
+    {
+      "card_id": "b64864dd-86da-46b1-aadf-ec879e37c934",
+      "card_type": "person",
+      "card_title": "Evelyn Harper",
+      "card_contents": "The town’s longtime librarian, keeper of yearbooks and forgotten records; her knowledge of the Class of '89’s hidden histories is both a blessing and a burden.",
+      "act": 1
+    },
+    {
+      "card_id": "c96a8900-4e40-41a2-9919-f4b7bf45a6c5",
+      "card_type": "person",
+      "card_title": "Sheriff Tom Calloway",
+      "card_contents": "A steady presence in Crescent, he balances his official duties with personal ties to the class, his impartiality tested by the tangled web of old friendships and rivalries.",
+      "act": 1
+    },
+    {
+      "card_id": "bec84b60-e976-4f66-9606-b4f47fe3f7e2",
+      "card_type": "location",
+      "card_title": "Crescent High Gymnasium",
+      "card_contents": "The central stage of the reunion, its aged grandeur conceals the scars of past dramas; the site where the locket vanished and now reappears, its walls steeped in whispered secrets.",
+      "act": 1
+    },
+    {
+      "card_id": "805ccbd7-f597-401d-8806-07acbc855187",
+      "card_type": "location",
+      "card_title": "The Old Oak Diner",
+      "card_contents": "A retro eatery near the school, a favored haunt for the Class of '89 during their youth; a place where overheard conversations and lingering resentments simmer beneath the neon signs.",
+      "act": 1
+    },
+    {
+      "card_id": "b0c3fd27-060c-4fe9-8fe0-4a034aa25802",
+      "card_type": "location",
+      "card_title": "Harper Family Estate",
+      "card_contents": "An imposing Victorian mansion on the town’s edge, home to the Harper family for generations and the original resting place of the sapphire locket, shrouded in family lore and superstition.",
+      "act": 1
+    },
+    {
+      "card_id": "1bb4b5df-b055-416b-9440-796f4cf75e2e",
+      "card_type": "item",
+      "card_title": "Sapphire-Encrusted Locket",
+      "card_contents": "A priceless heirloom rumored to carry a dark family curse; its disappearance at the senior prom and sudden reappearance decades later ignite the night’s deadly unraveling.",
+      "act": 1
+    },
+    {
+      "card_id": "26938d4f-0889-444f-bf0d-fe31cdf40600",
+      "card_type": "item",
+      "card_title": "Class of '89 Yearbook",
+      "card_contents": "A worn but treasured record of the students’ final year, filled with candid notes and hidden messages that offer clues to the tangled past and present motives.",
+      "act": 1
+    },
+    {
+      "card_id": "3d68bc45-8ed9-4d58-ae83-d1aef207b615",
+      "card_type": "item",
+      "card_title": "Vintage Cassette Tape",
+      "card_contents": "A mixtape from the original prom night, its songs evoking memories and emotions, and containing cryptic audio that may reveal hidden truths about the events of that fateful evening.",
+      "act": 1
+    },
+    {
+      "card_id": "937cd19e-ab09-4f89-af4a-b688280b40e7",
+      "card_type": "character",
+      "card_title": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "card_contents": "Once the shining star of Crescent High's Class of '89, Ronnie Chase was known for her sharp wit and relentless drive. Now a successful local news anchor, she returns to the reunion with a hidden agenda: the locket's reappearance could unravel the carefully constructed image she’s maintained for decades. Was she protecting a secret that could destroy her career? Her charm masks a simmering resentment toward the class president, whose popularity once eclipsed her own.",
+      "act": 1
+    },
+    {
+      "card_id": "8e1dbe32-cf34-424b-8d4b-d446f38ce7d2",
+      "card_type": "character",
+      "card_title": "Derek Mallory - The Reformed Troublemaker",
+      "card_contents": "Derek Mallory was the quintessential bad boy of the class, infamous for his rebellious streak and late-night escapades. Now a community counselor, he’s back to face the ghosts of his past and the unresolved tensions with the victim, who once publicly humiliated him. Derek’s rough exterior hides a man desperate for redemption, but the resurfacing locket threatens to pull him back into old conflicts he’d rather forget.",
+      "act": 2
+    },
+    {
+      "card_id": "b90a9eef-e545-48e1-9884-9733138cbebf",
+      "card_type": "character",
+      "card_title": "Lena Morales - The Enigmatic Artist",
+      "card_contents": "Lena Morales, the quiet and mysterious artist, was always on the fringes of the popular crowd. Her evocative paintings captured the raw emotions of their youth, including the night the locket vanished. Returning to Crescent High, Lena carries a secret knowledge about the heirloom and the dark curse whispered about in town. Her aloof demeanor and cryptic remarks make her a compelling suspect with motives buried deep beneath layers of silence.",
+      "act": 3
+    },
+    {
+      "card_id": "b0cf99d9-5b72-4ff6-89e7-0ba992696bca",
+      "card_type": "character",
+      "card_title": "Ethan Caldwell - The Charming Class President",
+      "card_contents": "Beloved by many and envied by some, Ethan Caldwell was the charismatic class president whose sudden death shocks the reunion. Known for his magnetic personality and knack for leadership, Ethan held the locket tightly when he was found, suggesting he knew more about its secrets than anyone else. His complicated relationships with the other alumni hint at rivalries and betrayals that may have led to his demise.",
+      "act": 1
+    },
+    {
+      "card_id": "368f6b5d-fcf4-43f2-b617-a0d7ebd10d70",
+      "card_type": "clue",
+      "card_title": "Echoes Behind the Trophies",
+      "card_contents": "Beneath the gleam where victories shine, a secret panel waits out of line. Seek the place where champions rest, a hidden space conceals the quest.",
+      "act": 1,
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "c116996c-1800-4a71-8f50-5e10c4bbe409",
+      "card_type": "clue",
+      "card_title": "The Midnight Whisper",
+      "card_contents": "When the clock strikes twelve and shadows grow, a silent scream begins to flow. Listen close to the gym's old walls, where past and present softly calls.",
+      "act": 2,
+      "linked_character": "Derek Mallory - The Reformed Troublemaker",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "8b8b84fb-8147-44bf-b909-23f0574c0250",
+      "card_type": "clue",
+      "card_title": "Neon Lights and Forgotten Fears",
+      "card_contents": "Amidst the glow of neon bright, old rivalries spark in the night. The locket's curse, a tangled thread, links vanished hopes with tears once shed.",
+      "act": 3,
+      "linked_character": "Lena Morales - The Enigmatic Artist",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "aa6fcf66-5227-454a-a6a9-ccef1fd833ba",
+      "card_type": "clue",
+      "card_title": "The President's Last Hold",
+      "card_contents": "Clutched tight in hand, a silent plea, the heirloom hides the family’s key. Unlock the past, the truth to find, where loyalty and betrayal bind.",
+      "act": 1,
+      "linked_character": "Ethan Caldwell - The Charming Class President",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "219bbad8-9d8f-4621-a62b-9a67f41ee801",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Veronica was seen near the gymnasium's trophy room shortly before the lights flickered, a place she had no official reason to be, giving her potential access to the locket before it was found with the victim.",
+      "act": 1,
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian"
+    },
+    {
+      "card_id": "c17353a5-2711-4334-8895-cbe2a31a9827",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Veronica wanted the locket because it was the key to securing a lucrative inheritance tied to her family, and she feared the victim planned to claim it for themselves, threatening her financial future and ambitions.",
+      "act": 2,
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian"
+    },
+    {
+      "card_id": "97b09887-e5ac-45c4-a7ed-3105866fee80",
+      "card_type": "secret",
+      "card_title": "Unauthorized Access to the Gymnasium",
+      "card_contents": "Derek was seen near the gymnasium's storage room earlier in the evening, an area off-limits to most guests. He had a set of keys from his brief stint as a janitor years ago, giving him potential access to the locket before it was found with the victim.",
+      "act": 3,
+      "linked_character": "Derek Mallory - The Reformed Troublemaker"
+    },
+    {
+      "card_id": "a1bb8dfc-4324-42d5-a806-5bbf81c3c384",
+      "card_type": "secret",
+      "card_title": "Motive to Control the Heirloom",
+      "card_contents": "Derek wanted the treasure because he believed the locket held the key to restoring his family's reputation, which was tarnished after a scandal involving the victim's family. He saw controlling the locket as a way to leverage power and settle old scores, giving him a clear motive to want the victim silenced or the heirloom stolen.",
+      "act": 1,
+      "linked_character": "Derek Mallory - The Reformed Troublemaker"
+    },
+    {
+      "card_id": "39caa9e3-7290-4ad7-9921-999a46071bc2",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Lena was seen near the trophy display case moments before the lights flickered, despite claiming she was in the restroom; she had a hidden key to the gym's storage room where the locket was rumored to be kept.",
+      "act": 2,
+      "linked_character": "Lena Morales - The Enigmatic Artist"
+    },
+    {
+      "card_id": "c01fa919-3d0c-44a1-8fe0-2c1900cf0de8",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Lena wanted the treasure because she believed the locket held the key to her family's lost fortune, and she resented the victim for publicly dismissing her artistic talents and threatening to expose a scandal involving her past.",
+      "act": 3,
+      "linked_character": "Lena Morales - The Enigmatic Artist"
+    },
+    {
+      "card_id": "bd6f710f-167a-4dac-b015-0397d090777e",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Ethan was seen near the trophy display case shortly before the lights flickered, despite claiming to be on the dance floor the entire time, giving him suspicious access to the locket's location.",
+      "act": 1,
+      "linked_character": "Ethan Caldwell - The Charming Class President"
+    },
+    {
+      "card_id": "aba03a21-4402-48e9-9b44-cfedee6c1477",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Ethan wanted the treasure because the locket's curse threatened to ruin his family's reputation and fortune, and he feared the victim planned to reveal damaging secrets tied to it at the reunion.",
+      "act": 2,
+      "linked_character": "Ethan Caldwell - The Charming Class President"
+    },
+    {
+      "card_id": "d91afcf1-6338-49a8-9270-6ed078718a76",
+      "card_type": "treasure",
+      "card_title": "Sapphire-encrusted locket",
+      "card_contents": "Host reveal: read when the group recovers the treasure or at the end of Act 3.\n\nTreasure: Sapphire-encrusted locket\nWhere it was hidden: Secret compartment inside the old gymnasium's trophy case\nResolution: The locket is the key to unraveling the dark family curse linked to the class president's lineage. Players can find it by investigating the gymnasium's trophy case, which has a hidden compartment accessible through a loose panel. Discovering the locket there connects the past disappearance with the present murder, revealing motives and secrets tied to the reunion's tension.",
+      "act": 3,
+      "hidden_until_solved": true,
+      "linked_item_id": "1bb4b5df-b055-416b-9440-796f4cf75e2e"
+    },
+    {
+      "card_id": "722b560b-ccc1-47f9-a93c-4ccb1bdc5307",
+      "card_type": "story_act",
+      "card_title": "A Night of Reunion and Revelation",
+      "card_contents": "Under the glittering chandeliers of the Crescent High Gymnasium, old friends and rivals reunite. Veronica 'Ronnie' Chase arrives with a guarded smile, her ambitions shadowed by the locket's sudden reappearance. Ethan Caldwell, the beloved class president, commands attention as he holds the heirloom tightly, his charm hiding deeper tensions. Whispers swirl around the vanished sapphire locket and its rumored curse, igniting old rivalries. As the night unfolds, secrets begin to surface, but no one could anticipate the tragedy that will soon shatter the celebration.",
+      "act": 1,
+      "location_ref": "bec84b60-e976-4f66-9606-b4f47fe3f7e2"
+    },
+    {
+      "card_id": "c7d5b943-db98-41d2-9dec-fb35803ab398",
+      "card_type": "story_act",
+      "card_title": "Echoes of the Past at The Old Oak Diner",
+      "card_contents": "The reunion’s aftermath leads some to The Old Oak Diner, where memories and resentments simmer beneath neon lights. Derek Mallory, once the class troublemaker, confronts the ghosts of his past and his fraught history with the victim. Tensions rise as conflicting stories emerge about the night the locket vanished and Ethan's recent actions. The diner becomes a crucible of suspicion, with alliances questioned and new motives hinted at. The past refuses to stay buried, and the mystery deepens with every overheard conversation.",
+      "act": 2,
+      "location_ref": "805ccbd7-f597-401d-8806-07acbc855187"
+    },
+    {
+      "card_id": "5ef4c193-5933-40e0-b4c5-b06e1ee1ed86",
+      "card_type": "story_act",
+      "card_title": "Secrets Unveiled at the Harper Family Estate",
+      "card_contents": "The imposing Harper Family Estate looms as the final piece of the puzzle. Lena Morales, the enigmatic artist, reveals cryptic insights tied to the locket’s dark family lore and the curse whispered about town. As pressure mounts, the tangled relationships among the alumni come into sharper focus, and hidden truths threaten to emerge. Yet, even here, certainty eludes those seeking answers. The night demands difficult choices and sharp scrutiny, but the full story remains just out of reach, leaving the final dance shrouded in mystery.",
+      "act": 3,
+      "location_ref": "b0c3fd27-060c-4fe9-8fe0-4a034aa25802"
+    },
+    {
+      "card_id": "fa628200-720a-4fba-a1b5-d65791805d3b",
+      "card_type": "host_speech",
+      "card_title": "Welcome to the Reunion Mystery",
+      "card_contents": "Under the glittering chandeliers of Crescent High Gymnasium, the Class of '89 gathers once more. Tonight, nostalgia mingles with tension as the long-lost sapphire-encrusted locket resurfaces, stirring old rivalries. But joy turns to horror—the beloved class president is found dead, clutching the cursed heirloom. Who among you harbors secrets dark enough to kill? Step carefully, for every whispered memory and shadowed corner in this gymnasium hides clues to the truth. Let the investigation begin!",
+      "act": 1,
+      "location_ref": "bec84b60-e976-4f66-9606-b4f47fe3f7e2"
+    },
+    {
+      "card_id": "25860e5f-018d-414b-9beb-7844f35c5be3",
+      "card_type": "host_speech",
+      "card_title": "Shadows Deepen at The Old Oak Diner",
+      "card_contents": "As the night unfolds, whispers lead us away from the gymnasium to The Old Oak Diner, where past grievances simmer beneath neon lights. Old friendships fracture and new suspicions arise—could the killer be lurking among those who once shared milkshakes and secrets? The locket’s curse seems to twist loyalties, and every overheard conversation might be a clue or a trap. Watch your step; the truth is as slippery as the shadows cast by the diner’s flickering signs.",
+      "act": 2,
+      "location_ref": "805ccbd7-f597-401d-8806-07acbc855187"
+    },
+    {
+      "card_id": "11aad5ce-793d-4e91-9604-8f5da34de8f2",
+      "card_type": "host_speech",
+      "card_title": "Final Dance at Harper Family Estate",
+      "card_contents": "The clock ticks toward midnight at the Harper Family Estate, the locket’s ancestral home, where dark family lore breathes life into every creaking floorboard. Here, the final dance of deception unfolds. Secrets long buried claw their way to the surface, and the killer’s mask grows thin. Now is the moment to cast your accusations and unravel the tangled web of love, betrayal, and vengeance. Will justice be served before the last note fades? The fate of the class—and the locket’s curse—rests in your hands.",
+      "act": 3,
+      "location_ref": "b0c3fd27-060c-4fe9-8fe0-4a034aa25802"
+    },
+    {
+      "card_id": "9e87d2a9-f81c-4b93-bab3-13ff63360287",
+      "card_type": "clue",
+      "card_title": "Sapphire-Encrusted Locket in Victim's Hand",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Ethan Caldwell was found clutching the sapphire-encrusted locket tightly in his right hand, its cold surface catching the neon light. The locket’s sudden reappearance at the reunion has stirred old fears and rivalries among classmates.",
+      "clue_type": "artifact",
+      "suspect_name": "Ethan Caldwell",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "e12a7fa1-d778-4dab-a62c-b18f0eebdedf",
+      "card_type": "clue",
+      "card_title": "Veronica's Nervous Glance",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Several guests noticed Veronica 'Ronnie' Chase stealing nervous glances toward the dance floor just before the lights flickered at midnight. Her usual composed demeanor seemed strained, as if hiding something urgent.",
+      "clue_type": "fact",
+      "suspect_name": "Veronica 'Ronnie' Chase",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "a38e8f0c-04c9-43f8-a81a-151b50dee9bf",
+      "card_type": "clue",
+      "card_title": "Scuff Marks on the Dance Floor",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Near where Ethan fell, faint scuff marks and disturbed dust suggest a struggle took place on the neon-lit gymnasium floor. The marks lead toward the east exit, but no one recalls seeing anyone leave hastily.",
+      "clue_type": "fact",
+      "suspect_name": "Derek Mallory",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "34eb07c7-ee11-4437-935b-793bb598480c",
+      "card_type": "clue",
+      "card_title": "Torn Edge of a Formal Glove",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "A small piece of black fabric, the torn edge of a formal glove, was found caught on the gymnasium's decorative railing near the scene. The glove style matches those worn by Veronica and Derek earlier in the evening.",
+      "clue_type": "artifact",
+      "suspect_name": "Veronica 'Ronnie' Chase",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "553ffa4f-3df4-43ea-aa53-c9ac564e7de1",
+      "card_type": "clue",
+      "card_title": "Lena's Sketchbook Page",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Lena Morales' sketchbook contains a hastily drawn scene of the gymnasium with two shadowy figures near the dance floor at midnight. A scribbled note reads, 'Secrets unravel when the lights go out.'",
+      "clue_type": "artifact",
+      "suspect_name": "Lena Morales",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "ab377a80-2976-4de2-9de3-17f39fec8b32",
+      "card_type": "clue",
+      "card_title": "Ethan's Threatening Note",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "A crumpled note found in Ethan’s jacket pocket reads, 'If you expose me, everything falls apart.' The handwriting is hurried but matches Veronica's signature style from old yearbooks.",
+      "clue_type": "artifact",
+      "suspect_name": "Ethan Caldwell",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "520bd422-3f22-45c4-b255-8fc236614146",
+      "card_type": "clue",
+      "card_title": "Veronica’s Ambition and Fear",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Veronica’s ambition to maintain her spotless reputation was well-known. Rumors circulated that she feared any scandal could destroy her carefully crafted public image, especially involving the cursed locket.",
+      "clue_type": "derived",
+      "suspect_name": "Veronica 'Ronnie' Chase",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "368cf19d-369b-448c-8c6a-1b8c0d75645b",
+      "card_type": "clue",
+      "card_title": "Derek’s Reformed Temper",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Though once a troublemaker, Derek Mallory has been working hard to leave his past behind. Witnesses say he was calm and distant during the reunion, avoiding confrontations and keeping to himself.",
+      "clue_type": "fact",
+      "suspect_name": "Derek Mallory",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "e6d99e38-8ead-4f4e-b20c-09065e3e19b1",
+      "card_type": "clue",
+      "card_title": "Lena’s Secret Meeting Spot",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Lena was seen near the gymnasium’s side entrance moments before the lights flickered. She appeared to be waiting for someone, clutching a folded piece of paper tightly in her hand.",
+      "clue_type": "fact",
+      "suspect_name": "Lena Morales",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "50e212cd-9a7d-4532-8adc-46c3598fcec8",
+      "card_type": "clue",
+      "card_title": "Ethan’s Role as Class President",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "Ethan Caldwell was beloved as the charming class president, often mediating disputes. His discovery of the locket’s curse and its implications made him a target for those wanting to keep secrets buried.",
+      "clue_type": "derived",
+      "suspect_name": "Ethan Caldwell",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "edf1a77c-3bf1-49a4-bed6-a8139510c73b",
+      "card_type": "clue",
+      "card_title": "Power Outage at Midnight",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "At exactly midnight, the gymnasium lights flickered and went out briefly, plunging the room into darkness. The blackout created the perfect cover for a confrontation to turn deadly.",
+      "clue_type": "fact",
+      "suspect_name": "Derek Mallory",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "defd27f9-e118-4ee5-8610-a345504e59a9",
+      "card_type": "clue",
+      "card_title": "Veronica’s Alibi Gap",
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "card_contents": "During the blackout, Veronica’s whereabouts are unaccounted for. Several guests recall seeing her near the refreshments table just before the lights went out, but no one saw her immediately after.",
+      "clue_type": "fact",
+      "suspect_name": "Veronica 'Ronnie' Chase",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "45e43395-3330-4c6e-837a-14c31a686406",
+      "card_type": "clue",
+      "card_title": "Photograph: Victim at Crescent High Gymnasium Dance Floor",
+      "card_contents": "The photograph captures Ethan Caldwell sprawled on the neon-lit dance floor, tightly clutching the sapphire-encrusted locket. Around him, confetti litters the ground and a broken glass lies nearby, hinting at a sudden altercation. The locket’s unique swirling pattern, partially visible in his hand, resembles twisting vines—matching descriptions from witness statements. This detail suggests the locket was central to the struggle that led to his death.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_001",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "d70786d4-7420-4808-862e-1408bbe6df03",
+      "card_type": "clue",
+      "card_title": "Ledger: Prom Night Jewelry Inventory",
+      "card_contents": "The prom night jewelry ledger lists items brought by classmates, noting a sapphire-encrusted locket missing since the 1989 prom. The locket features a unique swirling pattern resembling twisting vines, distinct from other pieces. This pattern was recorded carefully, suggesting its importance. The ledger confirms the locket’s disappearance coincided with the original prom chaos, linking it to past tensions among classmates.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_002",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "ledgers"
+    },
+    {
+      "card_id": "ea366921-6e05-49f7-83dd-a2a8bd13b2a2",
+      "card_type": "clue",
+      "card_title": "Transcript: Witness Statements from Reunion Night",
+      "card_contents": "Witnesses recall the prom reunion night vividly: at midnight, lights flickered erratically, followed by a piercing scream. When the crowd rushed to the gym floor, Ethan Caldwell was found dead, clutching the sapphire-encrusted locket. One attendee described the locket's pattern as a twisting vine, its tendrils curling tightly, almost like a secret code. Several noted how the locket seemed to shimmer unnaturally under the neon lights, drawing attention even amid the chaos.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_003",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "transcripts"
+    },
+    {
+      "card_id": "d5d7c2ee-3ec1-4b58-bc09-89675676c1d6",
+      "card_type": "solution",
+      "card_title": "Solution: The Locket's Pattern Reveals the Death Circumstances",
+      "card_contents": "The physical pattern described under \"Sapphire-Encrusted Locket in Victim's Hand\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_unlock_001",
+      "hidden_until_solved": true,
+      "meta": {
+        "fact_binding": "killer"
+      },
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "45ad3ff0-4a23-4ec4-92e9-d6ab9410b24e",
+      "card_type": "puzzle",
+      "card_title": "Puzzle: What does the pattern on the sapphire-encrusted locket reveal about Ethan Caldwell's death?",
+      "card_contents": "Examine the evidence to determine how the physical pattern on the locket connects to the circumstances of Ethan Caldwell's death on the Crescent High Gymnasium dance floor.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_1_evidence_001",
+        "bundle_1_evidence_002",
+        "bundle_1_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_001"
+      ],
+      "required_card_ids": [
+        "45e43395-3330-4c6e-837a-14c31a686406",
+        "d70786d4-7420-4808-862e-1408bbe6df03",
+        "ea366921-6e05-49f7-83dd-a2a8bd13b2a2"
+      ],
+      "unlock_card_ids": [
+        "d5d7c2ee-3ec1-4b58-bc09-89675676c1d6"
+      ],
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "b816ebad-a013-4af4-b7f2-a8a0a706569b",
+      "card_type": "clue",
+      "card_title": "Veronica's Nervous Glance - Witness Observations",
+      "card_contents": "At 11:45 PM, Veronica was spotted on the Crescent High Gymnasium dance floor. Multiple witnesses noted her frequent, anxious glances toward the neon-lit stage's nearby corner. She gripped the sapphire-encrusted locket tightly, her fingers trembling. This corner, adjacent to a quiet alcove, seemed to hold her focus, suggesting a connection between her nervousness and that specific location during the reunion.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_001",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "2a65a4ba-91ed-4000-935a-cfca6e7f36d6",
+      "card_type": "clue",
+      "card_title": "Dance Floor Layout Map",
+      "card_contents": "The Crescent High Gymnasium dance floor includes four key areas: the neon-lit stage on the north side, adjacent to a small alcove often used for quiet talks; the refreshment table along the east wall; the south corner alcove beneath a flickering chandelier; and the main entrance on the west side. The alcove near the stage is a secluded spot, while the south corner alcove is more open but shadowed, often overlooked during the reunion's lively moments.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_002",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "maps"
+    },
+    {
+      "card_id": "8e2374ec-27be-41c4-83e9-c4b7c0a72f4c",
+      "card_type": "clue",
+      "card_title": "Victim's Final Position Report",
+      "card_contents": "At midnight, Ethan Caldwell was discovered lifeless on the Crescent High Gymnasium dance floor. He clutched the sapphire-encrusted locket tightly. His body lay near the south corner alcove, beneath the flickering chandelier. This location is adjacent to the neon-lit stage and a favored spot for quiet conversations during the reunion. The positioning suggests the attack occurred in a less crowded, shadowed area of the dance floor.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_003",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "46635808-d1e6-47c9-bebe-2bd19c997dec",
+      "card_type": "solution",
+      "card_title": "Answer to Veronica's Nervous Glance Location Puzzle",
+      "card_contents": "Cross-referencing \"Veronica's Nervous Glance\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_unlock_002",
+      "hidden_until_solved": true,
+      "meta": {
+        "fact_binding": "location"
+      },
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "2e99387c-df76-4c13-b6b6-1cb51a605514",
+      "card_type": "puzzle",
+      "card_title": "Where on the Dance Floor Does Veronica's Nervous Glance Point?",
+      "card_contents": "Cross-reference the witness observations of Veronica's nervous glances with the dance floor layout and the victim's final position to determine which part of the Crescent High Gymnasium dance floor the physical detail implicates. Who or what does this detail reveal about the location of the murder?",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_001",
+        "bundle_2_evidence_001",
+        "bundle_2_evidence_002",
+        "bundle_2_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_002"
+      ],
+      "required_card_ids": [
+        "d5d7c2ee-3ec1-4b58-bc09-89675676c1d6",
+        "b816ebad-a013-4af4-b7f2-a8a0a706569b",
+        "2a65a4ba-91ed-4000-935a-cfca6e7f36d6",
+        "8e2374ec-27be-41c4-83e9-c4b7c0a72f4c"
+      ],
+      "unlock_card_ids": [
+        "46635808-d1e6-47c9-bebe-2bd19c997dec"
+      ],
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "a1f751ee-b758-4df0-aa7c-cfa447baa091",
+      "card_type": "clue",
+      "card_title": "Scuff Marks Report",
+      "card_contents": "Entry 1: West side bleachers show heavy scuff marks and disrupted floor panels, indicating a possible altercation. Entry 2: Center dance floor features faint circular scuffs, typical of spins or twirls during dancing. Entry 3: East side near exit door has sparse linear scratches, likely from hurried footsteps or dragging objects.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_001",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "6a22538b-c142-41c3-b7a0-9e028ef77aa0",
+      "card_type": "clue",
+      "card_title": "Dance Floor Layout Map",
+      "card_contents": "The Crescent High Gymnasium dance floor divides into three sections: Section A lies by the west bleachers, featuring polished hardwood; Section B is the central area beneath the grand chandelier, with glossy tiles; Section C borders the east exit door, covered in matte vinyl. Distinct lighting highlights each section—warm amber on the west, bright white center illumination, and cooler blue tones near the exit. These differences help identify where physical evidence like scuff marks might be located during the investigation.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_002",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "maps"
+    },
+    {
+      "card_id": "36e263c5-0fb6-4133-b2dc-b64b0740fe1e",
+      "card_type": "solution",
+      "card_title": "Location Implicated by Scuff Marks",
+      "card_contents": "Cross-referencing \"Scuff Marks on the Dance Floor\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_unlock_003",
+      "hidden_until_solved": true,
+      "meta": {
+        "fact_binding": "treasure_object"
+      },
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "2f9d3efe-55ee-4e14-8a10-0728c6d03e56",
+      "card_type": "puzzle",
+      "card_title": "Where do the scuff marks on the dance floor implicate?",
+      "card_contents": "Cross-reference the scuff marks report with the dance floor layout to pinpoint the exact location implicated by the physical evidence. Which part of the Crescent High Gymnasium dance floor do the scuff marks isolate?",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_002",
+        "bundle_3_evidence_001",
+        "bundle_3_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_003"
+      ],
+      "required_card_ids": [
+        "46635808-d1e6-47c9-bebe-2bd19c997dec",
+        "a1f751ee-b758-4df0-aa7c-cfa447baa091",
+        "6a22538b-c142-41c3-b7a0-9e028ef77aa0"
+      ],
+      "unlock_card_ids": [
+        "36e263c5-0fb6-4133-b2dc-b64b0740fe1e"
+      ],
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "2f0a51f7-6807-4299-ad0f-3ee85f088dbc",
+      "card_type": "clue",
+      "card_title": "Ledger: Formal Wear Rentals",
+      "card_contents": "Entry 1: Ronnie Chase rented white formal gloves, size small, at 6:15 PM. Entry 2: Ethan Caldwell returned tuxedo at 11:30 PM; gloves not returned. Entry 3: Condition report notes gloves from Ronnie's rental had a slight tear at the edge. Entry 4: No other gloves reported missing or damaged in the formal wear inventory that night.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_001",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "ledgers"
+    },
+    {
+      "card_id": "3cfe4be0-025c-41a2-8983-59a9382063d3",
+      "card_type": "clue",
+      "card_title": "Transcript: Security Camera Log",
+      "card_contents": "22:47 - Ethan and Ronnie dance near the east exit. 23:01 - Ronnie adjusts her white formal glove, revealing a small tear at the edge. 23:15 - Lights flicker; Ethan clutches his chest, then collapses on the gym floor. The timing suggests the torn glove may be linked to the sudden attack.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_002",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "transcripts"
+    },
+    {
+      "card_id": "62af8718-2fbb-4399-8969-e237dd25fed2",
+      "card_type": "clue",
+      "card_title": "Photo: Dance Floor Scene",
+      "card_contents": "The photo captures the gym's neon-lit dance floor where Ethan Caldwell lies clutching his chest, the sapphire locket gleaming. Nearby, a single white glove with a distinct torn edge rests on the floor. The torn edge matches the glove size Ronnie Chase rented. The glove’s position near Ethan suggests a struggle occurred here, possibly involving the glove being torn during the altercation before Ethan collapsed.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_003",
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      },
+      "evidence_type": "maps"
+    },
+    {
+      "card_id": "b72b2902-1b34-4a81-8d47-2e44a9c017c4",
+      "card_type": "solution",
+      "card_title": "Solution: The Torn Edge Clue",
+      "card_contents": "The physical pattern described under \"Torn Edge of a Formal Glove\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_unlock_004",
+      "hidden_until_solved": true,
+      "meta": {
+        "fact_binding": "treasure_location"
+      },
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "64dce56e-9eae-4a8e-b5a7-d1ce63912207",
+      "card_type": "puzzle",
+      "card_title": "Puzzle: What Does the Torn Edge of a Formal Glove Reveal?",
+      "card_contents": "Examine the evidence from the formal wear ledger, security camera transcript, and the dance floor photo. What does the physical pattern described under 'Torn Edge of a Formal Glove' reveal about the circumstances of Ethan Caldwell's death at the Crescent High Gymnasium dance floor?",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_unlock_003",
+        "bundle_4_evidence_001",
+        "bundle_4_evidence_002",
+        "bundle_4_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_004"
+      ],
+      "required_card_ids": [
+        "36e263c5-0fb6-4133-b2dc-b64b0740fe1e",
+        "2f0a51f7-6807-4299-ad0f-3ee85f088dbc",
+        "3cfe4be0-025c-41a2-8983-59a9382063d3",
+        "62af8718-2fbb-4399-8969-e237dd25fed2"
+      ],
+      "unlock_card_ids": [
+        "b72b2902-1b34-4a81-8d47-2e44a9c017c4"
+      ],
+      "hidden_until_solved": false,
+      "murder_canon": {
+        "victim": "Ethan Caldwell",
+        "location": "Crescent High Gymnasium dance floor"
+      }
+    },
+    {
+      "card_id": "631f0740-3063-4ac3-a685-01ee8048cf8d",
+      "card_type": "game_card",
+      "card_title": "Charm Offensive Toast",
+      "card_contents": "Make a dramatic toast praising the class president—be overly flattering but hint at a subtle jab about their past popularity. Watch reactions closely.",
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "target_character": "Ethan Caldwell - The Charming Class President",
+      "target_character_id": "ethan_caldwell_the_charming_class_president"
+    },
+    {
+      "card_id": "e3c05424-fabe-41ee-a545-3d2ae917cf4e",
+      "card_type": "game_card",
+      "card_title": "Secret Bet",
+      "card_contents": "Challenge another guest to a quick trivia bet about Crescent High's Class of '89. If you win, they must reveal one secret about themselves to you.",
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "a08b6e39-a1ac-4f05-bf99-fa69888d392e",
+      "card_type": "game_card",
+      "card_title": "Whisper and Eavesdrop",
+      "card_contents": "Find a quiet corner and listen unnoticed to a nearby conversation about the locket or the victim. Share one juicy detail you overheard with a chosen player.",
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "931438af-4ddc-4ded-a785-38ced799fe9b",
+      "card_type": "game_card",
+      "card_title": "Dance Challenge: Prove Your Grace",
+      "card_contents": "Challenge someone to a dance-off on the neon-lit floor. Use your valedictorian poise to impress—win to gain their trust or distract them for a sneaky move.",
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "fc77e44d-ea49-4f87-87b8-e9f285b81e5f",
+      "card_type": "game_card",
+      "card_title": "The Hidden Confession",
+      "card_contents": "Invent and reveal a fake secret about your past at Crescent High that could explain your resentment toward the class president. Use it to confuse or manipulate the group.",
+      "linked_character": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "target_character": "Ethan Caldwell - The Charming Class President",
+      "target_character_id": "ethan_caldwell_the_charming_class_president"
+    },
+    {
+      "card_id": "2de713c1-7794-4b33-a7e6-be14b1f8218e",
+      "card_type": "game_card",
+      "card_title": "Rebel's Toast",
+      "card_contents": "Make a dramatic toast praising the victim, but hint at a hidden grudge. Use a sarcastic or ironic tone to make others wonder about your true feelings.",
+      "linked_character": "Derek Mallory - The Reformed Troublemaker",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "04751722-dfc9-4494-9bb8-cd0d1219f813",
+      "card_type": "game_card",
+      "card_title": "Sneak and Eavesdrop",
+      "card_contents": "Find a quiet corner and listen in on a suspicious conversation between two guests. Try to catch a secret or a clue without being noticed.",
+      "linked_character": "Derek Mallory - The Reformed Troublemaker",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "2202b804-7f69-470e-a626-bcf2ac0ed9de",
+      "card_type": "game_card",
+      "card_title": "Dance-Off Challenge",
+      "card_contents": "Challenge another guest to a spontaneous dance-off on the neon-lit floor. Use this to distract or gather information while showing off your old-school moves.",
+      "linked_character": "Derek Mallory - The Reformed Troublemaker",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "841d37a1-37a9-4c2b-9f77-8bf7336261c4",
+      "card_type": "game_card",
+      "card_title": "Invent a Dark Past",
+      "card_contents": "Confess a fake, scandalous secret about your rebellious youth that no one knows. Watch how others react and use their responses to gauge alliances or suspicions.",
+      "linked_character": "Derek Mallory - The Reformed Troublemaker",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "5ec41710-40ce-4326-bfb7-3eb2258ffc86",
+      "card_type": "game_card",
+      "card_title": "Locket Heist",
+      "card_contents": "Attempt to stealthily steal the sapphire-encrusted locket from whoever currently holds it. Use charm or distraction to pull off the heist unnoticed.",
+      "linked_character": "Derek Mallory - The Reformed Troublemaker",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "263efb13-7885-419d-a985-c2191d9bfc3f",
+      "card_type": "game_card",
+      "card_title": "Cryptic Toast",
+      "card_contents": "Make a dramatic toast praising someone suspiciously—hint at their hidden motives without naming names. Use poetic, mysterious language to sow doubt among the guests.",
+      "linked_character": "Lena Morales - The Enigmatic Artist",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "bcdd69ed-6751-4008-9823-f9beabb71445",
+      "card_type": "game_card",
+      "card_title": "Silent Shadow",
+      "card_contents": "Listen in on a whispered conversation nearby without being noticed. Use subtle body language and eavesdrop to gather a secret that might shift suspicion.",
+      "linked_character": "Lena Morales - The Enigmatic Artist",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "4dbb81a2-aad4-46cc-999b-d1f000c8fc7c",
+      "card_type": "game_card",
+      "card_title": "The Artist’s Bet",
+      "card_contents": "Challenge another guest to a quick drawing contest on a napkin. Winner gains a secret clue from the loser. Use this to engage and gather information creatively.",
+      "linked_character": "Lena Morales - The Enigmatic Artist",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "d81900aa-9353-4f2c-9596-23c3ef364e49",
+      "card_type": "game_card",
+      "card_title": "Hidden Truth Revealed",
+      "card_contents": "Share a cryptic, partially true secret about your past related to the locket’s curse—enough to intrigue but not fully confess. Watch how others react and use it to manipulate the narrative.",
+      "linked_character": "Lena Morales - The Enigmatic Artist",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "4d9333ab-77dc-424b-9b3c-abeeac80e936",
+      "card_type": "game_card",
+      "card_title": "Steal the Spotlight",
+      "card_contents": "Sneakily take a small, personal item from another guest without them noticing. Use this item later as leverage or to create suspicion around them.",
+      "linked_character": "Lena Morales - The Enigmatic Artist",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "59b1229a-524a-4995-8c26-7632b3fe6c6f",
+      "card_type": "game_card",
+      "card_title": "Charming Toast",
+      "card_contents": "Give a heartfelt and dramatic toast praising someone who clearly had a rivalry with Ethan. Use charm to make it sound sincere but plant a subtle seed of doubt about their motives.",
+      "linked_character": "Ethan Caldwell - The Charming Class President",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "1e33cffc-16e4-475e-8244-a2350596dd5c",
+      "card_type": "game_card",
+      "card_title": "Secret Bet",
+      "card_contents": "Challenge another guest to a friendly bet on who can recall the most embarrassing high school memory. The winner gains a small clue from the loser about their connection to Ethan.",
+      "linked_character": "Ethan Caldwell - The Charming Class President",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "9ac25c56-633f-482f-9a49-cbfccbd5cb38",
+      "card_type": "game_card",
+      "card_title": "Whispered Eavesdrop",
+      "card_contents": "Find a quiet corner and listen in unnoticed on a suspicious conversation between two guests. Use Ethan's charisma to blend in if needed, then share what you overheard with the group.",
+      "linked_character": "Ethan Caldwell - The Charming Class President",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "e7446a38-78e1-4b83-aeac-e2dc2c18b1d3",
+      "card_type": "game_card",
+      "card_title": "Dance-Off Duel",
+      "card_contents": "Call out a confident rival to a spontaneous dance-off on the neon-lit floor. Use this to distract others while you subtly inspect their belongings or the locket for hidden secrets.",
+      "linked_character": "Ethan Caldwell - The Charming Class President",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "e0296ac4-4943-4f6c-9984-78af8cbca12c",
+      "card_type": "game_card",
+      "card_title": "Fabricated Confession",
+      "card_contents": "Reveal a fake secret about Ethan’s past—something juicy but misleading—that could shift suspicion or change how others see his relationships. Deliver it with theatrical flair to keep everyone guessing.",
+      "linked_character": "Ethan Caldwell - The Charming Class President",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [
+      {
+        "stage": "character_secret_agent",
+        "character": "Derek Mallory - The Reformed Troublemaker",
+        "attempt": 1,
+        "reason": "character_secret_agent missing motive hook for Derek Mallory - The Reformed Troublemaker"
+      },
+      {
+        "stage": "character_secret_agent",
+        "character": "Ethan Caldwell - The Charming Class President",
+        "attempt": 1,
+        "reason": "character_secret_agent missing competitive deduction hook for Ethan Caldwell - The Charming Class President"
+      },
+      {
+        "stage": "character_secret_agent",
+        "character": "Ethan Caldwell - The Charming Class President",
+        "attempt": 2,
+        "reason": "character_secret_agent missing motive hook for Ethan Caldwell - The Charming Class President"
+      },
+      {
+        "stage": "item_agent",
+        "attempt": 1,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "Sapphire-Encrusted Locket, Class of '89 Yearbook, Vintage Cassette Tape"
+      },
+      {
+        "stage": "item_agent",
+        "attempt": 2,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "Sapphire-Encrusted Locket, Class of '89 Yearbook, Vintage Cassette Tape"
+      }
+    ],
+    "warning_log": [
+      {
+        "stage": "item_agent",
+        "reason": "best_effort_items",
+        "message": "item_agent failed strict per-character item generation; emitting best-effort set (0 items)."
+      }
+    ],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "Under the glittering chandeliers of the old Crescent High Gymnasium, the Class of '89 gathers for their long-awaited prom night reunion, a celebration tinged with nostalgia and whispered secrets. Decades ago, a priceless heirloom—a sapphire-encrusted locket rumored to hold a dark family curse—vanished amidst the glamour and chaos of their senior prom, and tonight, its sudden reappearance ignites old rivalries and buried resentments. But as the clock strikes midnight, the lights flicker and a scream pierces the air: the beloved class president lies dead, clutching the locket, and everyone is a suspect. Set against the backdrop of a retro neon-lit dance floor, where teenage dreams clash with adult regrets, the tension crackles between loyalty and betrayal, love lost and secrets best left buried. In this eerie, suspense-filled evening, uncovering the truth means navigating tangled friendships and haunting pasts before the final dance.",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "playability_history": [
+    {
+      "step_name": "story_blurb_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "story_metadata_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "world_building_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "characters_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "treasure_hunt_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "case_state_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "character_secret_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "item_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "treasure_item_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "story_acts_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "host_speech_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_roster_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_target_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_draft_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_finalize_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_evidence_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_visible_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_linker_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "truth_trail_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "structural_preflight_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "solvability_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "game_card_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_structure_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "post_final_invariants_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_integrity_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "mvp_quality_gate_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    }
+  ],
+  "story_title": "Midnight Masquerade: The Prom Reunion",
+  "story_description": "Step back to the neon-lit night of the Class of '89 prom reunion, where old friendships and secrets collide under the glittering chandeliers. When a priceless heirloom resurfaces and a shocking crime unfolds, every guest becomes a suspect. Navigate tangled pasts and hidden motives to uncover the truth before the final dance.",
+  "story_rating": "PG-13 — suspenseful themes, mild violence references",
+  "story_themes": "retro, reunion, mystery, suspense, ensemble cast, 1980s, high school, secrets",
+  "world": "Set in the nostalgic heart of a small American town frozen in time, Crescent High Gymnasium stands as a monument to youthful dreams and buried regrets. Its polished wooden floors, once alive with the energy of teenage hopes, now echo with the weight of decades-old secrets. The gym’s grand chandeliers cast a fractured glow over the neon-lit dance floor, where the past and present collide in a spectral dance of memory and mystery. Outside, the town’s autumn chill seeps through the cracked windows, whispering of stories best left untold. This reunion is more than a gathering; it is a crucible where loyalty fractures and truths unravel beneath the shimmer of retro glamour and the shadow of a cursed heirloom.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Evelyn Harper",
+        "summary": "The town’s longtime librarian, keeper of yearbooks and forgotten records; her knowledge of the Class of '89’s hidden histories is both a blessing and a burden."
+      },
+      {
+        "name": "Sheriff Tom Calloway",
+        "summary": "A steady presence in Crescent, he balances his official duties with personal ties to the class, his impartiality tested by the tangled web of old friendships and rivalries."
+      }
+    ],
+    "locations": [
+      {
+        "name": "Crescent High Gymnasium",
+        "summary": "The central stage of the reunion, its aged grandeur conceals the scars of past dramas; the site where the locket vanished and now reappears, its walls steeped in whispered secrets."
+      },
+      {
+        "name": "The Old Oak Diner",
+        "summary": "A retro eatery near the school, a favored haunt for the Class of '89 during their youth; a place where overheard conversations and lingering resentments simmer beneath the neon signs."
+      },
+      {
+        "name": "Harper Family Estate",
+        "summary": "An imposing Victorian mansion on the town’s edge, home to the Harper family for generations and the original resting place of the sapphire locket, shrouded in family lore and superstition."
+      }
+    ],
+    "items": [
+      {
+        "name": "Sapphire-Encrusted Locket",
+        "summary": "A priceless heirloom rumored to carry a dark family curse; its disappearance at the senior prom and sudden reappearance decades later ignite the night’s deadly unraveling."
+      },
+      {
+        "name": "Class of '89 Yearbook",
+        "summary": "A worn but treasured record of the students’ final year, filled with candid notes and hidden messages that offer clues to the tangled past and present motives."
+      },
+      {
+        "name": "Vintage Cassette Tape",
+        "summary": "A mixtape from the original prom night, its songs evoking memories and emotions, and containing cryptic audio that may reveal hidden truths about the events of that fateful evening."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+      "victim": "Ethan Caldwell",
+      "location": "Crescent High Gymnasium dance floor",
+      "murder_solution": "Veronica Chase killed Ethan Caldwell on the neon-lit dance floor during the prom reunion. Ethan had discovered Ronnie's secret about the locket's curse and threatened to expose her, which would ruin her carefully maintained public image. When the lights flickered at midnight, Ronnie seized the moment to confront Ethan, leading to a fatal struggle where she strangled him, leaving the locket clutched in his hand to misdirect suspicion. Her ambition and fear of scandal gave her the motive and opportunity to commit the murder amidst the chaos of the reunion."
+    },
+    "treasure": {
+      "object": "Sapphire-encrusted locket",
+      "hiding_place": "Secret compartment inside the old gymnasium's trophy case",
+      "treasure_solution": "The locket is the key to unraveling the dark family curse linked to the class president's lineage. Players can find it by investigating the gymnasium's trophy case, which has a hidden compartment accessible through a loose panel. Discovering the locket there connects the past disappearance with the present murder, revealing motives and secrets tied to the reunion's tension."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "veronica_ronnie_chase_the_ambitious_valedictorian",
+        "name": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+        "title": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+        "card_id": "937cd19e-ab09-4f89-af4a-b688280b40e7",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "derek_mallory_the_reformed_troublemaker",
+        "name": "Derek Mallory - The Reformed Troublemaker",
+        "title": "Derek Mallory - The Reformed Troublemaker",
+        "card_id": "8e1dbe32-cf34-424b-8d4b-d446f38ce7d2",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "lena_morales_the_enigmatic_artist",
+        "name": "Lena Morales - The Enigmatic Artist",
+        "title": "Lena Morales - The Enigmatic Artist",
+        "card_id": "b90a9eef-e545-48e1-9884-9733138cbebf",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "ethan_caldwell_the_charming_class_president",
+        "name": "Ethan Caldwell - The Charming Class President",
+        "title": "Ethan Caldwell - The Charming Class President",
+        "card_id": "b0cf99d9-5b72-4ff6-89e7-0ba992696bca",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "veronica_ronnie_chase_the_ambitious_valedictorian",
+    "killer_name": "Veronica 'Ronnie' Chase - The Ambitious Valedictorian",
+    "victim_name": "Ethan Caldwell",
+    "murder": {
+      "location": "Crescent High Gymnasium dance floor",
+      "method": "",
+      "motive": "",
+      "summary": "Veronica Chase killed Ethan Caldwell on the neon-lit dance floor during the prom reunion. Ethan had discovered Ronnie's secret about the locket's curse and threatened to expose her, which would ruin her carefully maintained public image. When the lights flickered at midnight, Ronnie seized the moment to confront Ethan, leading to a fatal struggle where she strangled him, leaving the locket clutched in his hand to misdirect suspicion. Her ambition and fear of scandal gave her the motive and opportunity to commit the murder amidst the chaos of the reunion.",
+      "opportunity": "",
+      "window_start": null,
+      "window_end": null
+    },
+    "treasure": {
+      "object": "Sapphire-encrusted locket",
+      "hiding_place": "Secret compartment inside the old gymnasium's trophy case",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "veronica_ronnie_chase_the_ambitious_valedictorian",
+        "derek_mallory_the_reformed_troublemaker",
+        "lena_morales_the_enigmatic_artist",
+        "ethan_caldwell_the_charming_class_president"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "clue_targets": [
+    {
+      "target_id": "9e87d2a9-f81c-4b93-bab3-13ff63360287",
+      "fact": "The physical pattern described under \"Sapphire-Encrusted Locket in Victim's Hand\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+      "category": "object",
+      "act": 1,
+      "puzzle_type_hint": "item_combination",
+      "suspect_name": "Ethan Caldwell",
+      "fact_binding": "killer"
+    },
+    {
+      "target_id": "e12a7fa1-d778-4dab-a62c-b18f0eebdedf",
+      "fact": "Cross-referencing \"Veronica's Nervous Glance\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+      "category": "location",
+      "act": 2,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Veronica 'Ronnie' Chase",
+      "fact_binding": "location"
+    },
+    {
+      "target_id": "a38e8f0c-04c9-43f8-a81a-151b50dee9bf",
+      "fact": "Cross-referencing \"Scuff Marks on the Dance Floor\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+      "category": "location",
+      "act": 3,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Derek Mallory",
+      "fact_binding": "treasure_object"
+    },
+    {
+      "target_id": "34eb07c7-ee11-4437-935b-793bb598480c",
+      "fact": "The physical pattern described under \"Torn Edge of a Formal Glove\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+      "category": "object",
+      "act": 3,
+      "puzzle_type_hint": "item_combination",
+      "suspect_name": "Veronica 'Ronnie' Chase",
+      "fact_binding": "treasure_location"
+    }
+  ],
+  "puzzle_bundle_drafts": [
+    {
+      "clue_target": {
+        "target_id": "9e87d2a9-f81c-4b93-bab3-13ff63360287",
+        "fact": "The physical pattern described under \"Sapphire-Encrusted Locket in Victim's Hand\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+        "category": "object",
+        "act": 1,
+        "puzzle_type_hint": "item_combination",
+        "suspect_name": "Ethan Caldwell",
+        "fact_binding": "killer"
+      },
+      "puzzle_type": "item_combination",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Photograph: Victim at Crescent High Gymnasium Dance Floor",
+          "card_contents": "Image shows Ethan Caldwell lying on the neon-lit dance floor, clutching a sapphire-encrusted locket. Nearby, scattered confetti and a broken glass suggest a sudden struggle. The locket's intricate pattern is partially visible in his hand.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Ledger: Prom Night Jewelry Inventory",
+          "card_contents": "Entries list several items brought by classmates, including a sapphire-encrusted locket last logged as missing during the 1989 prom. Description notes a unique swirling pattern on the locket's front.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Transcript: Witness Statements from Reunion Night",
+          "card_contents": "Statements mention the sudden flickering of lights at midnight, a scream, and the discovery of Ethan clutching the locket. One witness recalls the locket's pattern resembling a twisting vine.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Puzzle: What does the pattern on the sapphire-encrusted locket reveal about Ethan Caldwell's death?",
+          "card_contents": "Examine the evidence to determine how the physical pattern on the locket connects to the circumstances of Ethan Caldwell's death on the Crescent High Gymnasium dance floor.",
+          "unlocked_item": "Unlock the secret significance of the locket's pattern and its link to the final moments of the victim.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: The Locket's Pattern Reveals the Death Circumstances",
+          "card_contents": "The physical pattern described under \"Sapphire-Encrusted Locket in Victim's Hand\" ties to the circumstances of the death at Crescent High Gymnasium dance floor."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "e12a7fa1-d778-4dab-a62c-b18f0eebdedf",
+        "fact": "Cross-referencing \"Veronica's Nervous Glance\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+        "category": "location",
+        "act": 2,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Veronica 'Ronnie' Chase",
+        "fact_binding": "location"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Veronica's Nervous Glance - Witness Observations",
+          "card_contents": "Time: 11:45 PM; Location: Crescent High Gymnasium dance floor; Detail: Veronica was seen repeatedly glancing nervously toward a specific corner near the neon-lit stage, clutching the sapphire-encrusted locket tightly in her hand.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Dance Floor Layout Map",
+          "card_contents": "Key areas: Neon-lit stage, Refreshment table, South corner alcove, Main entrance; Note: The neon-lit stage is adjacent to a small alcove often used for quiet conversations during the prom reunion.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Victim's Final Position Report",
+          "card_contents": "Ethan Caldwell was found at midnight on the Crescent High Gymnasium dance floor, clutching the sapphire-encrusted locket near the south corner alcove, under the flickering chandelier.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Where on the Dance Floor Does Veronica's Nervous Glance Point?",
+          "card_contents": "Cross-reference the witness observations of Veronica's nervous glances with the dance floor layout and the victim's final position to determine which part of the Crescent High Gymnasium dance floor the physical detail implicates. Who or what does this detail reveal about the location of the murder?",
+          "unlocked_item": "Unlock a detailed sketch of the neon-lit stage and its adjacent alcove, revealing hidden clues.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Answer to Veronica's Nervous Glance Location Puzzle",
+          "card_contents": "Cross-referencing \"Veronica's Nervous Glance\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "a38e8f0c-04c9-43f8-a81a-151b50dee9bf",
+        "fact": "Cross-referencing \"Scuff Marks on the Dance Floor\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+        "category": "location",
+        "act": 3,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Derek Mallory",
+        "fact_binding": "treasure_object"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Scuff Marks Report",
+          "card_contents": "Entry 1: Near the west side bleachers, multiple scuff marks suggest a struggle. Entry 2: The center dance floor shows faint, circular scuffs consistent with spinning. Entry 3: The east side near the exit door has fewer marks, mostly linear scratches.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Dance Floor Layout Map",
+          "card_contents": "Section A: West side bleachers. Section B: Center dance floor under chandelier. Section C: East side near exit door. Each section has distinct flooring materials and lighting.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Where do the scuff marks on the dance floor implicate?",
+          "card_contents": "Cross-reference the scuff marks report with the dance floor layout to pinpoint the exact location implicated by the physical evidence. Which part of the Crescent High Gymnasium dance floor do the scuff marks isolate?",
+          "unlocked_item": "You discover a worn shoe print that matches the victim's size near the scuff marks.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Location Implicated by Scuff Marks",
+          "card_contents": "Cross-referencing \"Scuff Marks on the Dance Floor\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "34eb07c7-ee11-4437-935b-793bb598480c",
+        "fact": "The physical pattern described under \"Torn Edge of a Formal Glove\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+        "category": "object",
+        "act": 3,
+        "puzzle_type_hint": "item_combination",
+        "suspect_name": "Veronica 'Ronnie' Chase",
+        "fact_binding": "treasure_location"
+      },
+      "puzzle_type": "item_combination",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Ledger: Formal Wear Rentals",
+          "card_contents": "Entry 1: Ronnie Chase rented a pair of white formal gloves, size small, at 6:15 PM. Entry 2: Ethan Caldwell returned a tuxedo but no gloves were returned with it. Entry 3: Gloves noted as 'slightly torn at the edge' in condition report.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Transcript: Security Camera Log",
+          "card_contents": "22:47 - Ethan and Ronnie seen dancing near the gymnasium's east exit. 23:01 - Ronnie adjusts her glove, revealing a small tear at the edge. 23:15 - Lights flicker; Ethan seen clutching his chest, falls to floor.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Photo: Dance Floor Scene",
+          "card_contents": "Photo shows Ethan Caldwell on the gym floor clutching his chest, the sapphire locket visible around his neck. Nearby, a white glove with a torn edge lies on the floor, illuminated by neon lights.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Puzzle: What Does the Torn Edge of a Formal Glove Reveal?",
+          "card_contents": "Examine the evidence from the formal wear ledger, security camera transcript, and the dance floor photo. What does the physical pattern described under 'Torn Edge of a Formal Glove' reveal about the circumstances of Ethan Caldwell's death at the Crescent High Gymnasium dance floor?",
+          "unlocked_item": "You unlock a detailed description of the glove's torn edge and its significance to the crime scene.",
+          "murder_canon": {
+            "victim": "Ethan Caldwell",
+            "location": "Crescent High Gymnasium dance floor"
+          }
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: The Torn Edge Clue",
+          "card_contents": "The physical pattern described under \"Torn Edge of a Formal Glove\" ties to the circumstances of the death at Crescent High Gymnasium dance floor."
+        }
+      ]
+    }
+  ],
+  "puzzle_bundles": [
+    {
+      "bundle_id": "puzzle_bundle_001",
+      "act": 1,
+      "puzzle_type": "item_combination",
+      "clue_target": "The physical pattern described under \"Sapphire-Encrusted Locket in Victim's Hand\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+      "card_ids": [
+        "45e43395-3330-4c6e-837a-14c31a686406",
+        "d70786d4-7420-4808-862e-1408bbe6df03",
+        "ea366921-6e05-49f7-83dd-a2a8bd13b2a2",
+        "d5d7c2ee-3ec1-4b58-bc09-89675676c1d6",
+        "45ad3ff0-4a23-4ec4-92e9-d6ab9410b24e"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_002",
+      "act": 2,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Veronica's Nervous Glance\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+      "card_ids": [
+        "b816ebad-a013-4af4-b7f2-a8a0a706569b",
+        "2a65a4ba-91ed-4000-935a-cfca6e7f36d6",
+        "8e2374ec-27be-41c4-83e9-c4b7c0a72f4c",
+        "46635808-d1e6-47c9-bebe-2bd19c997dec",
+        "2e99387c-df76-4c13-b6b6-1cb51a605514"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_003",
+      "act": 3,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Scuff Marks on the Dance Floor\" isolates which part of Crescent High Gymnasium dance floor the physical detail implicates.",
+      "card_ids": [
+        "a1f751ee-b758-4df0-aa7c-cfa447baa091",
+        "6a22538b-c142-41c3-b7a0-9e028ef77aa0",
+        "36e263c5-0fb6-4133-b2dc-b64b0740fe1e",
+        "2f9d3efe-55ee-4e14-8a10-0728c6d03e56"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_004",
+      "act": 3,
+      "puzzle_type": "item_combination",
+      "clue_target": "The physical pattern described under \"Torn Edge of a Formal Glove\" ties to the circumstances of the death at Crescent High Gymnasium dance floor.",
+      "card_ids": [
+        "2f0a51f7-6807-4299-ad0f-3ee85f088dbc",
+        "3cfe4be0-025c-41a2-8983-59a9382063d3",
+        "62af8718-2fbb-4399-8969-e237dd25fed2",
+        "b72b2902-1b34-4a81-8d47-2e44a9c017c4",
+        "64dce56e-9eae-4a8e-b5a7-d1ce63912207"
+      ]
+    }
+  ],
+  "truth_trail": {
+    "initial_reachable_count": 61,
+    "reachable_count": 65,
+    "fixpoint_iterations": 2,
+    "sequential_puzzle_steps": 4,
+    "fact_bindings_reachable": [
+      "killer",
+      "location",
+      "treasure_location",
+      "treasure_object"
+    ],
+    "binding_first_iteration": {
+      "killer": 1,
+      "location": 2,
+      "treasure_object": 3,
+      "treasure_location": 4
+    },
+    "missing_fact_bindings": []
+  },
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "card_surface": {
+    "counts_by_card_type": {
+      "story_meta": 4,
+      "person": 2,
+      "location": 3,
+      "item": 3,
+      "character": 4,
+      "clue": 27,
+      "secret": 8,
+      "treasure": 1,
+      "story_act": 3,
+      "host_speech": 3,
+      "solution": 4,
+      "puzzle": 4,
+      "game_card": 20
+    },
+    "treasure_clue_count": 4,
+    "treasure_reveal_card_count": 1
+  },
+  "host_ui_hints": {
+    "export_note": "No lobby or layout is defined in the builder JSON. The host app chooses which cards are lobby tiles, hand cards, or gated by act.",
+    "character_secrets": {
+      "count": 8,
+      "presentation_hint": "Usually not lobby collectibles — they are per-character private text. Hand out or reveal in-scene when a player earns it (not a shared lobby stack).",
+      "card_ids": [
+        "219bbad8-9d8f-4621-a62b-9a67f41ee801",
+        "c17353a5-2711-4334-8895-cbe2a31a9827",
+        "97b09887-e5ac-45c4-a7ed-3105866fee80",
+        "a1bb8dfc-4324-42d5-a806-5bbf81c3c384",
+        "39caa9e3-7290-4ad7-9921-999a46071bc2",
+        "c01fa919-3d0c-44a1-8fe0-2c1900cf0de8",
+        "bd6f710f-167a-4dac-b015-0397d090777e",
+        "aba03a21-4402-48e9-9b44-cfedee6c1477"
+      ]
+    },
+    "finale_treasure": {
+      "card_id": "d91afcf1-6338-49a8-9270-6ed078718a76",
+      "act": 3,
+      "hidden_until_solved": true,
+      "linked_item_id": "1bb4b5df-b055-416b-9440-796f4cf75e2e",
+      "presentation_hint": "Finale reveal: unlock after murder is resolved (or your act-3 rule). Not a lobby item — host reads aloud or reveals as the last beat."
+    },
+    "game_over": {
+      "suggested_host_sequence": [
+        "Act 3 story_act + host_speech (final call to accuse).",
+        "Players vote or accuse.",
+        "Reveal bundle solution cards (murder canon).",
+        "Unlock and present card_type \"treasure\" (macguffin resolution).",
+        "Declare the mystery closed; optional debrief."
+      ],
+      "structural_markers": {
+        "hidden_solution_card_ids": [
+          "d5d7c2ee-3ec1-4b58-bc09-89675676c1d6",
+          "46635808-d1e6-47c9-bebe-2bd19c997dec",
+          "36e263c5-0fb6-4133-b2dc-b64b0740fe1e",
+          "b72b2902-1b34-4a81-8d47-2e44a9c017c4"
+        ],
+        "treasure_reveal_card_id": "d91afcf1-6338-49a8-9270-6ed078718a76"
+      },
+      "ui_suggestion": "Show a dedicated “case closed” / session-complete screen (or modal) after the treasure card is shown, so players get a clear end state beyond running out of cards."
+    }
+  },
+  "costAccounting": {
+    "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+    "requestCount": 33,
+    "requests": [
+      {
+        "index": 4,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "characters_builder_agent",
+        "requestType": "json",
+        "schemaName": "characters_builder",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 593,
+        "completion_tokens": 418,
+        "total_tokens": 1011,
+        "created_at": "2026-04-03T17:53:44.825Z"
+      },
+      {
+        "index": 5,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "core_truth_agent",
+        "requestType": "json",
+        "schemaName": "core_truth",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1425,
+        "completion_tokens": 257,
+        "total_tokens": 1682,
+        "created_at": "2026-04-03T17:53:49.481Z"
+      },
+      {
+        "index": 6,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "treasure_hunt_agent",
+        "requestType": "json",
+        "schemaName": "treasure_hunt",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 543,
+        "completion_tokens": 195,
+        "total_tokens": 738,
+        "created_at": "2026-04-03T17:53:54.106Z"
+      },
+      {
+        "index": 7,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 580,
+        "completion_tokens": 107,
+        "total_tokens": 687,
+        "created_at": "2026-04-03T17:53:57.298Z"
+      },
+      {
+        "index": 8,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 577,
+        "completion_tokens": 100,
+        "total_tokens": 677,
+        "created_at": "2026-04-03T17:54:00.712Z"
+      },
+      {
+        "index": 9,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 598,
+        "completion_tokens": 160,
+        "total_tokens": 758,
+        "created_at": "2026-04-03T17:54:02.867Z"
+      },
+      {
+        "index": 10,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 575,
+        "completion_tokens": 111,
+        "total_tokens": 686,
+        "created_at": "2026-04-03T17:54:06.060Z"
+      },
+      {
+        "index": 11,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 574,
+        "completion_tokens": 102,
+        "total_tokens": 676,
+        "created_at": "2026-04-03T17:54:09.211Z"
+      },
+      {
+        "index": 12,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 593,
+        "completion_tokens": 105,
+        "total_tokens": 698,
+        "created_at": "2026-04-03T17:54:11.023Z"
+      },
+      {
+        "index": 13,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 592,
+        "completion_tokens": 99,
+        "total_tokens": 691,
+        "created_at": "2026-04-03T17:54:12.620Z"
+      },
+      {
+        "index": 14,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "story_acts_agent",
+        "requestType": "json",
+        "schemaName": "story_acts",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1580,
+        "completion_tokens": 465,
+        "total_tokens": 2045,
+        "created_at": "2026-04-03T17:54:22.974Z"
+      },
+      {
+        "index": 15,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "host_speech_agent",
+        "requestType": "json",
+        "schemaName": "host_speech",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 864,
+        "completion_tokens": 446,
+        "total_tokens": 1310,
+        "created_at": "2026-04-03T17:54:29.417Z"
+      },
+      {
+        "index": 16,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "clue_agent",
+        "requestType": "json",
+        "schemaName": "clue_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1401,
+        "completion_tokens": 911,
+        "total_tokens": 2312,
+        "created_at": "2026-04-03T17:54:40.332Z"
+      },
+      {
+        "index": 17,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 872,
+        "completion_tokens": 352,
+        "total_tokens": 1224,
+        "created_at": "2026-04-03T17:54:46.435Z"
+      },
+      {
+        "index": 18,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 866,
+        "completion_tokens": 356,
+        "total_tokens": 1222,
+        "created_at": "2026-04-03T17:54:50.364Z"
+      },
+      {
+        "index": 19,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 866,
+        "completion_tokens": 270,
+        "total_tokens": 1136,
+        "created_at": "2026-04-03T17:54:53.782Z"
+      },
+      {
+        "index": 20,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 868,
+        "completion_tokens": 376,
+        "total_tokens": 1244,
+        "created_at": "2026-04-03T17:54:58.349Z"
+      },
+      {
+        "index": 21,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1126,
+        "completion_tokens": 127,
+        "total_tokens": 1253,
+        "created_at": "2026-04-03T17:55:02.374Z"
+      },
+      {
+        "index": 22,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1126,
+        "completion_tokens": 115,
+        "total_tokens": 1241,
+        "created_at": "2026-04-03T17:55:04.289Z"
+      },
+      {
+        "index": 23,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1126,
+        "completion_tokens": 139,
+        "total_tokens": 1265,
+        "created_at": "2026-04-03T17:55:06.481Z"
+      },
+      {
+        "index": 24,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1138,
+        "completion_tokens": 121,
+        "total_tokens": 1259,
+        "created_at": "2026-04-03T17:55:08.437Z"
+      },
+      {
+        "index": 25,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1138,
+        "completion_tokens": 135,
+        "total_tokens": 1273,
+        "created_at": "2026-04-03T17:55:10.277Z"
+      },
+      {
+        "index": 26,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1138,
+        "completion_tokens": 128,
+        "total_tokens": 1266,
+        "created_at": "2026-04-03T17:55:12.308Z"
+      },
+      {
+        "index": 27,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1011,
+        "completion_tokens": 102,
+        "total_tokens": 1113,
+        "created_at": "2026-04-03T17:55:13.991Z"
+      },
+      {
+        "index": 28,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1011,
+        "completion_tokens": 135,
+        "total_tokens": 1146,
+        "created_at": "2026-04-03T17:55:16.130Z"
+      },
+      {
+        "index": 29,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1151,
+        "completion_tokens": 119,
+        "total_tokens": 1270,
+        "created_at": "2026-04-03T17:55:19.763Z"
+      },
+      {
+        "index": 30,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1151,
+        "completion_tokens": 110,
+        "total_tokens": 1261,
+        "created_at": "2026-04-03T17:55:21.498Z"
+      },
+      {
+        "index": 31,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1151,
+        "completion_tokens": 114,
+        "total_tokens": 1265,
+        "created_at": "2026-04-03T17:55:23.108Z"
+      },
+      {
+        "index": 32,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "solvability_validator_agent",
+        "requestType": "json",
+        "schemaName": "solvability_validation",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 11959,
+        "completion_tokens": 9,
+        "total_tokens": 11968,
+        "created_at": "2026-04-03T17:55:25.323Z"
+      },
+      {
+        "index": 33,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 587,
+        "completion_tokens": 223,
+        "total_tokens": 810,
+        "created_at": "2026-04-03T17:55:28.947Z"
+      },
+      {
+        "index": 34,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 577,
+        "completion_tokens": 216,
+        "total_tokens": 793,
+        "created_at": "2026-04-03T17:55:33.660Z"
+      },
+      {
+        "index": 35,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 577,
+        "completion_tokens": 220,
+        "total_tokens": 797,
+        "created_at": "2026-04-03T17:55:38.998Z"
+      },
+      {
+        "index": 36,
+        "runId": "Midnight Masquerade- The Prom Reunion-1775238805309-tpv67s",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 568,
+        "completion_tokens": 236,
+        "total_tokens": 804,
+        "created_at": "2026-04-03T17:55:44.044Z"
+      }
+    ],
+    "totals": {
+      "prompt_tokens": 40502,
+      "completion_tokens": 7079,
+      "total_tokens": 47581
+    }
+  }
+}

@@ -512,6 +512,24 @@ button { cursor: pointer; }
   text-transform: uppercase;
   letter-spacing: .06em;
 }
+.feed-item--final-verdict {
+  border-color: rgba(255, 191, 94, .65);
+  background:
+    linear-gradient(145deg, rgba(255, 191, 94, .18), rgba(255, 91, 120, .15));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 191, 94, .22),
+    0 8px 20px rgba(0, 0, 0, .22);
+}
+.feed-item--final-verdict .feed-item__title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.feed-item--final-verdict .feed-item__body {
+  font-size: .98rem;
+  line-height: 1.6;
+}
 
 /* ── Rich chat chips ───────────────────────────────────────────────────────── */
 .chip-row {
@@ -722,12 +740,6 @@ button { cursor: pointer; }
   display: block;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-}
-.list-row__text:not(.list-row__text--expanded) .list-row__text-inner {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .list-row__more {
   margin-top: 10px;
@@ -1000,6 +1012,12 @@ button { cursor: pointer; }
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+.story-option__content span {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .story-option span { color: var(--muted); line-height: 1.35; }
 .story-option--active { outline: 1px solid rgba(94,194,255,.55); }

@@ -15,6 +15,7 @@ export function FeedItemRow({ item, stage, onClick }: Props) {
     'feed-item',
     `feed-item--${item.type}`,
     `feed-item--variant-${variant}`,
+    item.id === 'final-verdict' ? 'feed-item--final-verdict' : '',
     item.layout === 'cinematic' ? 'feed-item--cinematic' : '',
     item.stacking ? `feed-item--stack-${item.stacking}` : '',
   ].join(' ')

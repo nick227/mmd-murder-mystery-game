@@ -17,10 +17,10 @@ import type {
 import { upsertCreatedGame, upsertGameStory, upsertHostLink, upsertPlayerLink } from '../data/runningGamesRegistry'
 import { IN_APP_NAVIGATE_EVENT, navigateInApp } from '../app/inAppNavigation'
 
-/** Must match mmd-api `HOST_RUNTIME_MAX_ACT` — last act before host must call end-night. */
-const HOST_RUNTIME_MAX_ACT = 5
+const INITIAL_LOAD_LIMIT = 20
 
 // Phase 1: localStorage state is no longer used by the frontend.
+const FINAL_ACT = 5
 
 function readQuery(name: string) {
   return new URLSearchParams(window.location.search).get(name)
@@ -175,8 +175,10 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
         ? 'Lobby is open. The host can start early at any time.'
         : game.state === 'REVEAL'
         ? 'Reveal is in progress.'
-        : game.state === 'PLAYING' && game.currentAct >= HOST_RUNTIME_MAX_ACT
-        ? `Final act (${game.currentAct}). Use "End night & reveal truth" to conclude — do not advance further.`
+        : game.state === 'DONE'
+        ? 'Game over. Thanks for hosting.'
+        : game.state === 'PLAYING' && game.currentAct >= FINAL_ACT
+        ? `Final act (${game.currentAct}). Use Reveal Secrets to conclude.`
         : `Act ${game.currentAct} is active.`,
     },
   ]
@@ -190,7 +192,14 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
     game: {
       state: game.state,
       act: game.currentAct,
-      title: game.state === 'SCHEDULED' ? 'Host lobby' : game.state === 'REVEAL' ? 'Reveal in progress' : `Act ${game.currentAct}`,
+      title:
+        game.state === 'SCHEDULED'
+          ? 'Host lobby'
+          : game.state === 'REVEAL'
+          ? 'Reveal in progress'
+          : game.state === 'DONE'
+          ? 'Game over'
+          : `Act ${game.currentAct}`,
       subtitle: `${game.storyTitle ?? game.name} · Host control room`,
       description: game.stageText
         ? String(game.stageText)
@@ -198,14 +207,18 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
         ? 'Share character links, watch who joins, and start whenever the room is ready.'
         : game.state === 'REVEAL'
         ? 'Answers are live. Finish the game when you are ready.'
-        : game.state === 'PLAYING' && game.currentAct >= HOST_RUNTIME_MAX_ACT
-        ? 'You are on the final act. When discussion is finished, use End night to move to the reveal phase.'
+        : game.state === 'DONE'
+        ? 'The game has ended. No further host actions are available.'
+        : game.state === 'PLAYING' && game.currentAct >= FINAL_ACT
+        ? 'Final act reached. Use Reveal Secrets when discussion is finished.'
         : 'Everyone is in the game. Advance acts only when the room is ready.',
       image: storyHeroImage(game.stageImage),
       countdownLabel: game.state === 'SCHEDULED' ? countdown.label : undefined,
       countdownPercent: game.state === 'SCHEDULED' ? countdown.percent : undefined,
       banner: game.state === 'SCHEDULED'
         ? 'You are in the host control room.'
+        : game.state === 'DONE'
+        ? 'Game over.'
         : 'Host controls are live.',
     },
     players: game.players.map(player => ({
@@ -251,14 +264,8 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
         : game.state === 'PLAYING'
         ? [
             { id: 'player-links', label: 'Player Links', kind: 'secondary' },
-            ...(game.currentAct < HOST_RUNTIME_MAX_ACT
-              ? [{ id: 'next' as const, label: `Next Act (${game.currentAct + 1})`, kind: 'primary' as const }]
-              : []),
-            {
-              id: 'reveal',
-              label: game.currentAct >= HOST_RUNTIME_MAX_ACT ? 'End night & reveal truth' : 'Reveal Truth',
-              kind: game.currentAct >= HOST_RUNTIME_MAX_ACT ? 'primary' : 'secondary',
-            },
+            { id: 'next', label: `Next Act (${game.currentAct + 1})`, kind: 'primary', disabled: game.currentAct >= FINAL_ACT },
+            { id: 'reveal', label: 'Reveal Secrets', kind: 'secondary', disabled: game.currentAct < FINAL_ACT },
           ]
         : game.state === 'REVEAL'
         ? [
@@ -340,6 +347,9 @@ export function useLauncherState() {
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [loadingMore, setLoadingMore] = useState(false)
+  const [hasMoreGames, setHasMoreGames] = useState(true)
+  const [currentGamesCount, setCurrentGamesCount] = useState(0)
 
   useEffect(() => {
     const apiBase = screenData.launcher?.apiBase ?? ''
@@ -351,9 +361,16 @@ export function useLauncherState() {
       if (attempt === 0) setError('')
 
       try {
-        const [stories, games] = await Promise.all([gameSource.fetchStories(apiBase), gameSource.fetchGames(apiBase)])
+        const [stories, games] = await Promise.all([
+          gameSource.fetchStories(apiBase), 
+          gameSource.fetchGames(apiBase, { limit: INITIAL_LOAD_LIMIT, offset: 0 })
+        ])
         if (cancelled) return
         const savedGames = readStoredGames()
+        
+        // Update pagination state
+        setCurrentGamesCount(games.length)
+        setHasMoreGames(games.length === INITIAL_LOAD_LIMIT)
 
         // Enrich saved history rows with story metadata when possible (same API base only).
         // This ensures history sheets can always render the full story card even when
@@ -382,6 +399,8 @@ export function useLauncherState() {
                 stories,
                 allGames: games,
                 savedGames: readStoredGames(),
+                loadingMore,
+                hasMoreGames,
                 form: {
                   ...current.launcher.form,
                   storyId: current.launcher.form.storyId || stories[0]?.id || '',
@@ -414,6 +433,43 @@ export function useLauncherState() {
   }, [screenData.launcher?.apiBase, source])
 
   const handlers: RendererHandlers = useMemo(() => ({
+    onLoadMoreGames: async () => {
+      if (loadingMore || !hasMoreGames) return
+      const apiBase = screenData.launcher?.apiBase ?? ''
+      
+      setLoadingMore(true)
+      try {
+        const moreGames = await gameSource.fetchGames(apiBase, { 
+          limit: INITIAL_LOAD_LIMIT, 
+          offset: currentGamesCount 
+        })
+        
+        setScreenData(current => ({
+          ...current,
+          launcher: current.launcher
+            ? { 
+                ...current.launcher, 
+                allGames: [...current.launcher.allGames, ...moreGames],
+                loadingMore: false,
+                hasMoreGames: moreGames.length === INITIAL_LOAD_LIMIT
+              }
+            : current.launcher,
+        }))
+        
+        setCurrentGamesCount(prev => prev + moreGames.length)
+        setHasMoreGames(moreGames.length === INITIAL_LOAD_LIMIT)
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load more games')
+        setScreenData(current => ({
+          ...current,
+          launcher: current.launcher
+            ? { ...current.launcher, loadingMore: false }
+            : current.launcher,
+        }))
+      } finally {
+        setLoadingMore(false)
+      }
+    },
     onLauncherOpenGameDetails: (gameIdToOpen, apiBaseToOpen) => {
       const key = `${apiBaseToOpen}:${gameIdToOpen}`
       setScreenData(current => ({
@@ -586,7 +642,7 @@ export function useLauncherState() {
     },
   }), [screenData.launcher])
 
-  return { screenData, handlers, loading, error }
+  return { screenData, handlers, loading, error, loadingMore, hasMoreGames }
 }
 
 export function usePlayerScreenData(
@@ -964,16 +1020,21 @@ export function useHostScreenData(
         } else if (actionId === 'start') {
           await gameSource.postHostAction(apiBase, gameId, hostKey, 'start')
         } else if (actionId === 'next') {
-          await gameSource.postHostAction(apiBase, gameId, hostKey, 'next-act')
-        } else if (actionId === 'reveal' || actionId === 'end') {
-          const who = window.prompt('Reveal Truth - Who did it?')?.trim()
-          const how = window.prompt('Reveal Truth - How was it done?')?.trim()
-          const why = window.prompt('Reveal Truth - Why did it happen?')?.trim()
-          if (!who || !how || !why) {
-            setLoading(false)
-            return
+          if (screenData.game.act >= FINAL_ACT) {
+            await gameSource.postEndNight(apiBase, gameId, hostKey, {
+              who: 'Revealed by host',
+              how: 'Revealed by host',
+              why: 'Revealed by host',
+            })
+          } else {
+            await gameSource.postHostAction(apiBase, gameId, hostKey, 'next-act')
           }
-          await gameSource.postEndNight(apiBase, gameId, hostKey, { who, how, why })
+        } else if (actionId === 'reveal' || actionId === 'end') {
+          await gameSource.postEndNight(apiBase, gameId, hostKey, {
+            who: 'Revealed by host',
+            how: 'Revealed by host',
+            why: 'Revealed by host',
+          })
         } else if (actionId === 'finish') {
           await gameSource.postHostAction(apiBase, gameId, hostKey, 'done')
         }
@@ -991,9 +1052,10 @@ export function useHostScreenData(
         window.prompt('Copy this value:', value)
       }
     },
-  }), [apiBase, gameId, hostKey])
+  }), [apiBase, gameId, hostKey, screenData.game.act])
 
   const reload = async () => reloadInternal()
 
   return { screenData, handlers, loading, error, reload }
 }
+

@@ -1,0 +1,1215 @@
+{
+  "runId": "1960s LSD Party-1775220866164-u7it5f",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\1960s LSD Party-1775220866164-u7it5f",
+  "playerCount": 2,
+  "userPrompt": "1960s LSD Party",
+  "storyStyle": "far-out, trippy, psychedelic, weird",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/dezgo_487be3d92ce9ac2a.jpg",
+  "cards": [
+    {
+      "card_id": "710bb5d7-b8b2-4cb3-a0e1-bdd6b93752c1",
+      "card_type": "person",
+      "card_title": "Dr. Elias Hawthorne",
+      "card_contents": "A charismatic ethnomusicologist and the enigmatic host of the gathering, Dr. Hawthorne is obsessed with unlocking the mind’s secret frequencies through sound. His sudden death sends shockwaves through the retreat, as his true intentions and hidden past begin to unravel.",
+      "act": 1
+    },
+    {
+      "card_id": "6c5a6e19-0394-40f8-aed4-5533a51e56bc",
+      "card_type": "person",
+      "card_title": "Mira Solis",
+      "card_contents": "A fiery poet and underground activist whose verses echo the era’s yearning for freedom. Mira’s sharp intuition and tangled relationships with other guests make her both a key witness and a suspect.",
+      "act": 1
+    },
+    {
+      "card_id": "3b51a01e-0b75-4e62-80c9-bce556c91da4",
+      "card_type": "person",
+      "card_title": "Jasper Quinn",
+      "card_contents": "A reclusive psychedelic artist known for his swirling, hypnotic paintings that seem to shift when not looked at directly. Jasper’s art decorates the mansion’s walls and may hold cryptic clues to the mystery.",
+      "act": 1
+    },
+    {
+      "card_id": "9ec59524-9054-4437-8a55-d7aebe0c76ee",
+      "card_type": "location",
+      "card_title": "The Sunroom",
+      "card_contents": "A glass-walled sanctuary flooded with golden light, filled with exotic plants and hanging crystals. The sunroom is where guests often retreat to meditate or share whispered secrets, its reflective surfaces distorting perception and memory.",
+      "act": 1
+    },
+    {
+      "card_id": "3a7e85b9-0e33-47e9-87f0-6d084e352583",
+      "card_type": "location",
+      "card_title": "The Vinyl Vault",
+      "card_contents": "A hidden room behind a sliding bookshelf, lined with rare records and sound equipment. This secret chamber houses the coveted hand-painted vinyl record and is central to the mystery’s unfolding.",
+      "act": 1
+    },
+    {
+      "card_id": "8ca603da-d3c7-4e1a-8b1e-0bfcce387405",
+      "card_type": "location",
+      "card_title": "The Garden Labyrinth",
+      "card_contents": "A maze of overgrown hedges and fragrant blooms that surrounds the mansion. The labyrinth is a place of solitude and confusion, where footsteps echo and shadows play tricks on the mind.",
+      "act": 1
+    },
+    {
+      "card_id": "0449ff35-7805-40e5-bcf8-1466d292a780",
+      "card_type": "item",
+      "card_title": "The Hand-Painted Vinyl Record",
+      "card_contents": "An enigmatic vinyl adorned with swirling, psychedelic artwork. Rumored to emit a secret frequency capable of unlocking altered states of consciousness, its disappearance sparks the retreat’s descent into chaos.",
+      "act": 1
+    },
+    {
+      "card_id": "c4063baf-cc78-4c13-b570-d87a7eaadcca",
+      "card_type": "item",
+      "card_title": "The Kaleidoscope Lens",
+      "card_contents": "A handheld optical device that refracts light into shifting patterns, symbolizing the fractured perspectives of the guests. It serves as both a tool for insight and a metaphor for the elusive nature of truth in the story.",
+      "act": 1
+    },
+    {
+      "card_id": "43e3ff02-8aef-4f4a-b8c0-409220762bee",
+      "card_type": "item",
+      "card_title": "The Incense Burner",
+      "card_contents": "An ornate brass burner that fills the mansion with thick clouds of fragrant smoke, enhancing the psychedelic atmosphere and sometimes obscuring more than just the air—concealing secrets and altering perceptions alike.",
+      "act": 1
+    },
+    {
+      "card_id": "473e1e81-a5d5-4706-9e06-3a5344cd0b4f",
+      "card_type": "character",
+      "card_title": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+      "card_contents": "A charismatic and enigmatic figure, Jazz is a pioneering experimental musician whose obsession with the mysterious vinyl record borders on fanaticism. Known for his wild improvisations on the sitar and his habit of disappearing into trancelike states, Jazz believes the record holds the key to unlocking new planes of consciousness. His intense desire to harness the record's power for artistic transcendence has made him both revered and resented among the retreat's guests. Beneath his free-spirited exterior lies a calculating mind, and some whisper that Jazz might have been willing to go to any lengths to possess the record—including silencing those who stood in his way.",
+      "act": 1
+    },
+    {
+      "card_id": "7b81b57d-8d1c-480a-998f-5a1655d33177",
+      "card_type": "character",
+      "card_title": "Evelyn 'Evie' Hart - The Disillusioned Poetess",
+      "card_contents": "Once a hopeful voice of the counterculture movement, Evie has grown increasingly cynical about the utopian promises of the Summer of Love. A sharp-tongued poet with a penchant for cryptic symbolism, she arrived at the mansion seeking inspiration but left with a growing sense of paranoia and betrayal. Evie's volatile relationship with the host was marked by secret arguments and veiled threats, fueled by her belief that the gathering had become a dangerous cult of ego and control. Her deep knowledge of the mansion's hidden corners and her habit of slipping away to write in solitude make her a mysterious presence—one who may know more about the disappearance of the record and the host's death than she admits.",
+      "act": 2
+    },
+    {
+      "card_id": "7a4f91e0-f944-4ba2-b61b-e9f7829ff757",
+      "card_type": "clue",
+      "card_title": "Evie's Whispered Verses",
+      "card_contents": "Within the labyrinth of words, Evie's poems hold the key. Seek lines that dance with hidden meanings, where knowledge sleeps beneath the ink. The path to the treasure is woven in stanzas that hint at secrets kept high and beyond reach.",
+      "act": 1,
+      "linked_character": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "07938d95-42ba-4169-a8e6-03ced2d8252a",
+      "card_type": "clue",
+      "card_title": "The Library's Silent Sentinel",
+      "card_contents": "Amid shelves that cradle whispers of the past, find the tome that breathes with the Host's own spirit. Not all books hold mere pages; some guard mysteries hollowed within. Look upward, where light seldom lingers, and the unusual awaits discovery.",
+      "act": 2,
+      "linked_character": "Evelyn 'Evie' Hart - The Disillusioned Poetess",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "e19254a1-9cf5-4d02-8a17-6444f7eaf72c",
+      "card_type": "clue",
+      "card_title": "Broken Glass Ashtray with Smudged Fingerprints",
+      "card_contents": "A heavy glass ashtray lies shattered near the entrance to the sunroom filled with lava lamps and incense. Smudged fingerprints partially cover its surface, suggesting it was recently handled in haste.",
+      "clue_type": "artifact",
+      "suspect_name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "dce269cc-f73d-4d2c-95e1-beaa43dd4f00",
+      "card_type": "clue",
+      "card_title": "Eyewitness Account of Jazz’s Sudden Disappearance",
+      "card_contents": "Several guests recall Jasper 'Jazz' Monroe vanishing into the sunroom during the psychedelic light show, moments before the Host was found dead. His absence was unexplained and coincided with a spike in tension.",
+      "clue_type": "fact",
+      "suspect_name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "5d3133ae-4256-45fd-8708-b1e6b18a1299",
+      "card_type": "clue",
+      "card_title": "The Host’s Warning to Keep the Record Hidden",
+      "card_contents": "A whispered conversation overheard by Evelyn 'Evie' Hart reveals the Host’s intention to prevent the mysterious vinyl record from falling into the wrong hands due to its dangerous power.",
+      "clue_type": "fact",
+      "suspect_name": "Evelyn 'Evie' Hart - The Disillusioned Poetess",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "fc458e65-8a0d-4bc3-88e3-53ebd995697d",
+      "card_type": "clue",
+      "card_title": "Incense and Lava Lamp Residue in the Sunroom",
+      "card_contents": "The sunroom is thick with lingering incense smoke and the warm glow of lava lamps, creating an atmosphere that distorts senses and could mask sounds or movements during the time of the murder.",
+      "clue_type": "derived",
+      "suspect_name": "The Host",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "ca564338-ba1c-4045-b9b2-b15cb76cc085",
+      "card_type": "clue",
+      "card_title": "Evelyn’s Poem Hinting at Hidden Secrets",
+      "card_contents": "A recently written poem by Evelyn 'Evie' Hart contains cryptic lines about betrayal and shadows lurking behind the psychedelic haze, suggesting she sensed underlying tensions at the gathering.",
+      "clue_type": "artifact",
+      "suspect_name": "Evelyn 'Evie' Hart - The Disillusioned Poetess",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "e56e48aa-579a-4752-8308-7bd81fc2dbf8",
+      "card_type": "clue",
+      "card_title": "Disturbed Arrangement of Crystals in the Sunroom",
+      "card_contents": "The normally symmetrical hanging crystals in the sunroom are found slightly askew, as if disturbed during a struggle or hurried movement near the time of the Host’s death.",
+      "clue_type": "derived",
+      "suspect_name": "The Host",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "693d1d4c-e7b0-4f8c-9624-46812b09aeab",
+      "card_type": "clue",
+      "card_title": "Broken Glass Ashtray with Smudged Fingerprints",
+      "card_contents": "Victim: The Host\nLocation Found: the sunroom filled with lava lamps and incense\nDetailed Description:\nThe glass ashtray near The Host's body is shattered into approximately two dozen pieces, arranged in a striking radial pattern that fans outward from a central point of impact. The shards vary in size, with the largest fragments closest to the center and progressively smaller shards radiating outward, forming an almost perfect circle around the impact site. This pattern suggests a sudden, forceful blow directed at the ashtray itself.\n\nSmudged fingerprints are visible on multiple glass fragments, particularly on those closest to the center of the radial pattern. These prints are partially obscured by a fine layer of dried incense ash, which has settled unevenly across the shards, concentrating more heavily along the edges. The fingerprints display partial whorl and loop patterns, indicating at least one individual gripping or striking the ashtray in a hurried or panicked manner.\n\nAdditional Observations:\n- The radial spread of the glass suggests the ashtray was struck from above or slightly off-center, causing shards to scatter outward evenly in all directions.\n- The presence of smudged prints on multiple shards implies the ashtray was handled or grabbed after it shattered, possibly during a struggle.\n- The dried incense ash overlaying the prints indicates a lapse of time between the ashtray breaking and the scene being disturbed, but not enough time for the ash to fully cover the fingerprints.\n- No blood is visible on the glass shards themselves, though a faint metallic scent was noted nearby, suggesting the victim was injured in close proximity.\n\nInterpretation:\nThe pattern of broken glass and fingerprint evidence supports the theory of a sudden altercation near the sunroom’s low table. The ashtray likely became a focal point of the struggle, either as a defensive object or as a target of aggression. The radial dispersion of shards and the smudged prints imply that The Host or another party forcefully struck the ashtray, resulting in its shattering and contributing to the chaotic scene surrounding The Host's death.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "46ede5c6-2707-4201-9da8-9d8deb15cfa2",
+      "card_type": "clue",
+      "card_title": "Witness Interview Transcript: Late Evening in the Sunroom",
+      "card_contents": "Witness Interview Transcript: Late Evening in the Sunroom\n\nVictim: The Host\nLocation: The sunroom filled with lava lamps and incense\n\nDetailed Transcript:\n\nInterviewer: Can you describe what you saw near the ashtray just before the scream?\nWitness: Yes, I was sitting by the window, watching the lava lamps flicker. Suddenly, I noticed someone standing close to the low table where the ashtray was. Their hands were trembling visibly, and they seemed to be wiping something off the glass shards with their sleeve or fingers.\n\nInterviewer: Did you recognize the person or notice anything distinctive?\nWitness: It was hard to tell in the dim, colored light. But I swear, as the lava lamps cast their strange shadows, I caught a flash of bright colors reflecting off the broken glass—like the swirling patterns of a tie-dye shirt. It was fleeting but unmistakable.\n\nInterviewer: Was there any unusual smell or atmosphere?\nWitness: The usual patchouli mixed with incense was there, but beneath it, I caught a faint metallic scent—like blood. It was subtle but out of place in that peaceful haze.\n\nInterviewer: Did you see any interaction between the victim and others around that time?\nWitness: Not clearly. The whole room felt tense, though. The trembling hands near the ashtray suggested a struggle or panic just moments before the scream shattered the calm.\n\nThis transcript provides crucial context about the immediate moments around the broken ashtray, highlighting signs of distress, a possible struggle, and sensory details that hint at the violent nature of The Host's death in the sunroom filled with lava lamps and incense.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "transcripts"
+    },
+    {
+      "card_id": "c0c3ec02-810c-4c7f-85b3-ced1b1367e1c",
+      "card_type": "clue",
+      "card_title": "Photograph of the Crime Scene in the Sunroom",
+      "card_contents": "Victim: The Host\nLocation: Sunroom filled with lava lamps and incense\nCrime Scene Photograph Log:\n- The victim is positioned on the floor near a low wooden table, surrounded by scattered items including vinyl records, a small sitar, and several incense sticks still smoldering.\n- The broken glass ashtray is arranged in a near-perfect circular pattern around a central point on the floor, suggesting it shattered from a single impact.\n- Several glass shards show smudged fingerprints, particularly a large shard closest to the victim's outstretched right hand, indicating possible contact during a struggle.\n- The ashtray shards' radial pattern points outward from the center, with some shards overlapping small pools of spilled liquid, possibly a drink.\n- The soft glow of multiple lava lamps casts shifting colored lights across the scene, creating shadows that highlight the uneven distribution of incense ash around the ashtray fragments.\n- No other obvious signs of forced entry or disturbance in the immediate area, but faint footprints are visible near the doorway, partially obscured by a thin layer of incense ash.\n- The photograph captures the spatial relationship between the victim, the broken ashtray, and the surrounding psychedelic paraphernalia, emphasizing the chaotic yet deliberate arrangement of the shards.\nThis detailed photograph log provides crucial visual evidence of the struggle and the environment in which The Host met their demise.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_003",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "7cf1815c-7cc3-4cec-9590-b5133fd515a9",
+      "card_type": "solution",
+      "card_title": "Solution: The Significance of the Broken Ashtray Pattern",
+      "card_contents": "The physical pattern described under \"Broken Glass Ashtray with Smudged Fingerprints\" ties to the circumstances of the death at the sunroom filled with lava lamps and incense.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_unlock_001",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "fd96702a-d586-486e-9178-e68d281069fc",
+      "card_type": "puzzle",
+      "card_title": "What does the pattern of the broken ashtray reveal about the death of The Host?",
+      "card_contents": "Given the evidence found at the sunroom filled with lava lamps and incense, analyze the physical pattern described under \"Broken Glass Ashtray with Smudged Fingerprints\" and determine what it reveals about the circumstances of The Host's death.\n\nUnlocked Item: Players unlock a vivid description of the shattered ashtray's radial pattern and the smudged fingerprints that hint at a final struggle.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_1_evidence_001",
+        "bundle_1_evidence_002",
+        "bundle_1_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_001"
+      ],
+      "required_card_ids": [
+        "693d1d4c-e7b0-4f8c-9624-46812b09aeab",
+        "46ede5c6-2707-4201-9da8-9d8deb15cfa2",
+        "c0c3ec02-810c-4c7f-85b3-ced1b1367e1c"
+      ],
+      "unlock_card_ids": [
+        "7cf1815c-7cc3-4cec-9590-b5133fd515a9"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "08c7281e-1930-47f3-a657-66501a0d81a2",
+      "card_type": "clue",
+      "card_title": "Eyewitness Account of Jazz’s Sudden Disappearance",
+      "card_contents": "Canonical victim: The Host\nCanonical location: the sunroom filled with lava lamps and incense\n\nWitness: Marigold, the sitar player\nTime: Approximately 10:15 PM\n\nDetailed Observation: Jazz was last observed standing near the eastern corner of the sunroom, an area distinguished by a dense cluster of flickering lava lamps casting shifting shadows on the walls. Adjacent to Jazz was a large incense burner, its smoke swirling thickly and mingling with the warm glow of the lamps, creating a hazy, almost otherworldly atmosphere. Marigold noted that Jazz appeared distracted, glancing repeatedly toward a tapestry hanging on the eastern wall. Suddenly, Jazz stepped behind this tapestry and disappeared from sight. Moments later, an unusual humming sound—low and resonant—filled the room, causing several guests to pause and look toward the eastern corner. No one saw Jazz emerge from behind the tapestry after that point.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "8b9ffc81-498a-4df0-b954-33a8e287cbf6",
+      "card_type": "clue",
+      "card_title": "Inventory Log of the Sunroom Artifacts",
+      "card_contents": "Canonical victim: The Host\nCanonical location: the sunroom filled with lava lamps and incense\n\nInventory Log Entry - Sunroom Artifacts (dated July 15, 1967, 9:00 PM):\n- Hand-painted vinyl record: Placed carefully on a low wooden table at the center of the sunroom. No visible damage or markings.\n- Lava lamps: Arranged in clusters around the perimeter, with the densest grouping in the eastern corner.\n- Incense burners: Several active throughout the room, with the eastern corner burner emitting a noticeably thicker smoke.\n\nNotable Observations:\n- The eastern corner of the sunroom shows signs of recent disturbance: incense ashes are scattered beyond the usual containment, suggesting agitation or hurried movement.\n- A faint sticky residue was detected on the floor near this corner, inconsistent with the rest of the room's surfaces, possibly from spilled liquid or adhesive.\n- No other areas in the sunroom show similar signs of disruption or residue.\n\nThese details suggest that the eastern corner near the lava lamps and incense burner experienced unusual activity shortly before the record went missing.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "95c6b281-5b28-465b-a41e-da69c6ad2504",
+      "card_type": "solution",
+      "card_title": "Solution: Location Implicated by Cross-reference",
+      "card_contents": "Cross-referencing \"Eyewitness Account of Jazz’s Sudden Disappearance\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_unlock_002",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "942f6211-8215-4da3-8c7c-0ff39ebf15e0",
+      "card_type": "puzzle",
+      "card_title": "Locating the Clue in the Sunroom",
+      "card_contents": "Canonical victim: The Host\nCanonical location: the sunroom filled with lava lamps and incense\n\nQuestion: By cross-referencing the Eyewitness Account of Jazz’s Sudden Disappearance with the Inventory Log of the Sunroom Artifacts, which part of the sunroom filled with lava lamps and incense does the physical detail implicate?\n\nUnlocked_item: Players unlock a vivid description of the eastern corner's eerie ambiance, thick with swirling incense smoke and flickering lava lamps.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_001",
+        "bundle_2_evidence_001",
+        "bundle_2_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_002"
+      ],
+      "required_card_ids": [
+        "7cf1815c-7cc3-4cec-9590-b5133fd515a9",
+        "08c7281e-1930-47f3-a657-66501a0d81a2",
+        "8b9ffc81-498a-4df0-b954-33a8e287cbf6"
+      ],
+      "unlock_card_ids": [
+        "95c6b281-5b28-465b-a41e-da69c6ad2504"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "d8f84d50-db61-4feb-bad7-b0e42cea4f36",
+      "card_type": "clue",
+      "card_title": "The Host’s Warning to Keep the Record Hidden",
+      "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nEntries from the Host’s personal journal found in the sunroom:\n\n- Entry 1: \"Beware the record’s power; it must never see the light of day. Its frequencies can unravel the mind and alter reality itself.\"\n\n- Entry 2: \"Hidden where the colors dance and shadows play, the secret lies beneath the glow. The lava lamps are not just decoration—they are guardians of what must remain unseen.\"\n\n- Entry 3: \"Trust no one near the glowing orbs; they guard what must remain unseen. The record is concealed beneath the central cluster of lava lamps, where light and shadow merge in hypnotic patterns.\"\n\n- Entry 4: \"The incense smoke will mask the scent and veil the hiding place. Only those who understand the interplay of light, shadow, and scent will find the record.\"\n\nThese notes emphasize the importance of the lava lamps and the interplay of light and shadow in the sunroom, hinting that the record is hidden beneath the central lava lamp cluster where the colors and shadows converge.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "f843de47-75f0-4aa5-9b95-60b2779402a1",
+      "card_type": "clue",
+      "card_title": "Sunroom Layout Map with Key Features",
+      "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nMap Highlights and Details:\n- Area A: Cluster of seven lava lamps arranged in a circle around a low, round wooden table. The lamps emit a warm, pulsating glow that casts shifting shadows across the floor.\n- Area B: Incense burner placed on a small pedestal near a heavy velvet curtain that covers a large window. The incense smoke curls upward in thick tendrils, partially obscuring the corner.\n- Area C: A concealed compartment located beneath the central lava lamp cluster in Area A. The compartment is accessible by lifting a removable panel in the floorboard, cleverly disguised by the surrounding lamps and table.\n- Area D: Wall-mounted kaleidoscope mirrors arranged in a geometric pattern opposite the lava lamp cluster, reflecting and multiplying the swirling colors and light patterns throughout the room.\nAdditional Notes:\n- The floor beneath Area A is reinforced to support the weight of the hidden compartment.\n- The velvet curtain in Area B is heavy enough to block direct sunlight, creating a dim, ambient atmosphere.\n- The kaleidoscope mirrors in Area D create complex visual illusions that can distract or misdirect anyone searching the room.\n- The incense smoke in Area B tends to drift toward Area A, subtly masking any faint odors coming from the hidden compartment.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "maps"
+    },
+    {
+      "card_id": "7937d1d1-26e3-439c-a372-76d54f8a0606",
+      "card_type": "solution",
+      "card_title": "Answer: Location of the Hidden Record",
+      "card_contents": "Cross-referencing \"The Host’s Warning to Keep the Record Hidden\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_unlock_003",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "2b81b7a0-db6e-4d25-8152-038dea67528f",
+      "card_type": "puzzle",
+      "card_title": "Where in the Sunroom Was the Record Hidden?",
+      "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nBy cross-referencing 'The Host’s Warning to Keep the Record Hidden' with the sunroom layout, where exactly was the record concealed?\n\nUnlocked_item: Discover the secret hiding place that the Host trusted to keep the mysterious vinyl record safe.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_002",
+        "bundle_3_evidence_001",
+        "bundle_3_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_003"
+      ],
+      "required_card_ids": [
+        "95c6b281-5b28-465b-a41e-da69c6ad2504",
+        "d8f84d50-db61-4feb-bad7-b0e42cea4f36",
+        "f843de47-75f0-4aa5-9b95-60b2779402a1"
+      ],
+      "unlock_card_ids": [
+        "7937d1d1-26e3-439c-a372-76d54f8a0606"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "50cef3bc-97c9-4789-95e7-a679edbaff47",
+      "card_type": "clue",
+      "card_title": "Guest Entry Log: The Sunroom Gathering",
+      "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nGuest Entry Log Details:\n- Jasper Monroe arrived promptly at 3:00 PM and used a silver keycard to access the sunroom. His presence was noted near the blue lava lamp emitting a steady wax flow.\n- Lila Hart entered at 3:15 PM wearing a guest wristband, which she showed to the sunroom attendant before entering. She lingered close to the red lava lamp, where jasmine incense was burning.\n- Felix Crane arrived later at 3:45 PM, also using a silver keycard. He was observed adjusting the green lava lamp and seemed familiar with the sunroom’s layout.\n- Maya Lin came in at 4:00 PM displaying a guest wristband. She was seen lighting lavender incense near the entrance.\n\nAdditional Notes:\n- All entries were logged by the sunroom attendant, who confirmed that only those with silver keycards or guest wristbands were permitted entry.\n- The silver keycards allowed direct, unmonitored access, while guest wristbands required verification at the door.\n- The Host retained a master pass, which was not recorded in this log but was known to override all other credentials.\n\nThis log suggests a clear pattern of credential use correlating with specific times and interactions with the sunroom’s unique features.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "24a8cf89-f8ea-4615-b47c-f12bffd3a144",
+      "card_type": "clue",
+      "card_title": "Incense and Lava Lamp Residue Analysis",
+      "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nDetailed Residue Analysis Report:\n\nInvestigators collected four distinct residue samples from the sunroom's surfaces, including the floor near the entrance, the area around the lava lamps, and the incense holders. Each sample was analyzed for incense scent compounds and wax composition to determine patterns of use and access.\n\n- Sample A: Found near the main door threshold, this residue contains significant traces of sandalwood incense—a scent favored by the host—and wax from a blue lava lamp. The combination suggests recent passage by someone who was in close proximity to the blue lamp and had been exposed to the host's preferred incense.\n\n- Sample B: Collected from the corner near the red lava lamp, this residue contains jasmine incense traces, a scent not used by the host but by a guest who frequented the sunroom, along with wax from the red lava lamp. This indicates that the red lamp area was accessed by visitors with different incense preferences.\n\n- Sample C: Found on the floor adjacent to the blue lava lamp, this residue mirrors Sample A, containing sandalwood incense and blue lava lamp wax, reinforcing that the area around the blue lamp was a primary zone for host-related activity or access.\n\n- Sample D: Gathered near the green lava lamp, this residue contains lavender incense and wax from the green lamp. This scent combination was unique to a guest who arrived later in the evening, suggesting staggered access times.\n\nThe residue patterns imply that the blue lava lamp and sandalwood incense area was central to the sunroom's access point, correlating with the host's presence and possibly the critical access method. The distinct scent and wax combinations provide a chemical signature that can be matched to specific individuals' access credentials and movements within the sunroom.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "5618fc64-55e4-4132-891a-ee5f09d940d4",
+      "card_type": "clue",
+      "card_title": "Sunroom Access Credentials Inventory",
+      "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nSunroom Access Credentials Inventory:\n- Silver Keycards:\n  * Jasper Monroe\n  * Felix Crane\n- Guest Wristbands:\n  * Lila Hart\n  * Maya Lin\n- Master Pass:\n  * Exclusively held by The Host\n\nAdditional Notes:\n- The silver keycards grant access to most common areas but require physical scanning at the sunroom entrance.\n- Guest wristbands allow limited access to social areas but are not recognized by the sunroom's locking mechanism.\n- The master pass overrides all security protocols and is the only credential that can bypass the sunroom's advanced locking system.\n\nThis inventory was compiled from the mansion's security logs and guest registration records to clarify who held which credentials during the retreat.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_003",
+      "hidden_until_solved": false,
+      "evidence_type": "lists"
+    },
+    {
+      "card_id": "6621507d-16f7-444a-95ec-2edcbea08d33",
+      "card_type": "solution",
+      "card_title": "Access Credential Revealed",
+      "card_contents": "The \"Incense and Lava Lamp Residue in the Sunroom\" material shows which access or credential mattered at the sunroom filled with lava lamps and incense.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_unlock_004",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "039d277c-7062-4d0d-967c-9f3f24c7ece8",
+      "card_type": "puzzle",
+      "card_title": "Who Had the Key Access to the Sunroom?",
+      "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nQuestion: Based on the evidence, which type of access credential mattered most for entering the sunroom filled with lava lamps and incense where The Host was found dead?\n\nUnlocked_item: A unique incense and lava lamp residue pattern reveals the critical access method used in the sunroom.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_puzzle",
+      "puzzle_type": "elimination",
+      "required_card_refs": [
+        "bundle_unlock_003",
+        "bundle_4_evidence_001",
+        "bundle_4_evidence_002",
+        "bundle_4_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_004"
+      ],
+      "required_card_ids": [
+        "7937d1d1-26e3-439c-a372-76d54f8a0606",
+        "50cef3bc-97c9-4789-95e7-a679edbaff47",
+        "24a8cf89-f8ea-4615-b47c-f12bffd3a144",
+        "5618fc64-55e4-4132-891a-ee5f09d940d4"
+      ],
+      "unlock_card_ids": [
+        "6621507d-16f7-444a-95ec-2edcbea08d33"
+      ],
+      "hidden_until_solved": false
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [
+      {
+        "stage": "item_agent",
+        "attempt": 1,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "The Hand-Painted Vinyl Record, The Kaleidoscope Lens, The Incense Burner"
+      },
+      {
+        "stage": "item_agent",
+        "attempt": 2,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "The Hand-Painted Vinyl Record, The Kaleidoscope Lens, The Incense Burner"
+      }
+    ],
+    "warning_log": [
+      {
+        "stage": "item_agent",
+        "reason": "best_effort_items",
+        "message": "item_agent failed strict per-character item generation; emitting best-effort set (0 items)."
+      }
+    ],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "In the summer of 1967, a kaleidoscopic gathering unfolds at a sprawling, sun-drenched California mansion, where a motley crew of artists, musicians, and visionaries convene for an LSD-fueled weekend retreat. The prize at the center of their psychedelic pilgrimage is a mysterious, hand-painted vinyl record rumored to contain a secret sonic frequency that could unlock new dimensions of consciousness. But when the record vanishes—and the host is found dead in a haze of swirling colors and cryptic symbols—the party spirals into paranoia and suspicion.\n\nAmid the haze of incense smoke and flickering lava lamps, alliances fracture and hidden desires bubble to the surface. The murder is not just a crime; it's a rupture in the fragile utopia they sought to create, threatening to expose the dark undercurrents beneath the era's idealism. Set against a backdrop of swirling tie-dye, pulsating sitar riffs, and the relentless quest for transcendence, players must navigate shifting realities and fractured memories.\n\nTensions pulse between the yearning for freedom and the fear of losing control, as the line between hallucination and truth blurs. Expect moments where time seems to bend, secrets are whispered through kaleidoscope lenses, and the very walls seem to pulse with the beat of a psychedelic heart. This is a murder mystery where perception is the ultimate puzzle, and every revelation is a trip deeper into the unknown.",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "playability_history": [
+    {
+      "step_name": "story_blurb_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "world_building_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "characters_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "treasure_hunt_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "case_state_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "item_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_roster_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_target_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_draft_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_finalize_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_evidence_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_visible_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_linker_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "structural_preflight_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "solvability_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_structure_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "post_final_invariants_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_integrity_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "mvp_quality_gate_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    }
+  ],
+  "world": "In the summer of 1967, the California coast basks under an unrelenting sun, where a sprawling mansion perched on a cliff becomes a crucible for the era’s restless spirits. This sun-drenched estate, with its sprawling gardens tangled in wildflowers and incense, is more than a backdrop—it is a living, breathing entity pulsating with the hopes and fractures of a generation seeking transcendence. The air is thick with the scent of patchouli and jasmine, while lava lamps cast undulating shadows that mimic the shifting states of consciousness within. Here, time dilates and contracts, memories shimmer like heatwaves, and the boundary between reality and hallucination dissolves into a kaleidoscopic haze. This mansion is a sanctuary and a trap, a place where the idealism of the Summer of Love confronts the darker undertones of paranoia and loss, making every corner a potential revelation or a hidden threat.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Dr. Elias Hawthorne",
+        "summary": "A charismatic ethnomusicologist and the enigmatic host of the gathering, Dr. Hawthorne is obsessed with unlocking the mind’s secret frequencies through sound. His sudden death sends shockwaves through the retreat, as his true intentions and hidden past begin to unravel."
+      },
+      {
+        "name": "Mira Solis",
+        "summary": "A fiery poet and underground activist whose verses echo the era’s yearning for freedom. Mira’s sharp intuition and tangled relationships with other guests make her both a key witness and a suspect."
+      },
+      {
+        "name": "Jasper Quinn",
+        "summary": "A reclusive psychedelic artist known for his swirling, hypnotic paintings that seem to shift when not looked at directly. Jasper’s art decorates the mansion’s walls and may hold cryptic clues to the mystery."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Sunroom",
+        "summary": "A glass-walled sanctuary flooded with golden light, filled with exotic plants and hanging crystals. The sunroom is where guests often retreat to meditate or share whispered secrets, its reflective surfaces distorting perception and memory."
+      },
+      {
+        "name": "The Vinyl Vault",
+        "summary": "A hidden room behind a sliding bookshelf, lined with rare records and sound equipment. This secret chamber houses the coveted hand-painted vinyl record and is central to the mystery’s unfolding."
+      },
+      {
+        "name": "The Garden Labyrinth",
+        "summary": "A maze of overgrown hedges and fragrant blooms that surrounds the mansion. The labyrinth is a place of solitude and confusion, where footsteps echo and shadows play tricks on the mind."
+      }
+    ],
+    "items": [
+      {
+        "name": "The Hand-Painted Vinyl Record",
+        "summary": "An enigmatic vinyl adorned with swirling, psychedelic artwork. Rumored to emit a secret frequency capable of unlocking altered states of consciousness, its disappearance sparks the retreat’s descent into chaos."
+      },
+      {
+        "name": "The Kaleidoscope Lens",
+        "summary": "A handheld optical device that refracts light into shifting patterns, symbolizing the fractured perspectives of the guests. It serves as both a tool for insight and a metaphor for the elusive nature of truth in the story."
+      },
+      {
+        "name": "The Incense Burner",
+        "summary": "An ornate brass burner that fills the mansion with thick clouds of fragrant smoke, enhancing the psychedelic atmosphere and sometimes obscuring more than just the air—concealing secrets and altering perceptions alike."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+      "victim": "The Host",
+      "location": "the sunroom filled with lava lamps and incense",
+      "murder_solution": "The Host was killed by Jazz in the sunroom during a moment when the guests were distracted by a sudden psychedelic light show. Jazz, desperate to claim the mysterious vinyl record rumored to unlock new dimensions of consciousness, confronted the Host who intended to keep the record hidden to prevent its dangerous power from being misused. A struggle ensued, and Jazz used a heavy glass ashtray to fatally strike the Host. Jazz had the opening because his trancelike disappearances allowed him to move unnoticed, and his obsession gave him motive to silence the Host and seize the record."
+    },
+    "treasure": {
+      "object": "Hand-painted vinyl record with secret sonic frequency",
+      "hiding_place": "inside a hollowed-out book in the mansion's library",
+      "treasure_solution": "The record is hidden inside a hollowed-out poetry book that belonged to the Host, placed on a high shelf in the mansion's library. Players could discover it by following Evie's cryptic poems that reference hidden knowledge and by searching the library for unusual books. The record matters because it holds the key to the ultimate psychedelic experience the guests sought, making it the central prize and motive for the murder."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "jasper_jazz_monroe_the_visionary_sound_alchemist",
+        "name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+        "title": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+        "card_id": "473e1e81-a5d5-4706-9e06-3a5344cd0b4f",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "evelyn_evie_hart_the_disillusioned_poetess",
+        "name": "Evelyn 'Evie' Hart - The Disillusioned Poetess",
+        "title": "Evelyn 'Evie' Hart - The Disillusioned Poetess",
+        "card_id": "7b81b57d-8d1c-480a-998f-5a1655d33177",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "jasper_jazz_monroe_the_visionary_sound_alchemist",
+    "killer_name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist",
+    "victim_name": "The Host",
+    "murder": {
+      "location": "the sunroom filled with lava lamps and incense",
+      "method": "",
+      "motive": "",
+      "summary": "The Host was killed by Jazz in the sunroom during a moment when the guests were distracted by a sudden psychedelic light show. Jazz, desperate to claim the mysterious vinyl record rumored to unlock new dimensions of consciousness, confronted the Host who intended to keep the record hidden to prevent its dangerous power from being misused. A struggle ensued, and Jazz used a heavy glass ashtray to fatally strike the Host. Jazz had the opening because his trancelike disappearances allowed him to move unnoticed, and his obsession gave him motive to silence the Host and seize the record.",
+      "opportunity": "",
+      "window_start": null,
+      "window_end": null
+    },
+    "treasure": {
+      "object": "Hand-painted vinyl record with secret sonic frequency",
+      "hiding_place": "inside a hollowed-out book in the mansion's library",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "jasper_jazz_monroe_the_visionary_sound_alchemist",
+        "evelyn_evie_hart_the_disillusioned_poetess"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "clue_targets": [
+    {
+      "target_id": "e19254a1-9cf5-4d02-8a17-6444f7eaf72c",
+      "fact": "The physical pattern described under \"Broken Glass Ashtray with Smudged Fingerprints\" ties to the circumstances of the death at the sunroom filled with lava lamps and incense.",
+      "category": "object",
+      "act": 1,
+      "puzzle_type_hint": "item_combination",
+      "suspect_name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist"
+    },
+    {
+      "target_id": "dce269cc-f73d-4d2c-95e1-beaa43dd4f00",
+      "fact": "Cross-referencing \"Eyewitness Account of Jazz’s Sudden Disappearance\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+      "category": "location",
+      "act": 2,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist"
+    },
+    {
+      "target_id": "5d3133ae-4256-45fd-8708-b1e6b18a1299",
+      "fact": "Cross-referencing \"The Host’s Warning to Keep the Record Hidden\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+      "category": "location",
+      "act": 3,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Evelyn 'Evie' Hart - The Disillusioned Poetess"
+    },
+    {
+      "target_id": "fc458e65-8a0d-4bc3-88e3-53ebd995697d",
+      "fact": "The \"Incense and Lava Lamp Residue in the Sunroom\" material shows which access or credential mattered at the sunroom filled with lava lamps and incense.",
+      "category": "access",
+      "act": 3,
+      "puzzle_type_hint": "elimination",
+      "suspect_name": "The Host"
+    }
+  ],
+  "puzzle_bundle_drafts": [
+    {
+      "clue_target": {
+        "target_id": "e19254a1-9cf5-4d02-8a17-6444f7eaf72c",
+        "fact": "The physical pattern described under \"Broken Glass Ashtray with Smudged Fingerprints\" ties to the circumstances of the death at the sunroom filled with lava lamps and incense.",
+        "category": "object",
+        "act": 1,
+        "puzzle_type_hint": "item_combination",
+        "suspect_name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist"
+      },
+      "puzzle_type": "item_combination",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Broken Glass Ashtray with Smudged Fingerprints",
+          "card_contents": "Victim: The Host\nLocation Found: the sunroom filled with lava lamps and incense\nDescription: A shattered glass ashtray lies near the body, shards scattered in a distinct radial pattern. Smudged fingerprints are visible on several fragments, partially obscured by layers of dried incense ash.\nNotable Entries:\n- Fingerprint Pattern: Partial whorls and loops\n- Ash Distribution: Concentrated around the edges of the shards\n- Glass Fragment Arrangement: Radiates outward from a central impact point\n\nThis evidence seed hints at a struggle or sudden impact near the victim in the sunroom filled with lava lamps and incense."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Witness Interview Transcript: Late Evening in the Sunroom",
+          "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nExcerpted Statements:\n- \"I saw someone near the ashtray moments before the scream. Their hands were trembling, and they seemed to be wiping something off.\"\n- \"The lava lamps cast strange shadows, but I swear I saw a flash of color on the glass shards, like a reflection of a tie-dye shirt.\"\n- \"There was a faint scent of patchouli mixed with the incense, but also something metallic, like blood.\"\n\nThis transcript provides context about the scene and possible interactions around the ashtray in the sunroom filled with lava lamps and incense."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Photograph of the Crime Scene in the Sunroom",
+          "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nPhoto Details:\n- The victim lies near a low table cluttered with psychedelic paraphernalia.\n- The broken ashtray is prominently featured, shards arranged in a near-perfect circle.\n- Lava lamps glow softly in the background, casting colored light over the scene.\n- Smudged fingerprints are visible on a shard closest to the victim's outstretched hand.\n\nThis photograph captures the spatial relationship between the victim, the broken ashtray, and the surrounding environment in the sunroom filled with lava lamps and incense."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "What does the pattern of the broken ashtray reveal about the death of The Host?",
+          "card_contents": "Given the evidence found at the sunroom filled with lava lamps and incense, analyze the physical pattern described under \"Broken Glass Ashtray with Smudged Fingerprints\" and determine what it reveals about the circumstances of The Host's death.\n\nUnlocked Item: Players unlock a vivid description of the shattered ashtray's radial pattern and the smudged fingerprints that hint at a final struggle.",
+          "unlocked_item": "Players unlock a vivid description of the shattered ashtray's radial pattern and the smudged fingerprints that hint at a final struggle."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: The Significance of the Broken Ashtray Pattern",
+          "card_contents": "The physical pattern described under \"Broken Glass Ashtray with Smudged Fingerprints\" ties to the circumstances of the death at the sunroom filled with lava lamps and incense."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "dce269cc-f73d-4d2c-95e1-beaa43dd4f00",
+        "fact": "Cross-referencing \"Eyewitness Account of Jazz’s Sudden Disappearance\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+        "category": "location",
+        "act": 2,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Jasper 'Jazz' Monroe - The Visionary Sound Alchemist"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Eyewitness Account of Jazz’s Sudden Disappearance",
+          "card_contents": "Canonical victim: The Host\nCanonical location: the sunroom filled with lava lamps and incense\n\nWitness: Marigold, the sitar player\nTime: Approximately 10:15 PM\nObservation: Jazz was last seen near the eastern corner of the sunroom, close to a cluster of flickering lava lamps and a thick incense burner emitting a heavy cloud of smoke. Suddenly, Jazz vanished behind a tapestry hanging on the wall, moments before a strange humming sound filled the room."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Inventory Log of the Sunroom Artifacts",
+          "card_contents": "Canonical victim: The Host\nCanonical location: the sunroom filled with lava lamps and incense\n\nItem: Hand-painted vinyl record\nLast seen: On a low wooden table in the center of the sunroom\nAdditional notes: A small section of the eastern corner near the lava lamps showed signs of disturbance, with incense ashes scattered unusually and a faint sticky residue on the floor."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Locating the Clue in the Sunroom",
+          "card_contents": "Canonical victim: The Host\nCanonical location: the sunroom filled with lava lamps and incense\n\nQuestion: By cross-referencing the Eyewitness Account of Jazz’s Sudden Disappearance with the Inventory Log of the Sunroom Artifacts, which part of the sunroom filled with lava lamps and incense does the physical detail implicate?\n\nUnlocked_item: Players unlock a vivid description of the eastern corner's eerie ambiance, thick with swirling incense smoke and flickering lava lamps.",
+          "unlocked_item": "Players unlock a vivid description of the eastern corner's eerie ambiance, thick with swirling incense smoke and flickering lava lamps."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: Location Implicated by Cross-reference",
+          "card_contents": "Cross-referencing \"Eyewitness Account of Jazz’s Sudden Disappearance\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "5d3133ae-4256-45fd-8708-b1e6b18a1299",
+        "fact": "Cross-referencing \"The Host’s Warning to Keep the Record Hidden\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+        "category": "location",
+        "act": 3,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Evelyn 'Evie' Hart - The Disillusioned Poetess"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "The Host’s Warning to Keep the Record Hidden",
+          "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nEntries:\n- Entry 1: \"Beware the record’s power; it must never see the light of day.\"\n- Entry 2: \"Hidden where the colors dance and shadows play, the secret lies beneath the glow.\"\n- Entry 3: \"Trust no one near the glowing orbs; they guard what must remain unseen.\""
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Sunroom Layout Map with Key Features",
+          "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nMap Highlights:\n- Area A: Cluster of lava lamps arranged around a low table.\n- Area B: Incense burner emitting thick smoke near a velvet curtain.\n- Area C: A hidden compartment beneath the central lava lamp cluster.\n- Area D: Wall-mounted kaleidoscope mirrors reflecting swirling colors."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Where in the Sunroom Was the Record Hidden?",
+          "card_contents": "Victim: The Host\nLocation: the sunroom filled with lava lamps and incense\nBy cross-referencing 'The Host’s Warning to Keep the Record Hidden' with the sunroom layout, where exactly was the record concealed?\n\nUnlocked_item: Discover the secret hiding place that the Host trusted to keep the mysterious vinyl record safe.",
+          "unlocked_item": "Discover the secret hiding place that the Host trusted to keep the mysterious vinyl record safe."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Answer: Location of the Hidden Record",
+          "card_contents": "Cross-referencing \"The Host’s Warning to Keep the Record Hidden\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "fc458e65-8a0d-4bc3-88e3-53ebd995697d",
+        "fact": "The \"Incense and Lava Lamp Residue in the Sunroom\" material shows which access or credential mattered at the sunroom filled with lava lamps and incense.",
+        "category": "access",
+        "act": 3,
+        "puzzle_type_hint": "elimination",
+        "suspect_name": "The Host"
+      },
+      "puzzle_type": "elimination",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Guest Entry Log: The Sunroom Gathering",
+          "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nEntries:\n1. Jasper Monroe - Arrived 3:00 PM - Accessed sunroom with a silver keycard.\n2. Lila Hart - Arrived 3:15 PM - Accessed sunroom with a guest wristband.\n3. Felix Crane - Arrived 3:45 PM - Accessed sunroom with a silver keycard.\n4. Maya Lin - Arrived 4:00 PM - Accessed sunroom with a guest wristband."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Incense and Lava Lamp Residue Analysis",
+          "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nResidue Samples:\n- Sample A: Contains traces of sandalwood incense and wax from a blue lava lamp.\n- Sample B: Contains traces of jasmine incense and wax from a red lava lamp.\n- Sample C: Contains traces of sandalwood incense and wax from a blue lava lamp.\n- Sample D: Contains traces of lavender incense and wax from a green lava lamp."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Sunroom Access Credentials Inventory",
+          "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nCredentials:\n- Silver keycards: Issued to Jasper Monroe and Felix Crane.\n- Guest wristbands: Issued to Lila Hart and Maya Lin.\n- Master pass: Held only by The Host."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Who Had the Key Access to the Sunroom?",
+          "card_contents": "Canonical Victim: The Host\nCanonical Location: the sunroom filled with lava lamps and incense\n\nQuestion: Based on the evidence, which type of access credential mattered most for entering the sunroom filled with lava lamps and incense where The Host was found dead?\n\nUnlocked_item: A unique incense and lava lamp residue pattern reveals the critical access method used in the sunroom.",
+          "unlocked_item": "A unique incense and lava lamp residue pattern reveals the critical access method used in the sunroom."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Access Credential Revealed",
+          "card_contents": "The \"Incense and Lava Lamp Residue in the Sunroom\" material shows which access or credential mattered at the sunroom filled with lava lamps and incense."
+        }
+      ]
+    }
+  ],
+  "puzzle_bundles": [
+    {
+      "bundle_id": "puzzle_bundle_001",
+      "act": 1,
+      "puzzle_type": "item_combination",
+      "clue_target": "The physical pattern described under \"Broken Glass Ashtray with Smudged Fingerprints\" ties to the circumstances of the death at the sunroom filled with lava lamps and incense.",
+      "card_ids": [
+        "693d1d4c-e7b0-4f8c-9624-46812b09aeab",
+        "46ede5c6-2707-4201-9da8-9d8deb15cfa2",
+        "c0c3ec02-810c-4c7f-85b3-ced1b1367e1c",
+        "7cf1815c-7cc3-4cec-9590-b5133fd515a9",
+        "fd96702a-d586-486e-9178-e68d281069fc"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_002",
+      "act": 2,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Eyewitness Account of Jazz’s Sudden Disappearance\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+      "card_ids": [
+        "08c7281e-1930-47f3-a657-66501a0d81a2",
+        "8b9ffc81-498a-4df0-b954-33a8e287cbf6",
+        "95c6b281-5b28-465b-a41e-da69c6ad2504",
+        "942f6211-8215-4da3-8c7c-0ff39ebf15e0"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_003",
+      "act": 3,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"The Host’s Warning to Keep the Record Hidden\" isolates which part of the sunroom filled with lava lamps and incense the physical detail implicates.",
+      "card_ids": [
+        "d8f84d50-db61-4feb-bad7-b0e42cea4f36",
+        "f843de47-75f0-4aa5-9b95-60b2779402a1",
+        "7937d1d1-26e3-439c-a372-76d54f8a0606",
+        "2b81b7a0-db6e-4d25-8152-038dea67528f"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_004",
+      "act": 3,
+      "puzzle_type": "elimination",
+      "clue_target": "The \"Incense and Lava Lamp Residue in the Sunroom\" material shows which access or credential mattered at the sunroom filled with lava lamps and incense.",
+      "card_ids": [
+        "50cef3bc-97c9-4789-95e7-a679edbaff47",
+        "24a8cf89-f8ea-4615-b47c-f12bffd3a144",
+        "5618fc64-55e4-4132-891a-ee5f09d940d4",
+        "6621507d-16f7-444a-95ec-2edcbea08d33",
+        "039d277c-7062-4d0d-967c-9f3f24c7ece8"
+      ]
+    }
+  ],
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "costAccounting": {
+    "runId": "1960s LSD Party-1775220866164-u7it5f",
+    "requestCount": 19,
+    "requests": [
+      {
+        "index": 3,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "characters_builder_agent",
+        "requestType": "json",
+        "schemaName": "characters_builder",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 619,
+        "completion_tokens": 314,
+        "total_tokens": 933,
+        "created_at": "2026-04-03T12:54:47.793Z"
+      },
+      {
+        "index": 4,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "core_truth_agent",
+        "requestType": "json",
+        "schemaName": "core_truth",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1221,
+        "completion_tokens": 272,
+        "total_tokens": 1493,
+        "created_at": "2026-04-03T12:54:52.198Z"
+      },
+      {
+        "index": 5,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "treasure_hunt_agent",
+        "requestType": "json",
+        "schemaName": "treasure_hunt",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 536,
+        "completion_tokens": 133,
+        "total_tokens": 669,
+        "created_at": "2026-04-03T12:54:54.793Z"
+      },
+      {
+        "index": 6,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "clue_agent",
+        "requestType": "json",
+        "schemaName": "clue_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1281,
+        "completion_tokens": 490,
+        "total_tokens": 1771,
+        "created_at": "2026-04-03T12:55:03.910Z"
+      },
+      {
+        "index": 7,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 894,
+        "completion_tokens": 669,
+        "total_tokens": 1563,
+        "created_at": "2026-04-03T12:55:14.260Z"
+      },
+      {
+        "index": 8,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 894,
+        "completion_tokens": 433,
+        "total_tokens": 1327,
+        "created_at": "2026-04-03T12:55:22.552Z"
+      },
+      {
+        "index": 9,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 892,
+        "completion_tokens": 389,
+        "total_tokens": 1281,
+        "created_at": "2026-04-03T12:55:31.137Z"
+      },
+      {
+        "index": 10,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 888,
+        "completion_tokens": 526,
+        "total_tokens": 1414,
+        "created_at": "2026-04-03T12:55:37.905Z"
+      },
+      {
+        "index": 11,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1504,
+        "completion_tokens": 460,
+        "total_tokens": 1964,
+        "created_at": "2026-04-03T12:55:45.334Z"
+      },
+      {
+        "index": 12,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1504,
+        "completion_tokens": 384,
+        "total_tokens": 1888,
+        "created_at": "2026-04-03T12:55:52.119Z"
+      },
+      {
+        "index": 13,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1504,
+        "completion_tokens": 321,
+        "total_tokens": 1825,
+        "created_at": "2026-04-03T12:55:57.738Z"
+      },
+      {
+        "index": 14,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1228,
+        "completion_tokens": 236,
+        "total_tokens": 1464,
+        "created_at": "2026-04-03T12:56:01.602Z"
+      },
+      {
+        "index": 15,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1228,
+        "completion_tokens": 270,
+        "total_tokens": 1498,
+        "created_at": "2026-04-03T12:56:07.330Z"
+      },
+      {
+        "index": 16,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1193,
+        "completion_tokens": 285,
+        "total_tokens": 1478,
+        "created_at": "2026-04-03T12:56:12.352Z"
+      },
+      {
+        "index": 17,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1193,
+        "completion_tokens": 315,
+        "total_tokens": 1508,
+        "created_at": "2026-04-03T12:56:16.550Z"
+      },
+      {
+        "index": 18,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1355,
+        "completion_tokens": 321,
+        "total_tokens": 1676,
+        "created_at": "2026-04-03T12:56:21.356Z"
+      },
+      {
+        "index": 19,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1355,
+        "completion_tokens": 422,
+        "total_tokens": 1777,
+        "created_at": "2026-04-03T12:56:28.622Z"
+      },
+      {
+        "index": 20,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1355,
+        "completion_tokens": 212,
+        "total_tokens": 1567,
+        "created_at": "2026-04-03T12:56:33.237Z"
+      },
+      {
+        "index": 21,
+        "runId": "1960s LSD Party-1775220866164-u7it5f",
+        "stepName": "solvability_validator_agent",
+        "requestType": "json",
+        "schemaName": "solvability_validation",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 8835,
+        "completion_tokens": 9,
+        "total_tokens": 8844,
+        "created_at": "2026-04-03T12:56:34.669Z"
+      }
+    ],
+    "totals": {
+      "prompt_tokens": 29479,
+      "completion_tokens": 6461,
+      "total_tokens": 35940
+    }
+  }
+}

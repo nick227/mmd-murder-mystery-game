@@ -49,12 +49,12 @@ export function PlayerLobbyTemplate({
         <PanelHeader title="Status" />
         <div style={{ color: 'var(--text)', lineHeight: 1.45 }}>{statusLine}</div>
       </Panel>
+      {joined && composer ? <ComposerPanel data={composer} handlers={handlers} /> : null}
       <Feed
         items={feed}
-        title="Timeline"
+        title=""
         emptyText="No timeline updates yet."
       />
-      {joined && composer ? <ComposerPanel data={composer} handlers={handlers} /> : null}
     </Surface>
   )
 }

@@ -15,7 +15,7 @@ interface Props {
 export function Feed({
   items,
   stage,
-  title = 'Room feed',
+  title = '',
   emptyText = 'No room updates yet.',
   onItemClick,
 }: Props) {

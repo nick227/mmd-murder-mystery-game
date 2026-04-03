@@ -28,7 +28,7 @@ export function PresenceRail({ players, size = 'compact', title = 'In the room',
             <Avatar name={player.name} online={player.online} size={size === 'large' ? 'lg' : 'md'} src={player.portrait} />
             <div className="presence-tile__text">
               <div className="presence-tile__name">{player.name}</div>
-              <div className="presence-tile__meta">{player.online ? 'here' : 'not joined'}</div>
+              <div className="presence-tile__meta">{player.online ? (player.joinedName || 'here') : 'not joined'}</div>
             </div>
           </div>
         ))}

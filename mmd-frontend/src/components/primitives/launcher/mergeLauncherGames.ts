@@ -22,9 +22,15 @@ export function mergeLauncherGames(data: LauncherData): MergedGameRow[] {
   const gamesByKey = new Map<string, MergedGameRow>()
   const storiesById = new Map(data.stories.map(story => [story.id, { title: story.title, summary: story.summary, image: story.image }] as const))
 
+  // Debug: Check what stories we have
+  console.log('Available stories:', data.stories.map(s => ({ id: s.id, title: s.title })))
+  console.log('API games count:', data.allGames.length)
+  console.log('Sample API game:', data.allGames[0])
+
   for (const g of data.allGames) {
     const key = `${data.apiBase}:${g.id}`
     const story = g.storyId ? storiesById.get(g.storyId) : undefined
+    console.log(`API Game ${g.id}: storyId=${g.storyId}, story=${story?.title}`)
     gamesByKey.set(key, {
       id: g.id,
       apiBase: data.apiBase,
@@ -71,8 +77,42 @@ export function mergeLauncherGames(data: LauncherData): MergedGameRow[] {
   }
 
   return Array.from(gamesByKey.values()).sort((a, b) => {
-    const aKey = a.lastSeenAt ?? a.scheduledTime ?? ''
-    const bKey = b.lastSeenAt ?? b.scheduledTime ?? ''
-    return bKey.localeCompare(aKey) || a.id.localeCompare(b.id)
+    // Prioritize active games (SCHEDULED, PLAYING, REVEAL) over old/done games
+    const aIsActive = a.state === 'SCHEDULED' || a.state === 'PLAYING' || a.state === 'REVEAL'
+    const bIsActive = b.state === 'SCHEDULED' || b.state === 'PLAYING' || b.state === 'REVEAL'
+    
+    if (aIsActive !== bIsActive) {
+      return aIsActive ? -1 : 1 // Active games first
+    }
+    
+    // For active games, prioritize by scheduled time (newest first)
+    if (aIsActive && bIsActive) {
+      const aTime = a.scheduledTime ?? ''
+      const bTime = b.scheduledTime ?? ''
+      if (aTime && bTime) {
+        return new Date(bTime).getTime() - new Date(aTime).getTime()
+      }
+      if (aTime) return -1
+      if (bTime) return 1
+    }
+    
+    // For inactive games, prioritize by last seen (newest first)
+    const aLastSeen = a.lastSeenAt ?? ''
+    const bLastSeen = b.lastSeenAt ?? ''
+    if (aLastSeen && bLastSeen) {
+      return new Date(bLastSeen).getTime() - new Date(aLastSeen).getTime()
+    }
+    if (aLastSeen) return -1
+    if (bLastSeen) return 1
+    
+    // Fallback to creation time
+    const aCreated = a.scheduledTime ?? ''
+    const bCreated = b.scheduledTime ?? ''
+    if (aCreated && bCreated) {
+      return new Date(bCreated).getTime() - new Date(aCreated).getTime()
+    }
+    
+    // Final fallback to ID comparison
+    return b.id.localeCompare(a.id)
   })
 }

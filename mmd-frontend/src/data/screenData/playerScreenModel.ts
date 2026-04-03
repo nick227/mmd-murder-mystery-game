@@ -187,9 +187,12 @@ function buildPlayerFeed(apiEvents: ApiGameEvent[], input: {
   gameState: 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
   revealAnswers?: Array<{ track: 'who' | 'how' | 'why'; answer: string }>
 }): FeedItem[] {
-  const defaultSystem: FeedItem[] = input.gameState === 'SCHEDULED'
-    ? [{ id: 'pregame', type: 'system', variant: 'room', text: 'Game scheduled' }]
-    : []
+  const defaultSystem: FeedItem[] =
+    input.gameState === 'SCHEDULED'
+      ? [{ id: 'pregame', type: 'system', variant: 'room', text: 'Game scheduled' }]
+      : input.gameState === 'DONE'
+      ? [{ id: 'done', type: 'system', variant: 'narration', text: 'Game over. Thanks for playing.' }]
+      : []
 
   const mapped = apiEvents
     .map(mapApiEventToProgressFeedItem)
@@ -201,13 +204,30 @@ function buildPlayerFeed(apiEvents: ApiGameEvent[], input: {
     text: `${answer.track.toUpperCase()}: ${answer.answer}`,
   }))
 
-  return computeNarrationStacking(applyNarrationBlockRule([...defaultSystem, ...mapped, ...revealItems]))
+  const verdictLines = (input.revealAnswers ?? []).map(answer => `${answer.track.toUpperCase()}: ${answer.answer}`)
+  const finalVerdictItem: FeedItem[] =
+    (input.gameState === 'REVEAL' || input.gameState === 'DONE') && verdictLines.length
+      ? [{
+          id: 'final-verdict',
+          type: 'announcement',
+          variant: 'narration',
+          layout: 'cinematic',
+          title: 'Final Verdict',
+          body: verdictLines.join('\n'),
+          text: verdictLines.join('\n'),
+        }]
+      : []
+
+  return computeNarrationStacking(applyNarrationBlockRule([...defaultSystem, ...mapped, ...revealItems, ...finalVerdictItem]))
 }
 
 function buildPlayerEvidence(input: {
   clues: Array<Record<string, unknown>>
   puzzles: Array<Record<string, unknown>>
   reveals: Array<Record<string, unknown>>
+  items: Array<Record<string, unknown>>
+  treasures: Array<Record<string, unknown>>
+  infos: Array<Record<string, unknown>>
 }): EvidenceItem[] {
   const clues: EvidenceItem[] = input.clues.map((card, index) => ({
     id: String(card.id ?? `clue-${index}`),
@@ -236,7 +256,31 @@ function buildPlayerEvidence(input: {
     image: typeof (card as { image?: unknown }).image === 'string' ? String((card as { image?: unknown }).image) : undefined,
   }))
 
-  return [...clues, ...puzzles, ...reveals]
+  const items: EvidenceItem[] = input.items.map((item, index) => ({
+    id: String(item.id ?? `item-${index}`),
+    kind: 'item',
+    title: String((item as { name?: unknown }).name ?? (item as { title?: unknown }).title ?? 'Item'),
+    text: String((item as { description?: unknown }).description ?? (item as { text?: unknown }).text ?? ''),
+    act: typeof (item as { act?: unknown }).act === 'number' ? (item as { act?: unknown }).act as number : undefined,
+  }))
+
+  const treasures: EvidenceItem[] = input.treasures.map((card, index) => ({
+    id: String(card.id ?? `treasure-${index}`),
+    kind: 'treasure',
+    title: String(card.title ?? 'Treasure'),
+    text: String(card.text ?? ''),
+    act: typeof card.act === 'number' ? card.act : undefined,
+  }))
+
+  const infos: EvidenceItem[] = input.infos.map((card, index) => ({
+    id: String(card.id ?? `info-${index}`),
+    kind: 'info',
+    title: String(card.title ?? 'Info'),
+    text: String(card.text ?? ''),
+    act: typeof card.act === 'number' ? card.act : undefined,
+  }))
+
+  return [...clues, ...puzzles, ...items, ...treasures, ...infos, ...reveals]
 }
 
 function buildSubmittedObjectiveIds(input: PlayerApiView): Set<string> {
@@ -254,6 +298,9 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
 
   const cards: Array<Record<string, unknown>> = Array.isArray(input.unlockedCards) ? input.unlockedCards : []
   const puzzles: Array<Record<string, unknown>> = Array.isArray(input.unlockedPuzzles) ? input.unlockedPuzzles : []
+  const visibleItems: Array<Record<string, unknown>> = Array.isArray(input.visibleItems) ? input.visibleItems : []
+  const visibleTreasures: Array<Record<string, unknown>> = Array.isArray(input.visibleTreasures) ? input.visibleTreasures : []
+  const visibleInfos: Array<Record<string, unknown>> = Array.isArray(input.visibleInfoCards) ? input.visibleInfoCards : []
   const submittedIds = buildSubmittedObjectiveIds(input)
 
   const instructionCards = cards.filter(c => String(c.type ?? '') === 'instruction')
@@ -290,6 +337,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
   const players = (input.roomPlayers ?? []).map(player => ({
     id: player.id,
     name: player.characterName ?? player.playerName ?? `Character ${player.characterId}`,
+    joinedName: typeof player.playerName === 'string' && player.playerName.trim().length > 0 ? player.playerName.trim() : undefined,
     characterId: player.characterId,
     online: Boolean(player.joinedAt),
     portrait: typeof player.portrait === 'string' && player.portrait.trim().length > 0
@@ -303,30 +351,40 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
       ? 'Pregame room'
       : input.gameState === 'REVEAL'
       ? 'Final reveal'
+      : input.gameState === 'DONE'
+      ? 'Game over'
       : `Act ${input.currentAct}`)
 
-  const description =
-    input.storyBlurb
-    ?? (input.gameState === 'SCHEDULED'
-      ? (input.playerName ? 'You are waiting for the game to start.' : '')
-      : input.gameState === 'REVEAL'
-      ? ''
-      : '')
+  const description = ((input.stage?.text ?? '').trim())
+    || (input.gameState === 'DONE' ? 'The night has concluded.' : '')
 
   const banner =
     input.gameState === 'SCHEDULED'
       ? `You are ${characterName}.`
       : input.gameState === 'REVEAL'
       ? 'The final answers are now visible.'
+      : input.gameState === 'DONE'
+      ? 'Game over. Review the final feed and reveals.'
       : `You are ${characterName}. Stay in character.`
 
   const countdown = buildCountdown(input)
 
-  const evidence = buildPlayerEvidence({ clues: clueCards, puzzles, reveals: revealCards })
+  const evidence = buildPlayerEvidence({
+    clues: clueCards,
+    puzzles,
+    reveals: revealCards,
+    items: visibleItems,
+    treasures: visibleTreasures,
+    infos: visibleInfos,
+  })
   const feed = buildPlayerFeed(input.feed ?? [], { gameState: input.gameState, revealAnswers: input.mysteryAnswers })
 
   const secrets = Array.isArray((character as { secrets?: unknown }).secrets) ? ((character as { secrets?: unknown }).secrets as string[]) : []
-  const items = Array.isArray((character as { items?: unknown }).items) ? ((character as { items?: unknown }).items as string[]) : []
+  const inventoryItems = visibleItems.map((item, index) => ({
+    id: String(item.id ?? `item-${index}`),
+    label: String((item as { name?: unknown }).name ?? 'Item'),
+    value: String((item as { description?: unknown }).description ?? ''),
+  }))
 
   const portrait = typeof (character as { image?: unknown }).image === 'string' ? String((character as { image?: unknown }).image) : undefined
   const archetype = typeof (character as { archetype?: unknown }).archetype === 'string' ? String((character as { archetype?: unknown }).archetype) : undefined
@@ -341,7 +399,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
       storyTitle: input.storyTitle,
       scheduledTime: input.scheduledTime,
       description,
-      storyBlurb: input.storyBlurb ?? description,
+      storyBlurb: input.storyBlurb,
       actText: input.stage?.text ?? '',
       storyImage: storyHeroImage(input.storyImage),
       image: input.stage?.image ?? undefined,
@@ -366,7 +424,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
       biography: biographyRaw && biographyRaw.trim().length ? biographyRaw : 'Your persona is part of this story. Stay in character and pursue your goals.',
       portrait: portrait ?? portraitDataUrl(characterName),
       secrets: secrets.map((value, index) => ({ id: `secret-${index}`, label: 'Secret', value })),
-      items: items.map((value, index) => ({ id: `item-${index}`, label: 'Item', value })),
+      items: inventoryItems,
       cards: clueCards.map((card, index) => ({
         id: String(card.id ?? `clue-${index}`),
         label: String(card.title ?? 'Clue'),
