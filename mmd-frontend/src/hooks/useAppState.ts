@@ -17,6 +17,9 @@ import type {
 import { upsertCreatedGame, upsertGameStory, upsertHostLink, upsertPlayerLink } from '../data/runningGamesRegistry'
 import { IN_APP_NAVIGATE_EVENT, navigateInApp } from '../app/inAppNavigation'
 
+/** Must match mmd-api `HOST_RUNTIME_MAX_ACT` — last act before host must call end-night. */
+const HOST_RUNTIME_MAX_ACT = 5
+
 // Phase 1: localStorage state is no longer used by the frontend.
 
 function readQuery(name: string) {
@@ -172,6 +175,8 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
         ? 'Lobby is open. The host can start early at any time.'
         : game.state === 'REVEAL'
         ? 'Reveal is in progress.'
+        : game.state === 'PLAYING' && game.currentAct >= HOST_RUNTIME_MAX_ACT
+        ? `Final act (${game.currentAct}). Use "End night & reveal truth" to conclude — do not advance further.`
         : `Act ${game.currentAct} is active.`,
     },
   ]
@@ -193,6 +198,8 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
         ? 'Share character links, watch who joins, and start whenever the room is ready.'
         : game.state === 'REVEAL'
         ? 'Answers are live. Finish the game when you are ready.'
+        : game.state === 'PLAYING' && game.currentAct >= HOST_RUNTIME_MAX_ACT
+        ? 'You are on the final act. When discussion is finished, use End night to move to the reveal phase.'
         : 'Everyone is in the game. Advance acts only when the room is ready.',
       image: storyHeroImage(game.stageImage),
       countdownLabel: game.state === 'SCHEDULED' ? countdown.label : undefined,
@@ -204,6 +211,7 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
     players: game.players.map(player => ({
       id: player.id,
       name: player.characterName ?? player.playerName ?? `Character ${player.characterId}`,
+      joinedName: typeof player.playerName === 'string' && player.playerName.trim().length > 0 ? player.playerName.trim() : undefined,
       characterId: player.characterId,
       online: Boolean(player.joinedAt),
       portrait: typeof player.portrait === 'string' ? player.portrait : undefined,
@@ -243,12 +251,19 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
         : game.state === 'PLAYING'
         ? [
             { id: 'player-links', label: 'Player Links', kind: 'secondary' },
-            { id: 'next', label: `Next Act (${game.currentAct + 1})`, kind: 'primary' }
+            ...(game.currentAct < HOST_RUNTIME_MAX_ACT
+              ? [{ id: 'next' as const, label: `Next Act (${game.currentAct + 1})`, kind: 'primary' as const }]
+              : []),
+            {
+              id: 'reveal',
+              label: game.currentAct >= HOST_RUNTIME_MAX_ACT ? 'End night & reveal truth' : 'Reveal Truth',
+              kind: game.currentAct >= HOST_RUNTIME_MAX_ACT ? 'primary' : 'secondary',
+            },
           ]
         : game.state === 'REVEAL'
         ? [
             { id: 'player-links', label: 'Player Links', kind: 'secondary' },
-            { id: 'finish', label: 'Finish Game', kind: 'primary' }
+            { id: 'finish', label: 'End Game', kind: 'primary' }
           ]
         : [],
     hostInfo: {
@@ -950,10 +965,10 @@ export function useHostScreenData(
           await gameSource.postHostAction(apiBase, gameId, hostKey, 'start')
         } else if (actionId === 'next') {
           await gameSource.postHostAction(apiBase, gameId, hostKey, 'next-act')
-        } else if (actionId === 'end') {
-          const who = window.prompt('Who did it?')?.trim()
-          const how = window.prompt('How was it done?')?.trim()
-          const why = window.prompt('Why did it happen?')?.trim()
+        } else if (actionId === 'reveal' || actionId === 'end') {
+          const who = window.prompt('Reveal Truth - Who did it?')?.trim()
+          const how = window.prompt('Reveal Truth - How was it done?')?.trim()
+          const why = window.prompt('Reveal Truth - Why did it happen?')?.trim()
           if (!who || !how || !why) {
             setLoading(false)
             return

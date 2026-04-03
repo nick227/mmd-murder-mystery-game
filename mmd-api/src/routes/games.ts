@@ -20,6 +20,9 @@ import { loadStoryJson } from '../lib/storyJson.js'
 import { adaptGeneratedStoryToRuntime } from '../lib/generatedRuntimeAdapter.js'
 import { attachRoomEventStream, publishRoomEvent, publishRoomState } from '../lib/roomEvents.js'
 
+/** No further `/advance` or `/host/next-act` after this; host must POST `/host/end-night`. */
+const HOST_RUNTIME_MAX_ACT = 5
+
 async function readStageImageForAct(storyFile: string | null, act: number): Promise<string | null> {
   if (!storyFile) return null
   try {
@@ -471,7 +474,9 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     if (!game) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
     if (req.headers['x-host-key'] !== game.hostKey) return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
     if (game.state !== 'PLAYING') return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Game is not in PLAYING state' })
-    if (game.currentAct >= 5) return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Already at final act. Use end-night to conclude.' })
+    if (game.currentAct >= HOST_RUNTIME_MAX_ACT) {
+      return reply.send(withCreatorFields(game))
+    }
 
     const updated = await prisma.game.update({
       where: { id: game.id },
@@ -618,7 +623,9 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     if (!game) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
     if (req.headers['x-host-key'] !== game.hostKey) return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
     if (game.state !== 'PLAYING') return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Game is not in PLAYING state' })
-    if (game.currentAct >= 5) return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Already at final act. Use end-night to conclude.' })
+    if (game.currentAct >= HOST_RUNTIME_MAX_ACT) {
+      return reply.send(withCreatorFields(game))
+    }
 
     const updated = await prisma.game.update({
       where: { id: game.id },
