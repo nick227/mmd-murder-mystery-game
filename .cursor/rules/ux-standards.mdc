@@ -1,0 +1,103 @@
+---
+description: UX standards (layout, typography, color, surfaces, elements, features, cognitive load)
+globs:
+  - "mmd-frontend/src/**/*"
+alwaysApply: true
+---
+## UX standards (enforced)
+Follow these standards when changing frontend UI. Keep changes small, consistent, and mobile-first. Native mobile feel is the north star — every decision should feel at home on iOS/Android, not like a shrunken desktop.
+
+---
+
+### Layout + spacing
+- **Max width**: UI remains mobile-first (max ~480px centered).
+- **Use stacks with `gap`** rather than ad-hoc margins whenever possible.
+- **Panels**: use existing `.panel` container for card-like surfaces; do not create one-off panel variants without reusing tokens.
+- **Safe areas**: respect device safe areas using `env(safe-area-inset-*)` for bottom nav, modals, and fixed elements.
+- **Touch targets**: all interactive elements must be ≥ 44×44px — never smaller, even if visually compact.
+- **Thumb zone**: primary actions belong in the bottom 40% of the screen. Destructive or rare actions go top-right.
+
+---
+
+### Typography
+- **Readable body**: keep body text at ~16px-equivalent with line-height ≥ 1.45.
+- **Hierarchy**: stage uses H1; panel headers use H2; meta text stays small + muted.
+- **Long text**: preserve paragraphs (`pre-wrap`) and clamp with a **Read more** affordance when needed.
+- **No tiny text**: never render interactive labels below 13px; never render any text below 11px.
+- **Dynamic type**: use `rem` units throughout so system font-size preferences are respected.
+
+---
+
+### Colors
+- **Tokens only**: do not hardcode hex colors in components. Use `:root` CSS variables (`--bg`, `--panel`, `--panel-2`, `--text`, `--muted`, `--line`, `--accent`, `--accent-2`, `--danger`).
+- **Muted text** only for secondary info; primary text uses `--text`.
+- **Dark mode**: all tokens must resolve correctly in both light and dark schemes via `prefers-color-scheme` or a data attribute. Never assume a fixed background.
+- **Contrast**: text-on-background must meet WCAG AA (4.5:1 for body, 3:1 for large text/UI). Use `--muted` only where contrast requirements are explicitly relaxed by design intent.
+- **Semantic color use**: `--accent` = primary CTA only. `--accent-2` = secondary / informational. `--danger` = destructive actions or error states. Don't repurpose tokens for unrelated meanings.
+- **Game state color coding**: map MMD game states to consistent visual treatment:
+  - `SCHEDULED` → neutral/muted palette, countdown emphasis
+  - `PLAYING` → accent-lit, active feel
+  - `REVEAL` → elevated contrast, dramatic — use `--accent-2` for reveal banners
+  - `DONE` → desaturated, archival feel
+
+---
+
+### Surfaces
+- **Elevation layers**: use exactly three surface levels — base (`--bg`), raised (`--panel`), and floating (`--panel-2`). Modals/sheets live on `--panel-2`; do not invent a fourth layer.
+- **No naked divs**: every card, sheet, or container must use a named surface token for background; transparent backgrounds are only for overlays.
+- **Borders vs shadows**: prefer `1px solid var(--line)` for separation on flat surfaces; use `box-shadow` only for truly floating elements (bottom sheets, popovers). Never combine both on the same element.
+- **Bottom sheets**: use for contextual actions instead of modals whenever content is list- or action-oriented. Sheets should peek at ~40% height, expandable to ~90%, with a drag handle and `overscroll-behavior: contain`.
+- **Backgrounds**: avoid decorative gradients or textures on surfaces. Reserve visual complexity for illustration/empty states only.
+- **Role surfaces**: the three roles (`launcher`, `host`, `player`) may use subtly distinct surface tones to reinforce which mode the user is in — but all three must still use the defined token set, not custom hex values.
+
+---
+
+### Elements
+- **Buttons**: use a single `<Button>` primitive from `Primitives.tsx`. Variants: `primary`, `secondary`, `ghost`, `danger`. No inline button styles. Loading state must show a spinner and disable the element — never just change label text alone.
+- **Inputs**: full-width by default on mobile. Always pair with a visible `<label>` (not placeholder-as-label). Show validation state (border color + message) inline, not via alert.
+- **Lists**: use `gap`-based stacks, not `<ul>` padding hacks. Swipe-to-action is acceptable for list rows but must have a fallback long-press/context menu.
+- **Icons**: use a single icon set consistently. Icons alone (no label) require an `aria-label`. Icon + label pairings don't need redundant `aria-label`.
+- **Empty states**: every list or data view must have a defined empty state with an illustration or icon, a short headline, and one clear action.
+- **Skeleton loaders**: use skeletons (not spinners) for content that has a known shape. Use a centered spinner only for indeterminate full-screen loads.
+- **Player pills** (on `Stage`): keep pill labels to first name or character name only — never full "Player X as Character Y" in the pill. Full identity goes in `ProfileCard`.
+- **Objective rows** (`ObjectiveList`): checked state must be visually unambiguous at a glance (struck-through + muted, or filled icon). Don't rely on color alone to convey checked state.
+- **ActionsBar** (host only): host action buttons (`Start`, `Next Act`, `End Night`, `Finish`) are the single most consequential actions in the app — render them large, labeled, and with a confirmation sheet for irreversible transitions (`End Night`, `Finish`). Never render them as ghost buttons.
+
+---
+
+### Features + interactions
+- **Gestures**: support swipe-back (rely on native shell where possible). Don't intercept scroll unless the feature explicitly requires it.
+- **Tab navigation** (`game | objectives | profile`): active tab must be visually clear at all times. Tab bar stays fixed at bottom, above safe area inset. Never hide the tab bar mid-scroll.
+- **Swipe between tabs**: support horizontal swipe to move between the three player tabs (`game`, `objectives`, `profile`) — this is the primary navigation gesture. Swipe direction must match tab order (left = previous, right = next).
+- **Pull-to-refresh**: only on the `Feed` view under the `game` tab. Do not add it to `objectives` or `profile` — those are driven by polling.
+- **Polling UX**: the app polls every ~5 seconds (`useAppState`). Never show a loading indicator on background polls — only show loading state on the initial fetch or a user-triggered refresh. Stale content is preferable to jarring spinners between polls.
+- **Haptics**: trigger light haptic on confirming a primary action, medium on destructive confirm, error pattern on failure. Special case: trigger a distinct haptic pattern when a new act unlocks (act-gate reveal) — this is a key moment of delight.
+- **Transitions**: screen transitions use slide-right-in / slide-left-out (≤ 300ms, `ease-out`). Modals/sheets use slide-up (≤ 250ms). No fade-only transitions for navigation — they feel webby.
+- **Act unlock animation**: when `currentAct` increments and new content appears in `objectives` or `feed`, animate new items in (slide-down + fade, staggered). This is the core dramatic reveal moment — it should feel like an envelope being opened, not a list refresh.
+- **Optimistic UI**: apply state changes immediately; roll back silently on error and show a toast. Never block the UI waiting for a server round-trip unless data integrity requires it.
+- **Toasts**: bottom-center, above tab bar. Auto-dismiss at 3 s for info, 5 s for errors. One toast at a time — queue, don't stack.
+- **ComposerCard**: even while persistence is mocked/unwired, the composer must look and feel fully functional. Disable send if input is empty. Show a "sent" micro-animation on submit.
+- **Join flow** (`JoinCard`): the player name input must auto-focus on mount. `Join` button is the only primary action on this screen — no competing CTAs.
+- **Host key security**: never render the raw `hostKey` value in the UI. The `HostInfoCard` may show copyable player links but must not expose the host secret to the player view under any circumstance.
+
+---
+
+### Maximum cognitive load
+- **One primary action per screen**: each view has exactly one `primary` button. If you need two, one of them is `secondary`.
+- **Progressive disclosure**: hide advanced options behind "More" or a settings sub-screen. Default views show only what 80% of users need 80% of the time.
+- **No modal-on-modal**: never open a sheet or dialog on top of another. Flatten the flow instead.
+- **Decision cap**: never present more than 5 options in a single choice (list, segmented control, radio group). If options exceed 5, use a searchable select or a dedicated selection screen.
+- **Form chunking**: split forms longer than 4 fields into steps. Show a progress indicator. Each step should have one clear question or intent.
+- **Confirmation gates**: only use a confirmation dialog for irreversible destructive host transitions (`end-night`, `done`). All other actions should be undoable via toast + undo, or are safe to repeat.
+- **Role clarity at a glance**: a user who opens the app must know their role (`launcher`, `host`, `player`) within 1 second — the stage banner, header treatment, and tab structure must differ enough that roles are never confused. Never reuse the same layout shell across roles without a distinct visual signal.
+- **Act-gated content**: when content is locked by act, show a placeholder that makes the lock reason explicit ("Unlocks in Act 2") rather than hiding the row entirely. Hidden content creates confusion about whether something is missing or simply locked.
+- **State machine transparency**: the current game state (`SCHEDULED`, `PLAYING`, `REVEAL`, `DONE`) must always be visible on both host and player views — in the stage banner or a persistent status chip. Players should never have to guess if the game has started.
+- **Error messages**: always tell the user what happened + what to do next. Never show a raw error code or API error string in the UI. Poll failures should surface as a subtle "connection issue" indicator, not a full error screen.
+
+---
+
+### Reuse-first
+- Prefer editing `mmd-frontend/src/styles/app.css` and existing primitives (`Primitives.tsx`) over introducing new component variants.
+- Before adding a new component, check if an existing one can accept a prop to cover the case.
+- The schema-driven rendering pipeline (`PageRenderer` → `RenderNode`) is the intended extension point for new screens — add new node types there rather than bypassing into ad-hoc JSX in `App.tsx`.
+- Adapter logic (`adapters.ts`) is the only place API shapes should be transformed into UI models. Never destructure raw API responses directly inside components.

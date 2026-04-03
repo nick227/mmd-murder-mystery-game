@@ -11,6 +11,13 @@ export const StoryListItemSchema = z.object({
   id: z.string(),
   title: z.string(),
   summary: z.string(),
+  image: z.string().optional(),
+  characters: z.array(z.object({
+    characterId: z.string(),
+    name: z.string(),
+    archetype: z.string().optional(),
+    portrait: z.string().optional(),
+  })).optional(),
   createdAt: z.string().datetime(),
 })
 
@@ -38,6 +45,12 @@ export const RescheduleGameBodySchema = z.object({
   scheduledTime: z.string().datetime('must be ISO datetime'),
 })
 
+export const UpdateScheduledGameBodySchema = z.object({
+  name: z.string().min(1, 'name is required'),
+  scheduledTime: z.string().datetime('must be ISO datetime'),
+  locationText: z.string().min(1, 'locationText is required'),
+})
+
 const HostPlayerSchema = z.object({
   id: z.string(),
   characterId: z.string(),
@@ -53,6 +66,9 @@ export const GameSchema = z.object({
   storyId: z.string().nullable(),
   storyFile: z.string().nullable(),
   name: z.string(),
+  creatorUserId: z.string().nullable().optional(),
+  creatorName: z.string().nullable().optional(),
+  creatorAvatar: z.string().nullable().optional(),
   scheduledTime: z.string().datetime(),
   startedAt: z.string().datetime().nullable(),
   state: GameStateSchema,
@@ -69,6 +85,33 @@ export const GameHostViewSchema = GameSchema.extend({
   feed: z.array(z.any()).optional(),
 })
 
+// Public game view (no secrets; used for rejoin + story card)
+export const PublicGameCharacterSchema = z.object({
+  characterId: z.string(),
+  name: z.string(),
+  archetype: z.string().optional(),
+  portrait: z.string().optional(),
+  joined: z.boolean().optional(),
+})
+
+export const GamePublicViewSchema = z.object({
+  gameId: z.string(),
+  gameName: z.string(),
+  gameState: GameStateSchema,
+  creatorUserId: z.string().nullable().optional(),
+  creatorName: z.string().nullable().optional(),
+  creatorAvatar: z.string().nullable().optional(),
+  scheduledTime: z.string().datetime(),
+  locationText: z.string().nullable(),
+  story: z.object({
+    id: z.string(),
+    title: z.string(),
+    summary: z.string(),
+    image: z.string().nullable().optional(),
+    characters: z.array(PublicGameCharacterSchema),
+  }),
+})
+
 // ── Player schemas ────────────────────────────────────────────────────────────
 
 export const JoinGameBodySchema = z.object({
@@ -78,10 +121,13 @@ export const JoinGameBodySchema = z.object({
 export const PlayerViewSchema = z.object({
   gameId: z.string(),
   gameName: z.string(),
+  storyTitle: z.string().optional(),
+  storyBlurb: z.string().optional(),
   gameState: GameStateSchema,
   currentAct: z.number().int(),
   scheduledTime: z.string().datetime(),
   locationText: z.string().nullable(),
+  storyImage: z.string().nullable().optional(),
   stage: z.object({
     title: z.string().optional(),
     text: z.string().optional(),
@@ -119,18 +165,18 @@ export const SubmitCardBodySchema = z.object({
   act: z.number().int(),
 })
 
-export const MoveTypeSchema = z.enum(['suspect', 'accuse', 'alibi', 'share_clue', 'searched', 'solved'])
-
-export const PostMoveBodySchema = z.object({
+export const PostMovePayloadSchema = z.object({
+  type: z.literal('POST_MOVE'),
+  text: z.string().min(1, 'text is required'),
+  clientRequestId: z.string().min(1, 'clientRequestId is required'),
   characterId: z.string().min(1, 'characterId is required'),
-  moveType: MoveTypeSchema,
-  text: z.string().optional(),
-  targetCharacterId: z.string().optional(),
+  characterName: z.string().min(1, 'characterName is required'),
+  characterPortrait: z.string().min(1).optional(),
 })
 
-// ── Host action schemas ───────────────────────────────────────────────────────
+export const PostMoveBodySchema = PostMovePayloadSchema
 
-export const AdvanceActBodySchema = z.object({}).optional()
+// ── Host action schemas ───────────────────────────────────────────────────────
 
 export const SubmitAnswersBodySchema = z.object({
   who: z.string().min(1, 'who is required'),

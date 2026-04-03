@@ -7,12 +7,14 @@ export const defaultLauncherData: LauncherData = {
   stories: [],
   allGames: [],
   savedGames: [],
+  activeGamePublic: null,
+  activeGamePublicKey: null,
   form: {
     apiBase: DEFAULT_API_BASE,
     storyId: '',
-    name: 'Saturday Night Mystery',
+    name: '',
     scheduledTime: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 16),
-    locationText: "Nick's house",
+    locationText: '',
   },
 }
 
@@ -46,9 +48,8 @@ export const emptyScreenData: ScreenData = {
   },
   composer: {
     mode: 'public',
-    postKind: 'suspect',
     draft: '',
-    placeholder: 'Messaging is not wired to the backend yet.',
+    placeholder: 'Posting to the feed is paused for now.',
     recipients: [],
     canSend: false,
   },

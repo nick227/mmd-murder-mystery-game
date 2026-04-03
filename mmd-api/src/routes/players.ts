@@ -11,6 +11,7 @@ import {
 import { loadStoryJson } from '../lib/storyJson.js'
 import { adaptGeneratedStoryToRuntime } from '../lib/generatedRuntimeAdapter.js'
 import { runtimeStoryToPlayerApiView } from '../lib/runtimeToApi.js'
+import { attachRoomEventStream, publishRoomEvent } from '../lib/roomEvents.js'
 
 function solvedActsFromEvents(game: any): number[] {
   const events: any[] = game.events ?? []
@@ -26,7 +27,9 @@ function solvedActsFromEvents(game: any): number[] {
 async function loadRuntimeStoryForGame(game: any) {
   if (game.storyFile) {
     const raw = await loadStoryJson(game.storyFile)
-    return adaptGeneratedStoryToRuntime(raw).runtimeStory
+    const { runtimeStory } = adaptGeneratedStoryToRuntime(raw)
+    const storyImage = (raw as any)?.storyImage ?? runtimeStory.stageByAct?.[1]?.image ?? null
+    return { runtimeStory, storyImage }
   }
   if (game.story?.dataJson) {
     // Legacy DB story blob is not supported for runtime adapter yet (hybrid mode expects storyFile).
@@ -75,7 +78,7 @@ async function joinPlayerSlot(player: any, playerName: string) {
       joinedAt: player.joinedAt ?? new Date(),
     },
   })
-  await prisma.gameEvent.create({
+  return prisma.gameEvent.create({
     data: {
       gameId: updated.gameId,
       playerId: updated.id,
@@ -83,6 +86,19 @@ async function joinPlayerSlot(player: any, playerName: string) {
       payload: { characterId: updated.characterId, playerName: updated.playerName },
     },
   })
+}
+
+async function buildPlayerView(player: any) {
+  const { runtimeStory, storyImage } = await loadRuntimeStoryForGame(player.game)
+  const view = runtimeStoryToPlayerApiView({
+    story: runtimeStory,
+    storyImage,
+    game: player.game,
+    me: { id: player.id, characterId: player.characterId, playerName: player.playerName },
+    solvedActs: solvedActsFromEvents(player.game),
+    feed: player.game.events,
+  })
+  return serializeDates(view)
 }
 
 export async function playersRoutes(fastify: FastifyInstance) {
@@ -116,7 +132,8 @@ export async function playersRoutes(fastify: FastifyInstance) {
       }
 
       const body = validate(JoinGameBodySchema, req.body)
-      await joinPlayerSlot(player, body.playerName)
+      const event = await joinPlayerSlot(player, body.playerName)
+      publishRoomEvent({ gameId: player.gameId, eventId: event.id, eventType: String(event.type) })
       return reply.send({ message: `Welcome, ${body.playerName}!` })
     }
   )
@@ -150,7 +167,8 @@ export async function playersRoutes(fastify: FastifyInstance) {
       }
 
       const body = validate(JoinGameBodySchema, req.body)
-      await joinPlayerSlot(player, body.playerName)
+      const event = await joinPlayerSlot(player, body.playerName)
+      publishRoomEvent({ gameId: player.gameId, eventId: event.id, eventType: String(event.type) })
       return reply.send({ message: `Welcome, ${body.playerName}!` })
     }
   )
@@ -180,15 +198,7 @@ export async function playersRoutes(fastify: FastifyInstance) {
       if (!player) {
         return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Invalid game link' })
       }
-      const runtimeStory = await loadRuntimeStoryForGame(player.game)
-      const view = runtimeStoryToPlayerApiView({
-        story: runtimeStory,
-        game: player.game,
-        me: { id: player.id, characterId: player.characterId, playerName: player.playerName },
-        solvedActs: solvedActsFromEvents(player.game),
-        feed: player.game.events,
-      })
-      return reply.send(serializeDates(view))
+      return reply.send(await buildPlayerView(player))
     }
   )
 
@@ -217,15 +227,36 @@ export async function playersRoutes(fastify: FastifyInstance) {
       if (!player) {
         return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Invalid game link' })
       }
-      const runtimeStory = await loadRuntimeStoryForGame(player.game)
-      const view = runtimeStoryToPlayerApiView({
-        story: runtimeStory,
-        game: player.game,
-        me: { id: player.id, characterId: player.characterId, playerName: player.playerName },
-        solvedActs: solvedActsFromEvents(player.game),
-        feed: player.game.events,
-      })
-      return reply.send(serializeDates(view))
+      return reply.send(await buildPlayerView(player))
+    }
+  )
+
+  fastify.get<{ Params: { gameId: string; characterId: string } }>(
+    '/play/:gameId/character/:characterId/stream',
+    {
+      schema: {
+        tags: ['Players'],
+        summary: 'Subscribe to room updates by character id',
+        params: {
+          type: 'object',
+          properties: {
+            gameId: { type: 'string' },
+            characterId: { type: 'string' },
+          },
+          required: ['gameId', 'characterId'],
+        },
+        response: {},
+      },
+    },
+    async (req, reply) => {
+      const player = await findPlayerByCharacter(req.params.gameId, req.params.characterId)
+      if (!player) {
+        return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Invalid game link' })
+      }
+
+      reply.hijack()
+      attachRoomEventStream(player.gameId, reply.raw)
+      return reply
     }
   )
 
@@ -255,10 +286,12 @@ export async function playersRoutes(fastify: FastifyInstance) {
       }
       const body = validate(SubmitObjectiveBodySchema, req.body)
 
-      const runtimeStory = await loadRuntimeStoryForGame(player.game)
+      const { runtimeStory } = await loadRuntimeStoryForGame(player.game)
       const playerIndex = runtimeStory.playerOrder.indexOf(player.characterId)
+      const characterName = runtimeStory.playersByCharacterId[player.characterId]?.name ?? null
+      const submittedCard = runtimeStory.cards.find(card => card.id === body.objectiveId) ?? null
 
-      await prisma.gameEvent.create({
+      const event = await prisma.gameEvent.create({
         data: {
           gameId: player.gameId,
           playerId: player.id,
@@ -267,11 +300,15 @@ export async function playersRoutes(fastify: FastifyInstance) {
             objectiveId: body.objectiveId,
             act: player.game.currentAct,
             characterId: player.characterId,
+            characterName,
             playerName: player.playerName,
             playerIndex: playerIndex >= 0 ? playerIndex : null,
+            cardTitle: submittedCard?.title ?? null,
+            cardText: submittedCard?.text ?? null,
           },
         },
       })
+      publishRoomEvent({ gameId: player.gameId, eventId: event.id, eventType: String(event.type) })
       return reply.send({ message: 'Submitted' })
     },
   )

@@ -2,15 +2,6 @@ import type { RuntimeCard, RuntimeStory } from './runtimeStory.js'
 
 export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
 
-function stableLocalId(input: string): string {
-  let hash = 2166136261
-  for (let i = 0; i < input.length; i++) {
-    hash ^= input.charCodeAt(i)
-    hash = Math.imul(hash, 16777619)
-  }
-  return `local-${(hash >>> 0).toString(16)}`
-}
-
 function stageForAct(story: RuntimeStory, currentAct: number) {
   return story.stageByAct[currentAct] ?? null
 }
@@ -31,6 +22,7 @@ function stableIndex(input: string, mod: number): number {
 
 export function runtimeStoryToPlayerApiView(input: {
   story: RuntimeStory
+  storyImage?: string | null
   game: {
     id: string
     name: string
@@ -58,13 +50,26 @@ export function runtimeStoryToPlayerApiView(input: {
   const myIndex = input.story.playerOrder.indexOf(input.me.characterId)
 
   const visibleToMe = (card: RuntimeCard): boolean => {
-    // If a card has an explicit targetCharacterId that matches a real characterId, respect it.
-    const target = (card as any).targetCharacterId as string | null | undefined
+    const any = card as any
+
+    // Tier 1: NEW canonical linking by character name (Surf's Up+ schema).
+    if (typeof any.linked_character === 'string' && any.linked_character) {
+      const myCharName = input.story.playersByCharacterId[input.me.characterId]?.name
+      return any.linked_character === myCharName
+    }
+
+    // Tier 2: Legacy explicit ID linking (older explicit-id schema).
+    const target = any.targetCharacterId as string | null | undefined
     if (typeof target === 'string' && input.story.playersByCharacterId[target]) {
       return target === input.me.characterId
     }
-    // Otherwise, deterministically assign per-player to avoid "everyone sees everything".
-    // This is a playability shim until the generator emits explicit ownership.
+
+    // Instructions + clues are safe to share by default (keeps playability even when
+    // stories lack explicit linking fields and we inject fallbacks).
+    if (card.intent === 'instruction') return true
+    if (card.intent === 'clue') return true
+
+    // Tier 3: Legacy hash fallback (Jekyll-era, no linking fields at all).
     const ownerIndex = stableIndex(card.id, playerCount)
     return ownerIndex === (myIndex >= 0 ? myIndex : 0)
   }
@@ -81,7 +86,7 @@ export function runtimeStoryToPlayerApiView(input: {
 
   const unlockedCards = [
     ...instructionCards.map((c, i) => ({ id: c.id ?? `inst-${i}`, text: c.text, act: c.act, type: 'instruction' })),
-    ...clueCards.map((c, i) => ({ id: c.id ?? `clue-${i}`, text: c.text, act: c.act, type: 'clue' })),
+    ...clueCards.map((c, i) => ({ id: c.id ?? `clue-${i}`, text: c.text, act: c.act, type: 'clue', suspectName: (c as any).suspectName ?? null })),
     ...revealCards.map((c, i) => ({ id: c.id ?? `reveal-${i}`, text: c.text, act: c.act, type: 'reveal' })),
   ]
 
@@ -104,10 +109,13 @@ export function runtimeStoryToPlayerApiView(input: {
   return {
     gameId: input.game.id,
     gameName: input.game.name,
+    storyTitle: input.story.title,
+    storyBlurb: input.story.summary,
     gameState: input.game.state,
     currentAct: input.game.currentAct,
     scheduledTime: input.game.scheduledTime.toISOString(),
     locationText: input.game.locationText,
+    storyImage: input.storyImage ?? null,
     stage: stage ? { title: stage.title, text: stage.text, image: stage.image } : null,
     feed,
     roomPlayers: input.game.players.map(p => ({
@@ -122,7 +130,7 @@ export function runtimeStoryToPlayerApiView(input: {
     characterId: input.me.characterId,
     playerName: input.me.playerName,
     character: me
-      ? { id: me.characterId, name: me.name, archetype: me.archetype, biography: me.biography, image: me.image ?? null, secrets: me.secrets, items: [] }
+      ? { id: me.characterId, name: me.name, archetype: me.archetype, biography: me.biography, image: me.image ?? null, secrets: me.secrets, items: me.items }
       : null,
     unlockedMysteries: [],
     unlockedPuzzles,
@@ -136,6 +144,9 @@ export function runtimeStoryToHostMeta(input: {
     id: string
     storyFile: string
     name: string
+    ownerUserId?: string | null
+    creatorName?: string | null
+    creatorAvatar?: string | null
     hostKey: string
     scheduledTime: Date
     startedAt: Date | null
@@ -163,6 +174,9 @@ export function runtimeStoryToHostMeta(input: {
     storyId: input.game.storyFile,
     storyFile: input.game.storyFile,
     name: input.game.name,
+    creatorUserId: input.game.ownerUserId ?? null,
+    creatorName: input.game.creatorName ?? null,
+    creatorAvatar: input.game.creatorAvatar ?? null,
     hostKey: input.game.hostKey,
     scheduledTime: input.game.scheduledTime.toISOString(),
     startedAt: input.game.startedAt ? input.game.startedAt.toISOString() : null,
@@ -186,4 +200,3 @@ export function runtimeStoryToHostMeta(input: {
     })),
   }
 }
-

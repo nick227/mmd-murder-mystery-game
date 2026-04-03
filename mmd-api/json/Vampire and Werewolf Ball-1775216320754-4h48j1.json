@@ -1,0 +1,1301 @@
+{
+  "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Vampire and Werewolf Ball-1775216320754-4h48j1",
+  "playerCount": 4,
+  "userPrompt": "Vampire and Werewolf Ball",
+  "storyStyle": "hilarious, fantastical, adult / r-rated, silly",
+  "cards": [
+    {
+      "card_id": "dface64c-6d36-40aa-97a4-97d88dc51502",
+      "card_type": "person",
+      "card_title": "Countess Seraphine Duskveil",
+      "card_contents": "A centuries-old vampire matriarch whose icy grace and ruthless cunning have kept her clan dominant. She is a master of political intrigue and harbors a secret that could unravel the fragile peace between vampires and werewolves.",
+      "act": 1
+    },
+    {
+      "card_id": "daaee3d1-89bf-40d5-bc69-ade11532a280",
+      "card_type": "person",
+      "card_title": "Fenrir Blackclaw",
+      "card_contents": "Alpha of the Ironfang pack, a werewolf leader known for his fierce loyalty and volatile temper. His scars tell tales of battles won and betrayals endured, and his presence commands both fear and respect among the supernatural community.",
+      "act": 1
+    },
+    {
+      "card_id": "b602594d-c9d7-46bb-8890-8ed9584c8280",
+      "card_type": "person",
+      "card_title": "Elysia Moonshadow",
+      "card_contents": "A mysterious fae liaison who serves as the Midnight Howl’s enigmatic mediator. Her ethereal beauty and cryptic counsel mask a deeper agenda tied to the Moonstone Fang’s true power.",
+      "act": 1
+    },
+    {
+      "card_id": "1c806dc2-c656-4a75-a0cd-651144f8d0f8",
+      "card_type": "location",
+      "card_title": "The Bloodstained Ballroom",
+      "card_contents": "The grand heart of Castle Vespera, where the Midnight Howl’s revelry unfolds beneath towering chandeliers dripping with crimson crystals. Its polished marble floor is stained with centuries of spilled blood and secrets, and its ornate mirrors sometimes reflect more than mere appearances.",
+      "act": 1
+    },
+    {
+      "card_id": "1d23f83e-fa84-4ed0-ba0b-dcab4a2ed902",
+      "card_type": "location",
+      "card_title": "The Shadowed Catacombs",
+      "card_contents": "A sprawling network of underground tunnels and crypts beneath the castle, lined with ancient bones and enchanted traps. The catacombs hide forgotten relics, secret passageways, and the dark whispers of those who never left the night alive.",
+      "act": 1
+    },
+    {
+      "card_id": "91128876-5a5d-4d7e-aa5f-3283e7431a35",
+      "card_type": "location",
+      "card_title": "The Moonlit Conservatory",
+      "card_contents": "A glass-domed garden bathed in perpetual moonlight, where rare nocturnal flora bloom and delicate enchantments shimmer in the air. It is a favored meeting place for clandestine conversations and forbidden liaisons away from prying eyes.",
+      "act": 1
+    },
+    {
+      "card_id": "35ee362a-e926-459a-9992-855c031609c4",
+      "card_type": "item",
+      "card_title": "Moonstone Fang",
+      "card_contents": "A legendary relic carved from a single moonstone, said to grant its bearer dominion over night creatures and the power to command both vampire and werewolf alike. Its disappearance threatens to unravel the balance of power at the Midnight Howl.",
+      "act": 1
+    },
+    {
+      "card_id": "8f18c0ec-f1f0-4431-83b9-7460c104626c",
+      "card_type": "item",
+      "card_title": "The Crimson Ledger",
+      "card_contents": "An ancient, blood-stained book containing records of supernatural pacts, betrayals, and debts. Its pages are rumored to reveal the darkest secrets of the attendees, making it both a coveted and feared artifact.",
+      "act": 1
+    },
+    {
+      "card_id": "9f1722b0-e475-4284-83c3-80d97aae3c15",
+      "card_type": "item",
+      "card_title": "The Howling Horn",
+      "card_contents": "A mystical horn that, when sounded, summons all werewolf packs to the castle grounds. It symbolizes unity and warning, its haunting call echoing through the night and stirring primal instincts among the supernatural clans.",
+      "act": 1
+    },
+    {
+      "card_id": "131eda17-4e15-4dd0-96f3-18308f7082da",
+      "card_type": "character",
+      "card_title": "Lucien Blackthorn, Vampire Prince of the Crimson Veil",
+      "card_contents": "A charismatic and ruthless leader of the ancient Crimson Veil vampire clan, Lucien exudes an aura of dark elegance. Known for his sharp wit and sharper fangs, he harbors a deep resentment towards the werewolves for past betrayals. His motive: reclaiming the Moonstone Fang to solidify vampire dominance and avenge old wounds. Lucien's presence commands attention, but his secrets run deeper than the shadows he inhabits.",
+      "act": 1
+    },
+    {
+      "card_id": "ffc2ba38-94b1-40cc-a164-698b41708266",
+      "card_type": "character",
+      "card_title": "Selene Nightshade, Alpha Werewolf and Moonlit Enforcer",
+      "card_contents": "Selene is the fierce and cunning Alpha of the Silverfang pack, known for her unyielding loyalty and a temper as wild as the full moon. She’s determined to protect her pack’s honor and the fragile truce at the ball. Yet, whispers suggest she covets the Moonstone Fang’s power to unite the werewolf clans under her rule. Her claws are sharp, but her heart hides a vulnerable secret that could unravel everything.",
+      "act": 2
+    },
+    {
+      "card_id": "210d53f1-d2b8-4cd1-a9b8-e30f99302e94",
+      "card_type": "character",
+      "card_title": "Professor Thaddeus Grimwald, Arcane Historian and Occult Scholar",
+      "card_contents": "An eccentric and enigmatic figure, Professor Grimwald is a human scholar obsessed with the supernatural relics of Nocturna. Invited as a guest of honor, his knowledge of ancient curses and dark magic is unparalleled. However, his obsession with the Moonstone Fang borders on fanaticism, and some suspect he might have orchestrated the theft to unlock forbidden powers. His cryptic demeanor masks a mind teetering on the edge of madness.",
+      "act": 3
+    },
+    {
+      "card_id": "5504bd6a-07b2-449c-8f82-187dd487447f",
+      "card_type": "character",
+      "card_title": "Isolde Ravencrest, Vampire Diva and Secret Spy",
+      "card_contents": "Isolde captivates the ballroom with her hauntingly beautiful blood-red solo, but beneath her glamorous facade lies a web of espionage. A spy for a rival vampire faction, she navigates the ball’s intrigues with seductive grace and deadly precision. Her motive intertwines ambition and revenge; the Moonstone Fang’s disappearance could be the perfect leverage to shift the balance of power. Isolde’s charm is as lethal as her hidden daggers.",
+      "act": 1
+    },
+    {
+      "card_id": "775bc2a9-1f22-4e4f-9214-05a07a847cdb",
+      "card_type": "clue",
+      "card_title": "Whispers Beneath the Moon",
+      "card_contents": "When the silver orb reigns high, seek the place where prayers once echoed. Beneath the sacred stone, secrets slumber in shadowed silence.",
+      "act": 1,
+      "linked_character": "Lucien Blackthorn, Vampire Prince of the Crimson Veil",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "fc09f0ad-f39f-4519-9018-d796956e1e13",
+      "card_type": "clue",
+      "card_title": "Arcane Inscriptions",
+      "card_contents": "Symbols etched in ancient script guard the path. Decode the runes of the forgotten chapel; their secrets unlock the hidden.",
+      "act": 2,
+      "linked_character": "Selene Nightshade, Alpha Werewolf and Moonlit Enforcer",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "c4133782-4fad-454c-9b72-dde863085ca9",
+      "card_type": "clue",
+      "card_title": "Professor Grimwald's Hint",
+      "card_contents": "Trust the scholar versed in occult lore. His knowledge of beast and night reveals the mechanism concealed beneath the altar's heart.",
+      "act": 3,
+      "linked_character": "Professor Thaddeus Grimwald, Arcane Historian and Occult Scholar",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "8a4da262-bd11-48a1-9198-50f81ffe1937",
+      "card_type": "clue",
+      "card_title": "The Silent Altar",
+      "card_contents": "Amidst the revelry, the altar stands overlooked. Press where the moonlight fades, and the chamber will yield its silent fang.",
+      "act": 1,
+      "linked_character": "Isolde Ravencrest, Vampire Diva and Secret Spy",
+      "clue_type": "treasure"
+    },
+    {
+      "card_id": "d97d64ec-bcb3-410f-9612-9dc7ea24cf60",
+      "card_type": "clue",
+      "card_title": "Ceremonial Dagger with Residue",
+      "card_contents": "A finely crafted dagger etched with vampire runes, found hidden beneath a loose stone in the shadowed gallery of Castle Vespera. A faint oily residue on the blade tested positive for a rare paralytic toxin.",
+      "clue_type": "artifact",
+      "suspect_name": "Lucien Blackthorn",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "db301ccb-0bd1-4288-b511-2393bce5e2d5",
+      "card_type": "clue",
+      "card_title": "Lord Malrec’s Last Known Whereabouts",
+      "card_contents": "Witnesses recall Lord Malrec was seen entering the shadowed gallery alone shortly before the blood-red solo began. No one saw him leave, and his absence was noted only after the performance ended.",
+      "clue_type": "fact",
+      "suspect_name": "Lord Malrec, Elder Werewolf Diplomat",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "3620caf1-ab53-4c80-a862-0e2f73cbae0a",
+      "card_type": "clue",
+      "card_title": "Lucien’s Tense Exchange",
+      "card_contents": "Several guests overheard a heated argument between Lucien Blackthorn and Lord Malrec earlier in the evening, centered on the Moonstone Fang and claims of betrayal between their factions.",
+      "clue_type": "fact",
+      "suspect_name": "Lucien Blackthorn",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "539e0938-67b6-4985-98fb-e0ba9183010e",
+      "card_type": "clue",
+      "card_title": "Isolde’s Distraction Performance",
+      "card_contents": "Isolde Ravencrest’s dramatic blood-red solo captivated the ballroom, drawing nearly all attention away from other parts of the castle, including the shadowed gallery.",
+      "clue_type": "fact",
+      "suspect_name": "Isolde Ravencrest",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "d6f25818-3f9a-4594-a05a-d2ea0b36f794",
+      "card_type": "clue",
+      "card_title": "Claw Marks on the Gallery Door",
+      "card_contents": "Deep claw marks were found on the inside of the shadowed gallery’s heavy oak door, suggesting a struggle or an attempt to prevent entry or exit.",
+      "clue_type": "artifact",
+      "suspect_name": "Lord Malrec, Elder Werewolf Diplomat",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "fc8b5b28-29ac-486d-a7d2-161ec43ba79d",
+      "card_type": "clue",
+      "card_title": "Lucien’s Hidden Passage Key",
+      "card_contents": "A small ornate key engraved with the Blackthorn crest was discovered in Lucien’s possession, matching a secret door in the shadowed gallery.",
+      "clue_type": "artifact",
+      "suspect_name": "Lucien Blackthorn",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "dcd1e87a-e720-409b-a9c1-a28c5612d674",
+      "card_type": "clue",
+      "card_title": "Suspicious Absence of Selene Nightshade",
+      "card_contents": "Selene Nightshade was unaccounted for during the time of the murder; she claims to have been in the Moonlit Conservatory but no witnesses confirm this.",
+      "clue_type": "fact",
+      "suspect_name": "Selene Nightshade",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "ae101906-d0e1-4046-a70a-567162021375",
+      "card_type": "clue",
+      "card_title": "Professor Grimwald’s Arcane Notes",
+      "card_contents": "Professor Thaddeus Grimwald’s journal contains references to paralytic toxins used in ancient vampire rituals, including one matching the residue found on the dagger.",
+      "clue_type": "artifact",
+      "suspect_name": "Professor Thaddeus Grimwald",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "13778999-1b17-4e57-b084-199c9a4789c4",
+      "card_type": "clue",
+      "card_title": "Footprints Leading to the Gallery",
+      "card_contents": "Muddy footprints with a distinctive vampiric boot pattern were found leading from the Bloodstained Ballroom to the shadowed gallery, disappearing shortly after the time of the murder.",
+      "clue_type": "artifact",
+      "suspect_name": "Lucien Blackthorn",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "bf9d0636-9688-4b80-9ab6-2c4788282b38",
+      "card_type": "clue",
+      "card_title": "Isolde’s Secret Spy Role",
+      "card_contents": "Rumors suggest Isolde Ravencrest acts as a spy for vampire interests, possibly using her performances as cover for covert operations during the ball.",
+      "clue_type": "derived",
+      "suspect_name": "Isolde Ravencrest",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "fcf68248-3630-49c6-9a09-73a03224583d",
+      "card_type": "clue",
+      "card_title": "Unexplained Paralysis Symptoms",
+      "card_contents": "Several guests reported feeling briefly paralyzed or dizzy near the shadowed gallery just before the murder was discovered, consistent with exposure to a paralytic toxin.",
+      "clue_type": "fact",
+      "suspect_name": "Lord Malrec, Elder Werewolf Diplomat",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "2c626eb6-1d4c-47ba-8ffe-dd2526ed9d80",
+      "card_type": "clue",
+      "card_title": "Professor Grimwald’s Alibi Questioned",
+      "card_contents": "Though Professor Grimwald claims to have been examining relics in the Shadowed Catacombs, no one can verify his presence there during the time of the murder.",
+      "clue_type": "fact",
+      "suspect_name": "Professor Thaddeus Grimwald",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "93a0e3d9-c31e-419d-8976-fdd606ce25c3",
+      "card_type": "clue",
+      "card_title": "Forensic Report: Ceremonial Dagger with Residue",
+      "card_contents": "Forensic Report: Ceremonial Dagger with Residue\n\nVictim: Lord Malrec, Elder Werewolf Diplomat\nLocation: Shadowed Gallery, Castle Vespera\n\nSample Analysis Details:\n- Residue Pattern: The dagger's blade bears an intricate claw-shaped blood spatter pattern, which forensic experts identify as a rare ceremonial design exclusive to the Elder Werewolf clans. This pattern is not random blood splatter but a deliberate mark, possibly symbolic or ritualistic, suggesting the dagger was used in a manner consistent with ancient werewolf rites.\n\n- Metal Composition: The blade is forged from an ancient silver alloy, known for its lethality against supernatural creatures. Embedded faint arcane runes along the blade's spine were detected, which are traditionally inscribed to enhance the weapon's potency during ceremonial killings.\n\n- Damage Assessment: The wounds on Lord Malrec's body are clean puncture wounds that perfectly match the dagger's blade dimensions, confirming it as the murder weapon. The angle and depth of the wounds indicate a precise and forceful strike.\n\n- Trace Evidence: Unusual pollen grains were found embedded in the blood residue on the blade. Microscopic analysis identifies these as coming from nocturnal moonflowers, a rare species that only blooms in the shadowed gallery's vicinity during the Midnight Howl event.\n\nInvestigators note that the claw-shaped residue pattern and the presence of moonflower pollen strongly link the dagger's use to the location and timing of the murder. The ceremonial design suggests the killing was not only physical but also symbolic, possibly meant to send a message within the supernatural community gathered at the ball.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "a388132c-d691-47ca-8f7d-f53b5f3abc6e",
+      "card_type": "clue",
+      "card_title": "Witness Log: Midnight Howl Attendees",
+      "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: Shadowed Gallery, Castle Vespera\n\nWitness Log Entries:\n- 11:40 PM: Several guests report seeing the Moonstone Fang displayed prominently in the gallery.\n- 11:45 PM: A figure cloaked in deep velvet is spotted lingering near the ceremonial dagger display, appearing tense and watchful.\n- 11:47 PM: The same figure is seen handling the ceremonial dagger briefly before placing it back.\n- 11:50 PM: Nearby guests hear muffled sounds resembling a struggle or sudden movement.\n- 11:52 PM: A faint scent of nocturnal moonflowers is noticed by a guest passing the gallery.\n- 11:55 PM: The Moonstone Fang is no longer visible in its case.\n- 11:58 PM: The velvet-cloaked figure hastily departs the gallery area.\n- 12:00 AM: Lord Malrec is discovered dead, fangs bared and claws stained, near the ceremonial dagger.\n\nRemarks: The timeline indicates the velvet-cloaked figure’s interaction with the dagger and the disappearance of the Moonstone Fang coincide closely with the time of Lord Malrec’s death. The scent of moonflowers noted aligns with trace evidence found on the dagger, suggesting a direct link between the dagger’s residue and the events leading to the murder.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "de8401ab-6adc-4e40-bbed-1b80346afd06",
+      "card_type": "clue",
+      "card_title": "Artifact Catalog: Moonstone Fang and Related Items",
+      "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: Shadowed Gallery, Castle Vespera\n\nItems Cataloged at Crime Scene:\n- Moonstone Fang: Not found; last known location was the ceremonial display stand in the gallery.\n- Ceremonial Dagger: Located beside the victim; blade coated with a distinctive residue.\n- Protective Amulet: Discovered near Lord Malrec’s body; faintly glowing with residual magic.\n- Enchanted Cloak: Reported missing from the cloakroom; known to grant limited invisibility.\n\nAdditional Observations:\n- The residue on the dagger shows a complex pattern resembling claw marks intertwined with blood spatter, matching a rare ceremonial design tied to werewolf rites.\n- The dagger’s blade contains traces of nocturnal moonflower pollen, a plant only found in the castle’s hidden gardens, suggesting the dagger was recently used or cleaned there.\n- The protective amulet’s glow indicates it was active at the time of death, possibly attempting to shield the victim.\n- The missing enchanted cloak’s invisibility could have facilitated stealth movement within the gallery.\n\nThis catalog highlights connections between the ceremonial dagger’s unique residue pattern, the victim’s protective amulet, and the missing cloak, all critical to understanding the circumstances surrounding Lord Malrec’s death.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_003",
+      "hidden_until_solved": false,
+      "evidence_type": "lists"
+    },
+    {
+      "card_id": "7bd2769c-7a08-4fb0-93cd-a33444e332c1",
+      "card_type": "solution",
+      "card_title": "Solution: The Dagger's Pattern and Death Circumstances",
+      "card_contents": "The physical pattern described under \"Ceremonial Dagger with Residue\" ties to the circumstances of the death at the shadowed gallery of Castle Vespera.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_unlock_001",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "e418e739-6673-4dc8-b08d-a222a0f552fd",
+      "card_type": "puzzle",
+      "card_title": "Who or What Links the Ceremonial Dagger to Lord Malrec's Death?",
+      "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Several pieces of evidence point to the ceremonial dagger with a unique residue pattern.\n\nQuestion: How does the physical pattern described under \"Ceremonial Dagger with Residue\" tie to the circumstances of the death at the shadowed gallery of Castle Vespera?\n\nUnlock the truth behind the dagger's mark and its deadly role in the night's events.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_1_evidence_001",
+        "bundle_1_evidence_002",
+        "bundle_1_evidence_003"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_001"
+      ],
+      "required_card_ids": [
+        "93a0e3d9-c31e-419d-8976-fdd606ce25c3",
+        "a388132c-d691-47ca-8f7d-f53b5f3abc6e",
+        "de8401ab-6adc-4e40-bbed-1b80346afd06"
+      ],
+      "unlock_card_ids": [
+        "7bd2769c-7a08-4fb0-93cd-a33444e332c1"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "24b4d6b7-4c2c-44c6-8549-393859c6e096",
+      "card_type": "clue",
+      "card_title": "Lord Malrec’s Last Known Whereabouts",
+      "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nDetailed Timeline of Lord Malrec’s Movements:\n\n10:15 PM - Lord Malrec was observed standing near the ancient tapestry that depicts the legend of the Moonstone Fang. He appeared engaged in a hushed conversation with a cloaked figure whose identity remains unknown. The area was dimly lit by flickering candelabras, casting long shadows.\n\n10:45 PM - A witness reported seeing Lord Malrec closely examining a cracked marble statue positioned centrally within the gallery. This statue is notorious among guests for rumors of secret compartments hidden within its base. Lord Malrec was seen running his fingers along the cracks, seemingly searching for something.\n\n11:05 PM - Raised voices were overheard near the grand arched window that overlooks the moonlit courtyard. Lord Malrec was involved in a heated argument with an unidentified individual. The window area is a favored spot for private discussions due to its isolation from the main ballroom.\n\n11:30 PM - Lord Malrec’s footsteps were tracked heading toward the spiral staircase that descends to the lower catacombs beneath Castle Vespera. This staircase is narrow and seldom used during the ball, often avoided by guests due to eerie legends surrounding the catacombs.\n\nThis log provides a sequence of Lord Malrec’s last known locations within the shadowed gallery, highlighting key areas of interest including the ancient tapestry, the cracked marble statue, the grand arched window, and the spiral staircase.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "4c8f0dee-5a13-43c0-aa1a-ef35f3d79943",
+      "card_type": "clue",
+      "card_title": "Physical Evidence from the Shadowed Gallery",
+      "card_contents": "Crime Scene Report: Shadowed Gallery, Castle Vespera\n\nVictim: Lord Malrec, Elder Werewolf Diplomat\n\nThe shadowed gallery is a long, dimly lit corridor lined with ancient artifacts and statues, including a prominent cracked marble statue near the center. The following physical evidence was documented:\n\n1. Bloodstained Velvet Fragment: A torn piece of deep crimson velvet fabric was recovered near the base of the cracked marble statue. The blood on the fabric matches Lord Malrec’s blood type, indicating a violent struggle occurred at this spot.\n\n2. Claw Marks on Statue Base: The marble statue’s base bears fresh claw scratches, consistent with werewolf claws. The pattern suggests a defensive or aggressive motion directed at or from the statue.\n\n3. Broken Silver Pendant: Beneath the grand arched window at the far end of the gallery, a shattered silver pendant was found. The pendant is engraved with the emblem of the Crimson Veil, a secretive vampire faction known for their rivalry with Lord Malrec’s pack.\n\n4. Footprints: Partial footprints were traced leading away from the spiral staircase entrance to the gallery. The footprints are muddled by dust but appear to be from heavy boots, possibly wolfhide, and show signs of hurried movement.\n\nThese details collectively indicate a violent confrontation centered near the cracked marble statue, with evidence of both physical struggle and the presence of at least one member of the Crimson Veil faction. The footprints suggest the assailant fled toward the spiral staircase after the attack.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "notes"
+    },
+    {
+      "card_id": "23661354-ecdd-4c4a-81d8-137170ede16f",
+      "card_type": "solution",
+      "card_title": "Answer: Location Implicated by Physical Evidence",
+      "card_contents": "Cross-referencing \"Lord Malrec’s Last Known Whereabouts\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_unlock_002",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "7a1ac765-9955-46e8-971c-f20bc30ac251",
+      "card_type": "puzzle",
+      "card_title": "Where in the Shadowed Gallery Was the Key Clue Found?",
+      "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Cross-reference Lord Malrec’s Last Known Whereabouts with the Physical Evidence from the Shadowed Gallery to determine which part of the gallery the physical detail implicates in the murder.\n\nWhat specific location within the shadowed gallery of Castle Vespera does the physical evidence point to as critical in the investigation?\n\nunlocked_item: You have uncovered a hidden clue near an ancient marble statue that may reveal the murderer’s identity.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_001",
+        "bundle_2_evidence_001",
+        "bundle_2_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_002"
+      ],
+      "required_card_ids": [
+        "7bd2769c-7a08-4fb0-93cd-a33444e332c1",
+        "24b4d6b7-4c2c-44c6-8549-393859c6e096",
+        "4c8f0dee-5a13-43c0-aa1a-ef35f3d79943"
+      ],
+      "unlock_card_ids": [
+        "23661354-ecdd-4c4a-81d8-137170ede16f"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "113076f1-b902-47d1-b420-5a3a5a172626",
+      "card_type": "clue",
+      "card_title": "Witness Ledger: Midnight Howl Attendees",
+      "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nEntry 1: Lucien Blackthorn was seen conversing tensely with Lord Malrec near the east wing alcove shortly before the murder.\n\nEntry 2: Multiple guests reported hearing a heated argument escalating into a scuffle near the east wing alcove, followed by a sudden silence.\n\nEntry 3: Witnesses noted that the east wing alcove was unusually deserted moments before the body was discovered, despite the general crowd in the gallery.\n\nEntry 4: The Moonstone Fang was last observed resting on a pedestal in the central hall, distinctly separate from the shadowed gallery and the east wing alcove.\n\nEntry 5: Several attendees recalled seeing a shadowy figure hastily leaving the east wing alcove area immediately after the disturbance.\n\nThese entries collectively highlight the east wing alcove within the shadowed gallery as the focal point of suspicious activity surrounding Lord Malrec's death.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "b5cb188c-e253-495a-8b85-d1ac0e179ebb",
+      "card_type": "clue",
+      "card_title": "Lucien’s Tense Exchange Transcript",
+      "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nTranscript excerpt from a heated exchange between Lucien Blackthorn, a prominent vampire lord, and Lord Malrec:\n\nLucien: \"Your pack's claims over the east wing alcove are unacceptable. That section has always been under vampire protection.\"\nMalrec: \"This territory has been ours since before your clan's rise. The east wing alcove is sacred ground for my pack.\"\nLucien: \"Tonight, that ends. We will reclaim what is rightfully ours.\"\nMalrec: \"We shall see. But be warned, any trespassers will face the full wrath of the werewolf clans.\"\n\nThe tension in the air was palpable as their voices lowered to terse whispers. Suddenly, the conversation was cut short by the sound of approaching footsteps echoing from the west corridor, causing both to glance sharply in that direction. The transcript ends here, leaving the outcome of this confrontation unknown.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "transcripts"
+    },
+    {
+      "card_id": "0eb9c493-4e35-4bc5-9234-2fb9dff37a75",
+      "card_type": "solution",
+      "card_title": "Solution: Murder Location Identified",
+      "card_contents": "Cross-referencing \"Lucien’s Tense Exchange\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_unlock_003",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "a7a241dc-23cf-4174-9ff1-da0a8350b78f",
+      "card_type": "puzzle",
+      "card_title": "Puzzle: Pinpointing the Scene of the Crime",
+      "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Cross-reference the Witness Ledger and Lucien’s Tense Exchange Transcript to determine which part of the shadowed gallery of Castle Vespera the physical detail implicates in the murder.\n\nWhat specific location within the shadowed gallery of Castle Vespera is linked to the murder by these accounts?\n\nunlocked_item: You have uncovered a detailed map of the shadowed gallery highlighting the east wing alcove, a crucial clue to the night's dark events.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_002",
+        "bundle_3_evidence_001",
+        "bundle_3_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_003"
+      ],
+      "required_card_ids": [
+        "23661354-ecdd-4c4a-81d8-137170ede16f",
+        "113076f1-b902-47d1-b420-5a3a5a172626",
+        "b5cb188c-e253-495a-8b85-d1ac0e179ebb"
+      ],
+      "unlock_card_ids": [
+        "0eb9c493-4e35-4bc5-9234-2fb9dff37a75"
+      ],
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "570184e6-c471-415d-b191-2841117bf3fc",
+      "card_type": "clue",
+      "card_title": "Event Ledger: Midnight Howl Performances",
+      "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nEvent Ledger: Midnight Howl Performances\n\nEntry 1: At 9:15 PM, Isolde’s Distraction Performance commenced at the eastern alcove of the shadowed gallery. The performance featured a blood-red solo, mesmerizing the crowd and drawing most attendees to this area. The lighting was dimmed, with flickering candelabras casting long shadows, creating an atmosphere both enchanting and obscuring.\n\nEntry 2: At 9:45 PM, a sudden commotion erupted near the western balcony of the shadowed gallery. This disturbance coincided with the conclusion of Isolde’s performance. Several guests reported hearing a muffled crash and hurried footsteps moving away from that direction.\n\nEntry 3: At 10:00 PM, Lord Malrec was last observed alive near the central staircase of the shadowed gallery. Witnesses noted he appeared anxious, frequently glancing towards the eastern alcove. Shortly thereafter, the murder was discovered, with the body found in the shadowed gallery’s eastern section.\n\nAdditional Notes: The timing and locations of these events suggest that Isolde’s performance served as a deliberate distraction, drawing attention away from the eastern alcove where critical activity related to the murder took place. The dim lighting and crowd focus during the performance likely concealed subtle physical evidence near the eastern alcove stage.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_001",
+      "hidden_until_solved": false,
+      "evidence_type": "logs"
+    },
+    {
+      "card_id": "3f11735b-27b6-42d4-ad65-245052f21384",
+      "card_type": "clue",
+      "card_title": "Witness Transcript: Midnight Howl Attendees",
+      "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nWitness 1: \"I saw Isolde's performance draw everyone to the eastern alcove; the lights and music were hypnotic. The crowd was completely focused there, as if nothing else existed in the gallery.\"\n\nWitness 2: \"Right after Isolde finished, I noticed Lord Malrec heading toward the eastern alcove. He seemed tense, glancing around nervously as if he was searching for something or someone.\"\n\nWitness 3: \"Just before the murder was discovered, I caught a glimpse of a strange glint near the eastern alcove where Isolde performed. It was subtle but unusual—like a flash of metal or glass reflecting the dim light.\"\n\nWitness 4: \"The eastern alcove stage had a hidden compartment beneath it, though I only heard whispers about it. It’s said that performers sometimes used it to hide props or secrets.\"\n\nWitness 5: \"The shadowed gallery was dimly lit, but the eastern alcove was the brightest spot during Isolde’s act. It created a perfect distraction, making it easy for someone to move unnoticed or conceal something there.\"",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_002",
+      "hidden_until_solved": false,
+      "evidence_type": "transcripts"
+    },
+    {
+      "card_id": "fdf86b51-b6bc-4fb3-948e-c660e7cd9454",
+      "card_type": "solution",
+      "card_title": "Solution: Location of the Physical Detail",
+      "card_contents": "Cross-referencing \"Isolde’s Distraction Performance\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_unlock_004",
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "0b76d300-c6e1-4d05-9a88-4bf8f718e657",
+      "card_type": "puzzle",
+      "card_title": "Puzzle: Locating the Clue in the Shadowed Gallery",
+      "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Cross-referencing the details from the Event Ledger and Witness Transcript, where exactly in the shadowed gallery does Isolde’s Distraction Performance help isolate the physical detail that implicates the location of the murder?\n\nUnlocked Item: You discover a hidden compartment beneath the eastern alcove stage, revealing a blood-stained glove.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_puzzle",
+      "puzzle_type": "cross_reference",
+      "required_card_refs": [
+        "bundle_unlock_003",
+        "bundle_4_evidence_001",
+        "bundle_4_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_004"
+      ],
+      "required_card_ids": [
+        "0eb9c493-4e35-4bc5-9234-2fb9dff37a75",
+        "570184e6-c471-415d-b191-2841117bf3fc",
+        "3f11735b-27b6-42d4-ad65-245052f21384"
+      ],
+      "unlock_card_ids": [
+        "fdf86b51-b6bc-4fb3-948e-c660e7cd9454"
+      ],
+      "hidden_until_solved": false
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [
+      {
+        "stage": "item_agent",
+        "attempt": 1,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "Moonstone Fang, The Crimson Ledger, The Howling Horn"
+      },
+      {
+        "stage": "item_agent",
+        "attempt": 2,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": "Moonstone Fang, The Crimson Ledger, The Howling Horn"
+      }
+    ],
+    "warning_log": [
+      {
+        "stage": "item_agent",
+        "reason": "best_effort_items",
+        "message": "item_agent failed strict per-character item generation; emitting best-effort set (0 items)."
+      }
+    ],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "Welcome to the annual Midnight Howl, the most scandalous and blood-soaked event in the supernatural calendar: the Vampire and Werewolf Ball. Held deep in the shadowy ruins of a once-glorious Gothic castle, this raucous gathering unites centuries-old vampire clans and werewolf packs under one moonlit roof to compete for the coveted Moonstone Fang—a mystical relic said to grant dominion over night and beast alike. But this year, the Moonstone Fang has vanished, and before the night ends, a prominent supernatural dignitary is found dead, fangs bared and claws stained with betrayal.\n\nTensions simmer beneath the glittering chandeliers and howling laughter, as centuries-old grudges and forbidden romances collide. The guests—draped in velvet, leather, and fur—must navigate a labyrinth of biting wit, bloodthirsty rivalries, and scandalous secrets. The murder threatens not only the fragile truce between vampires and werewolves but also the very fabric of their nocturnal society.\n\nSet in a timeless, gothic fantasy realm where the absurd meets the arcane, the ball pulses with raucous energy and dark humor. Expect outrageous costume mishaps, drunken curses, and a dance floor where fangs flash and claws clash. Players will feel the weight of ancient vendettas and the absurdity of supernatural politics, all while trying to unmask a killer who thrives in the shadows.\n\nMemorable moments include a werewolf DJ spinning bone-rattling beats, a vampire diva’s dramatic blood-red solo, and a chaotic chase through secret passageways filled with enchanted traps. The night promises laughter, howls, and a deadly game where everyone’s a suspect—and no one can be trusted.",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "playability_history": [
+    {
+      "step_name": "story_blurb_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "world_building_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "characters_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "treasure_hunt_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "case_state_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "item_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_roster_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_target_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_draft_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_finalize_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_evidence_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_visible_canon_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_linker_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "structural_preflight_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "solvability_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_structure_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "post_final_invariants_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_integrity_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "mvp_quality_gate_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    }
+  ],
+  "world": "In the shadow-draped realm of Nocturna, where twilight lingers eternal and the moon reigns supreme, the Midnight Howl unfolds within the crumbling grandeur of Castle Vespera. Once a beacon of mortal nobility, its Gothic spires now pierce a sky thick with mist and whispered secrets. The castle’s labyrinthine halls, festooned with faded tapestries and flickering candelabras, echo with centuries of blood-soaked pacts and whispered betrayals. Here, beneath vaulted ceilings carved with snarling beasts and twisted vines, the supernatural elite convene, their revelry a volatile dance of power, passion, and peril. The air is thick with the scent of ancient leather, spilled blood, and the electric charge of arcane energy, making the castle not just a venue but a living testament to the fragile truce between predator and prey. Each shadow conceals a story; every flicker of candlelight threatens revelation. Castle Vespera is the crucible where old grudges ignite, alliances shatter, and the fate of nocturnal dominion hangs by a thread.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Countess Seraphine Duskveil",
+        "summary": "A centuries-old vampire matriarch whose icy grace and ruthless cunning have kept her clan dominant. She is a master of political intrigue and harbors a secret that could unravel the fragile peace between vampires and werewolves."
+      },
+      {
+        "name": "Fenrir Blackclaw",
+        "summary": "Alpha of the Ironfang pack, a werewolf leader known for his fierce loyalty and volatile temper. His scars tell tales of battles won and betrayals endured, and his presence commands both fear and respect among the supernatural community."
+      },
+      {
+        "name": "Elysia Moonshadow",
+        "summary": "A mysterious fae liaison who serves as the Midnight Howl’s enigmatic mediator. Her ethereal beauty and cryptic counsel mask a deeper agenda tied to the Moonstone Fang’s true power."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Bloodstained Ballroom",
+        "summary": "The grand heart of Castle Vespera, where the Midnight Howl’s revelry unfolds beneath towering chandeliers dripping with crimson crystals. Its polished marble floor is stained with centuries of spilled blood and secrets, and its ornate mirrors sometimes reflect more than mere appearances."
+      },
+      {
+        "name": "The Shadowed Catacombs",
+        "summary": "A sprawling network of underground tunnels and crypts beneath the castle, lined with ancient bones and enchanted traps. The catacombs hide forgotten relics, secret passageways, and the dark whispers of those who never left the night alive."
+      },
+      {
+        "name": "The Moonlit Conservatory",
+        "summary": "A glass-domed garden bathed in perpetual moonlight, where rare nocturnal flora bloom and delicate enchantments shimmer in the air. It is a favored meeting place for clandestine conversations and forbidden liaisons away from prying eyes."
+      }
+    ],
+    "items": [
+      {
+        "name": "Moonstone Fang",
+        "summary": "A legendary relic carved from a single moonstone, said to grant its bearer dominion over night creatures and the power to command both vampire and werewolf alike. Its disappearance threatens to unravel the balance of power at the Midnight Howl."
+      },
+      {
+        "name": "The Crimson Ledger",
+        "summary": "An ancient, blood-stained book containing records of supernatural pacts, betrayals, and debts. Its pages are rumored to reveal the darkest secrets of the attendees, making it both a coveted and feared artifact."
+      },
+      {
+        "name": "The Howling Horn",
+        "summary": "A mystical horn that, when sounded, summons all werewolf packs to the castle grounds. It symbolizes unity and warning, its haunting call echoing through the night and stirring primal instincts among the supernatural clans."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Lucien Blackthorn, Vampire Prince of the Crimson Veil",
+      "victim": "Lord Malrec, Elder Werewolf Diplomat",
+      "location": "the shadowed gallery of Castle Vespera",
+      "murder_solution": "Lucien Blackthorn murdered Lord Malrec in the shadowed gallery during a tense confrontation over the missing Moonstone Fang. Lucien, driven by a desire to reclaim the relic and assert vampire dominance, exploited the chaotic distraction of the ball's festivities to strike. He used his vampiric strength to overpower Malrec, stabbing him with a ceremonial dagger coated in a paralytic toxin to ensure silence. The secluded gallery provided the perfect cover, away from the prying eyes of other guests, and Lucien timed the attack when most attendees were distracted by Isolde Ravencrest's blood-red solo. This calculated move was meant to destabilize the werewolf faction and mask his theft of the Moonstone Fang."
+    },
+    "treasure": {
+      "object": "Moonstone Fang",
+      "hiding_place": "secret compartment beneath the ancient altar in the castle chapel",
+      "treasure_solution": "The Moonstone Fang is the mystical relic central to the ball's power struggle, believed to grant dominion over night and beast. Lucien hid it in a secret compartment beneath the ancient altar in Castle Vespera's chapel, a place overlooked during the raucous celebrations. Players can discover it by investigating the chapel's altar for hidden mechanisms, guided by clues in the arcane inscriptions and Professor Grimwald's knowledge of occult symbols. Finding the Fang is crucial to restoring balance and resolving the murder's motive."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "lucien_blackthorn",
+        "name": "Lucien Blackthorn",
+        "title": "Lucien Blackthorn, Vampire Prince of the Crimson Veil",
+        "card_id": "131eda17-4e15-4dd0-96f3-18308f7082da",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "selene_nightshade",
+        "name": "Selene Nightshade",
+        "title": "Selene Nightshade, Alpha Werewolf and Moonlit Enforcer",
+        "card_id": "ffc2ba38-94b1-40cc-a164-698b41708266",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "professor_thaddeus_grimwald",
+        "name": "Professor Thaddeus Grimwald",
+        "title": "Professor Thaddeus Grimwald, Arcane Historian and Occult Scholar",
+        "card_id": "210d53f1-d2b8-4cd1-a9b8-e30f99302e94",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "isolde_ravencrest",
+        "name": "Isolde Ravencrest",
+        "title": "Isolde Ravencrest, Vampire Diva and Secret Spy",
+        "card_id": "5504bd6a-07b2-449c-8f82-187dd487447f",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "lucien_blackthorn",
+    "killer_name": "Lucien Blackthorn",
+    "victim_name": "Lord Malrec, Elder Werewolf Diplomat",
+    "murder": {
+      "location": "the shadowed gallery of Castle Vespera",
+      "method": "",
+      "motive": "",
+      "summary": "Lucien Blackthorn murdered Lord Malrec in the shadowed gallery during a tense confrontation over the missing Moonstone Fang. Lucien, driven by a desire to reclaim the relic and assert vampire dominance, exploited the chaotic distraction of the ball's festivities to strike. He used his vampiric strength to overpower Malrec, stabbing him with a ceremonial dagger coated in a paralytic toxin to ensure silence. The secluded gallery provided the perfect cover, away from the prying eyes of other guests, and Lucien timed the attack when most attendees were distracted by Isolde Ravencrest's blood-red solo. This calculated move was meant to destabilize the werewolf faction and mask his theft of the Moonstone Fang.",
+      "opportunity": "",
+      "window_start": null,
+      "window_end": null
+    },
+    "treasure": {
+      "object": "Moonstone Fang",
+      "hiding_place": "secret compartment beneath the ancient altar in the castle chapel",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "lucien_blackthorn",
+        "selene_nightshade",
+        "professor_thaddeus_grimwald",
+        "isolde_ravencrest"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "clue_targets": [
+    {
+      "target_id": "d97d64ec-bcb3-410f-9612-9dc7ea24cf60",
+      "fact": "The physical pattern described under \"Ceremonial Dagger with Residue\" ties to the circumstances of the death at the shadowed gallery of Castle Vespera.",
+      "category": "object",
+      "act": 1,
+      "puzzle_type_hint": "item_combination",
+      "suspect_name": "Lucien Blackthorn"
+    },
+    {
+      "target_id": "db301ccb-0bd1-4288-b511-2393bce5e2d5",
+      "fact": "Cross-referencing \"Lord Malrec’s Last Known Whereabouts\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "category": "location",
+      "act": 2,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Lord Malrec, Elder Werewolf Diplomat"
+    },
+    {
+      "target_id": "3620caf1-ab53-4c80-a862-0e2f73cbae0a",
+      "fact": "Cross-referencing \"Lucien’s Tense Exchange\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "category": "location",
+      "act": 3,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Lucien Blackthorn"
+    },
+    {
+      "target_id": "539e0938-67b6-4985-98fb-e0ba9183010e",
+      "fact": "Cross-referencing \"Isolde’s Distraction Performance\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "category": "location",
+      "act": 3,
+      "puzzle_type_hint": "cross_reference",
+      "suspect_name": "Isolde Ravencrest"
+    }
+  ],
+  "puzzle_bundle_drafts": [
+    {
+      "clue_target": {
+        "target_id": "d97d64ec-bcb3-410f-9612-9dc7ea24cf60",
+        "fact": "The physical pattern described under \"Ceremonial Dagger with Residue\" ties to the circumstances of the death at the shadowed gallery of Castle Vespera.",
+        "category": "object",
+        "act": 1,
+        "puzzle_type_hint": "item_combination",
+        "suspect_name": "Lucien Blackthorn"
+      },
+      "puzzle_type": "item_combination",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Forensic Report: Ceremonial Dagger with Residue",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\nSample Analysis:\n- Residue Pattern: Intricate claw-shaped blood spatter matching a rare ceremonial design\n- Metal Composition: Ancient silver alloy with faint arcane runes\n- Damage: Clean puncture wounds consistent with dagger's blade\n- Trace Evidence: Unusual pollen grains from nocturnal moonflowers\n\nNotes: The pattern on the dagger's blade and residue may link to the circumstances of the death."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Witness Log: Midnight Howl Attendees",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\nEntries:\n- 11:45 PM: Witness saw a figure in a velvet cloak near the gallery\n- 11:50 PM: Sounds of a struggle reported\n- 11:55 PM: The Moonstone Fang was last seen on display in the gallery\n- 12:00 AM: Lord Malrec found dead with fangs bared and claws stained\n\nRemarks: The timeline suggests the dagger and its residue pattern are key to understanding the death."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Artifact Catalog: Moonstone Fang and Related Items",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\nItems:\n- Moonstone Fang: Missing from display\n- Ceremonial Dagger: Present with residue\n- Protective Amulet: Found near the victim\n- Enchanted Cloak: Reported missing from cloakroom\n\nObservation: The ceremonial dagger's physical pattern may be connected to the victim's death circumstances."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Who or What Links the Ceremonial Dagger to Lord Malrec's Death?",
+          "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Several pieces of evidence point to the ceremonial dagger with a unique residue pattern.\n\nQuestion: How does the physical pattern described under \"Ceremonial Dagger with Residue\" tie to the circumstances of the death at the shadowed gallery of Castle Vespera?\n\nUnlock the truth behind the dagger's mark and its deadly role in the night's events.\n",
+          "unlocked_item": "You have unlocked the detailed analysis of the ceremonial dagger's residue pattern, revealing its significance."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: The Dagger's Pattern and Death Circumstances",
+          "card_contents": "The physical pattern described under \"Ceremonial Dagger with Residue\" ties to the circumstances of the death at the shadowed gallery of Castle Vespera."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "db301ccb-0bd1-4288-b511-2393bce5e2d5",
+        "fact": "Cross-referencing \"Lord Malrec’s Last Known Whereabouts\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+        "category": "location",
+        "act": 2,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Lord Malrec, Elder Werewolf Diplomat"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Lord Malrec’s Last Known Whereabouts",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nEntry 1: At 10:15 PM, Lord Malrec was seen near the ancient tapestry depicting the Moonstone Fang’s legend, conversing with a cloaked figure.\nEntry 2: At 10:45 PM, a witness spotted Lord Malrec examining a cracked marble statue, rumored to conceal secret compartments.\nEntry 3: At 11:05 PM, Lord Malrec was heard arguing near the grand arched window overlooking the moonlit courtyard.\nEntry 4: At 11:30 PM, Lord Malrec’s footsteps were traced toward the spiral staircase leading to the lower catacombs."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Physical Evidence from the Shadowed Gallery",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nItem 1: A bloodstained fragment of a torn velvet cloak found near the cracked marble statue.\nItem 2: Scratches on the marble statue’s base matching claw marks.\nItem 3: A broken silver pendant engraved with the emblem of the Crimson Veil, discovered beneath the grand arched window.\nItem 4: Footprints leading away from the spiral staircase, partially obscured by dust."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Where in the Shadowed Gallery Was the Key Clue Found?",
+          "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Cross-reference Lord Malrec’s Last Known Whereabouts with the Physical Evidence from the Shadowed Gallery to determine which part of the gallery the physical detail implicates in the murder.\n\nWhat specific location within the shadowed gallery of Castle Vespera does the physical evidence point to as critical in the investigation?\n\nunlocked_item: You have uncovered a hidden clue near an ancient marble statue that may reveal the murderer’s identity.",
+          "unlocked_item": "You have uncovered a hidden clue near an ancient marble statue that may reveal the murderer’s identity."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Answer: Location Implicated by Physical Evidence",
+          "card_contents": "Cross-referencing \"Lord Malrec’s Last Known Whereabouts\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates: the cracked marble statue."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "3620caf1-ab53-4c80-a862-0e2f73cbae0a",
+        "fact": "Cross-referencing \"Lucien’s Tense Exchange\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+        "category": "location",
+        "act": 3,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Lucien Blackthorn"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Witness Ledger: Midnight Howl Attendees",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\nEntry 1: Lucien Blackthorn was seen conversing tensely with Lord Malrec near the east wing alcove.\nEntry 2: Several guests reported hearing a scuffle near the east wing alcove shortly before the body was discovered.\nEntry 3: The Moonstone Fang was last spotted on a pedestal in the central hall, far from the shadowed gallery."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Lucien’s Tense Exchange Transcript",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\nTranscript excerpt:\nLucien: \"Your pack's claims over the east wing alcove are unacceptable.\"\nMalrec: \"This territory has been ours since before your clan's rise.\"\nLucien: \"Tonight, that ends.\"\nMalrec: \"We shall see.\"\nThe conversation ended abruptly as footsteps approached from the west corridor."
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Puzzle: Pinpointing the Scene of the Crime",
+          "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Cross-reference the Witness Ledger and Lucien’s Tense Exchange Transcript to determine which part of the shadowed gallery of Castle Vespera the physical detail implicates in the murder.\n\nWhat specific location within the shadowed gallery of Castle Vespera is linked to the murder by these accounts?\n\nunlocked_item: You have uncovered a detailed map of the shadowed gallery highlighting the east wing alcove, a crucial clue to the night's dark events.",
+          "unlocked_item": "You have uncovered a detailed map of the shadowed gallery highlighting the east wing alcove, a crucial clue to the night's dark events."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: Murder Location Identified",
+          "card_contents": "Cross-referencing \"Lucien’s Tense Exchange\" isolates the east wing alcove of the shadowed gallery of Castle Vespera as the specific part implicated by the physical detail."
+        }
+      ]
+    },
+    {
+      "clue_target": {
+        "target_id": "539e0938-67b6-4985-98fb-e0ba9183010e",
+        "fact": "Cross-referencing \"Isolde’s Distraction Performance\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+        "category": "location",
+        "act": 3,
+        "puzzle_type_hint": "cross_reference",
+        "suspect_name": "Isolde Ravencrest"
+      },
+      "puzzle_type": "cross_reference",
+      "cards": [
+        {
+          "card_type": "evidence",
+          "card_title": "Event Ledger: Midnight Howl Performances",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nEntry 1: At 9:15 PM, Isolde’s Distraction Performance began, featuring a mesmerizing blood-red solo that captivated the crowd near the eastern alcove of the shadowed gallery.\nEntry 2: At 9:45 PM, a sudden commotion was reported near the western balcony of the shadowed gallery, coinciding with the end of Isolde's performance.\nEntry 3: At 10:00 PM, Lord Malrec was last seen alive near the central staircase of the shadowed gallery, moments before the murder was discovered."
+        },
+        {
+          "card_type": "evidence",
+          "card_title": "Witness Transcript: Midnight Howl Attendees",
+          "card_contents": "Victim: Lord Malrec, Elder Werewolf Diplomat\nLocation: the shadowed gallery of Castle Vespera\n\nWitness 1: \"I saw Isolde's performance draw everyone to the eastern alcove; the lights and music were hypnotic.\"\nWitness 2: \"After the performance, I noticed Lord Malrec heading towards the eastern alcove, looking tense and glancing around nervously.\"\nWitness 3: \"There was a strange glint near the eastern alcove where Isolde performed, just before the murder was found out.\""
+        },
+        {
+          "card_type": "puzzle",
+          "card_title": "Puzzle: Locating the Clue in the Shadowed Gallery",
+          "card_contents": "Lord Malrec, Elder Werewolf Diplomat, was found dead in the shadowed gallery of Castle Vespera during the Midnight Howl. Cross-referencing the details from the Event Ledger and Witness Transcript, where exactly in the shadowed gallery does Isolde’s Distraction Performance help isolate the physical detail that implicates the location of the murder?\n\nUnlocked Item: You discover a hidden compartment beneath the eastern alcove stage, revealing a blood-stained glove.",
+          "unlocked_item": "You discover a hidden compartment beneath the eastern alcove stage, revealing a blood-stained glove."
+        },
+        {
+          "card_type": "solution",
+          "card_title": "Solution: Location of the Physical Detail",
+          "card_contents": "Cross-referencing \"Isolde’s Distraction Performance\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates: the eastern alcove."
+        }
+      ]
+    }
+  ],
+  "puzzle_bundles": [
+    {
+      "bundle_id": "puzzle_bundle_001",
+      "act": 1,
+      "puzzle_type": "item_combination",
+      "clue_target": "The physical pattern described under \"Ceremonial Dagger with Residue\" ties to the circumstances of the death at the shadowed gallery of Castle Vespera.",
+      "card_ids": [
+        "93a0e3d9-c31e-419d-8976-fdd606ce25c3",
+        "a388132c-d691-47ca-8f7d-f53b5f3abc6e",
+        "de8401ab-6adc-4e40-bbed-1b80346afd06",
+        "7bd2769c-7a08-4fb0-93cd-a33444e332c1",
+        "e418e739-6673-4dc8-b08d-a222a0f552fd"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_002",
+      "act": 2,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Lord Malrec’s Last Known Whereabouts\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "card_ids": [
+        "24b4d6b7-4c2c-44c6-8549-393859c6e096",
+        "4c8f0dee-5a13-43c0-aa1a-ef35f3d79943",
+        "23661354-ecdd-4c4a-81d8-137170ede16f",
+        "7a1ac765-9955-46e8-971c-f20bc30ac251"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_003",
+      "act": 3,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Lucien’s Tense Exchange\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "card_ids": [
+        "113076f1-b902-47d1-b420-5a3a5a172626",
+        "b5cb188c-e253-495a-8b85-d1ac0e179ebb",
+        "0eb9c493-4e35-4bc5-9234-2fb9dff37a75",
+        "a7a241dc-23cf-4174-9ff1-da0a8350b78f"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_004",
+      "act": 3,
+      "puzzle_type": "cross_reference",
+      "clue_target": "Cross-referencing \"Isolde’s Distraction Performance\" isolates which part of the shadowed gallery of Castle Vespera the physical detail implicates.",
+      "card_ids": [
+        "570184e6-c471-415d-b191-2841117bf3fc",
+        "3f11735b-27b6-42d4-ad65-245052f21384",
+        "fdf86b51-b6bc-4fb3-948e-c660e7cd9454",
+        "0b76d300-c6e1-4d05-9a88-4bf8f718e657"
+      ]
+    }
+  ],
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "costAccounting": {
+    "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+    "requestCount": 18,
+    "requests": [
+      {
+        "index": 3,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "characters_builder_agent",
+        "requestType": "json",
+        "schemaName": "characters_builder",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 718,
+        "completion_tokens": 441,
+        "total_tokens": 1159,
+        "created_at": "2026-04-03T11:39:41.784Z"
+      },
+      {
+        "index": 4,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "core_truth_agent",
+        "requestType": "json",
+        "schemaName": "core_truth",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1545,
+        "completion_tokens": 322,
+        "total_tokens": 1867,
+        "created_at": "2026-04-03T11:39:46.531Z"
+      },
+      {
+        "index": 5,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "treasure_hunt_agent",
+        "requestType": "json",
+        "schemaName": "treasure_hunt",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 615,
+        "completion_tokens": 163,
+        "total_tokens": 778,
+        "created_at": "2026-04-03T11:39:49.230Z"
+      },
+      {
+        "index": 6,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "clue_agent",
+        "requestType": "json",
+        "schemaName": "clue_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1438,
+        "completion_tokens": 838,
+        "total_tokens": 2276,
+        "created_at": "2026-04-03T11:39:57.126Z"
+      },
+      {
+        "index": 7,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 960,
+        "completion_tokens": 611,
+        "total_tokens": 1571,
+        "created_at": "2026-04-03T11:40:09.150Z"
+      },
+      {
+        "index": 8,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 959,
+        "completion_tokens": 537,
+        "total_tokens": 1496,
+        "created_at": "2026-04-03T11:40:16.332Z"
+      },
+      {
+        "index": 9,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 957,
+        "completion_tokens": 483,
+        "total_tokens": 1440,
+        "created_at": "2026-04-03T11:40:22.057Z"
+      },
+      {
+        "index": 10,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 957,
+        "completion_tokens": 505,
+        "total_tokens": 1462,
+        "created_at": "2026-04-03T11:40:29.124Z"
+      },
+      {
+        "index": 11,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1503,
+        "completion_tokens": 372,
+        "total_tokens": 1875,
+        "created_at": "2026-04-03T11:40:35.060Z"
+      },
+      {
+        "index": 12,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1503,
+        "completion_tokens": 328,
+        "total_tokens": 1831,
+        "created_at": "2026-04-03T11:40:42.201Z"
+      },
+      {
+        "index": 13,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1503,
+        "completion_tokens": 309,
+        "total_tokens": 1812,
+        "created_at": "2026-04-03T11:40:46.970Z"
+      },
+      {
+        "index": 14,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1399,
+        "completion_tokens": 371,
+        "total_tokens": 1770,
+        "created_at": "2026-04-03T11:40:55.836Z"
+      },
+      {
+        "index": 15,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1399,
+        "completion_tokens": 367,
+        "total_tokens": 1766,
+        "created_at": "2026-04-03T11:41:05.206Z"
+      },
+      {
+        "index": 16,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1327,
+        "completion_tokens": 258,
+        "total_tokens": 1585,
+        "created_at": "2026-04-03T11:41:08.678Z"
+      },
+      {
+        "index": 17,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1327,
+        "completion_tokens": 262,
+        "total_tokens": 1589,
+        "created_at": "2026-04-03T11:41:12.311Z"
+      },
+      {
+        "index": 18,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1357,
+        "completion_tokens": 340,
+        "total_tokens": 1697,
+        "created_at": "2026-04-03T11:41:16.814Z"
+      },
+      {
+        "index": 19,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "puzzle_evidence_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_evidence",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1357,
+        "completion_tokens": 306,
+        "total_tokens": 1663,
+        "created_at": "2026-04-03T11:41:20.296Z"
+      },
+      {
+        "index": 20,
+        "runId": "Vampire and Werewolf Ball-1775216320754-4h48j1",
+        "stepName": "solvability_validator_agent",
+        "requestType": "json",
+        "schemaName": "solvability_validation",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 9659,
+        "completion_tokens": 9,
+        "total_tokens": 9668,
+        "created_at": "2026-04-03T11:41:22.408Z"
+      }
+    ],
+    "totals": {
+      "prompt_tokens": 30483,
+      "completion_tokens": 6822,
+      "total_tokens": 37305
+    }
+  }
+}

@@ -79,7 +79,6 @@ export function Media({
             src={effectiveSrc}
             alt={imgAlt}
             loading={priority ? 'eager' : 'lazy'}
-            fetchPriority={priority ? 'high' : 'auto'}
             decoding="async"
             sizes={sizes}
             aria-hidden={ariaHidden}

@@ -10,6 +10,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id      String   @id // Google sub
+  email   String   @unique
+  name    String
+  avatar  String
+  games   Game[]   // User's created games
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
 model Story {
   id        String   @id @default(cuid())
   title     String
@@ -45,11 +57,18 @@ model Game {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
+  // User ownership
+  ownerUserId   String?
+  ownerUser     User?      @relation(fields: [ownerUserId], references: [id])
+  creatorName   String?
+  creatorAvatar String?
+
   story          Story?              @relation(fields: [storyId], references: [id])
   players        GamePlayer[]
   mysteryAnswers GameMysteryAnswer[]
   events         GameEvent[]
 
+  @@index([ownerUserId])
   @@map("games")
 }
 

@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   useHostScreenData,
   useLauncherState,
-  usePinnedIds,
   usePlayerScreenData,
   useTabState,
   useViewMode,
@@ -23,7 +22,6 @@ export function AppController() {
   const launcher = useLauncherState()
   const player = usePlayerScreenData(apiBase, gameId, characterId)
   const host = useHostScreenData(apiBase, gameId, hostKey)
-  const pins = usePinnedIds({ gameId, characterId })
 
   const state =
     mode === 'host' ? host
@@ -51,6 +49,12 @@ export function AppController() {
     targetTab: playerSurfaceDefault,
     setActiveTab,
   })
+
+  useEffect(() => {
+    if (mode !== 'room') return
+    if (player.joined) return
+    setActiveTab('lobby')
+  }, [mode, player.joined, gameId, characterId, setActiveTab])
 
   const title =
     mode === 'launcher'
@@ -134,11 +138,11 @@ export function AppController() {
 
   const roomValue: RoomContextValue | null =
     mode === 'room'
-      ? {
+        ? {
           joined: player.joined,
+          currentCharacterId: characterId,
           screenData: player.screenData,
           handlers: player.handlers,
-          pins,
           hostHandlers: hostKey ? enhancedHostHandlers : undefined,
           hostError: hostKey ? host.error : undefined,
           hostLobbyActions,

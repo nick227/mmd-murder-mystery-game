@@ -3,13 +3,15 @@ import {
   createGame,
   fetchGames,
   fetchHostGame,
+  fetchPublicGame,
   fetchPlayerViewByCharacter,
   fetchStories,
   joinPlayerByCharacter,
   postEndNight,
   postHostAction,
-  postToFeed,
+  postMove,
   rescheduleGame,
+  updateScheduledGame,
   submitObjective,
 } from '../api'
 import type { GameSource } from './types'
@@ -17,15 +19,17 @@ import type { GameSource } from './types'
 export const apiGameSource: GameSource = {
   fetchStories,
   fetchGames,
+  fetchPublicGame,
   createGame,
   fetchHostGame,
   cancelGame,
   rescheduleGame,
+  updateScheduledGame,
   postHostAction,
   postEndNight,
   joinPlayerByCharacter,
   submitObjective,
-  postToFeed,
+  postMove,
   fetchPlayerViewByCharacter,
 }
 

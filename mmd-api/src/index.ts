@@ -1,16 +1,57 @@
 import Fastify from 'fastify'
+import cookie from '@fastify/cookie'
 import cors from '@fastify/cors'
+import fastifySession from '@fastify/session'
 import { swaggerPlugin } from './plugins/swagger.js'
 import { storiesRoutes } from './routes/stories.js'
 import { gamesRoutes } from './routes/games.js'
 import { playersRoutes } from './routes/players.js'
+import authRoutes from './routes/auth.js'
 import { prisma } from './lib/prisma.js'
 
 const PORT = parseInt(process.env.PORT ?? '3000', 10)
 const HOST = process.env.HOST ?? '0.0.0.0'
 
+/** @fastify/session requires secret length ≥ 32 */
+const DEV_SESSION_FALLBACK = 'mmd-dev-only-session-secret-min-32-chars'
+
+function resolveSessionSecret(): string {
+  const raw = process.env.SESSION_SECRET?.trim()
+  if (process.env.NODE_ENV === 'production') {
+    if (!raw || raw.length < 32) {
+      throw new Error('SESSION_SECRET is required in production and must be at least 32 characters')
+    }
+    return raw
+  }
+  if (raw && raw.length >= 32) return raw
+  if (raw && raw.length < 32) {
+    throw new Error('SESSION_SECRET must be at least 32 characters')
+  }
+  return DEV_SESSION_FALLBACK
+}
+
+/** Explicit origins only — never wildcard with credentials: true */
+function corsOrigins(): string[] {
+  if (process.env.CORS_ORIGIN?.trim()) {
+    return process.env.CORS_ORIGIN.split(',').map(s => s.trim()).filter(Boolean)
+  }
+  return [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:5178',
+    'http://127.0.0.1:5178',
+    'http://localhost:5180',
+    'http://127.0.0.1:5180',
+  ]
+}
+
+const SESSION_MAX_AGE_MS = 1000 * 60 * 60 * 24 * 7 // 7 days
+
 async function buildApp() {
+  const sessionSecret = resolveSessionSecret()
+
   const fastify = Fastify({
+    trustProxy: process.env.TRUST_PROXY === 'true',
     logger: {
       level: process.env.NODE_ENV === 'production' ? 'warn' : 'info',
       // pino-pretty removed — install it separately if you want pretty logs:
@@ -20,14 +61,29 @@ async function buildApp() {
   })
 
   // ── CORS ───────────────────────────────────────────────────────────────────
-  // In dev, allow the Vite dev server. In production, set CORS_ORIGIN env var.
+  // Explicit origin list only (no wildcard) when credentials: true
   await fastify.register(cors, {
-    origin: process.env.CORS_ORIGIN
-      ? process.env.CORS_ORIGIN.split(',').map(s => s.trim())
-      : ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: corsOrigins(),
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'x-host-key'],
-    credentials: false,
+    credentials: true,
+  })
+
+  // ── Session Support ─────────────────────────────────────────────────────────
+  // @fastify/session requires @fastify/cookie to be registered first
+  await fastify.register(cookie)
+  // sameSite: 'lax' limits CSRF on cross-site POSTs; pair with explicit CORS origins
+  await fastify.register(fastifySession, {
+    secret: sessionSecret,
+    cookieName: 'mmd_session',
+    rolling: true,
+    cookie: {
+      path: '/',
+      httpOnly: true,
+      sameSite: 'lax',
+      maxAge: SESSION_MAX_AGE_MS,
+      secure: process.env.NODE_ENV === 'production',
+    },
   })
 
   // ── Error handler ──────────────────────────────────────────────────────────
@@ -73,6 +129,7 @@ async function buildApp() {
   await fastify.register(storiesRoutes, { prefix: '/api/v1' })
   await fastify.register(gamesRoutes, { prefix: '/api/v1' })
   await fastify.register(playersRoutes, { prefix: '/api/v1' })
+  await fastify.register(authRoutes, { prefix: '/api/v1' })
 
   // ── Graceful shutdown ──────────────────────────────────────────────────────
   const shutdown = async (signal: string) => {

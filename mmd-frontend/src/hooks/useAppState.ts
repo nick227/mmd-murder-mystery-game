@@ -3,11 +3,13 @@ import { buildPlayerScreenModel } from '../data/screenData/playerScreenModel'
 import { mapApiEventToProgressFeedItem } from '../data/screenData/playerScreenModel'
 import { defaultLauncherData, emptyScreenData } from '../data/mock'
 import { getGameSource, readGameSourceModeFromLocation } from '../data/sources/getGameSource'
+import { subscribeHostRoomStream, subscribePlayerRoomStream } from '../data/api'
 import { storyHeroImage } from '../utils/storyHeroImage'
 import { readStoredGames } from '../data/runningGamesRegistry'
 import type {
   FeedItem,
   HostApiGame,
+  PostMovePayload,
   RendererHandlers,
   ScreenData,
   TabId,
@@ -55,6 +57,101 @@ function countdownParts(scheduledTime?: string) {
   const pct = ((total - Math.min(diff, total)) / total) * 100
   const minutes = Math.ceil(diff / (60 * 1000))
   return { label: `${minutes}m until start`, percent: Math.max(5, Math.min(100, pct)) }
+}
+
+function playerPollIntervalMs(state: ScreenData['game']['state'], streamConnected: boolean) {
+  if (streamConnected) {
+    switch (state) {
+      case 'PLAYING':
+        return 20000
+      case 'SCHEDULED':
+      case 'REVEAL':
+        return 30000
+      case 'DONE':
+      case 'CANCELLED':
+        return 60000
+      default:
+        return 30000
+    }
+  }
+  switch (state) {
+    case 'PLAYING':
+      return 3000
+    case 'SCHEDULED':
+    case 'REVEAL':
+      return 5000
+    case 'DONE':
+    case 'CANCELLED':
+      return 15000
+    default:
+      return 5000
+  }
+}
+
+function hostPollIntervalMs(state: ScreenData['game']['state'], streamConnected: boolean) {
+  if (streamConnected) {
+    switch (state) {
+      case 'PLAYING':
+        return 15000
+      case 'SCHEDULED':
+      case 'REVEAL':
+        return 20000
+      case 'DONE':
+      case 'CANCELLED':
+        return 60000
+      default:
+        return 20000
+    }
+  }
+  switch (state) {
+    case 'PLAYING':
+      return 3000
+    case 'SCHEDULED':
+    case 'REVEAL':
+      return 5000
+    case 'DONE':
+    case 'CANCELLED':
+      return 15000
+    default:
+      return 5000
+  }
+}
+
+type OptimisticComposerPost = {
+  clientRequestId: string
+  item: FeedItem
+}
+
+function optimisticComposerItem(input: {
+  payload: PostMovePayload
+}): FeedItem {
+  return {
+    id: input.payload.clientRequestId,
+    type: 'chat',
+    variant: 'social',
+    text: input.payload.text,
+    author: input.payload.characterName,
+    authorPortrait: input.payload.characterPortrait,
+    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+  }
+}
+
+function readClientRequestId(event: { payload?: Record<string, unknown> } | null | undefined): string | null {
+  const raw = event?.payload?.clientRequestId
+  return typeof raw === 'string' && raw.trim().length ? raw : null
+}
+
+function currentCharacterIdentity(input: {
+  screenData: ScreenData
+  characterId: string
+}): { id: string; name: string; portrait?: string } {
+  const player = input.screenData.players.find(item => item.characterId === input.characterId)
+  const name = input.screenData.profile.characterName || player?.name || `Character ${input.characterId}`
+  return {
+    id: input.characterId,
+    name,
+    portrait: input.screenData.profile.portrait || player?.portrait || undefined,
+  }
 }
 
 function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
@@ -168,47 +265,6 @@ function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData {
 export function useTabState(defaultTab: TabId) {
   const [activeTab, setActiveTab] = useState<TabId>(defaultTab)
   return [activeTab, setActiveTab] as const
-}
-
-function readPinnedIds(key: string): string[] {
-  try {
-    const raw = window.localStorage.getItem(key)
-    const parsed = raw ? JSON.parse(raw) : []
-    return Array.isArray(parsed) ? parsed.map(String) : []
-  } catch {
-    return []
-  }
-}
-
-function writePinnedIds(key: string, ids: string[]) {
-  try {
-    window.localStorage.setItem(key, JSON.stringify(ids))
-  } catch {
-    // ignore
-  }
-}
-
-export function usePinnedIds(input: { gameId?: string | null; characterId?: string | null }) {
-  // User-local UI memory only (view preference). Not authoritative game state.
-  // Intentionally stored per-device to avoid merging semantics until/unless we opt into server sync later.
-  const key = `mmd:view:pins:${String(input.gameId ?? '')}:${String(input.characterId ?? '')}`
-  const [pinnedIds, setPinnedIds] = useState<string[]>(() => readPinnedIds(key))
-
-  useEffect(() => {
-    setPinnedIds(readPinnedIds(key))
-  }, [key])
-
-  const togglePinned = (id: string) => {
-    setPinnedIds(current => {
-      const next = current.includes(id) ? current.filter(x => x !== id) : [...current, id]
-      writePinnedIds(key, next)
-      return next
-    })
-  }
-
-  const isPinned = (id: string) => pinnedIds.includes(id)
-
-  return { pinnedIds, togglePinned, isPinned }
 }
 
 export function useViewMode() {
@@ -399,6 +455,29 @@ export function useLauncherState() {
               ? { id: story.id, title: story.title, summary: story.summary, image: story.image }
               : { id: input.storyId },
           })
+          setScreenData(current => ({
+            ...current,
+            launcher: current.launcher
+              ? {
+                  ...current.launcher,
+                  createdGame: {
+                    id: game.id,
+                    name: game.name,
+                    creatorUserId: game.creatorUserId ?? null,
+                    creatorName: game.creatorName ?? null,
+                    creatorAvatar: game.creatorAvatar ?? null,
+                    hostKey: game.hostKey,
+                    scheduledTime: game.scheduledTime,
+                    hostUrl: `${window.location.origin}/host/${game.id}?hostKey=${game.hostKey}${input.apiBase ? `&api=${encodeURIComponent(input.apiBase)}` : ''}`,
+                    playerLinks: game.players.map(player => ({
+                      characterId: player.characterId,
+                      label: player.characterName ?? `Character ${player.characterId}`,
+                      url: buildPlayerPath(game.id, player.characterId, buildShareQuery({ apiBase: input.apiBase })),
+                    })),
+                  },
+                }
+              : current.launcher,
+          }))
           const query = new URLSearchParams()
           query.set('hostKey', game.hostKey)
           if (input.apiBase) query.set('api', input.apiBase)
@@ -505,10 +584,16 @@ export function usePlayerScreenData(
   const [screenData, setScreenData] = useState<ScreenData>(emptyScreenData)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [streamConnected, setStreamConnected] = useState(false)
+  const queuedPushReloadRef = useRef<number | null>(null)
   const [joined, setJoined] = useState(false)
   const [joinDraft, setJoinDraft] = useState('')
+  const [optimisticComposerPosts, setOptimisticComposerPosts] = useState<OptimisticComposerPost[]>([])
   const joinDraftRef = useRef('')
   const composerDraftRef = useRef('')
+  const isSendingComposerRef = useRef(false)
+  const optimisticComposerPostsRef = useRef<OptimisticComposerPost[]>([])
+  const screenDataRef = useRef(screenData)
 
   useEffect(() => {
     joinDraftRef.current = joinDraft
@@ -517,6 +602,22 @@ export function usePlayerScreenData(
   useEffect(() => {
     composerDraftRef.current = screenData.composer?.draft ?? ''
   }, [screenData.composer?.draft])
+
+  useEffect(() => {
+    optimisticComposerPostsRef.current = optimisticComposerPosts
+  }, [optimisticComposerPosts])
+
+  useEffect(() => {
+    screenDataRef.current = screenData
+  }, [screenData])
+
+  const queueSilentReload = () => {
+    if (queuedPushReloadRef.current !== null) return
+    queuedPushReloadRef.current = window.setTimeout(() => {
+      queuedPushReloadRef.current = null
+      void reloadInternal({ silent: true })
+    }, 150)
+  }
 
   useEffect(() => {
     if (!gameId || !characterId) return
@@ -530,6 +631,7 @@ export function usePlayerScreenData(
       setScreenData(emptyScreenData)
       setJoined(false)
       setJoinDraft('')
+      setOptimisticComposerPosts([])
       return
     }
     setLoading(true)
@@ -537,6 +639,7 @@ export function usePlayerScreenData(
     setScreenData(emptyScreenData)
     setJoined(false)
     setJoinDraft('')
+    setOptimisticComposerPosts([])
   }, [apiBase, gameId, characterId])
 
   const reloadInternal = async (opts?: { silent?: boolean }) => {
@@ -547,10 +650,22 @@ export function usePlayerScreenData(
     try {
       const view = await gameSource.fetchPlayerViewByCharacter(apiBase, gameId, characterId)
       const base = buildPlayerScreenModel(view, joinDraftRef.current)
+      const acknowledgedRequestIds = new Set(
+        (view.feed ?? [])
+          .map(readClientRequestId)
+          .filter((value): value is string => Boolean(value)),
+      )
+      const pendingComposerPosts = optimisticComposerPostsRef.current.filter(
+        post => !acknowledgedRequestIds.has(post.clientRequestId),
+      )
+      if (pendingComposerPosts.length !== optimisticComposerPostsRef.current.length) {
+        setOptimisticComposerPosts(pendingComposerPosts)
+      }
       setScreenData(current => {
         const draft = current.composer?.draft ?? ''
         return {
           ...base,
+          feed: [...base.feed, ...pendingComposerPosts.map(post => post.item)],
           composer: {
             ...base.composer,
             ...current.composer,
@@ -572,9 +687,38 @@ export function usePlayerScreenData(
   useEffect(() => {
     if (!gameId || !characterId) return
     void reloadInternal()
-    const interval = window.setInterval(() => void reloadInternal({ silent: true }), 8000)
-    return () => window.clearInterval(interval)
+    const interval = window.setInterval(
+      () => void reloadInternal({ silent: true }),
+      playerPollIntervalMs(screenData.game.state, streamConnected),
+    )
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        void reloadInternal({ silent: true })
+      }
+    }
+    document.addEventListener('visibilitychange', onVisibilityChange)
+    return () => {
+      window.clearInterval(interval)
+      document.removeEventListener('visibilitychange', onVisibilityChange)
+    }
+  }, [apiBase, gameId, characterId, screenData.game.state, streamConnected])
+
+  useEffect(() => {
+    if (!gameId || !characterId) return
+    return subscribePlayerRoomStream(
+      apiBase,
+      gameId,
+      characterId,
+      queueSilentReload,
+      status => setStreamConnected(status === 'connected'),
+    )
   }, [apiBase, gameId, characterId])
+
+  useEffect(() => () => {
+    if (queuedPushReloadRef.current !== null) {
+      window.clearTimeout(queuedPushReloadRef.current)
+    }
+  }, [])
 
   const handlers: RendererHandlers = useMemo(() => ({
     onObjectiveSubmit: async objectiveId => {
@@ -592,9 +736,18 @@ export function usePlayerScreenData(
         try {
           // Act is server-owned; pass client act only as informational.
           await gameSource.submitObjective(apiBase, gameId, characterId, objectiveId)
-          await reloadInternal()
         } catch (err) {
+          setScreenData(current => ({
+            ...current,
+            objectives: {
+              ...current.objectives,
+              personal: current.objectives.personal.map(item => item.id === objectiveId ? { ...item, completed: !item.completed } : item),
+              group: current.objectives.group.map(item => item.id === objectiveId ? { ...item, completed: !item.completed } : item),
+              reveals: current.objectives.reveals,
+            },
+          }))
           setError(err instanceof Error ? err.message : 'Failed to submit objective')
+          throw err
         }
       }
     },
@@ -607,11 +760,12 @@ export function usePlayerScreenData(
       }))
     },
     onJoinSubmit: async () => {
-      if (!gameId || !characterId || !joinDraft.trim()) return
+      const playerName = joinDraftRef.current.trim()
+      if (!gameId || !characterId || !playerName) return
       setLoading(true)
       setError('')
       try {
-        await gameSource.joinPlayerByCharacter(apiBase, gameId, characterId, joinDraft.trim())
+        await gameSource.joinPlayerByCharacter(apiBase, gameId, characterId, playerName)
         setJoined(true)
         await reloadInternal()
       } catch (err) {
@@ -629,30 +783,50 @@ export function usePlayerScreenData(
         return { ...current, composer: { ...next, canSend: Boolean(value.trim().length) } }
       })
     },
-    onComposerSend: async () => {
+    onComposerSend: async textInput => {
       if (!gameId || !characterId) return
-      const text = composerDraftRef.current.trim()
+      const text = textInput.trim()
       if (!text) return
-      setLoading(true)
+      if (isSendingComposerRef.current) return
+      isSendingComposerRef.current = true
       setError('')
-      try {
-        await gameSource.postMove(apiBase, gameId, {
-          characterId,
-          moveType: 'share_clue',
-          text,
-        })
+      composerDraftRef.current = ''
+      const identity = currentCharacterIdentity({ screenData: screenDataRef.current, characterId })
+      const clientRequestId = crypto.randomUUID()
+      const payload: PostMovePayload = {
+        type: 'POST_MOVE',
+        text,
+        clientRequestId,
+        characterId: identity.id,
+        characterName: identity.name,
+        characterPortrait: identity.portrait,
+      }
+      const optimisticPost: OptimisticComposerPost = {
+        clientRequestId,
+        item: optimisticComposerItem({ payload }),
+      }
+
+      setOptimisticComposerPosts(current => [...current, optimisticPost])
+      setScreenData(current => ({
+        ...current,
+        feed: [...current.feed, optimisticPost.item],
+        composer: { ...current.composer, draft: '', canSend: false },
+      }))
+
+      void gameSource.postMove(apiBase, gameId, payload).catch(err => {
+        setOptimisticComposerPosts(current => current.filter(post => post.clientRequestId !== clientRequestId))
         setScreenData(current => ({
           ...current,
-          composer: { ...current.composer, draft: '', canSend: false },
+          feed: current.feed.filter(item => item.id !== optimisticPost.item.id),
+          composer: { ...current.composer, draft: current.composer.draft || text, canSend: true },
         }))
-        await reloadInternal()
-      } catch (err) {
+        composerDraftRef.current = text
         setError(err instanceof Error ? err.message : 'Failed to post')
-      } finally {
-        setLoading(false)
-      }
+      }).finally(() => {
+        isSendingComposerRef.current = false
+      })
     },
-  }), [apiBase, gameId, characterId, joinDraft, source, gameSource])
+  }), [apiBase, gameId, characterId, source, gameSource])
 
   const reload = async () => reloadInternal()
 
@@ -669,6 +843,8 @@ export function useHostScreenData(
   const [screenData, setScreenData] = useState<ScreenData>(emptyScreenData)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [streamConnected, setStreamConnected] = useState(false)
+  const queuedPushReloadRef = useRef<number | null>(null)
 
   useEffect(() => {
     if (!gameId || !hostKey) return
@@ -686,6 +862,14 @@ export function useHostScreenData(
     setError('')
     setScreenData(emptyScreenData)
   }, [apiBase, gameId, hostKey])
+
+  const queueSilentReload = () => {
+    if (queuedPushReloadRef.current !== null) return
+    queuedPushReloadRef.current = window.setTimeout(() => {
+      queuedPushReloadRef.current = null
+      void reloadInternal({ silent: true })
+    }, 150)
+  }
 
   const reloadInternal = async (opts?: { silent?: boolean }) => {
     const silent = Boolean(opts?.silent)
@@ -710,9 +894,38 @@ export function useHostScreenData(
   useEffect(() => {
     if (!gameId || !hostKey) return
     void reloadInternal()
-    const interval = window.setInterval(() => void reloadInternal({ silent: true }), 5000)
-    return () => window.clearInterval(interval)
+    const interval = window.setInterval(
+      () => void reloadInternal({ silent: true }),
+      hostPollIntervalMs(screenData.game.state, streamConnected),
+    )
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        void reloadInternal({ silent: true })
+      }
+    }
+    document.addEventListener('visibilitychange', onVisibilityChange)
+    return () => {
+      window.clearInterval(interval)
+      document.removeEventListener('visibilitychange', onVisibilityChange)
+    }
+  }, [apiBase, gameId, hostKey, screenData.game.state, streamConnected])
+
+  useEffect(() => {
+    if (!gameId || !hostKey) return
+    return subscribeHostRoomStream(
+      apiBase,
+      gameId,
+      hostKey,
+      queueSilentReload,
+      status => setStreamConnected(status === 'connected'),
+    )
   }, [apiBase, gameId, hostKey])
+
+  useEffect(() => () => {
+    if (queuedPushReloadRef.current !== null) {
+      window.clearTimeout(queuedPushReloadRef.current)
+    }
+  }, [])
 
   const handlers: RendererHandlers = useMemo(() => ({
     onObjectiveToggle: objectiveId => {

@@ -22,10 +22,15 @@ export interface RuntimeCardBase {
 export interface RuntimeInstructionCard extends RuntimeCardBase {
   intent: 'instruction'
   targetCharacterId?: string | null
+  linked_character?: string | null
 }
 
 export interface RuntimeClueCard extends RuntimeCardBase {
   intent: 'clue'
+  linked_character?: string | null
+  suspectName?: string | null
+  clueType?: string | null
+  clueWeight?: string | null
 }
 
 export interface RuntimeInfoCard extends RuntimeCardBase {
@@ -53,6 +58,14 @@ export type RuntimeCard =
   | RuntimePuzzleCard
   | RuntimeRevealCard
 
+export interface RuntimeItem {
+  id: string
+  name: string
+  description: string
+  act: number
+  locationRef?: string | null
+}
+
 export interface RuntimePlayer {
   characterId: string
   name: string
@@ -60,6 +73,7 @@ export interface RuntimePlayer {
   biography?: string
   image?: string
   secrets: string[]
+  items: RuntimeItem[]
 }
 
 export interface RuntimeBundle {

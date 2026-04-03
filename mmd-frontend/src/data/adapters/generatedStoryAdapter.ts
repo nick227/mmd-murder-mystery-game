@@ -80,17 +80,6 @@ function stableLocalId(input: string): string {
   return `local-${(hash >>> 0).toString(16)}`
 }
 
-function buildStage(cards: GeneratedCard[], currentAct: number) {
-  const actCard = cards.find(c => typeFromCard(c) === 'story_act' && cardAct(c) === currentAct)
-  return actCard
-    ? { title: titleFromCard(actCard) ?? `Act ${currentAct}`, text: contentsFromCard(actCard) ?? '' }
-    : null
-}
-
-function filterUnlocked(cards: GeneratedCard[], currentAct: number, type: string): GeneratedCard[] {
-  return cards.filter(c => typeFromCard(c) === type && (cardAct(c) ?? 1) <= currentAct)
-}
-
 function summarizeUnmappedKeys(card: GeneratedCard): string[] {
   const allowed = new Set([
     'card_id',
@@ -330,4 +319,3 @@ export function adaptGeneratedStoryRunToRuntime(
 
   return { storyListItem, runtimeStory: normalizeRuntimeStory(runtimeStory, diagnostics), diagnostics }
 }
-

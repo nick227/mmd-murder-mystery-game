@@ -1,0 +1,1122 @@
+{
+  "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+  "playerCount": 4,
+  "userPrompt": "1996 Grunge Party",
+  "storyStyle": "punk, post punk, dilapidated dangerous, emotional",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/dezgo_d71db87a88087def.jpg",
+  "cards": [
+    {
+      "card_id": "4eef8144-f12f-45c4-9f66-fe53cfd2739b",
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Grunge Shadows: A Seattle Mystery",
+      "act": 1
+    },
+    {
+      "card_id": "e9266e77-b5f1-4ec6-a3ef-2594457b4cf2",
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Step into the raw and gritty world of 1996 grunge, where emotions run high and secrets lurk beneath the surface. Players will navigate a dilapidated scene filled with punk angst and post-punk tension to uncover the truth behind a chilling murder. Prepare for an intense, atmospheric experience that captures the dangerous edge of the era.",
+      "act": 1
+    },
+    {
+      "card_id": "9bef93aa-d05e-4adb-a155-33ab11af4402",
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "Adult 18+ — mature themes, strong language",
+      "act": 1
+    },
+    {
+      "card_id": "c163d1c9-b330-4222-b762-ecf54e8a8253",
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "grunge, punk, post-punk, 1990s, emotional, dangerous, music scene, murder mystery",
+      "act": 1
+    },
+    {
+      "card_id": "d0576ffd-967e-4729-9aef-188de844b49f",
+      "card_type": "person",
+      "card_title": "Jax Mercer",
+      "card_contents": "Lead singer of 'Rust & Ruin,' known for his volatile emotions and magnetic stage presence, whose mysterious death ignites the investigation.",
+      "act": 1
+    },
+    {
+      "card_id": "41c1b5bd-c5c5-4e98-b420-b5dde8ba08c1",
+      "card_type": "person",
+      "card_title": "Lena Voss",
+      "card_contents": "The party organizer and underground scene queen, fiercely protective of her reputation and the secrets hidden within the warehouse walls.",
+      "act": 1
+    },
+    {
+      "card_id": "cef30382-ff25-4ede-a09a-4d5948c64797",
+      "card_type": "person",
+      "card_title": "Eddie 'Strings' Malone",
+      "card_contents": "Renowned guitarist and keeper of the vintage guitar, whose obsession with the instrument makes him both a suspect and a key to the mystery.",
+      "act": 1
+    },
+    {
+      "card_id": "f491455e-36bf-4751-aedf-aa3549e72c72",
+      "card_type": "location",
+      "card_title": "The Rusted Rail Warehouse",
+      "card_contents": "A crumbling industrial space turned grunge party hotspot, filled with graffiti, makeshift stages, and shadowy alcoves where secrets linger.",
+      "act": 1
+    },
+    {
+      "card_id": "f16697ff-0fae-4e81-93ba-d6c710b82b4e",
+      "card_type": "location",
+      "card_title": "Backstage Dressing Room",
+      "card_contents": "A cramped, chaotic space behind the main stage, littered with band gear and personal effects, central to the night’s events and hidden confrontations.",
+      "act": 1
+    },
+    {
+      "card_id": "6d6ec801-b40c-4b2f-b8c7-60cd88cc8fed",
+      "card_type": "location",
+      "card_title": "The Alley of Broken Records",
+      "card_contents": "A narrow, graffiti-covered alley behind the warehouse, scattered with shattered vinyl and discarded posters, a silent witness to clandestine meetings and betrayals.",
+      "act": 1
+    },
+    {
+      "card_id": "f633b795-3757-4f31-9f27-085c45fb167d",
+      "card_type": "item",
+      "card_title": "Vintage Prototype Guitar",
+      "card_contents": "A rare, priceless guitar believed to be Kurt Cobain's lost prototype, missing from the scene and central to the motive behind the murder.",
+      "act": 1
+    },
+    {
+      "card_id": "9abc56b4-8939-4cb2-9ae5-ac3505af65c9",
+      "card_type": "item",
+      "card_title": "Bloodied Microphone Stand",
+      "card_contents": "The murder weapon, stained and left abandoned near the body, hinting at a violent struggle during the chaotic party.",
+      "act": 1
+    },
+    {
+      "card_id": "70616ae1-d74c-498a-9d03-9fe20b8767b8",
+      "card_type": "item",
+      "card_title": "Torn Setlist",
+      "card_contents": "A ripped and crumpled setlist found backstage, containing cryptic notes and crossed-out songs, revealing tensions and hidden messages among the band members.",
+      "act": 1
+    },
+    {
+      "card_id": "75482123-8677-47e3-946e-26430ed5f8e7",
+      "card_type": "person",
+      "card_title": "Maggie 'The Fixer' O'Hara",
+      "card_contents": "An enigmatic sound engineer known for her uncanny ability to capture the soul of a performance, Maggie navigates the underground with a network of contacts, making her a vital source of hidden truths and whispered rumors.",
+      "act": 1
+    },
+    {
+      "card_id": "659ec3a3-a5f0-4fa1-9f16-3d79012be9f4",
+      "card_type": "person",
+      "card_title": "Dante Reyes",
+      "card_contents": "A local music journalist whose sharp pen and sharper instincts have earned him both allies and enemies; his presence at the party hints at a deeper agenda beyond mere reportage.",
+      "act": 1
+    },
+    {
+      "card_id": "41d775fe-0710-405b-a662-70096f512aec",
+      "card_type": "location",
+      "card_title": "The Neon Dive Bar",
+      "card_contents": "A dimly lit refuge a few blocks from the warehouse, where musicians and misfits converge after shows. Its sticky floors and smoky haze conceal deals struck in hushed tones and alliances forged over cheap whiskey.",
+      "act": 1
+    },
+    {
+      "card_id": "3268a1bf-07ea-477f-8949-99687dbd5072",
+      "card_type": "location",
+      "card_title": "The Rooftop Overlook",
+      "card_contents": "Perched atop the Rusted Rail Warehouse, this precarious vantage point offers a panoramic view of Seattle's skyline, a silent witness to clandestine meetings and moments of quiet reflection amid chaos.",
+      "act": 1
+    },
+    {
+      "card_id": "d24f285b-39bc-4b52-b526-7846ac4f0f8d",
+      "card_type": "item",
+      "card_title": "Cassette Tape Labeled 'Echoes'",
+      "card_contents": "An unmarked tape found in Jax Mercer's belongings, containing raw, unpolished tracks that hint at secrets and emotional fractures within the band.",
+      "act": 1
+    },
+    {
+      "card_id": "a92947fb-cd56-4279-a424-3d3f6203e622",
+      "card_type": "item",
+      "card_title": "Graffiti-Stained Leather Jacket",
+      "card_contents": "Jax's signature jacket, marked by years of wear and rebellion, now a poignant relic stained with traces of the night's violence, symbolizing the collision of art and tragedy.",
+      "act": 1
+    },
+    {
+      "card_id": "a9f71197-a4ed-4aa0-98da-ebac9ccb8c54",
+      "card_type": "character",
+      "card_title": "Lena Voss — The Underground Queen",
+      "card_contents": "Lena Voss rules the Rusted Rail Warehouse with an iron will wrapped in velvet. As the party organizer and a fiercely protective figure in the scene, she controls access to the venue and its hidden rooms, including the storage where the vintage guitar was last seen. Rumors whisper that Lena had a bitter public spat with Dante Reyes over stolen band royalties and feared the guitar's disappearance would ruin her carefully curated reputation. Her alibi is shaky, and she was seen arguing backstage minutes before the murder. Supports deduction axes: motive (financial and reputation threat), access (venue control), contradiction (conflicting alibis).",
+      "act": 1
+    },
+    {
+      "card_id": "55feb4df-7e45-4e7f-b47c-8ab395219e92",
+      "card_type": "character",
+      "card_title": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+      "card_contents": "Eddie Malone lives and breathes his guitar, especially the priceless vintage prototype rumored to be Kurt Cobain's lost instrument. His obsession borders on mania, and he was the last person seen near the guitar before it vanished. Eddie's jealousy of Dante's rising fame and a secret debt to a local loan shark provide strong motives. He knows every backstage nook and cranny, giving him ample opportunity to act unseen. His fingers bear fresh cuts, and he carries a suspiciously clean guitar case. Supports deduction axes: motive (jealousy and debt), access (backstage knowledge), weapon/means (familiarity with instruments as potential weapons).",
+      "act": 2
+    },
+    {
+      "card_id": "b808de1c-9185-4c7d-9a69-98604d1bef58",
+      "card_type": "character",
+      "card_title": "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer",
+      "card_contents": "Maggie O'Hara is the scene's shadowy sound engineer, weaving through social circles with a network of contacts and secrets. She had access to the sound booth overlooking the stage and backstage corridors, giving her a vantage point few possess. Maggie was rumored to be blackmailing Dante over a hidden correspondence and was seen sneaking into his dressing room shortly before his death. Her technical expertise means she could manipulate equipment or stage setups to create distractions or conceal evidence. Supports deduction axes: motive (blackmail and secrets), access (sound booth and backstage), contradiction (hidden correspondence).",
+      "act": 3
+    },
+    {
+      "card_id": "ed674d60-34b1-460a-84ac-5d2de436a7da",
+      "card_type": "character",
+      "card_title": "Rico 'Crash' Delgado — The Reckless Drummer",
+      "card_contents": "Rico Delgado is the volatile drummer of Rust & Ruin, known for his explosive temper and wild lifestyle. He was deeply in debt and desperate for a way out, with Dante reportedly threatening to expose his drug use to the press. Rico had access to the warehouse's storage rooms and was seen carrying a heavy, blunt object backstage. His alibi is full of contradictions, and bandmates describe recent heated confrontations between him and Dante. Supports deduction axes: motive (threats and debt), access (storage rooms and backstage), weapon/means (blunt objects), contradiction (conflicting statements).",
+      "act": 1
+    },
+    {
+      "card_id": "fc4c0430-132a-4fa0-8827-d8d47518dbe0",
+      "card_type": "clue",
+      "card_title": "Whispers of the Lost Prototype",
+      "card_contents": "Rumor has it the band’s prized instrument vanished amidst the chaos, once kept under lock and key where only trusted hands could reach. Some say it was hidden close to where the music’s heartbeat thumped loudest, veiled beneath layers of dust and shadow.",
+      "act": 1,
+      "clue_type": "rumor",
+      "clue_weight": "low"
+    },
+    {
+      "card_id": "fa7724cb-dc44-4d2f-8ba4-3080d5f5bc6a",
+      "card_type": "clue",
+      "card_title": "Echoes Behind the Curtain",
+      "card_contents": "A backstage murmur hints at a small, personal space cluttered with crates and forgotten gear. Among these relics, a key once slipped from a pocket, possibly to a locker where secrets linger beneath the surface.",
+      "act": 2,
+      "clue_type": "rumor",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "bdc86350-8434-431c-bed6-39b67fc7cd58",
+      "card_type": "clue",
+      "card_title": "The Hidden Panel’s Secret",
+      "card_contents": "Careful inspection reveals a panel slightly ajar behind a stack of weathered crates. The faint outline of a seam suggests something concealed just out of plain sight, waiting for the right touch to reveal its prize.",
+      "act": 2,
+      "clue_type": "rumor",
+      "clue_weight": "high"
+    },
+    {
+      "card_id": "77a26cef-81ff-459c-a5d3-1ab6b00c2df9",
+      "card_type": "clue",
+      "card_title": "Unlocking the Final Resting Place",
+      "card_contents": "The key found backstage fits a locker tucked away in the storage area. Behind a removable panel inside, dust and shadows guard the treasure, a silent witness to the night's deadly drama.",
+      "act": 3,
+      "clue_type": "rumor",
+      "clue_weight": "mid"
+    },
+    {
+      "card_id": "73fa7bd9-a1ee-465d-8255-c6cb0362c9c4",
+      "card_type": "item",
+      "card_title": "The Vintage Guitar Prototype",
+      "card_contents": "This rare guitar prototype, whispered to be Kurt Cobain’s lost instrument, holds immense value both monetarily and as a symbol of the band’s legacy. Its disappearance fuels the mystery and the motives behind the murder, making it the ultimate prize in this deadly game.",
+      "act": 3,
+      "hidden_until_solved": true,
+      "is_treasure": true
+    },
+    {
+      "card_id": "9f1ac172-8dd0-4e65-b9c7-a3988e12ef2c",
+      "card_type": "item",
+      "card_title": "Treasure hiding place",
+      "card_contents": "inside a false compartment in the warehouse's storage locker controlled by Lena Voss",
+      "act": 3,
+      "hidden_until_solved": true,
+      "is_treasure": true
+    },
+    {
+      "card_id": "f9056523-b6dc-4e59-b398-083c974f64a0",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Lena Voss was seen backstage near the victim's dressing room just before the murder, despite claiming she was in the crowd the entire night.",
+      "act": 1,
+      "linked_character": "Lena Voss — The Underground Queen"
+    },
+    {
+      "card_id": "1dcf7554-59c7-4cb0-a552-3efbc6296e11",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Lena wanted the vintage guitar because controlling it would solidify her status as the undisputed leader of the underground scene, threatening the victim's rising influence and career.",
+      "act": 2,
+      "linked_character": "Lena Voss — The Underground Queen"
+    },
+    {
+      "card_id": "e26644cc-e557-4532-a09e-ab911b5dd0d8",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Eddie was seen backstage near the victim's dressing room shortly before the murder, despite claiming to be out front with the crowd all night.",
+      "act": 3,
+      "linked_character": "Eddie 'Strings' Malone — The Obsessed Guitarist"
+    },
+    {
+      "card_id": "e0f472e3-df3f-4018-b8d3-60f55492f2ac",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Eddie wanted the vintage guitar for himself because he believed owning it would finally launch his solo career and overshadow the victim's success.",
+      "act": 1,
+      "linked_character": "Eddie 'Strings' Malone — The Obsessed Guitarist"
+    },
+    {
+      "card_id": "cf8a0163-79a3-4e56-93d0-d1baf0fa47ac",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Maggie was seen backstage near the victim's dressing room shortly before the murder, despite claiming to be adjusting sound levels on the other side of the venue, giving her unauthorized access to the crime scene.",
+      "act": 2,
+      "linked_character": "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer"
+    },
+    {
+      "card_id": "40f9c44c-e631-4edc-a9a6-ebece47265e8",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Maggie wanted the vintage guitar for herself because she believed owning it would secure her reputation and control over the local music scene, providing a motive to steal the treasure and potentially silence the victim who opposed her.",
+      "act": 3,
+      "linked_character": "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer"
+    },
+    {
+      "card_id": "f8f79028-57b5-4b6b-a168-c7ae6bc86b1c",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Rico was seen backstage near the victim's dressing room shortly before the murder, despite claiming to have been outside smoking all night.",
+      "act": 1,
+      "linked_character": "Rico 'Crash' Delgado — The Reckless Drummer"
+    },
+    {
+      "card_id": "506363ef-6d5f-420b-aed5-7125bbe445ab",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Rico wanted the vintage guitar for himself to sell and pay off a large gambling debt, giving him a clear motive to want the treasure stolen and the victim out of the way.",
+      "act": 2,
+      "linked_character": "Rico 'Crash' Delgado — The Reckless Drummer"
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [],
+    "warning_log": [],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "story_title": "Grunge Shadows: A Seattle Mystery",
+  "story_description": "Step into the raw and gritty world of 1996 grunge, where emotions run high and secrets lurk beneath the surface. Players will navigate a dilapidated scene filled with punk angst and post-punk tension to uncover the truth behind a chilling murder. Prepare for an intense, atmospheric experience that captures the dangerous edge of the era.",
+  "story_rating": "Adult 18+ — mature themes, strong language",
+  "story_themes": "grunge, punk, post-punk, 1990s, emotional, dangerous, music scene, murder mystery",
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": true,
+    "step_name": "suspect_coverage_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "playability_history": [
+    {
+      "step_name": "story_metadata_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "story_blurb_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "world_building_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "characters_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "treasure_hunt_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "case_state_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "breadcrumb_trail_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "trail_review_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "narrative_generator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "narrative_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "character_profile_refinement_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "character_secret_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "suspect_coverage_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    }
+  ],
+  "storyBlurb": "At the heart of Seattle's 1996 underground grunge scene, a notorious post-punk party spirals into chaos when the lead singer of the band 'Rust & Ruin' is found dead, a victim of a brutal, emotionally charged murder. Amidst the dilapidated warehouse's graffiti-streaked walls and flickering neon lights, a priceless vintage guitar—rumored to be Kurt Cobain's lost prototype—vanishes, sparking a desperate hunt through shadowy corners and backstage secrets. As tensions flare and alliances fracture, the line between friend and foe blurs in this raw, dangerous world where every chord struck could reveal a deadly truth.",
+  "storyEntities": {
+    "people": [
+      {
+        "name": "Jax Mercer",
+        "summary": "Lead singer of 'Rust & Ruin,' known for his volatile emotions and magnetic stage presence, whose mysterious death ignites the investigation."
+      },
+      {
+        "name": "Lena Voss",
+        "summary": "The party organizer and underground scene queen, fiercely protective of her reputation and the secrets hidden within the warehouse walls."
+      },
+      {
+        "name": "Eddie 'Strings' Malone",
+        "summary": "Renowned guitarist and keeper of the vintage guitar, whose obsession with the instrument makes him both a suspect and a key to the mystery."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Rusted Rail Warehouse",
+        "summary": "A crumbling industrial space turned grunge party hotspot, filled with graffiti, makeshift stages, and shadowy alcoves where secrets linger."
+      },
+      {
+        "name": "Backstage Dressing Room",
+        "summary": "A cramped, chaotic space behind the main stage, littered with band gear and personal effects, central to the night’s events and hidden confrontations."
+      },
+      {
+        "name": "The Alley of Broken Records",
+        "summary": "A narrow, graffiti-covered alley behind the warehouse, scattered with shattered vinyl and discarded posters, a silent witness to clandestine meetings and betrayals."
+      }
+    ],
+    "items": [
+      {
+        "name": "Vintage Prototype Guitar",
+        "summary": "A rare, priceless guitar believed to be Kurt Cobain's lost prototype, missing from the scene and central to the motive behind the murder."
+      },
+      {
+        "name": "Bloodied Microphone Stand",
+        "summary": "The murder weapon, stained and left abandoned near the body, hinting at a violent struggle during the chaotic party."
+      },
+      {
+        "name": "Torn Setlist",
+        "summary": "A ripped and crumpled setlist found backstage, containing cryptic notes and crossed-out songs, revealing tensions and hidden messages among the band members."
+      }
+    ]
+  },
+  "world": "Seattle, 1996—a city caught in the throes of grunge's fading roar, where rain-soaked streets echo with the last gasps of rebellion. The underground scene pulses within forgotten industrial relics, where peeling paint and graffiti-streaked walls bear witness to raw, unfiltered expression. The Rusted Rail Warehouse stands as a battered cathedral of noise and emotion, its flickering neon lights casting long shadows over a generation grappling with disillusionment and desire. Here, music is both sanctuary and battleground, and every whispered secret or shattered chord carries the weight of survival and betrayal.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Maggie 'The Fixer' O'Hara",
+        "summary": "An enigmatic sound engineer known for her uncanny ability to capture the soul of a performance, Maggie navigates the underground with a network of contacts, making her a vital source of hidden truths and whispered rumors."
+      },
+      {
+        "name": "Dante Reyes",
+        "summary": "A local music journalist whose sharp pen and sharper instincts have earned him both allies and enemies; his presence at the party hints at a deeper agenda beyond mere reportage."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Neon Dive Bar",
+        "summary": "A dimly lit refuge a few blocks from the warehouse, where musicians and misfits converge after shows. Its sticky floors and smoky haze conceal deals struck in hushed tones and alliances forged over cheap whiskey."
+      },
+      {
+        "name": "The Rooftop Overlook",
+        "summary": "Perched atop the Rusted Rail Warehouse, this precarious vantage point offers a panoramic view of Seattle's skyline, a silent witness to clandestine meetings and moments of quiet reflection amid chaos."
+      }
+    ],
+    "items": [
+      {
+        "name": "Cassette Tape Labeled 'Echoes'",
+        "summary": "An unmarked tape found in Jax Mercer's belongings, containing raw, unpolished tracks that hint at secrets and emotional fractures within the band."
+      },
+      {
+        "name": "Graffiti-Stained Leather Jacket",
+        "summary": "Jax's signature jacket, marked by years of wear and rebellion, now a poignant relic stained with traces of the night's violence, symbolizing the collision of art and tragedy."
+      }
+    ]
+  },
+  "reservedVictim": {
+    "name": "Dante Reyes",
+    "summary": "A local music journalist whose sharp pen and sharper instincts have earned him both allies and enemies; his presence at the party hints at a deeper agenda beyond mere reportage."
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+      "victim": "Dante Reyes",
+      "location": "backstage dressing room at the Rusted Rail Warehouse",
+      "method": "strangled with guitar strings",
+      "motive": "jealousy over Dante's rising fame and desperation due to debt",
+      "summary": "Eddie Malone, driven by jealousy and financial desperation, strangled Dante Reyes in the backstage dressing room using guitar strings. He seized the opportunity when Dante was alone, using his intimate knowledge of the venue and instruments to commit the murder quietly. The act was intentional and fueled by Eddie's obsession with the vintage guitar and resentment towards Dante's success.",
+      "opportunity": "Eddie was the last person seen near the vintage guitar and knew all backstage areas, allowing him to access Dante's dressing room unnoticed.",
+      "why_others_could_not": [
+        "Lena Voss was occupied organizing the party and was seen arguing with Dante earlier but lacked access to the dressing room at the time of death",
+        "Maggie O'Hara was in the sound booth with multiple witnesses and lacked physical access to the dressing room",
+        "Rico Delgado was seen carrying a blunt object but was nowhere near the dressing room when the murder occurred",
+        "Lena Voss — The Underground Queen is ruled out as the killer: reconciled timelines, access limits, and motives under this solution exclude them.",
+        "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer is ruled out as the killer: reconciled timelines, access limits, and motives under this solution exclude them.",
+        "Rico 'Crash' Delgado — The Reckless Drummer is ruled out as the killer: reconciled timelines, access limits, and motives under this solution exclude them."
+      ]
+    },
+    "treasure": {
+      "object": "vintage guitar prototype rumored to be Kurt Cobain's lost instrument",
+      "hiding_place": "inside a false compartment in the warehouse's storage locker controlled by Lena Voss",
+      "concealment": "the guitar is concealed behind a removable panel inside the locker, hidden beneath crates and covered in dust",
+      "significance": "the guitar represents both immense monetary value and symbolic leverage over band reputation, motivating the murder and theft",
+      "discovery_path": "players can uncover clues from backstage conversations, find Lena's locker key, and discover the false panel by examining the storage area and matching guitar case details"
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "lena_voss_the_underground_queen",
+        "name": "Lena Voss — The Underground Queen",
+        "title": "Lena Voss — The Underground Queen",
+        "card_id": "a9f71197-a4ed-4aa0-98da-ebac9ccb8c54",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "eddie_strings_malone_the_obsessed_guitarist",
+        "name": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+        "title": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+        "card_id": "55feb4df-7e45-4e7f-b47c-8ab395219e92",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "maggie_the_fixer_o_hara_the_enigmatic_sound_engineer",
+        "name": "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer",
+        "title": "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer",
+        "card_id": "b808de1c-9185-4c7d-9a69-98604d1bef58",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "rico_crash_delgado_the_reckless_drummer",
+        "name": "Rico 'Crash' Delgado — The Reckless Drummer",
+        "title": "Rico 'Crash' Delgado — The Reckless Drummer",
+        "card_id": "ed674d60-34b1-460a-84ac-5d2de436a7da",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "eddie_strings_malone_the_obsessed_guitarist",
+    "killer_name": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+    "victim_name": "Dante Reyes",
+    "murder": {
+      "location": "backstage dressing room at the Rusted Rail Warehouse",
+      "method": "strangled with guitar strings",
+      "motive": "jealousy over Dante's rising fame and desperation due to debt",
+      "summary": "Eddie Malone, driven by jealousy and financial desperation, strangled Dante Reyes in the backstage dressing room using guitar strings. He seized the opportunity when Dante was alone, using his intimate knowledge of the venue and instruments to commit the murder quietly. The act was intentional and fueled by Eddie's obsession with the vintage guitar and resentment towards Dante's success.",
+      "opportunity": "Eddie was the last person seen near the vintage guitar and knew all backstage areas, allowing him to access Dante's dressing room unnoticed.",
+      "window_start": null,
+      "window_end": null
+    },
+    "treasure": {
+      "object": "vintage guitar prototype rumored to be Kurt Cobain's lost instrument",
+      "hiding_place": "inside a false compartment in the warehouse's storage locker controlled by Lena Voss",
+      "concealment": "the guitar is concealed behind a removable panel inside the locker, hidden beneath crates and covered in dust",
+      "discovery_path": "players can uncover clues from backstage conversations, find Lena's locker key, and discover the false panel by examining the storage area and matching guitar case details"
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "lena_voss_the_underground_queen",
+        "eddie_strings_malone_the_obsessed_guitarist",
+        "maggie_the_fixer_o_hara_the_enigmatic_sound_engineer",
+        "rico_crash_delgado_the_reckless_drummer"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "trails": [
+    {
+      "title": "Shifting Blame: The Reckless Drummer's Trail",
+      "goal": "Widen suspicion toward Rico Delgado by highlighting his suspicious behavior and potential motive without confirming guilt.",
+      "location_ref": "6d6ec801-b40c-4b2f-b8c7-60cd88cc8fed",
+      "beats": [
+        {
+          "information": "Witnesses saw Rico Delgado carrying a heavy, blunt object near the Alley of Broken Records shortly before the murder was discovered.",
+          "game": "Discuss with the group how Rico's presence near the alley and his possession of a blunt object might relate to the crime scene or motive."
+        },
+        {
+          "information": "Rico was overheard arguing heatedly with Dante Reyes earlier in the evening, expressing frustration over band tensions and missed opportunities.",
+          "game": "Consider whether Rico's anger could have escalated to violence and how this affects your suspicion of him."
+        },
+        {
+          "information": "Despite his aggressive demeanor, multiple witnesses confirm Rico was seen far from the backstage dressing room during the estimated time of death.",
+          "game": "Debate how Rico's alibi impacts the likelihood of his involvement and whether his earlier behavior still casts doubt."
+        },
+        {
+          "information": "Rico's broken drumsticks were found backstage, but no direct evidence links them to the murder method, suggesting possible distraction or misdirection.",
+          "game": "Explore theories on how the broken drumsticks might connect to the crime or serve as a red herring to mislead the investigation."
+        }
+      ]
+    },
+    {
+      "title": "Strings of Jealousy: The Obsessed Guitarist's Trail",
+      "goal": "Tighten suspicion around Eddie 'Strings' Malone by revealing his access, opportunity, and motive without naming him as the killer.",
+      "location_ref": "f16697ff-0fae-4e81-93ba-d6c710b82b4e",
+      "beats": [
+        {
+          "information": "Eddie was the last person seen near the vintage guitar prototype backstage, showing intense interest in it.",
+          "game": "Discuss what Eddie's fixation on the guitar might imply about his motives or potential desperation."
+        },
+        {
+          "information": "The backstage dressing room door was found locked from the inside, but Eddie's knowledge of the venue's layout could have allowed secret access through hidden passages.",
+          "game": "Analyze how Eddie's familiarity with the backstage area might have given him the opportunity to commit the crime unnoticed."
+        },
+        {
+          "information": "Financial records discovered hint at Eddie's mounting debts, possibly motivating drastic actions to secure money or leverage.",
+          "game": "Consider how Eddie's financial troubles might influence his behavior and potential involvement in the murder."
+        },
+        {
+          "information": "Guitar strings matching those used to strangle the victim were found tangled near Eddie's equipment bag, raising suspicion but requiring further corroboration.",
+          "game": "Debate the significance of the guitar strings found near Eddie and how this evidence narrows suspicion toward him without confirming guilt."
+        }
+      ]
+    },
+    {
+      "title": "Echoes in the Shadows: The Uncertain Clues Trail",
+      "goal": "Present ambiguous clues that could implicate multiple suspects or require cross-referencing with other trails to clarify.",
+      "location_ref": "f491455e-36bf-4751-aedf-aa3549e72c72",
+      "beats": [
+        {
+          "information": "A torn piece of a setlist with scribbled notes about band tensions was found crumpled in a trash bin backstage.",
+          "game": "Speculate who might have written the notes and what they reveal about interpersonal conflicts among the suspects."
+        },
+        {
+          "information": "Dusty footprints lead from the storage locker area toward the backstage dressing room, but their owner is unclear.",
+          "game": "Discuss which suspects had access to the storage area and how this trail might connect to the crime."
+        },
+        {
+          "information": "Lena Voss was seen holding a key to a storage locker containing valuable band equipment, including the vintage guitar.",
+          "game": "Evaluate Lena's role and whether control over the locker could relate to the murder or stolen items."
+        },
+        {
+          "information": "A faint smell of cigarette smoke lingers in the backstage dressing room, conflicting with some suspects' claims of being smoke-free, adding to the mystery.",
+          "game": "Consider how this sensory clue might support or contradict alibis and testimonies, and what it suggests about who was present."
+        }
+      ]
+    }
+  ],
+  "trail_review": {
+    "pass": true,
+    "problems": [],
+    "roles": {
+      "red_herring": true,
+      "killer_aligned": true,
+      "ambiguous": true
+    },
+    "trails": [
+      {
+        "title": "Shifting Blame: The Reckless Drummer's Trail",
+        "goal": "Widen suspicion toward Rico Delgado by highlighting his suspicious behavior and potential motive without confirming guilt.",
+        "location_ref": "6d6ec801-b40c-4b2f-b8c7-60cd88cc8fed",
+        "beats": [
+          {
+            "information": "Witnesses saw Rico Delgado carrying a heavy, blunt object near the Alley of Broken Records shortly before the murder was discovered.",
+            "game": "Discuss with the group how Rico's presence near the alley and his possession of a blunt object might relate to the crime scene or motive."
+          },
+          {
+            "information": "Rico was overheard arguing heatedly with Dante Reyes earlier in the evening, expressing frustration over band tensions and missed opportunities.",
+            "game": "Consider whether Rico's anger could have escalated to violence and how this affects your suspicion of him."
+          },
+          {
+            "information": "Despite his aggressive demeanor, multiple witnesses confirm Rico was seen far from the backstage dressing room during the estimated time of death.",
+            "game": "Debate how Rico's alibi impacts the likelihood of his involvement and whether his earlier behavior still casts doubt."
+          },
+          {
+            "information": "Rico's broken drumsticks were found backstage, but no direct evidence links them to the murder method, suggesting possible distraction or misdirection.",
+            "game": "Explore theories on how the broken drumsticks might connect to the crime or serve as a red herring to mislead the investigation."
+          }
+        ]
+      },
+      {
+        "title": "Strings of Jealousy: The Obsessed Guitarist's Trail",
+        "goal": "Tighten suspicion around Eddie 'Strings' Malone by revealing his access, opportunity, and motive without naming him as the killer.",
+        "location_ref": "f16697ff-0fae-4e81-93ba-d6c710b82b4e",
+        "beats": [
+          {
+            "information": "Eddie was the last person seen near the vintage guitar prototype backstage, showing intense interest in it.",
+            "game": "Discuss what Eddie's fixation on the guitar might imply about his motives or potential desperation."
+          },
+          {
+            "information": "The backstage dressing room door was found locked from the inside, but Eddie's knowledge of the venue's layout could have allowed secret access through hidden passages.",
+            "game": "Analyze how Eddie's familiarity with the backstage area might have given him the opportunity to commit the crime unnoticed."
+          },
+          {
+            "information": "Financial records discovered hint at Eddie's mounting debts, possibly motivating drastic actions to secure money or leverage.",
+            "game": "Consider how Eddie's financial troubles might influence his behavior and potential involvement in the murder."
+          },
+          {
+            "information": "Guitar strings matching those used to strangle the victim were found tangled near Eddie's equipment bag, raising suspicion but requiring further corroboration.",
+            "game": "Debate the significance of the guitar strings found near Eddie and how this evidence narrows suspicion toward him without confirming guilt."
+          }
+        ]
+      },
+      {
+        "title": "Echoes in the Shadows: The Uncertain Clues Trail",
+        "goal": "Present ambiguous clues that could implicate multiple suspects or require cross-referencing with other trails to clarify.",
+        "location_ref": "f491455e-36bf-4751-aedf-aa3549e72c72",
+        "beats": [
+          {
+            "information": "A torn piece of a setlist with scribbled notes about band tensions was found crumpled in a trash bin backstage.",
+            "game": "Speculate who might have written the notes and what they reveal about interpersonal conflicts among the suspects."
+          },
+          {
+            "information": "Dusty footprints lead from the storage locker area toward the backstage dressing room, but their owner is unclear.",
+            "game": "Discuss which suspects had access to the storage area and how this trail might connect to the crime."
+          },
+          {
+            "information": "Lena Voss was seen holding a key to a storage locker containing valuable band equipment, including the vintage guitar.",
+            "game": "Evaluate Lena's role and whether control over the locker could relate to the murder or stolen items."
+          },
+          {
+            "information": "A faint smell of cigarette smoke lingers in the backstage dressing room, conflicting with some suspects' claims of being smoke-free, adding to the mystery.",
+            "game": "Consider how this sensory clue might support or contradict alibis and testimonies, and what it suggests about who was present."
+          }
+        ]
+      }
+    ]
+  },
+  "narratives": {
+    "a": {
+      "suspect": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+      "motive": "Eddie's jealousy over Dante's rising fame combined with mounting debts to a local loan shark pushed him toward desperation. The vintage guitar, his obsession, represented both his dreams and a potential financial lifeline.",
+      "opportunity": "Eddie's intimate knowledge of the backstage area and hidden passages gave him secret access to the dressing room, even when it was locked from the inside.",
+      "supporting_evidence": [
+        "Eddie was the last person seen near the vintage guitar prototype before it disappeared.",
+        "Fresh cuts on Eddie's fingers suggest recent struggle or nervousness.",
+        "Guitar strings matching those used to strangle Dante were found tangled near Eddie's equipment bag.",
+        "Eddie carries a suspiciously clean guitar case, possibly to conceal the stolen guitar or weapon."
+      ],
+      "misleading_evidence": [
+        "Eddie claims he was tuning his guitar elsewhere during the time of the murder, but no one can confirm this.",
+        "His debts and obsession might be interpreted as motives, but no direct eyewitness saw him commit violence."
+      ],
+      "contradiction_hooks": [
+        "Eddie insists he never intended harm and was trying to protect the guitar from theft.",
+        "Some bandmates recall Eddie expressing frustration but also loyalty toward Dante."
+      ],
+      "narrative_arc": "Eddie's descent from passionate musician to desperate man culminates in a fatal act fueled by envy and financial pressure. His fixation on the guitar blinds him to the consequences, and his backstage savvy allows him to act unseen, but his guilt gnaws at him as pieces of evidence emerge."
+    },
+    "b": {
+      "suspect": "Rico 'Crash' Delgado — The Reckless Drummer",
+      "motive": "Rico's volatile temper and deep debts, combined with Dante's threat to expose his drug use, create a powerful motive to silence the lead singer.",
+      "opportunity": "Though witnesses place Rico away from the dressing room at the time of death, his access to storage rooms and backstage areas, plus possession of a heavy blunt object, suggest potential for violence.",
+      "supporting_evidence": [
+        "Rico was seen carrying a heavy, blunt object near the Alley of Broken Records shortly before the murder.",
+        "He had heated confrontations with Dante earlier in the evening.",
+        "Broken drumsticks were found backstage, possibly indicating a struggle or distraction."
+      ],
+      "misleading_evidence": [
+        "Multiple witnesses confirm Rico was far from the dressing room during the estimated time of death, weakening direct suspicion.",
+        "No forensic evidence links the blunt object or drumsticks to the murder method."
+      ],
+      "contradiction_hooks": [
+        "Rico's aggressive demeanor masks a genuine fear of losing his place in the band and life.",
+        "Some bandmates believe Rico would never resort to murder despite his anger."
+      ],
+      "narrative_arc": "Rico's reckless lifestyle and mounting pressures paint him as a volatile suspect, but his alibi and lack of direct evidence complicate the picture. His presence backstage and possession of suspicious items keep suspicion alive, though doubt remains about his true involvement."
+    },
+    "c": {
+      "suspect": "Lena Voss — The Underground Queen",
+      "motive": "Lena's control over the venue and fear that the stolen guitar's disappearance would ruin her reputation, combined with a bitter public spat with Dante over stolen royalties, provide strong motives.",
+      "opportunity": "As party organizer and venue controller, Lena had access to hidden rooms and storage areas, including where the guitar was last seen. She was also seen arguing backstage minutes before the murder.",
+      "supporting_evidence": [
+        "Lena was seen arguing with Dante backstage shortly before his death.",
+        "She controls access to the venue's hidden rooms and storage lockers.",
+        "Her alibi is shaky and conflicting with other testimonies."
+      ],
+      "misleading_evidence": [
+        "Lena claims her argument with Dante was about band management, not personal threats.",
+        "No physical evidence directly ties her to the murder weapon or scene."
+      ],
+      "contradiction_hooks": [
+        "Lena is fiercely protective of the scene and might have confronted Dante over reputation, but some believe she would avoid violence.",
+        "Her control over the venue could be used to frame others or hide her own tracks."
+      ],
+      "narrative_arc": "Lena's iron grip on the Rusted Rail Warehouse and her clashes with Dante cast her as a powerful suspect with much to lose. Her emotional outbursts and control over the environment suggest opportunity, but lack of direct evidence leaves her guilt uncertain and open to interpretation."
+    },
+    "true_narrative": "a"
+  },
+  "narrative_validation": {
+    "pass": true,
+    "problems": [],
+    "analysis": {
+      "suspects": [
+        "Eddie 'Strings' Malone — The Obsessed Guitarist",
+        "Rico 'Crash' Delgado — The Reckless Drummer",
+        "Lena Voss — The Underground Queen"
+      ],
+      "true_suspect": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+      "eliminated_suspect": "Rico 'Crash' Delgado — The Reckless Drummer",
+      "red_herring": "Lena Voss — The Underground Queen",
+      "uses_only_characters": true,
+      "matches_solution": true,
+      "deduction_possible": true
+    }
+  },
+  "suspect_coverage": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": [],
+    "underused_suspects": [],
+    "required_early_suspects": [
+      "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer",
+      "Eddie 'Strings' Malone — The Obsessed Guitarist",
+      "Lena Voss — The Underground Queen"
+    ],
+    "viable_counts": {
+      "motive": 4,
+      "access": 4,
+      "opportunity": 4,
+      "weapon": 3
+    },
+    "suspect_signals": [
+      {
+        "name": "Lena Voss — The Underground Queen",
+        "signal_count": 7,
+        "secret_count": 2,
+        "narrative_count": 1,
+        "signal_types": [
+          "motive",
+          "access",
+          "opportunity",
+          "contradiction",
+          "location",
+          "object",
+          "weapon"
+        ],
+        "logistical_hooks": [
+          "access",
+          "location",
+          "object",
+          "weapon"
+        ],
+        "competitive_hooks": [
+          "motive",
+          "opportunity",
+          "contradiction"
+        ]
+      },
+      {
+        "name": "Eddie 'Strings' Malone — The Obsessed Guitarist",
+        "signal_count": 7,
+        "secret_count": 2,
+        "narrative_count": 1,
+        "signal_types": [
+          "motive",
+          "access",
+          "location",
+          "object",
+          "opportunity",
+          "weapon",
+          "contradiction"
+        ],
+        "logistical_hooks": [
+          "access",
+          "location",
+          "object",
+          "weapon"
+        ],
+        "competitive_hooks": [
+          "motive",
+          "opportunity",
+          "contradiction"
+        ]
+      },
+      {
+        "name": "Maggie 'The Fixer' O'Hara — The Enigmatic Sound Engineer",
+        "signal_count": 5,
+        "secret_count": 2,
+        "narrative_count": 0,
+        "signal_types": [
+          "motive",
+          "access",
+          "location",
+          "opportunity",
+          "contradiction"
+        ],
+        "logistical_hooks": [
+          "access",
+          "location"
+        ],
+        "competitive_hooks": [
+          "motive",
+          "opportunity",
+          "contradiction"
+        ]
+      },
+      {
+        "name": "Rico 'Crash' Delgado — The Reckless Drummer",
+        "signal_count": 7,
+        "secret_count": 2,
+        "narrative_count": 1,
+        "signal_types": [
+          "motive",
+          "access",
+          "object",
+          "opportunity",
+          "weapon",
+          "contradiction",
+          "location"
+        ],
+        "logistical_hooks": [
+          "access",
+          "object",
+          "weapon",
+          "location"
+        ],
+        "competitive_hooks": [
+          "motive",
+          "opportunity",
+          "contradiction"
+        ]
+      }
+    ]
+  },
+  "worker_error": "Error: OpenAI error: {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'story_acts': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+  "costAccounting": {
+    "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+    "requestCount": 13,
+    "requests": [
+      {
+        "index": 2,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "story_blurb_agent",
+        "requestType": "json",
+        "schemaName": "story_blurb",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 380,
+        "completion_tokens": 487,
+        "total_tokens": 867,
+        "created_at": "2026-04-02T10:46:24.812Z"
+      },
+      {
+        "index": 3,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "world_building_agent",
+        "requestType": "json",
+        "schemaName": "world_building",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 930,
+        "completion_tokens": 427,
+        "total_tokens": 1357,
+        "created_at": "2026-04-02T10:46:33.215Z"
+      },
+      {
+        "index": 4,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "characters_builder_agent",
+        "requestType": "json",
+        "schemaName": "characters_builder",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1022,
+        "completion_tokens": 579,
+        "total_tokens": 1601,
+        "created_at": "2026-04-02T10:46:42.513Z"
+      },
+      {
+        "index": 5,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "core_truth_agent",
+        "requestType": "json",
+        "schemaName": "core_truth",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1580,
+        "completion_tokens": 366,
+        "total_tokens": 1946,
+        "created_at": "2026-04-02T10:46:47.294Z"
+      },
+      {
+        "index": 6,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "treasure_hunt_agent",
+        "requestType": "json",
+        "schemaName": "treasure_hunt",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 694,
+        "completion_tokens": 315,
+        "total_tokens": 1009,
+        "created_at": "2026-04-02T10:46:52.407Z"
+      },
+      {
+        "index": 7,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "breadcrumb_trail_agent",
+        "requestType": "json",
+        "schemaName": "breadcrumb_trails",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1578,
+        "completion_tokens": 789,
+        "total_tokens": 2367,
+        "created_at": "2026-04-02T10:47:03.597Z"
+      },
+      {
+        "index": 8,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "trail_review_agent",
+        "requestType": "json",
+        "schemaName": "reviewed_trails",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 2279,
+        "completion_tokens": 1029,
+        "total_tokens": 3308,
+        "created_at": "2026-04-02T10:47:20.591Z"
+      },
+      {
+        "index": 9,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "narrative_generator_agent",
+        "requestType": "json",
+        "schemaName": "suspect_narratives",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 2754,
+        "completion_tokens": 1487,
+        "total_tokens": 4241,
+        "created_at": "2026-04-02T10:47:57.070Z"
+      },
+      {
+        "index": 10,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "narrative_validator_agent",
+        "requestType": "json",
+        "schemaName": "narrative_validation",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 3551,
+        "completion_tokens": 119,
+        "total_tokens": 3670,
+        "created_at": "2026-04-02T10:47:59.985Z"
+      },
+      {
+        "index": 11,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 517,
+        "completion_tokens": 85,
+        "total_tokens": 602,
+        "created_at": "2026-04-02T10:48:03.277Z"
+      },
+      {
+        "index": 12,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 521,
+        "completion_tokens": 77,
+        "total_tokens": 598,
+        "created_at": "2026-04-02T10:48:06.376Z"
+      },
+      {
+        "index": 13,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 527,
+        "completion_tokens": 106,
+        "total_tokens": 633,
+        "created_at": "2026-04-02T10:48:09.780Z"
+      },
+      {
+        "index": 14,
+        "runId": "Grunge Shadows- A Seattle Mystery-1775126768995-ypky96",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 521,
+        "completion_tokens": 85,
+        "total_tokens": 606,
+        "created_at": "2026-04-02T10:48:12.587Z"
+      }
+    ],
+    "totals": {
+      "prompt_tokens": 16854,
+      "completion_tokens": 5951,
+      "total_tokens": 22805
+    }
+  }
+}

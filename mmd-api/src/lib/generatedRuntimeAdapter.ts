@@ -1,4 +1,4 @@
-import type { RuntimeBundle, RuntimeCard, RuntimeCardIntent, RuntimePlayer, RuntimeStage, RuntimeStory } from './runtimeStory.js'
+import type { RuntimeBundle, RuntimeCard, RuntimeCardIntent, RuntimePlayer, RuntimeStage, RuntimeStory, RuntimeItem } from './runtimeStory.js'
 
 export interface AdapterDiagnostic {
   level: 'warn' | 'error'
@@ -22,6 +22,7 @@ interface GeneratedStoryRun {
   runId?: unknown
   playerCount?: unknown
   cards?: unknown
+  storyBlurb?: unknown
   [key: string]: unknown
 }
 
@@ -185,6 +186,39 @@ function ensureActPlayable(story: RuntimeStory, diagnostics: AdapterDiagnostic[]
   }
 }
 
+function ensureClueOrPuzzleExists(story: RuntimeStory, diagnostics: AdapterDiagnostic[]) {
+  const hasAny = story.cards.some(c => c.intent === 'clue' || c.intent === 'puzzle')
+  if (hasAny) return
+
+  diagnostics.push({ level: 'warn', message: 'No clue or puzzle cards found; injecting fallback clue(s) for playability.' })
+  const ids = story.playerOrder.length ? story.playerOrder : Object.keys(story.playersByCharacterId)
+  const names = ids.map(id => story.playersByCharacterId[id]?.name).filter(Boolean)
+
+  if (!names.length) {
+    story.cards.push({
+      id: stableLocalId(`${story.id}:fallback-clue:act1`),
+      act: 1,
+      intent: 'clue',
+      title: 'Clue',
+      text: 'A small inconsistency stands out — ask others what they noticed and compare notes.',
+      source: { cardType: 'synthetic', cardId: 'fallback-clue' },
+    })
+    return
+  }
+
+  for (const name of names) {
+    story.cards.push({
+      id: stableLocalId(`${story.id}:fallback-clue:${name}:act1`),
+      act: 1,
+      intent: 'clue',
+      title: 'Clue',
+      text: 'You spot a detail that doesn’t quite add up — share it and see who reacts.',
+      source: { cardType: 'synthetic', cardId: 'fallback-clue' },
+      linked_character: name,
+    } as any)
+  }
+}
+
 export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: RuntimeStory; diagnostics: AdapterDiagnostic[] } {
   const diagnostics: AdapterDiagnostic[] = []
   const run = (raw ?? {}) as GeneratedStoryRun
@@ -194,35 +228,83 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
   if (!asNumber(run.playerCount)) diagnostics.push({ level: 'warn', message: 'Missing playerCount (recommended for playtest UX)', path: 'playerCount' })
 
   const storyTitle = firstMeta(cards, 'Story title') ?? 'Untitled story'
-  const storyDescription = firstMeta(cards, 'Story description') ?? 'Generated story JSON loaded locally.'
+  // Prefer root-level storyBlurb (richer, set by story_blurb_agent) over the story_meta card.
+  const storyDescription = asString(run.storyBlurb) ?? firstMeta(cards, 'Story description') ?? 'Generated story JSON loaded locally.'
   const playerCount = asNumber(run.playerCount) ?? 0
 
   const characterCards = cards.filter(c => typeFromCard(c) === 'character')
   const playersByCharacterId: Record<string, RuntimePlayer> = {}
   const playerOrder: string[] = []
+  // Track full card_title per character for dual-key name resolution.
+  const fullTitleByCharacterId: Record<string, string> = {}
   for (const card of characterCards) {
     const characterId = idFromCard(card)
     if (!characterId) continue
     playerOrder.push(characterId)
+    // Support 'Name — Archetype' title pattern (Grunge+ schema).
+    // Short name is the display/match key; archetype is pulled from title or explicit field.
+    const fullTitle = titleFromCard(card) ?? `Character ${characterId}`
+    const emDashIdx = fullTitle.indexOf(' \u2014 ')
+    const displayName = emDashIdx >= 0 ? fullTitle.slice(0, emDashIdx).trim() : fullTitle
+    const titleArchetype = emDashIdx >= 0 ? fullTitle.slice(emDashIdx + 3).trim() : undefined
+    const archetype = asString((card as any).archetype) ?? titleArchetype ?? undefined
+    fullTitleByCharacterId[characterId] = fullTitle
     playersByCharacterId[characterId] = {
       characterId,
-      name: titleFromCard(card) ?? `Character ${characterId}`,
+      name: displayName,
+      archetype,
       biography: contentsFromCard(card) ?? undefined,
       image: imageFromCard(card) ?? undefined,
       secrets: [],
+      items: [],
     }
+  }
+
+  // Dual-key name map: keys on both short display name AND full title (with archetype suffix).
+  // This makes linked_character resolution work regardless of which form the generator emits.
+  const characterIdByName: Record<string, string> = {}
+  for (const p of Object.values(playersByCharacterId)) {
+    characterIdByName[p.name] = p.characterId                          // short name key
+    const full = fullTitleByCharacterId[p.characterId]
+    if (full && full !== p.name) characterIdByName[full] = p.characterId  // full title key
   }
 
   const secretsByCharacterId: Record<string, string[]> = {}
   const secretCards = cards.filter(c => typeFromCard(c) === 'secret')
   for (const card of secretCards) {
+    const linkedName = asString(card.linked_character)
     const linkedId = asString(card.linked_character_id)
+    // Prefer name-based lookup (new schema); fall back to raw id (Jekyll legacy).
+    const targetId = (linkedName ? characterIdByName[linkedName] : null) ?? linkedId
     const secret = contentsFromCard(card)
-    if (!linkedId || !secret) continue
-    ;(secretsByCharacterId[linkedId] ??= []).push(secret)
+    if (!targetId || !secret) continue
+    ;(secretsByCharacterId[targetId] ??= []).push(secret)
   }
   for (const [characterId, secrets] of Object.entries(secretsByCharacterId)) {
     if (playersByCharacterId[characterId]) playersByCharacterId[characterId].secrets = secrets
+  }
+
+  const itemsByCharacterId: Record<string, RuntimeItem[]> = {}
+  const itemCards = cards.filter(c => typeFromCard(c) === 'item')
+  for (const card of itemCards) {
+    const linkedName = asString(card.linked_character)
+    const targetId = linkedName ? characterIdByName[linkedName] : null
+    if (!targetId) continue
+
+    const itemCardId = idFromCard(card)
+    if (!itemCardId) continue
+
+    const act = cardAct(card) ?? 1
+    ;(itemsByCharacterId[targetId] ??= []).push({
+      id: itemCardId,
+      name: titleFromCard(card) ?? 'Unknown Item',
+      description: contentsFromCard(card) ?? '',
+      act,
+      locationRef: asString(card.location_ref) ?? null,
+    })
+  }
+  for (const [characterId, items] of Object.entries(itemsByCharacterId)) {
+    if (playersByCharacterId[characterId]) playersByCharacterId[characterId].items = items
   }
 
   const stageByAct: Record<number, RuntimeStage> = {}
@@ -250,6 +332,26 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
     const intent = intentFromCardType(cardType)
     if (!intent) continue
 
+    const linkedCharacterRaw = asString(card.linked_character) ?? null
+
+    // Normalise linked_character to the short display name so visibleToMe
+    // comparison (linked_character === player.name) is always short vs short.
+    // Resolves both 'Lena Voss' and 'Lena Voss — The Underground Queen' to 'Lena Voss'.
+    const resolvedCharId = linkedCharacterRaw ? characterIdByName[linkedCharacterRaw] : null
+    const linkedCharacter = resolvedCharId
+      ? (playersByCharacterId[resolvedCharId]?.name ?? linkedCharacterRaw)
+      : linkedCharacterRaw
+
+    // Drift detection: warn if linked_character failed to resolve to any known character.
+    if (linkedCharacterRaw && !resolvedCharId) {
+      diagnostics.push({
+        level: 'warn',
+        message: `Unknown linked_character "${linkedCharacterRaw}" — no matching character card found`,
+        cardId,
+        cardType,
+      })
+    }
+
     const base = {
       id: cardId,
       act,
@@ -257,10 +359,26 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
       title: titleFromCard(card) ?? undefined,
       text,
       source: { cardType, cardId },
+      linked_character: linkedCharacter,
     }
 
     if (intent === 'instruction') {
-      runtimeCards.push({ ...base, intent, targetCharacterId: asString(card.target_character_id) ?? null } as any)
+      runtimeCards.push({
+        ...base,
+        intent,
+        targetCharacterId: asString(card.target_character_id) ?? null,
+      } as any)
+      continue
+    }
+
+    if (intent === 'clue') {
+      runtimeCards.push({
+        ...base,
+        intent,
+        suspectName: asString(card.suspect_name) ?? null,
+        clueType: asString(card.clue_type) ?? null,
+        clueWeight: asString(card.clue_weight) ?? null,
+      } as any)
       continue
     }
 
@@ -309,8 +427,8 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
 
   ensurePlayerObjective(runtimeStory, diagnostics)
   ensureRevealExists(runtimeStory, diagnostics)
+  ensureClueOrPuzzleExists(runtimeStory, diagnostics)
   ensureActPlayable(runtimeStory, diagnostics)
 
   return { runtimeStory, diagnostics }
 }
-

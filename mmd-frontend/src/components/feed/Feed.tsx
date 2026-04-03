@@ -8,7 +8,6 @@ interface Props {
   items: FeedItem[]
   stage?: StageData
   title?: string
-  subtitle?: string
   emptyText?: string
   onItemClick?: (item: FeedItem) => void
 }
@@ -17,18 +16,18 @@ export function Feed({
   items,
   stage,
   title = 'Room feed',
-  subtitle = 'Live room updates',
   emptyText = 'No room updates yet.',
   onItemClick,
 }: Props) {
+  const orderedItems = [...items].reverse()
+
   return (
     <Panel testId="feed" dataUi="Feed">
-      <PanelHeader title={title} meta={subtitle} />
+      <PanelHeader title={title} />
       <div className="feed-list">
         {!items.length ? <EmptyState text={emptyText} /> : null}
-        {items.map(item => <FeedItemRow key={item.id} item={item} stage={stage} onClick={onItemClick} />)}
+        {orderedItems.map(item => <FeedItemRow key={item.id} item={item} stage={stage} onClick={onItemClick} />)}
       </div>
     </Panel>
   )
 }
-

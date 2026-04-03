@@ -1,36 +1,61 @@
 import type { RoomPlayer, StageData } from '../../data/types'
-import { ui } from '../../utils/uiMarkers'
-import { Pills } from './Pills'
+import { Media } from '../ui/Media'
 
-export function Stage({ data, players, showPlayers = true }: { data: StageData; players: RoomPlayer[]; showPlayers?: boolean }) {
-  const safePercent = typeof data.countdownPercent === 'number'
-    ? Math.max(0, Math.min(100, data.countdownPercent))
-    : null
+type StageDisplayMode = 'story' | 'act'
+
+export function Stage({
+  data,
+  showDescription = true,
+  display = 'story',
+}: {
+  data: StageData
+  players: RoomPlayer[]
+  showPlayers?: boolean
+  showDescription?: boolean
+  display?: StageDisplayMode
+}) {
+  const isActView = display === 'act'
+  const primaryTitle = isActView ? data.title : (data.storyTitle ?? data.title)
+  const secondaryTitle = undefined
+  const actBody = (data.actText ?? '').trim() ? (data.actText ?? '') : data.description
+  const bodyText = isActView ? actBody : (data.storyBlurb ?? data.description)
+  const mediaSrc = isActView ? data.image : (data.storyImage ?? data.image)
+  const shouldRenderMedia = isActView || Boolean(mediaSrc)
 
   return (
-    <section className="panel stage" {...ui('Stage')}>
-      <div
-        className="stage__image"
-        style={data.image
-          ? { backgroundImage: `linear-gradient(rgba(11,16,32,.28), rgba(11,16,32,.88)), url(${data.image})` }
-          : undefined}
-      >
-        <div className="stage__eyebrow" data-testid="stage-eyebrow">{data.state} · Act {data.act}</div>
-        <h1 className="stage__title">{data.title}</h1>
-        <p className="stage__subtitle">{data.subtitle}</p>
-        {data.countdownLabel ? <div className="countdown-pill">{data.countdownLabel}</div> : null}
-      </div>
-      {safePercent !== null ? (
-        <div className="progress-strip">
-          <div className="progress-strip__bar" style={{ width: `${safePercent}%` }} />
+    <section className="panel stage" data-stage-display={display}>
+      {shouldRenderMedia ? (
+        <div className="stage__media">
+          <Media
+            kind="image"
+            src={mediaSrc}
+            alt={primaryTitle}
+            ratio="16:9"
+            variant="hero"
+            fit="cover"
+            priority
+            sizes="100vw"
+            role="decorative"
+            fallback={{
+              type: 'gradient',
+              label: isActView ? `Act ${data.act}` : undefined,
+            }}
+          />
         </div>
       ) : null}
-      {data.banner ? <div className="banner">{data.banner}</div> : null}
-      <p className="stage__description">{data.description}</p>
-      {showPlayers && players.length ? (
-        <div className="player-pills" aria-label="Players in room">
-          <Pills players={players} />
+      <div className="stage__content">
+        <div className="stage__eyebrow" data-testid="stage-eyebrow">
+          <span>{data.state}</span>
+          <span aria-hidden="true"> · </span>
+          <span>Act {data.act}</span>
         </div>
+        <h1 className="stage__storyTitle">{primaryTitle}</h1>
+        {secondaryTitle ? <div className="stage__title">{secondaryTitle}</div> : null}
+      </div>
+      {showDescription ? (
+        <p className={`stage__description${!bodyText.trim() ? ' stage__description--empty' : ''}`}>
+          {bodyText}
+        </p>
       ) : null}
     </section>
   )

@@ -1,9 +1,7 @@
 import type { TabId } from '../data/types'
-import { PageRenderer } from '../components/PageRenderer'
 import { GameSurface } from '../components/surfaces/GameSurface'
 import { LobbySurface } from '../components/surfaces/LobbySurface'
 import { ProfileSurface } from '../components/surfaces/ProfileSurface'
-import { joinPageSchema } from '../schemas/pages'
 import { useRoomContext } from './roomContext'
 
 /** Room layout; reads player + host wiring from `RoomProvider`. */
@@ -15,28 +13,26 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
 
   const {
     joined,
+    currentCharacterId,
     screenData,
     handlers,
-    pins,
     hostHandlers,
     hostError,
     hostLobbyActions,
-    hostGameActions,
   } = room
 
   if (!joined) {
     if (activeTab === 'lobby') {
       return (
-        <>
-          <PageRenderer schema={joinPageSchema} data={screenData} handlers={handlers} />
-          <LobbySurface
-            data={screenData}
-            handlers={handlers}
-            hostActions={hostLobbyActions}
-            hostHandlers={hostHandlers}
-            hostError={hostError}
-          />
-        </>
+        <LobbySurface
+          data={screenData}
+          handlers={handlers}
+          joined={joined}
+          currentCharacterId={currentCharacterId}
+          hostActions={hostLobbyActions}
+          hostHandlers={hostHandlers}
+          hostError={hostError}
+        />
       )
     }
     return (
@@ -57,6 +53,8 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
       <LobbySurface
         data={screenData}
         handlers={handlers}
+        joined={joined}
+        currentCharacterId={currentCharacterId}
         hostActions={hostLobbyActions}
         hostHandlers={hostHandlers}
         hostError={hostError}
@@ -72,10 +70,6 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
     <GameSurface
       data={screenData}
       handlers={handlers}
-      pins={pins}
-      hostActions={hostGameActions}
-      hostHandlers={hostHandlers}
-      hostError={hostError}
     />
   )
 }

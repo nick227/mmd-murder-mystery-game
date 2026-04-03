@@ -18,13 +18,24 @@ function parseStored(input: unknown): StoredGameLink[] {
     .filter(Boolean)
     .map(item => {
       const gameId = typeof item!.gameId === 'string' ? item!.gameId : ''
+      // apiBase may legitimately be '' (same-origin API). Treat missing/non-string as ''.
       const apiBase = typeof item!.apiBase === 'string' ? item!.apiBase : ''
       const hostKey = typeof item!.hostKey === 'string' ? item!.hostKey : undefined
+      const storyRaw = item!.story && typeof item!.story === 'object' ? (item!.story as Record<string, unknown>) : null
+      const story = storyRaw
+        ? {
+            id: typeof storyRaw.id === 'string' || storyRaw.id === null ? (storyRaw.id as string | null) : undefined,
+            title: typeof storyRaw.title === 'string' ? storyRaw.title : undefined,
+            summary: typeof storyRaw.summary === 'string' ? storyRaw.summary : undefined,
+            image: typeof storyRaw.image === 'string' ? storyRaw.image : undefined,
+          }
+        : undefined
       const characterIds = asStringArray(item!.characterIds)
       const lastSeenAt = typeof item!.lastSeenAt === 'string' ? item!.lastSeenAt : nowIso()
-      return { gameId, apiBase, hostKey, characterIds, lastSeenAt }
+      return { gameId, apiBase, hostKey, characterIds, story, lastSeenAt }
     })
-    .filter(item => Boolean(item.gameId) && Boolean(item.apiBase))
+    // apiBase can be '' (same-origin). Only require gameId.
+    .filter(item => Boolean(item.gameId))
 }
 
 export function readStoredGames(): StoredGameLink[] {
@@ -45,7 +56,14 @@ function writeStoredGames(next: StoredGameLink[]) {
   }
 }
 
-function upsert(input: { gameId: string; apiBase: string; hostKey?: string; characterId?: string; characterIds?: string[] }) {
+function upsert(input: {
+  gameId: string
+  apiBase: string
+  hostKey?: string
+  characterId?: string
+  characterIds?: string[]
+  story?: StoredGameLink['story']
+}) {
   const current = readStoredGames()
   const idx = current.findIndex(x => x.gameId === input.gameId && x.apiBase === input.apiBase)
   const base: StoredGameLink =
@@ -61,6 +79,7 @@ function upsert(input: { gameId: string; apiBase: string; hostKey?: string; char
     ...base,
     hostKey: input.hostKey ?? base.hostKey,
     characterIds: Array.from(nextCharacterIds),
+    story: input.story ?? base.story,
     lastSeenAt: nowIso(),
   }
 
@@ -80,7 +99,23 @@ export function upsertPlayerLink(input: { gameId: string; apiBase: string; chara
   upsert(input)
 }
 
-export function upsertCreatedGame(input: { gameId: string; apiBase: string; hostKey: string; characterIds: string[] }) {
+export function upsertCreatedGame(input: {
+  gameId: string
+  apiBase: string
+  hostKey: string
+  characterIds: string[]
+  story?: StoredGameLink['story']
+}) {
   upsert(input)
+}
+
+export function upsertGameStory(input: { gameId: string; apiBase: string; story: StoredGameLink['story'] }) {
+  const current = readStoredGames()
+  const idx = current.findIndex(x => x.gameId === input.gameId && x.apiBase === input.apiBase)
+  if (idx < 0) return
+  const existing = current[idx]
+  if (existing.story && (existing.story.id || existing.story.title || existing.story.image || existing.story.summary)) return
+  const next: StoredGameLink = { ...existing, story: input.story }
+  writeStoredGames([...current.slice(0, idx), next, ...current.slice(idx + 1)])
 }
 

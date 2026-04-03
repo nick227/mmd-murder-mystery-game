@@ -15,8 +15,8 @@
  *
  * ## Room mode (player) — tabs vs schema
  * `playerPageSchema.tabs` supplies BottomNav labels only. Actual UI is **first-class surfaces**:
- * - `lobby` → `joinPageSchema` + `LobbySurface` (pregame feed + host controls when `hostKey`), wired in **`RoomRouter`**.
- * - `game` → `GameSurface` (stage rail, objectives, composer, feed).
+ * - `lobby` → `LobbySurface` (story stage, join, unified timeline feed, host controls, composer), wired in **`RoomRouter`**.
+ * - `game` → `GameSurface` (stage + do-now + evidence).
  * - `profile` → `ProfileSurface`.
  *
  * So: launcher/host are “pure schema” pages; room is schema for chrome + documented surface split.
@@ -35,28 +35,17 @@
  * | profile-card  | profile            | `Card` + `.profile-card` |
  * | host-info     | hostInfo           | `Card` + `.host-info-card` (invites) |
  * | composer      | composer           | Feed post UI (`ComposerPanel`) |
- * | launcher      | launcher           | Playtest launcher + games list |
- * | join-card     | join               | `Card` + `.join-card` |
+ * | launcher      | launcher           | Games list and story picker |
+ * | join-card     | join               | (legacy) no longer rendered via schema |
  * | section       | —                  | Group with optional `title` + child nodes |
  */
 import type { PageSchema } from '../data/types'
 
-/** Root: API base, story picker, create game, merged games list (see `LauncherCard`). Mode → schema selection: `selectPageSchema.ts`. */
+/** Root: story picker, create game, merged games list (see `LauncherCard`). Mode → schema selection: `selectPageSchema.ts`. */
 export const launcherPageSchema: PageSchema = {
   id: 'launcher',
   layouts: {
     root: [{ id: 'launcher', type: 'launcher', bind: 'launcher' }],
-  },
-}
-
-/** Pregame entry: hero stage + name field (`join-card`). Shown with `LobbySurface` in room/lobby. */
-export const joinPageSchema: PageSchema = {
-  id: 'player-entry',
-  layouts: {
-    root: [
-      { id: 'stage', type: 'stage', bind: 'game' },
-      { id: 'join-card', type: 'join-card', bind: 'join' },
-    ],
   },
 }
 

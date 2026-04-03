@@ -23,8 +23,7 @@ export function SiteHeader({ onBrandClick }: SiteHeaderProps) {
 
   const handleAvatarClick = () => {
     if (isLoading) return
-    if (user) void logout()
-    else login()
+    if (!user) void login()
   }
 
   return (

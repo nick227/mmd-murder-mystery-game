@@ -3,8 +3,8 @@ export type TabId = 'lobby' | 'game' | 'profile'
 export type ViewMode = 'launcher' | 'host' | 'room'
 export type FeedItemType = 'chat' | 'announcement' | 'system'
 export type FeedVariant = 'narration' | 'social' | 'mechanic' | 'room'
-/** What the player is posting to the public feed (API JSON still uses `moveType`). */
-export type PostKind = 'suspect' | 'accuse' | 'alibi' | 'share_clue' | 'searched' | 'solved'
+
+export type MoveType = 'suspect' | 'accuse' | 'alibi' | 'share_clue' | 'searched' | 'solved'
 
 export type MediaKind = 'image' | 'video' | 'audio'
 export type MediaRatio = '16:9' | '4:3' | '1:1' | 'auto'
@@ -43,8 +43,16 @@ export interface StageData {
   state: GameState
   act: number
   title: string
+  /** Game instance name (shown in app header). */
   subtitle: string
+  /** Story title (shown inside the stage "story area"). */
+  storyTitle?: string
+  /** ISO datetime for scheduled start (if scheduled). */
+  scheduledTime?: string
   description: string
+  storyBlurb?: string
+  actText?: string
+  storyImage?: string
   image?: string
   countdownLabel?: string
   countdownPercent?: number
@@ -60,13 +68,16 @@ export interface FeedItem {
   stacking?: 'solo' | 'start' | 'mid' | 'end'
   actDivider?: number
   chips?: Array<{
-    kind: 'suspect' | 'clue' | 'location'
+    kind: 'clue' | 'location'
     id?: string
     label: string
     image?: string
   }>
+  title?: string
+  body?: string
   text: string
   author?: string
+  authorPortrait?: string
   visibility?: 'public' | 'private'
   recipientName?: string
   timestamp?: string
@@ -116,21 +127,32 @@ export interface ComposerEvidenceOption {
 
 export interface ComposerData {
   mode: 'public' | 'private'
-  postKind?: PostKind
   draft: string
   placeholder?: string
   recipients: ComposerRecipient[]
-  recipientId?: string
-  evidenceOptions?: ComposerEvidenceOption[]
-  evidenceId?: string
-  location?: string
   canSend?: boolean
+}
+
+export interface PostMovePayload {
+  type: 'POST_MOVE'
+  text: string
+  clientRequestId: string
+  characterId: string
+  characterName: string
+  characterPortrait?: string
 }
 
 export interface StoryListItem {
   id: string
   title: string
   summary: string
+  image?: string
+  characters?: Array<{
+    characterId: string
+    name: string
+    archetype?: string
+    portrait?: string
+  }>
   createdAt?: string
 }
 
@@ -147,6 +169,13 @@ export type StoredGameLink = {
   apiBase: string
   hostKey?: string
   characterIds: string[]
+  /** Optional story metadata so history can render rich cards across API bases. */
+  story?: {
+    id?: string | null
+    title?: string
+    summary?: string
+    image?: string
+  }
   lastSeenAt: string
 }
 
@@ -156,9 +185,14 @@ export interface LauncherData {
   form: CreateGameFormData
   allGames: ApiGameSummary[]
   savedGames: StoredGameLink[]
+  activeGamePublic?: ApiPublicGameView | null
+  activeGamePublicKey?: string | null
   createdGame?: {
     id: string
     name: string
+    creatorUserId?: string | null
+    creatorName?: string | null
+    creatorAvatar?: string | null
     hostKey: string
     scheduledTime: string
     hostUrl: string
@@ -223,7 +257,6 @@ export interface LayoutNode {
     | 'host-info'
     | 'composer'
     | 'launcher'
-    | 'join-card'
   bind?: string
   title?: string
   emptyText?: string
@@ -246,15 +279,21 @@ export interface RendererHandlers {
   onObjectiveToggle?: (objectiveId: string) => void
   onObjectiveSubmit?: (objectiveId: string) => Promise<void>
   onComposerModeChange?: (mode: 'public' | 'private') => void
-  onComposerRecipientChange?: (recipientId: string) => void
-  onComposerPostKindChange?: (postKind: PostKind) => void
-  onComposerEvidenceChange?: (evidenceId: string) => void
-  onComposerLocationChange?: (location: string) => void
   onComposerDraftChange?: (value: string) => void
-  onComposerSend?: () => void
+  onComposerSend?: (text: string) => void
   onCopyText?: (value: string) => void
-  onLauncherFieldChange?: (field: keyof CreateGameFormData | 'apiBase', value: string) => void
-  onCreateGame?: () => void
+  onLauncherOpenGameDetails?: (gameId: string, apiBase: string) => void
+  onLauncherSubmitGame?: (input: {
+    mode: 'create' | 'edit'
+    apiBase: string
+    storyId: string
+    name: string
+    scheduledTime: string
+    locationText: string
+    characterId: string
+    gameId?: string
+    hostKey?: string
+  }) => Promise<void>
   onCancelGame?: (gameId: string, hostKey: string) => Promise<void>
   onRescheduleGame?: (gameId: string, hostKey: string, scheduledTime: string) => Promise<void>
   onJoinNameChange?: (value: string) => void
@@ -298,6 +337,7 @@ export interface HostApiGamePlayer {
   id: string
   characterId: string
   characterName?: string | null
+  portrait?: string | null
   playerName: string | null
   loginKey: string
   joinedAt: string | null
@@ -308,6 +348,9 @@ export interface HostApiGame {
   storyId: string
   name: string
   storyTitle?: string
+  creatorUserId?: string | null
+  creatorName?: string | null
+  creatorAvatar?: string | null
   hostKey: string
   scheduledTime: string
   startedAt: string | null
@@ -328,6 +371,9 @@ export interface ApiGameSummary {
   storyId: string | null
   storyFile?: string | null
   name: string
+  creatorUserId?: string | null
+  creatorName?: string | null
+  creatorAvatar?: string | null
   scheduledTime: string
   startedAt: string | null
   state: GameState
@@ -337,9 +383,35 @@ export interface ApiGameSummary {
   updatedAt: string
 }
 
+export interface ApiPublicGameView {
+  gameId: string
+  gameName: string
+  gameState: GameState
+  creatorUserId?: string | null
+  creatorName?: string | null
+  creatorAvatar?: string | null
+  scheduledTime: string
+  locationText: string | null
+  story: {
+    id: string
+    title: string
+    summary: string
+    image?: string | null
+    characters: Array<{
+      characterId: string
+      name: string
+      archetype?: string
+      portrait?: string
+      joined?: boolean
+    }>
+  }
+}
+
 export interface PlayerApiView {
   gameId: string
   gameName: string
+  storyTitle?: string
+  storyBlurb?: string
   gameState: GameState
   currentAct: number
   scheduledTime: string
@@ -355,4 +427,5 @@ export interface PlayerApiView {
   unlockedPuzzles: Array<Record<string, unknown>>
   unlockedCards: Array<Record<string, unknown>>
   mysteryAnswers?: Array<{ track: 'who' | 'how' | 'why'; answer: string }>
+  storyImage?: string | null
 }

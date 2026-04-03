@@ -53,12 +53,30 @@ export function FeedItemRow({ item, stage, onClick }: Props) {
         </div>
       ) : null}
       <div className="feed-item__top">
-        <span>{feedDisplayLabel(item)}</span>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+          {item.authorPortrait ? (
+            <span style={{ width: 28, height: 28, flex: '0 0 28px' }}>
+              <Media
+                kind="image"
+                src={item.authorPortrait}
+                alt={item.author ? `${item.author} portrait` : 'Author portrait'}
+                ratio="1:1"
+                variant="thumb"
+                fit="cover"
+                role="avatar"
+                sizes="28px"
+                fallback={{ type: 'initials', label: item.author ?? '?' }}
+              />
+            </span>
+          ) : null}
+          <span>{feedDisplayLabel(item)}</span>
+        </span>
         <span>{item.timestamp ?? ''}</span>
       </div>
       {item.visibility ? <div className="feed-item__visibility">{item.visibility}</div> : null}
-      <div className="feed-item__text">{item.text}</div>
+      {item.title ? <div className="feed-item__title">{item.title}</div> : null}
+      {item.body ? <div className="feed-item__body">{item.body}</div> : null}
+      {!item.title && !item.body ? <div className="feed-item__text">{item.text}</div> : null}
     </article>
   )
 }
-

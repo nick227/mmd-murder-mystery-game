@@ -1,16 +1,14 @@
 import { createContext, useContext, type PropsWithChildren } from 'react'
 import type { ActionItem, RendererHandlers, ScreenData } from '../data/types'
-import type { usePinnedIds } from '../hooks/useAppState'
 
 export type RoomContextValue = {
   joined: boolean
+  currentCharacterId: string | null
   screenData: ScreenData
   handlers: RendererHandlers
-  pins: ReturnType<typeof usePinnedIds>
   hostHandlers?: RendererHandlers
   hostError?: string
   hostLobbyActions?: ActionItem[]
-  hostGameActions?: ActionItem[]
 }
 
 const RoomContext = createContext<RoomContextValue | null>(null)

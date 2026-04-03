@@ -13,16 +13,17 @@ export default defineConfig({
     {
       command: 'npm run dev',
       cwd: '../mmd-api',
+      env: { ...process.env, E2E: 'true' } as Record<string, string>,
       url: 'http://localhost:3000/api/v1/stories',
       reuseExistingServer: true,
       timeout: 60_000,
     },
     {
       command: 'npx vite --port 5180 --strictPort',
+      env: { ...process.env, VITE_E2E: 'true' } as Record<string, string>,
       url: 'http://localhost:5180',
       reuseExistingServer: true,
       timeout: 60_000,
     },
   ],
 })
-

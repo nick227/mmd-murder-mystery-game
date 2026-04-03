@@ -1,12 +1,12 @@
-import type { Page } from '@playwright/test'
+import { expect, type Page } from '@playwright/test'
 
-export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE'
+export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
 
 const API_BASE = process.env.E2E_API_URL?.trim() || 'http://localhost:3000'
 
 function parseStageEyebrow(text: string): { state: GameState; act: number } {
-  const trimmed = text.trim()
-  const match = /^(SCHEDULED|PLAYING|REVEAL|DONE)\s+·\s+act\s+(\d+)$/i.exec(trimmed)
+  const trimmed = text.replace(/\s+/g, ' ').trim()
+  const match = /^(SCHEDULED|PLAYING|REVEAL|DONE|CANCELLED)\s*(?:·|Â·)\s*act\s*(\d+)$/i.exec(trimmed)
   if (!match) throw new Error(`Unexpected stage eyebrow: "${trimmed}"`)
   return { state: match[1].toUpperCase() as GameState, act: Number(match[2]) }
 }
@@ -16,6 +16,7 @@ export class GameHarness {
 
   static async openLauncher(page: Page, opts?: { apiBase?: string }) {
     const query = new URLSearchParams()
+    query.set('e2e', '1')
     if (opts?.apiBase) query.set('api', opts.apiBase)
     const suffix = query.toString()
     await page.goto(suffix ? `/?${suffix}` : '/')
@@ -36,18 +37,21 @@ export class GameHarness {
     await this.page.getByRole('heading', { name: 'Stories' }).waitFor({ timeout: 60_000 })
 
     if (opts?.storyTitle) {
-      await this.page
+      const create = this.page
         .locator('.story-option')
         .filter({ hasText: opts.storyTitle })
         .getByRole('button', { name: 'Create game' })
-        .click()
+      await expect(create).toBeEnabled({ timeout: 60_000 })
+      await create.click()
     } else {
-      await this.page.locator('.story-option').first().getByRole('button', { name: 'Create game' }).click()
+      const create = this.page.locator('.story-option').first().getByRole('button', { name: 'Create game' })
+      await expect(create).toBeEnabled({ timeout: 60_000 })
+      await create.click()
     }
 
     const sheet = this.page.getByTestId('bottom-sheet')
-    await sheet.waitFor()
-    await sheet.getByText('New game').waitFor()
+    await sheet.waitFor({ state: 'visible', timeout: 60_000 })
+    await sheet.getByText('New game').waitFor({ state: 'visible', timeout: 60_000 })
 
     await sheet.locator('.field').filter({ hasText: 'Game title' }).locator('input').fill(`E2E ${Date.now()}`)
     await sheet.locator('.field').filter({ hasText: 'Location' }).locator('input').fill('The library')

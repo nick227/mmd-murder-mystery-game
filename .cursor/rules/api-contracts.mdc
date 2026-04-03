@@ -1,0 +1,102 @@
+---
+description: API contracts and data flow rules for MMD frontend
+globs:
+  - "mmd-frontend/src/**/*"
+alwaysApply: true
+---
+## API contracts + data flow (enforced)
+
+These rules govern how the frontend communicates with the backend. The goal is a single, auditable data path: API → `api.ts` → `adapters.ts` → hooks → components. No shortcuts.
+
+---
+
+### The data pipeline (never bypass it)
+```
+GET/POST /api/v1/*
+    ↓
+mmd-frontend/src/data/api.ts        ← all HTTP calls live here
+    ↓
+mmd-frontend/src/data/adapters.ts   ← all API → UI model transforms live here
+    ↓
+mmd-frontend/src/hooks/useAppState.ts  ← all state + polling lives here
+    ↓
+components / Primitives.tsx         ← only consume typed UI models
+```
+
+- **Never call `fetch()` or any HTTP client directly inside a component or hook other than `useAppState`.**
+- **Never destructure a raw API response shape inside a component.** Components only receive adapted UI models.
+- **Never import from `api.ts` directly in a component.** The hook is the only consumer of `api.ts`.
+
+---
+
+### `api.ts` rules
+
+- Every backend endpoint has exactly one corresponding function in `api.ts`. No inline one-off fetches anywhere else.
+- All functions are `async` and return typed responses. Return type must be explicit — no `any`, no untyped `Promise`.
+- All functions accept a base URL parameter (or read from a single config constant) — never hardcode `localhost` or a port in a function body.
+- HTTP errors (non-2xx) must throw a typed error object, not return `null` or `undefined` silently.
+- The `x-host-key` header is set **only** inside `api.ts` host functions — never assembled or passed from a component.
+- New endpoints follow this naming convention:
+  - `getX` for `GET` reads (e.g. `getHostView`, `getPlayerView`, `getStories`)
+  - `postX` for `POST` mutations (e.g. `postStartGame`, `postNextAct`, `postJoinGame`)
+
+---
+
+### `adapters.ts` rules
+
+- All transformation from API shape → UI model happens here and **only** here.
+- `filterByAct` logic (act-gating visibility) is applied in adapters, not in components and not duplicated client-side from server logic.
+- Adapters are pure functions: `(apiResponse, context?) => UIModel`. No side effects, no API calls, no state mutations inside an adapter.
+- If a new backend field is added, the adapter is updated first — components never read from the raw API shape directly.
+- Reveal content (`mysteryAnswers`) is only mapped into the UI model when `game.state === 'REVEAL'`. The adapter must guard this explicitly, not leave it to the component to conditionally render.
+- Feed items (room feed, reveal announcements) are assembled entirely in adapters. Components render feed items — they do not construct them.
+
+---
+
+### `useAppState.ts` rules
+
+- This is the single source of truth for all remote state. No component maintains its own copy of game, player, or host data fetched from the API.
+- Polling interval is **5000ms**. Do not change this per-screen or per-component. If a screen needs faster updates, discuss before changing the global interval.
+- **Silent background polls**: after the initial fetch resolves, subsequent poll ticks must not trigger any loading indicator. Loading state is only `true` during the initial load.
+- Poll failures: increment a `failureCount`. Surface a subtle "connection issue" indicator after 3 consecutive failures. Never show a full error screen for a transient poll failure.
+- Optimistic updates: apply UI state changes immediately on user action, then confirm or roll back based on the API response. Roll back silently + show a toast on failure.
+- The hook exposes typed UI models (adapted), never raw API shapes.
+- Do not add per-component polling. All polling is centralized here.
+
+---
+
+### Adding a new endpoint (checklist)
+
+When wiring a new backend route into the frontend, follow this order exactly:
+
+1. **`api.ts`**: add the typed function with explicit request/response types.
+2. **`adapters.ts`**: add or extend the adapter that transforms the response into a UI model.
+3. **`useAppState.ts`**: consume the new function and expose the adapted result.
+4. **Component / Primitives**: consume from the hook. No other files change.
+
+Never skip steps or merge them. A component should never be the first file changed when adding a new endpoint.
+
+---
+
+### Versioning + URL structure
+
+- All API calls are under `/api/v1/`. Never call an unversioned path.
+- The base URL (host + port) is read from a single config location — never from `window.location` heuristics inside `api.ts`.
+- If the API version increments to `v2`, a new file (`api.v2.ts`) is created — do not mutate existing `v1` functions in place.
+
+---
+
+### Type safety
+
+- All API request bodies and response shapes must have corresponding TypeScript types. These should mirror (or be imported from) the Zod schemas in `mmd-api/src/schemas/index.ts` where possible.
+- Do not use `as any` or type assertions to paper over API shape mismatches. Fix the type, not the cast.
+- `PlayerViewSchema`, `GameHostViewSchema`, and other backend schema types are the source of truth. If the frontend type diverges from the backend schema, the frontend type is wrong.
+
+---
+
+### Error handling
+
+- All `api.ts` functions wrap their `fetch` in try/catch and throw a structured error: `{ status: number, message: string }`.
+- `useAppState` catches these and maps them to UI state (`error`, `failureCount`) — never surfaces raw `Error` objects to components.
+- Components never receive error objects directly. They receive derived UI state (`isError: boolean`, `errorMessage: string`).
+- Never show a raw API error string, HTTP status code, or stack trace in the UI. Translate to a human-readable message in the hook or adapter layer.

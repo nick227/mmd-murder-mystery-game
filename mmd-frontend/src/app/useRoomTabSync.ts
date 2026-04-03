@@ -13,8 +13,25 @@ export function useRoomTabSync(opts: {
 }) {
   const prev = useRef<string | null>(null)
   useEffect(() => {
-    if (opts.mode !== 'room' || !opts.joined) return
+    if (opts.mode !== 'room') return
+
+    // When the player is not joined, clear any remembered phase so the next join
+    // establishes a baseline without triggering a tab jump.
+    if (!opts.joined) {
+      prev.current = null
+      return
+    }
+
     const current = opts.gameState
+
+    // First tick after join: remember the current phase but do not change tabs.
+    // Joining should be an in-place state update (presence/name), not navigation.
+    if (prev.current === null) {
+      prev.current = current
+      return
+    }
+
+    // Later ticks: if the server phase changes, nudge to the phase-appropriate tab.
     if (prev.current !== current) {
       prev.current = current
       if (opts.targetTab) opts.setActiveTab(opts.targetTab)

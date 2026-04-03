@@ -4,6 +4,7 @@ import { toJsonSchema, validate, generateKey, serializeDates } from '../lib/util
 import {
   CreateGameBodySchema,
   RescheduleGameBodySchema,
+  UpdateScheduledGameBodySchema,
   GameSchema,
   GameHostViewSchema,
   AssignCharacterBodySchema,
@@ -13,25 +14,108 @@ import {
   MessageSchema,
   PostMoveBodySchema,
   ErrorSchema,
+  GamePublicViewSchema,
 } from '../schemas/index.js'
 import { loadStoryJson } from '../lib/storyJson.js'
 import { adaptGeneratedStoryToRuntime } from '../lib/generatedRuntimeAdapter.js'
+import { attachRoomEventStream, publishRoomEvent, publishRoomState } from '../lib/roomEvents.js'
+
+async function readStageImageForAct(storyFile: string | null, act: number): Promise<string | null> {
+  if (!storyFile) return null
+  try {
+    const raw = await loadStoryJson(storyFile)
+    const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
+    return runtimeStory.stageByAct?.[act]?.image ?? null
+  } catch {
+    return null
+  }
+}
 
 function withCharacterNames(game: any) {
   return {
-    ...serializeDates(game),
+    ...withCreatorFields(game),
     storyTitle: game.storyTitle ?? game.name,
     players: game.players.map((player: any) => {
       const character = (game._characters ?? []).find((item: any) => item.characterId === player.characterId)
       return {
         ...serializeDates(player),
         characterName: character?.name ?? null,
+        portrait: character?.image ?? null,
       }
     }),
   }
 }
 
+function withCreatorFields(game: any) {
+  return {
+    ...serializeDates(game),
+    creatorUserId: game.ownerUserId ?? null,
+    creatorName: game.creatorName ?? null,
+    creatorAvatar: game.creatorAvatar ?? null,
+  }
+}
+
 export async function gamesRoutes(fastify: FastifyInstance) {
+
+  fastify.get<{ Params: { id: string } }>('/games/:id/public', {
+    schema: {
+      tags: ['Games'],
+      summary: 'Get public game details (no secrets)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      response: {
+        200: toJsonSchema(GamePublicViewSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const game = await prisma.game.findUnique({
+      where: { id: req.params.id },
+      include: { players: true },
+    })
+    if (!game) {
+      return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
+    }
+    if (!game.storyFile) {
+      return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game has no storyFile' })
+    }
+
+    const raw = await loadStoryJson(game.storyFile)
+    const { runtimeStory } = adaptGeneratedStoryToRuntime(raw)
+    const image = (raw as any)?.storyImage ?? runtimeStory.stageByAct?.[1]?.image ?? null
+    const joinedByCharacterId = new Map(game.players.map(p => [p.characterId, Boolean(p.joinedAt)] as const))
+    const characters = runtimeStory.playerOrder
+      .map(id => runtimeStory.playersByCharacterId[id])
+      .filter(Boolean)
+      .map(player => ({
+        characterId: player.characterId,
+        name: player.name,
+        archetype: player.archetype,
+        portrait: player.image,
+        joined: joinedByCharacterId.get(player.characterId) ?? false,
+      }))
+
+    return reply.send({
+      gameId: game.id,
+      gameName: game.name,
+      gameState: game.state,
+      creatorUserId: game.ownerUserId ?? null,
+      creatorName: game.creatorName ?? null,
+      creatorAvatar: game.creatorAvatar ?? null,
+      scheduledTime: game.scheduledTime.toISOString(),
+      locationText: game.locationText,
+      story: {
+        id: game.storyFile,
+        title: runtimeStory.title,
+        summary: runtimeStory.summary,
+        image,
+        characters,
+      },
+    })
+  })
 
   fastify.post('/games', {
     schema: {
@@ -41,11 +125,21 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       response: {
         201: toJsonSchema(GameHostViewSchema),
         400: toJsonSchema(ErrorSchema),
+        401: toJsonSchema(ErrorSchema),
         404: toJsonSchema(ErrorSchema),
       },
     },
   }, async (req, reply) => {
     const body = validate(CreateGameBodySchema, req.body)
+    const userId = req.session.userId
+    if (!userId) {
+      return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Sign in required to create a game' })
+    }
+
+    const user = await prisma.user.findUnique({ where: { id: userId } })
+    if (!user) {
+      return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Authenticated user not found' })
+    }
 
     const storyFile = body.storyFile ?? body.storyId
     if (!storyFile) {
@@ -71,6 +165,9 @@ export async function gamesRoutes(fastify: FastifyInstance) {
         storyId: dbStoryId,
         name: body.name,
         hostKey: generateKey('host'),
+        ownerUserId: user.id,
+        creatorName: user.name,
+        creatorAvatar: user.avatar || null,
         scheduledTime: new Date(body.scheduledTime),
         locationText: body.locationText ?? null,
         players: {
@@ -99,12 +196,13 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       orderBy: { scheduledTime: 'asc' },
       select: {
         id: true, storyFile: true, storyId: true, name: true,
+        ownerUserId: true, creatorName: true, creatorAvatar: true,
         scheduledTime: true, startedAt: true,
         state: true, currentAct: true,
         locationText: true, createdAt: true, updatedAt: true,
       },
     })
-    return reply.send(serializeDates(games))
+    return reply.send(games.map(withCreatorFields))
   })
 
   fastify.get<{ Params: { id: string } }>('/games/:id/host', {
@@ -155,6 +253,36 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     }))
   })
 
+  fastify.get<{ Params: { id: string }; Querystring: { hostKey?: string } }>('/games/:id/host/stream', {
+    schema: {
+      tags: ['Games'],
+      summary: 'Subscribe to host room updates',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      querystring: {
+        type: 'object',
+        properties: { hostKey: { type: 'string' } },
+        required: ['hostKey'],
+      },
+      response: {},
+    },
+  }, async (req, reply) => {
+    const game = await prisma.game.findUnique({ where: { id: req.params.id } })
+    if (!game) {
+      return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
+    }
+    if (req.query.hostKey !== game.hostKey) {
+      return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
+    }
+
+    reply.hijack()
+    attachRoomEventStream(game.id, reply.raw)
+    return reply
+  })
+
   fastify.post<{ Params: { id: string } }>('/games/:id/host/reschedule', {
     schema: {
       tags: ['Host Actions'],
@@ -188,7 +316,49 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { scheduledTime: new Date(body.scheduledTime) },
     })
-    return reply.send(serializeDates(updated))
+    publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
+  })
+
+  fastify.post<{ Params: { id: string } }>('/games/:id/host/update', {
+    schema: {
+      tags: ['Host Actions'],
+      summary: 'Update a scheduled game (host)',
+      params: {
+        type: 'object',
+        properties: { id: { type: 'string' } },
+        required: ['id'],
+      },
+      headers: {
+        type: 'object',
+        properties: { 'x-host-key': { type: 'string' } },
+        required: ['x-host-key'],
+      },
+      body: toJsonSchema(UpdateScheduledGameBodySchema),
+      response: {
+        200: toJsonSchema(GameSchema),
+        400: toJsonSchema(ErrorSchema),
+        401: toJsonSchema(ErrorSchema),
+        404: toJsonSchema(ErrorSchema),
+      },
+    },
+  }, async (req, reply) => {
+    const body = validate(UpdateScheduledGameBodySchema, req.body)
+    const game = await prisma.game.findUnique({ where: { id: req.params.id } })
+    if (!game) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Game not found' })
+    if (req.headers['x-host-key'] !== game.hostKey) return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Invalid host key' })
+    if (game.state !== 'SCHEDULED') return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: `Cannot update a game in state ${game.state}` })
+
+    const updated = await prisma.game.update({
+      where: { id: game.id },
+      data: {
+        name: body.name,
+        scheduledTime: new Date(body.scheduledTime),
+        locationText: body.locationText,
+      },
+    })
+    publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
   })
 
   fastify.post<{ Params: { id: string } }>('/games/:id/host/start', {
@@ -222,7 +392,7 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { state: 'PLAYING', currentAct: 1, startedAt: new Date() },
     })
-    await prisma.gameEvent.create({
+    const event = await prisma.gameEvent.create({
       data: {
         gameId: game.id,
         playerId: null,
@@ -230,7 +400,8 @@ export async function gamesRoutes(fastify: FastifyInstance) {
         payload: { act: 1 },
       },
     })
-    return reply.send(serializeDates(updated))
+    publishRoomEvent({ gameId: game.id, eventId: event.id, eventType: String(event.type), gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
   })
 
   // ── API authority endpoints (no local simulation) ──────────────────────────
@@ -266,20 +437,12 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { state: 'PLAYING', currentAct: 1, startedAt: new Date() },
     })
-    let stageImage: string | null = null
-    if (game.storyFile) {
-      try {
-        const raw = await loadStoryJson(game.storyFile)
-        const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
-        stageImage = runtimeStory.stageByAct?.[1]?.image ?? null
-      } catch {
-        stageImage = null
-      }
-    }
-    await prisma.gameEvent.create({
+    const stageImage = await readStageImageForAct(game.storyFile, 1)
+    const event = await prisma.gameEvent.create({
       data: { gameId: game.id, playerId: null, type: 'START_GAME', payload: { act: 1, stageImage } },
     })
-    return reply.send(serializeDates(updated))
+    publishRoomEvent({ gameId: game.id, eventId: event.id, eventType: String(event.type), gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
   })
 
   fastify.post<{ Params: { id: string } }>('/game/:id/advance', {
@@ -314,20 +477,12 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { currentAct: game.currentAct + 1 },
     })
-    let stageImage: string | null = null
-    if (game.storyFile) {
-      try {
-        const raw = await loadStoryJson(game.storyFile)
-        const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
-        stageImage = runtimeStory.stageByAct?.[updated.currentAct]?.image ?? null
-      } catch {
-        stageImage = null
-      }
-    }
-    await prisma.gameEvent.create({
+    const stageImage = await readStageImageForAct(game.storyFile, updated.currentAct)
+    const event = await prisma.gameEvent.create({
       data: { gameId: game.id, playerId: null, type: 'ADVANCE_ACT', payload: { act: updated.currentAct, stageImage } },
     })
-    return reply.send(serializeDates(updated))
+    publishRoomEvent({ gameId: game.id, eventId: event.id, eventType: String(event.type), gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
   })
 
   fastify.post<{ Params: { id: string } }>('/game/:id/submit', {
@@ -358,8 +513,10 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     const runtimeRaw = player.game.storyFile ? await loadStoryJson(player.game.storyFile) : null
     const runtimeStory = runtimeRaw ? adaptGeneratedStoryToRuntime(runtimeRaw).runtimeStory : null
     const index = runtimeStory ? runtimeStory.playerOrder.indexOf(player.characterId) : -1
+    const characterName = runtimeStory?.playersByCharacterId?.[player.characterId]?.name ?? null
+    const submittedCard = runtimeStory?.cards.find(card => card.id === body.cardId) ?? null
 
-    await prisma.gameEvent.create({
+    const event = await prisma.gameEvent.create({
       data: {
         gameId: player.gameId,
         playerId: player.id,
@@ -370,11 +527,15 @@ export async function gamesRoutes(fastify: FastifyInstance) {
           act: player.game.currentAct,
           providedAct: body.act,
           characterId: player.characterId,
+          characterName,
           playerName: player.playerName,
           playerIndex: index >= 0 ? index : null,
+          cardTitle: submittedCard?.title ?? null,
+          cardText: submittedCard?.text ?? null,
         },
       },
     })
+    publishRoomEvent({ gameId: player.gameId, eventId: event.id, eventType: String(event.type), gameState: player.game.state, currentAct: player.game.currentAct })
     return reply.send({ message: 'Submitted' })
   })
 
@@ -401,35 +562,32 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       include: { game: true },
     })
     if (!player) return reply.status(404).send({ statusCode: 404, error: 'Not Found', message: 'Invalid player' })
-    if (player.game.state !== 'PLAYING') {
-      return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Game is not in PLAYING state' })
+    if (player.game.state !== 'SCHEDULED' && player.game.state !== 'PLAYING') {
+      return reply.status(400).send({ statusCode: 400, error: 'Bad Request', message: 'Game is not accepting room posts in the current state' })
     }
 
     const runtimeRaw = player.game.storyFile ? await loadStoryJson(player.game.storyFile) : null
     const runtimeStory = runtimeRaw ? adaptGeneratedStoryToRuntime(runtimeRaw).runtimeStory : null
-    const index = runtimeStory ? runtimeStory.playerOrder.indexOf(player.characterId) : -1
-    const targetName =
-      runtimeStory && typeof body.targetCharacterId === 'string'
-        ? (runtimeStory.playersByCharacterId[body.targetCharacterId]?.name ?? null)
-        : null
+    const character = runtimeStory?.playersByCharacterId?.[player.characterId] ?? null
+    const characterName = character?.name ?? body.characterName
+    const characterPortrait = character?.image ?? body.characterPortrait ?? null
 
-    await prisma.gameEvent.create({
+    const event = await prisma.gameEvent.create({
       data: {
         gameId: player.gameId,
         playerId: player.id,
         type: 'POST_MOVE' as any,
         payload: {
-          act: player.game.currentAct,
-          moveType: body.moveType,
-          text: typeof body.text === 'string' ? body.text : null,
-          targetCharacterId: typeof body.targetCharacterId === 'string' ? body.targetCharacterId : null,
-          targetName,
+          type: 'POST_MOVE',
+          text: body.text,
+          clientRequestId: body.clientRequestId,
           characterId: player.characterId,
-          playerName: player.playerName,
-          playerIndex: index >= 0 ? index : null,
+          characterName,
+          characterPortrait,
         },
       },
     })
+    publishRoomEvent({ gameId: player.gameId, eventId: event.id, eventType: String(event.type), gameState: player.game.state, currentAct: player.game.currentAct })
 
     return reply.send({ message: 'Posted' })
   })
@@ -466,7 +624,7 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { currentAct: game.currentAct + 1 },
     })
-    await prisma.gameEvent.create({
+    const event = await prisma.gameEvent.create({
       data: {
         gameId: game.id,
         playerId: null,
@@ -474,7 +632,8 @@ export async function gamesRoutes(fastify: FastifyInstance) {
         payload: { act: updated.currentAct },
       },
     })
-    return reply.send(serializeDates(updated))
+    publishRoomEvent({ gameId: game.id, eventId: event.id, eventType: String(event.type), gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
   })
 
   fastify.post<{ Params: { id: string } }>('/games/:id/host/end-night', {
@@ -517,10 +676,11 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       )
     )
 
-    await prisma.game.update({
+    const updated = await prisma.game.update({
       where: { id: game.id },
       data: { state: 'REVEAL' },
     })
+    publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })
 
     return reply.send(serializeDates(answers))
   })
@@ -556,7 +716,8 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { state: 'DONE' },
     })
-    return reply.send(serializeDates(updated))
+    publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
   })
 
   fastify.post<{ Params: { id: string } }>('/games/:id/host/cancel', {
@@ -590,7 +751,8 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { state: 'CANCELLED' },
     })
-    return reply.send(serializeDates(updated))
+    publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })
+    return reply.send(withCreatorFields(updated))
   })
 
   fastify.post<{ Params: { id: string; playerId: string } }>('/games/:id/players/:playerId/assign', {

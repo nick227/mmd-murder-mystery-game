@@ -115,7 +115,7 @@ for (const storyTitle of await storyTitlesToTest()) {
 
     await player.submitObjective()
     await host.sync()
-    await expect(hostPage.getByText('Player 0 submitted an objective.')).toBeVisible()
+    await expect(hostPage.getByTestId('feed-item').filter({ hasText: 'completed:' }).first()).toBeVisible()
 
     await player.sync()
     await playerPage.getByTestId('bottom-nav-game').click()
@@ -146,4 +146,3 @@ for (const storyTitle of await storyTitlesToTest()) {
     await Promise.all([hostContext.close(), playerContext.close(), player2Context.close(), launcherContext.close()])
   })
 }
-

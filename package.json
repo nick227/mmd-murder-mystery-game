@@ -3,11 +3,12 @@
   "private": true,
   "description": "Murder Mystery Dinner — monorepo (API + frontend)",
   "scripts": {
-    "dev": "concurrently -n api,web -c blue,magenta \"npm run dev --prefix mmd-api\" \"npm run dev --prefix mmd-frontend\"",
+    "dev": "node scripts/dev.js",
     "install:all": "npm install --prefix mmd-api && npm install --prefix mmd-frontend && npm install"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "tree-kill": "^1.2.2"
   },
   "engines": {
     "node": ">=18.0.0"

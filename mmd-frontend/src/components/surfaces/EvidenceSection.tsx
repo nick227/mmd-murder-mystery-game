@@ -1,3 +1,4 @@
+import { useEffect, useMemo, useState } from 'react'
 import type { EvidenceItem } from '../../data/types'
 import { evidenceKindLabel } from '../../utils/uiText'
 import { sortEvidence } from '../../utils/sort'
@@ -12,16 +13,60 @@ interface Props {
   onItemClick?: (item: EvidenceItem) => void
 }
 
-export function EvidenceSection({ items, title = 'Evidence this act', currentAct, onItemClick }: Props) {
+export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemClick }: Props) {
+  const ordered = sortEvidence(items)
+  const availableKinds = useMemo(() => {
+    const preferredOrder: EvidenceItem['kind'][] = ['clue', 'puzzle', 'reveal']
+    return preferredOrder.filter(kind => ordered.some(item => item.kind === kind))
+  }, [ordered])
+  const defaultKind: EvidenceItem['kind'] = availableKinds.includes('clue') ? 'clue' : (availableKinds[0] ?? 'clue')
+  const [activeKind, setActiveKind] = useState<EvidenceItem['kind']>(defaultKind)
+  const hasNewRevealForAct = useMemo(() => {
+    if (currentAct === undefined) return false
+    return ordered.some(item => item.kind === 'reveal' && item.act === currentAct)
+  }, [currentAct, ordered])
+
+  useEffect(() => {
+    if (!availableKinds.includes(activeKind)) {
+      setActiveKind(defaultKind)
+    }
+  }, [activeKind, availableKinds, defaultKind])
+
+  useEffect(() => {
+    if (hasNewRevealForAct && activeKind !== 'reveal' && availableKinds.includes('reveal')) {
+      setActiveKind('reveal')
+    }
+  }, [activeKind, availableKinds, hasNewRevealForAct])
+
   if (!items.length) return null
 
-  const ordered = sortEvidence(items)
+  const visibleItems = ordered.filter(item => item.kind === activeKind)
 
   return (
     <Panel testId="evidence-section">
-      <PanelHeader title={title} meta="Read-only" />
+      <PanelHeader title={title} />
+      <div className="chip-row evidence-filter-row" role="tablist" aria-label="Filter evidence by type">
+        {availableKinds.map(kind => (
+          <button
+            key={kind}
+            type="button"
+            className={[
+              'chip',
+              `chip--${kind}`,
+              'chip--button',
+              activeKind === kind ? 'chip--active' : '',
+            ].filter(Boolean).join(' ')}
+            onClick={() => setActiveKind(kind)}
+            role="tab"
+            aria-selected={activeKind === kind}
+            data-testid={`evidence-filter-${kind}`}
+          >
+            <span className="chip__label">{evidenceKindLabel(kind)}</span>
+          </button>
+        ))}
+      </div>
       <div className="list-block">
-        {ordered.map(item => (
+        {visibleItems.map(item => (
           item.kind === 'reveal' && item.image ? (
             <div
               key={item.id}
@@ -77,7 +122,6 @@ export function EvidenceSection({ items, title = 'Evidence this act', currentAct
             >
               <div className="list-row__main">
                 <div className="list-row__meta">
-                  <span className={`badge badge--intent badge--intent-${item.kind}`}>{evidenceKindLabel(item.kind)}</span>
                 </div>
                 {item.image ? (
                   <div style={{ marginTop: 8, marginBottom: 8 }}>
@@ -107,4 +151,3 @@ export function EvidenceSection({ items, title = 'Evidence this act', currentAct
     </Panel>
   )
 }
-

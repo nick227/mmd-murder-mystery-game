@@ -51,3 +51,13 @@ prisma/migrations/**/migration_lock.toml
 # --- Generated API artifacts ---
 openapi.json
 
+# --- Google Credentials ---
+google-credentials.json
+*.google.json
+google-oauth-credentials.json
+
+# --- Auth Tokens ---
+auth-tokens.json
+*.auth-token
+
+private/

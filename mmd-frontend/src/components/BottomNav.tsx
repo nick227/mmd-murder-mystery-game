@@ -1,5 +1,4 @@
 import type { TabId, TabSchema } from '../data/types'
-import { ui } from '../utils/uiMarkers'
 
 interface Props {
   tabs: TabSchema[]
@@ -9,7 +8,7 @@ interface Props {
 
 export function BottomNav({ tabs, activeTab, onChange }: Props) {
   return (
-    <nav className="bottom-nav" {...ui('BottomNav')}>
+    <nav className="bottom-nav">
       {tabs.map((tab) => (
         <button
           key={tab.id}

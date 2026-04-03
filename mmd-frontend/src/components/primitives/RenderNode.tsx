@@ -1,7 +1,6 @@
 import type {
   ActionItem,
   ComposerData,
-  JoinData,
   LauncherData,
   LayoutNode,
   ObjectiveItem,
@@ -67,25 +66,19 @@ export function RenderNode({ node, data, handlers }: {
             <div><strong>Game ID</strong><span>{hostInfo.gameId}</span></div>
           </div>
           <div className="link-list u-mt-12">
-            {hostInfo.playerLinks.map(link => (
-              <div key={link.characterId} className="link-row">
-                <strong>{link.label}</strong>
-                <div className="link-row__meta">{link.joined ? 'joined' : 'waiting'}</div>
-                <code>{link.url}</code>
-                <div className="link-row__actions">
-                  <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(link.url)}>
-                    Copy link
-                  </button>
-                  <button
-                    type="button"
-                    className="mini-btn"
-                    onClick={() => (window.location.href = `${window.location.origin}/room/${hostInfo.gameId}/${link.characterId}?hostKey=${encodeURIComponent(hostInfo.hostKey)}`)}
-                  >
-                    Play as
-                  </button>
+            {hostInfo.playerLinks
+              .filter(link => !link.joined)
+              .map(link => (
+                <div key={link.characterId} className="link-row">
+                  <strong>{link.label}</strong>
+                  <code className="truncate">{link.url}</code>
+                  <div className="link-row__actions">
+                    <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(link.url)}>
+                      Copy link
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </Card>
       )
@@ -99,37 +92,6 @@ export function RenderNode({ node, data, handlers }: {
     case 'launcher': {
       const launcher = (value as LauncherData) ?? data.launcher
       return launcher ? <LauncherCard data={launcher} handlers={handlers} /> : null
-    }
-
-    case 'join-card': {
-      const join = (value as JoinData) ?? data.join
-      if (!join) return null
-      return (
-        <Card title={join.title} meta="Pregame room" className="join-card">
-          <p className="profile-card__bio">{join.subtitle}</p>
-          <div className="field-grid u-mt-12">
-            <div className="field">
-              <label className="field__label">Your name</label>
-              <input
-                className="field__input"
-                value={join.playerName}
-                placeholder="Enter your name"
-                data-testid="join-name"
-                autoFocus
-                onChange={e => handlers?.onJoinNameChange?.(e.target.value)}
-                onKeyDown={e => {
-                  if (e.key === 'Enter') handlers?.onJoinSubmit?.()
-                }}
-              />
-            </div>
-          </div>
-          <div className="launcher-actions u-mt-12">
-            <button type="button" className="action-btn action-btn--primary join-card__button" data-testid="join-submit" data-action="join" onClick={() => handlers?.onJoinSubmit?.()}>
-              {join.submitLabel}
-            </button>
-          </div>
-        </Card>
-      )
     }
 
     case 'section':

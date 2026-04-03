@@ -1,0 +1,2676 @@
+{
+  "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+  "playerCount": 4,
+  "userPrompt": "1960 Surfer Party, last day of summer, big wave tournament",
+  "storyStyle": "theatrical, fun, Surf Rock",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/dezgo_27186e562c34a9b4.jpg",
+  "cards": [
+    {
+      "card_id": "53639bed-9394-4d48-b1e8-8fd8407133de",
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Surf's Up: Last Wave Mystery",
+      "act": 1
+    },
+    {
+      "card_id": "9f9a75cd-aaa7-49e3-8553-8630d7cb5294",
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Dive into the vibrant world of 1960s surf culture during the final day of summer and the thrilling big wave tournament. Players will ride the waves of intrigue and uncover secrets beneath the sun-soaked beach party. Perfect for fans of theatrical fun and classic Surf Rock vibes.",
+      "act": 1
+    },
+    {
+      "card_id": "9f635930-a19b-4ff9-b2d7-8ca71ba5254e",
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "Teen 13+",
+      "act": 1
+    },
+    {
+      "card_id": "a6b8c12d-2b23-419d-97d2-679ab99b605d",
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "1960s, surf culture, beach party, big wave tournament, theatrical, fun, Surf Rock, mystery",
+      "act": 1
+    },
+    {
+      "card_id": "a5b04e33-d558-491c-829c-906625cc0257",
+      "card_type": "person",
+      "card_title": "Johnny 'Wave Rider' Malone",
+      "card_contents": "Beloved local surf legend and tournament favorite, victim of the mysterious drowning.",
+      "act": 1
+    },
+    {
+      "card_id": "347a939e-97e6-4504-bb9e-6b66376c9748",
+      "card_type": "location",
+      "card_title": "Surfer's Cove",
+      "card_contents": "The iconic beach and tournament site with towering waves and hidden coves, central to the investigation.",
+      "act": 1
+    },
+    {
+      "card_id": "f2337112-36a4-4e69-893c-1fa09ce527ca",
+      "card_type": "location",
+      "card_title": "The Tiki Hut",
+      "card_contents": "Sandy's tiki bar, a hotspot for surfers and musicians, filled with memorabilia and potential clues.",
+      "act": 1
+    },
+    {
+      "card_id": "bdd434b2-210f-497a-9af6-de30a628d972",
+      "card_type": "location",
+      "card_title": "Malibu Pier",
+      "card_contents": "A bustling pier with fishing boats and vendors, where Johnny was last seen alive and where the surfboard was last spotted.",
+      "act": 1
+    },
+    {
+      "card_id": "19a1f1d6-8eab-4271-bd95-131044516a18",
+      "card_type": "item",
+      "card_title": "Heirloom Surfboard",
+      "card_contents": "Johnny's prized surfboard, intricately carved and rumored to conceal a map to a buried treasure; currently missing.",
+      "act": 1,
+      "derived_facts": [
+        {
+          "fact_id": "19a1f1d6-8eab-4271-bd95-131044516a18_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Johnny's prized surfboard, intricately carved and rumored to conceal a map to a buried treasure; currently missing.",
+          "source_card_id": "19a1f1d6-8eab-4271-bd95-131044516a18",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "7d69d382-eaba-48ad-ad00-84f8c64fa69c",
+      "card_type": "item",
+      "card_title": "Surf Tournament Trophy",
+      "card_contents": "The coveted trophy awarded to the winner, found wiped clean of fingerprints but bearing a mysterious scratch.",
+      "act": 1,
+      "derived_facts": [
+        {
+          "fact_id": "7d69d382-eaba-48ad-ad00-84f8c64fa69c_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "The coveted trophy awarded to the winner, found wiped clean of fingerprints but bearing a mysterious scratch.",
+          "source_card_id": "7d69d382-eaba-48ad-ad00-84f8c64fa69c",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "5fa3c22e-6dbd-4ba5-8c55-cad4baecaac5",
+      "card_type": "item",
+      "card_title": "Surf Rock Setlist",
+      "card_contents": "The band's playlist for the night, containing cryptic notes that may hint at hidden motives or secrets.",
+      "act": 1,
+      "derived_facts": [
+        {
+          "fact_id": "5fa3c22e-6dbd-4ba5-8c55-cad4baecaac5_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "The band's playlist for the night, containing cryptic notes that may hint at hidden motives or secrets.",
+          "source_card_id": "5fa3c22e-6dbd-4ba5-8c55-cad4baecaac5",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "af66cf2b-34c1-4aff-a57e-e2249132988a",
+      "card_type": "location",
+      "card_title": "The Forgotten Shipwreck",
+      "card_contents": "An ancient, partially submerged vessel just off Surfer's Cove, rumored to be the origin of the treasure map hidden within Johnny's heirloom surfboard, and a focal point for clandestine meetings and secret dives.",
+      "act": 1
+    },
+    {
+      "card_id": "48cb96f2-8a5c-455a-ab8c-c73757a550ca",
+      "card_type": "location",
+      "card_title": "The Neon Diner",
+      "card_contents": "A late-night eatery near Malibu Pier, frequented by surfers and musicians alike, where overheard conversations and overheated tempers often spill into clues and conflicts.",
+      "act": 1
+    },
+    {
+      "card_id": "4c58c802-ddf2-47be-82f0-d2f6fba5ac19",
+      "card_type": "item",
+      "card_title": "Weathered Compass",
+      "card_contents": "An old, salt-stained compass found among Johnny's belongings, its needle erratic, rumored to be a key to deciphering the map carved into the heirloom surfboard.",
+      "act": 1,
+      "derived_facts": [
+        {
+          "fact_id": "4c58c802-ddf2-47be-82f0-d2f6fba5ac19_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "An old, salt-stained compass found among Johnny's belongings, its needle erratic, rumored to be a key to deciphering the map carved into the heirloom surfboard.",
+          "source_card_id": "4c58c802-ddf2-47be-82f0-d2f6fba5ac19",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "f9934c38-9de3-48c3-8142-eb9f346c2755",
+      "card_type": "item",
+      "card_title": "Vinyl Record of 'The Riff's' Band",
+      "card_contents": "A limited pressing of the surf rock band's latest album, containing hidden messages etched into the grooves, possibly revealing motives or alliances.",
+      "act": 1,
+      "derived_facts": [
+        {
+          "fact_id": "f9934c38-9de3-48c3-8142-eb9f346c2755_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "A limited pressing of the surf rock band's latest album, containing hidden messages etched into the grooves, possibly revealing motives or alliances.",
+          "source_card_id": "f9934c38-9de3-48c3-8142-eb9f346c2755",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "c70e62ac-a18d-4599-be68-ea30adff46b9",
+      "card_type": "character",
+      "image_url": "https://placehold.co/768x768/png?text=Sandy%Thompson",
+      "card_title": "Sandy 'Tiki' Thompson",
+      "card_contents": "Owner of the beloved Tiki Hut bar and Johnny's longtime confidante, Sandy knows every secret whispered in Surfer's Cove. She fiercely protects her turf and harbors resentment over Johnny's recent plans to sell the bar's land to developers. She had access to the beachside storage where the heirloom surfboard was kept and was seen arguing with Johnny hours before his death. (Supports motive, access)",
+      "act": 1
+    },
+    {
+      "card_id": "ab09d113-c4d5-4539-b124-3a81264aabee",
+      "card_type": "character",
+      "image_url": "https://placehold.co/768x768/png?text=Ricky%Ramirez",
+      "card_title": "Ricky 'The Riff' Ramirez",
+      "card_contents": "Lead guitarist of the surf rock band playing at the tournament's finale, Ricky has a simmering rivalry with Johnny over fame and local legend status. He was spotted near the shoreline with a surfboard similar to the missing heirloom and has a shaky alibi for the time of Johnny's drowning. His knowledge of the ocean currents gives him opportunity to stage an accident. (Supports motive, opportunity)",
+      "act": 2
+    },
+    {
+      "card_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da",
+      "card_type": "character",
+      "card_title": "Maggie 'Moonlight' Delgado",
+      "image_url": "https://placehold.co/768x768/png?text=Maggie%Delgado",
+      "card_contents": "Mysterious night swimmer and keeper of Malibu's ocean lore, Maggie is rumored to have discovered the secret map hidden in the heirloom surfboard. She was seen sneaking around the beach after dark and holds a grudge against Johnny for dismissing her claims about the treasure. Her intimate knowledge of the tides and hidden coves gave her means to manipulate the scene. (Supports opportunity, contradiction)",
+      "act": 3
+    },
+    {
+      "card_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f",
+      "card_type": "character",
+      "card_title": "Eddie 'The Fixer' Malone",
+      "image_url": "https://placehold.co/768x768/png?text=Eddie%Malone",
+      "card_contents": "Johnny's estranged younger brother, recently returned with a troubled past and a chip on his shoulder. Eddie was desperate for money and had a heated confrontation with Johnny over family debts and the missing surfboard's rumored value. He had access to Johnny's private locker and was caught lying about his whereabouts during the crucial hours. (Supports motive, contradiction)",
+      "act": 1
+    },
+    {
+      "card_id": "8fe2ec71-c0ab-4a09-a674-38470646bd50",
+      "card_type": "clue",
+      "card_title": "Whispers Among the Waves",
+      "card_contents": "Locals say Johnny was protective of his prized possessions, often retreating to a quiet spot near the crashing surf to keep them safe. Some mention a peculiar place where gear was tucked away, away from prying eyes and the bustling crowd at Surfer's Cove.",
+      "act": 1,
+      "clue_type": "rumor",
+      "clue_weight": "low",
+      "derived_facts": [
+        {
+          "fact_id": "8fe2ec71-c0ab-4a09-a674-38470646bd50_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "Locals say Johnny was protective of his prized possessions, often retreating to a quiet spot near the crashing surf to keep them safe.",
+          "source_card_id": "8fe2ec71-c0ab-4a09-a674-38470646bd50",
+          "source_card_ref": null
+        },
+        {
+          "fact_id": "8fe2ec71-c0ab-4a09-a674-38470646bd50_fact_002",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "Some mention a peculiar place where gear was tucked away, away from prying eyes and the bustling crowd at Surfer's Cove.",
+          "source_card_id": "8fe2ec71-c0ab-4a09-a674-38470646bd50",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "660f82d5-98c2-48e5-bdd0-4d4258aa2c08",
+      "card_type": "clue",
+      "card_title": "The Locker's Secret",
+      "card_contents": "An old timer recalls that Johnny's storage spot was no ordinary locker; it had a strange panel that didn’t quite fit the rest. The edges seemed worn, as if something had been hidden or accessed repeatedly behind it.",
+      "act": 2,
+      "clue_type": "rumor",
+      "clue_weight": "mid",
+      "derived_facts": [
+        {
+          "fact_id": "660f82d5-98c2-48e5-bdd0-4d4258aa2c08_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "An old timer recalls that Johnny's storage spot was no ordinary locker; it had a strange panel that didn’t quite fit the rest.",
+          "source_card_id": "660f82d5-98c2-48e5-bdd0-4d4258aa2c08",
+          "source_card_ref": null
+        },
+        {
+          "fact_id": "660f82d5-98c2-48e5-bdd0-4d4258aa2c08_fact_002",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "The edges seemed worn, as if something had been hidden or accessed repeatedly behind it.",
+          "source_card_id": "660f82d5-98c2-48e5-bdd0-4d4258aa2c08",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "618413ea-eeea-4add-b4bd-de64afaaad55",
+      "card_type": "clue",
+      "card_title": "Clues in the Cove",
+      "card_contents": "Near the heart of Surfer's Cove, where the surfboards line up and the salty breeze carries secrets, a particular locker stands out. Its unusual construction and Johnny's habit of guarding it closely hint at something valuable concealed within.",
+      "act": 2,
+      "clue_type": "rumor",
+      "clue_weight": "high",
+      "derived_facts": [
+        {
+          "fact_id": "618413ea-eeea-4add-b4bd-de64afaaad55_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "Near the heart of Surfer's Cove, where the surfboards line up and the salty breeze carries secrets, a particular locker stands out.",
+          "source_card_id": "618413ea-eeea-4add-b4bd-de64afaaad55",
+          "source_card_ref": null
+        },
+        {
+          "fact_id": "618413ea-eeea-4add-b4bd-de64afaaad55_fact_002",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "Its unusual construction and Johnny's habit of guarding it closely hint at something valuable concealed within.",
+          "source_card_id": "618413ea-eeea-4add-b4bd-de64afaaad55",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "ccbff40a-e3da-4971-ae2f-ae8806b2d9d4",
+      "card_type": "clue",
+      "card_title": "Unlocking the Mystery",
+      "card_contents": "The final piece lies in uncovering what Johnny guarded so fiercely. A hidden compartment behind a false panel within his personal storage holds the key to the treasure that set these waves of tragedy in motion.",
+      "act": 3,
+      "clue_type": "rumor",
+      "clue_weight": "mid",
+      "derived_facts": [
+        {
+          "fact_id": "ccbff40a-e3da-4971-ae2f-ae8806b2d9d4_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "The final piece lies in uncovering what Johnny guarded so fiercely.",
+          "source_card_id": "ccbff40a-e3da-4971-ae2f-ae8806b2d9d4",
+          "source_card_ref": null
+        },
+        {
+          "fact_id": "ccbff40a-e3da-4971-ae2f-ae8806b2d9d4_fact_002",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "A hidden compartment behind a false panel within his personal storage holds the key to the treasure that set these waves of tragedy in motion.",
+          "source_card_id": "ccbff40a-e3da-4971-ae2f-ae8806b2d9d4",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "41d8de9c-c258-4ab2-b213-49fb4f5b7c38",
+      "card_type": "item",
+      "card_title": "The Priceless Heirloom Surfboard",
+      "card_contents": "This vintage surfboard, once belonging to Johnny 'Wave Rider' Malone, is more than just a relic of surfing glory. Beneath its surface lies a secret map carved into the wood, leading to a treasure buried beneath the sands of Malibu.",
+      "act": 3,
+      "hidden_until_solved": true,
+      "is_treasure": true,
+      "derived_facts": [
+        {
+          "fact_id": "41d8de9c-c258-4ab2-b213-49fb4f5b7c38_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "This vintage surfboard, once belonging to Johnny 'Wave Rider' Malone, is more than just a relic of surfing glory.",
+          "source_card_id": "41d8de9c-c258-4ab2-b213-49fb4f5b7c38",
+          "source_card_ref": null
+        },
+        {
+          "fact_id": "41d8de9c-c258-4ab2-b213-49fb4f5b7c38_fact_002",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Beneath its surface lies a secret map carved into the wood, leading to a treasure buried beneath the sands of Malibu.",
+          "source_card_id": "41d8de9c-c258-4ab2-b213-49fb4f5b7c38",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "0386f785-e3ed-48df-9feb-bbb53a8ffcd6",
+      "card_type": "item",
+      "card_title": "Treasure hiding place",
+      "card_contents": "Inside Johnny's private locker at Surfer's Cove.",
+      "act": 3,
+      "hidden_until_solved": true,
+      "is_treasure": true,
+      "derived_facts": [
+        {
+          "fact_id": "0386f785-e3ed-48df-9feb-bbb53a8ffcd6_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "Inside Johnny's private locker at Surfer's Cove.",
+          "source_card_id": "0386f785-e3ed-48df-9feb-bbb53a8ffcd6",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "9403ab96-09c3-4ab9-8058-32239918b4de",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Sandy 'Tiki' Thompson was seen near the beachside locker where Johnny's priceless heirloom surfboard was stored shortly before it disappeared, despite claiming to have been elsewhere.",
+      "act": 1,
+      "linked_character_id": "c70e62ac-a18d-4599-be68-ea30adff46b9"
+    },
+    {
+      "card_id": "bd2b2400-83c7-43fa-88bf-3ba7b170a838",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Sandy wanted the treasure because controlling the hidden map would grant her leverage to revive her struggling surf shop and outshine Johnny's legacy, giving her a strong motive to remove him from the competition.",
+      "act": 2,
+      "linked_character_id": "c70e62ac-a18d-4599-be68-ea30adff46b9"
+    },
+    {
+      "card_id": "12ccc0f9-05f2-46aa-afb1-a470809f3e27",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Ricky was spotted near the private storage shed where Johnny kept the heirloom surfboard just hours before the tournament's final event, despite claiming he was preparing his own board at the opposite end of the beach.",
+      "act": 3,
+      "linked_character_id": "ab09d113-c4d5-4539-b124-3a81264aabee"
+    },
+    {
+      "card_id": "7f98e105-abf2-4c4c-9a00-e075a7b0a7e6",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Ricky wanted the treasure because he was deeply in debt and believed controlling the hidden map would allow him to claim the buried riches, providing a way out of his financial troubles.",
+      "act": 1,
+      "linked_character_id": "ab09d113-c4d5-4539-b124-3a81264aabee"
+    },
+    {
+      "card_id": "a8112fdf-083b-4d8f-8b78-253ef009cabd",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Maggie was seen near the water's edge shortly before Johnny's body was discovered, carrying a mysterious, unmarked surfboard that she refused to explain.",
+      "act": 2,
+      "linked_character_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da"
+    },
+    {
+      "card_id": "d62ea0cc-47ff-44bd-9a5c-963999ce86cb",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Maggie wanted the treasure because she needed the money to pay off a dangerous debt, and controlling the heirloom surfboard's secret map was her only chance to secure the hidden fortune.",
+      "act": 3,
+      "linked_character_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da"
+    },
+    {
+      "card_id": "06f6148f-0222-46c1-b353-707676ebc928",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Eddie was seen near the water's edge shortly before Johnny's body was discovered, carrying a mysterious, unmarked bag that was never accounted for afterward.",
+      "act": 1,
+      "linked_character_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f"
+    },
+    {
+      "card_id": "282003dc-f393-46c6-9ca0-98f647fb61b3",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Eddie wanted the treasure because he was deeply in debt and saw the heirloom surfboard's secret map as his only way to secure the money needed to pay off dangerous creditors.",
+      "act": 2,
+      "linked_character_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f"
+    },
+    {
+      "card_id": "705b1bc8-9ab7-41a8-b3e1-3b034c396bd3",
+      "card_type": "story_act",
+      "card_title": "The Calm Before the Storm at Surfer's Cove",
+      "card_contents": "As the sun sets on Surfer's Cove, the community gathers to celebrate the tournament's finale, but tension ripples beneath the festive surface. Eddie 'The Fixer' Malone's recent return and his heated confrontation with Johnny over family debts and the missing heirloom surfboard cast a shadow over the beach. Meanwhile, Sandy 'Tiki' Thompson's fierce protectiveness of her bar and resentment toward Johnny's plans to sell the land stir whispers among the crowd. The vanished surfboard and Johnny's mysterious drowning leave everyone wondering: who truly benefits from this tragedy?",
+      "act": 1,
+      "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748"
+    },
+    {
+      "card_id": "adf1bf08-c8ad-44fb-ba21-62ad11bd4c14",
+      "card_type": "story_act",
+      "card_title": "Backstage Secrets and Shoreline Shadows at The Tiki Hut",
+      "card_contents": "The Tiki Hut buzzes with surf rock rhythms and restless energy, but beneath the music lies a web of suspicion. Ricky 'The Riff' Ramirez's rivalry with Johnny and his uncertain whereabouts during the drowning raise questions. Sandy's unexplained absence from the bar during critical moments deepens the mystery. Contradictory alibis and whispered arguments hint at fractures in alliances. As tensions rise, the missing heirloom surfboard remains elusive, and the true nature of each suspect's involvement becomes murkier.",
+      "act": 2,
+      "location_ref": "f2337112-36a4-4e69-893c-1fa09ce527ca"
+    },
+    {
+      "card_id": "40a7a963-40a2-4907-8935-77220f19bd2e",
+      "card_type": "story_act",
+      "card_title": "Moonlight Revelations Near The Forgotten Shipwreck",
+      "card_contents": "Under the cover of darkness near The Forgotten Shipwreck, Maggie 'Moonlight' Delgado's nocturnal movements and intimate knowledge of the tides come under scrutiny. Her rumored discovery of the secret map and grudge against Johnny add new layers to the mystery. As the community narrows its focus, conflicting stories about who was where and when swirl like the ocean currents. The missing surfboard's true significance and the motives behind Johnny's drowning remain shrouded, challenging everyone to untangle truth from deception before the tide claims all evidence.",
+      "act": 3,
+      "location_ref": "af66cf2b-34c1-4aff-a57e-e2249132988a"
+    },
+    {
+      "card_id": "92b5fa3c-a502-47a3-9181-c282e894b859",
+      "card_type": "host_speech",
+      "card_title": "Welcome to Surfer's Cove: The Scene of the Crime",
+      "card_contents": "Ladies and gentlemen, welcome to the sun-soaked shores of Surfer's Cove, where waves crash and secrets run deep. Tonight, we gather not just to celebrate the legendary Big Wave Surf Tournament, but to unravel a mystery that has rocked our tight-knit community. Johnny 'Wave Rider' Malone, our beloved surf legend, has been found drowned under suspicious circumstances, and a priceless heirloom surfboard has vanished without a trace. As tiki torches flicker and surf rock blares, your wits will be tested. Who among us harbored jealousy, greed, or resentment enough to turn celebration into tragedy? Let the investigation begin!",
+      "act": 1,
+      "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748"
+    },
+    {
+      "card_id": "e5446561-3d9e-4fcc-9583-ea62824fb1b1",
+      "card_type": "host_speech",
+      "card_title": "Act 2: Shadows Lengthen at The Tiki Hut",
+      "card_contents": "As the sun dips low, tensions simmer at The Tiki Hut, where whispers of betrayal and hidden motives swirl like smoke from the tiki torches. Sandy 'Tiki' Thompson’s fierce defense of her bar and her fiery exchanges with Johnny cast new shadows over the case. Was this more than a clash of business and pride? The missing surfboard’s trail may lead us closer to the truth, but beware—the tides of suspicion shift with every revelation. Prepare yourselves, detectives, for the tangled web grows ever more complex.",
+      "act": 2,
+      "location_ref": "f2337112-36a4-4e69-893c-1fa09ce527ca"
+    },
+    {
+      "card_id": "9a5d08b6-8bb4-4239-b456-1e5ed18ef689",
+      "card_type": "host_speech",
+      "card_title": "Final Call: The Last Wave at Malibu Pier",
+      "card_contents": "The final curtain falls upon Malibu Pier, where the echoes of Johnny’s last moments linger in the salty air. The stolen heirloom surfboard, the drowning, the rivalries—all converge here in a crescendo of secrets and lies. Now, brave sleuths, it is your moment to cast your verdict. Who among the suspects rides the dark wave of guilt? The treasure, the truth, the justice—all hang in the balance. Choose wisely, for the tide waits for no one, and the waves will soon wash away all but the truth.",
+      "act": 3,
+      "location_ref": "bdd434b2-210f-497a-9af6-de30a628d972"
+    },
+    {
+      "card_id": "9ee5f0f7-9b94-4063-a2d7-75f938b1605a",
+      "card_type": "item",
+      "card_title": "Empty Bottle with Fingerprints",
+      "card_contents": "An empty glass bottle found near the shoreline with fingerprints matching Sandy 'Tiki' Thompson.",
+      "act": 1,
+      "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748",
+      "derived_facts": [
+        {
+          "fact_id": "9ee5f0f7-9b94-4063-a2d7-75f938b1605a_fact_001",
+          "subject": "sandy_tiki_thompson",
+          "time": null,
+          "location": null,
+          "statement": "An empty glass bottle found near the shoreline with fingerprints matching Sandy 'Tiki' Thompson.",
+          "source_card_id": "9ee5f0f7-9b94-4063-a2d7-75f938b1605a",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "11da5d9e-7822-4c2b-a5a0-29832ed613c0",
+      "card_type": "item",
+      "card_title": "Johnny's Private Locker",
+      "card_contents": "A secured locker at Surfer's Cove containing Johnny Malone's prized possessions, including the heirloom surfboard.",
+      "act": 2,
+      "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748",
+      "derived_facts": [
+        {
+          "fact_id": "11da5d9e-7822-4c2b-a5a0-29832ed613c0_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "A secured locker at Surfer's Cove containing Johnny Malone's prized possessions, including the heirloom surfboard.",
+          "source_card_id": "11da5d9e-7822-4c2b-a5a0-29832ed613c0",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "ba186111-6868-423c-b07c-7a1cb07b728d",
+      "card_type": "item",
+      "card_title": "Heirloom Surfboard (Missing)",
+      "card_contents": "Johnny Malone's intricately carved surfboard rumored to conceal a treasure map; last known to be inside Johnny's private locker at Surfer's Cove.",
+      "act": 3,
+      "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748",
+      "derived_facts": [
+        {
+          "fact_id": "ba186111-6868-423c-b07c-7a1cb07b728d_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "Johnny Malone's intricately carved surfboard rumored to conceal a treasure map; last known to be inside Johnny's private locker at Surfer's Cove.",
+          "source_card_id": "ba186111-6868-423c-b07c-7a1cb07b728d",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "1bdce1a2-144d-4d3a-8740-49ff41832067",
+      "card_type": "item",
+      "card_title": "Stage Equipment",
+      "card_contents": "Musical instruments and gear used by Ricky 'The Riff' Ramirez and his band during the surf tournament finale.",
+      "act": 1,
+      "location_ref": "48cb96f2-8a5c-455a-ab8c-c73757a550ca",
+      "derived_facts": [
+        {
+          "fact_id": "1bdce1a2-144d-4d3a-8740-49ff41832067_fact_001",
+          "subject": "ricky_the_riff_ramirez",
+          "time": null,
+          "location": null,
+          "statement": "Musical instruments and gear used by Ricky 'The Riff' Ramirez and his band during the surf tournament finale.",
+          "source_card_id": "1bdce1a2-144d-4d3a-8740-49ff41832067",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "4291f5c8-3db2-4b06-9c41-f179f289d99f",
+      "card_type": "item",
+      "card_title": "Footprints near Shoreline",
+      "card_contents": "Partially washed away footprints found near the water's edge at Surfer's Cove, difficult to identify due to environmental conditions.",
+      "act": 2,
+      "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748",
+      "derived_facts": [
+        {
+          "fact_id": "4291f5c8-3db2-4b06-9c41-f179f289d99f_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": "surfer_s_cove",
+          "statement": "Partially washed away footprints found near the water's edge at Surfer's Cove, difficult to identify due to environmental conditions.",
+          "source_card_id": "4291f5c8-3db2-4b06-9c41-f179f289d99f",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "5f9c999a-65f6-4925-9d2b-ea815cca488f",
+      "card_type": "item",
+      "card_title": "Tiki Hut Bar Counter",
+      "card_contents": "The service counter at Sandy Thompson's Tiki Hut bar, where she was managing and serving customers during the tournament finale.",
+      "act": 3,
+      "location_ref": "f2337112-36a4-4e69-893c-1fa09ce527ca",
+      "derived_facts": [
+        {
+          "fact_id": "5f9c999a-65f6-4925-9d2b-ea815cca488f_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "The service counter at Sandy Thompson's Tiki Hut bar, where she was managing and serving customers during the tournament finale.",
+          "source_card_id": "5f9c999a-65f6-4925-9d2b-ea815cca488f",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "081579f4-8b27-4b02-b5b2-ad61253fcb19",
+      "card_type": "clue",
+      "card_title": "Eddie's Private Locker Key",
+      "card_contents": "Eddie 'The Fixer' Malone was found to possess a key to Johnny's private locker where the heirloom surfboard was kept.",
+      "clue_type": "physical_evidence",
+      "suspect_name": "Eddie 'The Fixer' Malone",
+      "clue_weight": "high",
+      "act": 1,
+      "game_card_type": "performance",
+      "derived_facts": [
+        {
+          "fact_id": "081579f4-8b27-4b02-b5b2-ad61253fcb19_fact_001",
+          "subject": "eddie_the_fixer_malone",
+          "time": null,
+          "location": null,
+          "statement": "Eddie 'The Fixer' Malone was found to possess a key to Johnny's private locker where the heirloom surfboard was kept.",
+          "source_card_id": "081579f4-8b27-4b02-b5b2-ad61253fcb19",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "2afd0770-baff-44c3-9e2d-44f0e5678693",
+      "card_type": "clue",
+      "card_title": "Heated Argument by the Shoreline",
+      "card_contents": "Witnesses reported a tense argument between Eddie and Johnny near the shoreline shortly before Johnny's drowning.",
+      "clue_type": "witness_testimony",
+      "suspect_name": "Eddie 'The Fixer' Malone",
+      "clue_weight": "mid",
+      "act": 1,
+      "game_card_type": "conversation",
+      "derived_facts": [
+        {
+          "fact_id": "2afd0770-baff-44c3-9e2d-44f0e5678693_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Witnesses reported a tense argument between Eddie and Johnny near the shoreline shortly before Johnny's drowning.",
+          "source_card_id": "2afd0770-baff-44c3-9e2d-44f0e5678693",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "4b587b2a-05d8-441d-96ed-d3c65c29181b",
+      "card_type": "clue",
+      "card_title": "Sandy's Fingerprints on Bottle",
+      "card_contents": "An empty bottle with Sandy 'Tiki' Thompson's fingerprints was found near the shoreline where Johnny drowned.",
+      "clue_type": "physical_evidence",
+      "suspect_name": "Sandy 'Tiki' Thompson",
+      "clue_weight": "mid",
+      "act": 1,
+      "game_card_type": "search",
+      "derived_facts": [
+        {
+          "fact_id": "4b587b2a-05d8-441d-96ed-d3c65c29181b_fact_001",
+          "subject": "sandy_tiki_thompson",
+          "time": null,
+          "location": null,
+          "statement": "An empty bottle with Sandy 'Tiki' Thompson's fingerprints was found near the shoreline where Johnny drowned.",
+          "source_card_id": "4b587b2a-05d8-441d-96ed-d3c65c29181b",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "916c1d3c-34dc-4f25-97d8-5d6f24ce7015",
+      "card_type": "clue",
+      "card_title": "Sandy's Unaccounted Absence",
+      "card_contents": "Sandy stepped away from the bar at the time of the murder, with no clear alibi for that period.",
+      "clue_type": "alibi",
+      "suspect_name": "Sandy 'Tiki' Thompson",
+      "clue_weight": "high",
+      "act": 1,
+      "game_card_type": "alibi",
+      "derived_facts": [
+        {
+          "fact_id": "916c1d3c-34dc-4f25-97d8-5d6f24ce7015_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Sandy stepped away from the bar at the time of the murder, with no clear alibi for that period.",
+          "source_card_id": "916c1d3c-34dc-4f25-97d8-5d6f24ce7015",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "7bdbebb2-5a5d-433c-82db-fb1d7730631a",
+      "card_type": "clue",
+      "card_title": "Ricky Spotted Near Shoreline",
+      "card_contents": "Ricky 'The Riff' Ramirez was spotted near the shoreline with a surfboard similar to the missing heirloom.",
+      "clue_type": "witness_testimony",
+      "suspect_name": "Ricky 'The Riff' Ramirez",
+      "clue_weight": "mid",
+      "act": 2,
+      "game_card_type": "search",
+      "derived_facts": [
+        {
+          "fact_id": "7bdbebb2-5a5d-433c-82db-fb1d7730631a_fact_001",
+          "subject": "ricky_the_riff_ramirez",
+          "time": null,
+          "location": null,
+          "statement": "Ricky 'The Riff' Ramirez was spotted near the shoreline with a surfboard similar to the missing heirloom.",
+          "source_card_id": "7bdbebb2-5a5d-433c-82db-fb1d7730631a",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "c70b7d32-bf58-4776-8ea2-af8b136b9d9a",
+      "card_type": "clue",
+      "card_title": "Ricky's Uncertain Alibi",
+      "card_contents": "Ricky's alibi during the time of the drowning is uncertain and leaves room for doubt.",
+      "clue_type": "alibi",
+      "suspect_name": "Ricky 'The Riff' Ramirez",
+      "clue_weight": "high",
+      "act": 2,
+      "game_card_type": "alibi",
+      "derived_facts": [
+        {
+          "fact_id": "c70b7d32-bf58-4776-8ea2-af8b136b9d9a_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Ricky's alibi during the time of the drowning is uncertain and leaves room for doubt.",
+          "source_card_id": "c70b7d32-bf58-4776-8ea2-af8b136b9d9a",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "a3b75a93-80ad-4972-a274-63b5659c7642",
+      "card_type": "clue",
+      "card_title": "Maggie's Late Night Walk",
+      "card_contents": "Maggie 'Moonlight' Delgado was seen taking a solitary walk along Malibu Pier shortly before the drowning incident.",
+      "clue_type": "witness_testimony",
+      "suspect_name": "Maggie 'Moonlight' Delgado",
+      "clue_weight": "low",
+      "act": 3,
+      "game_card_type": "search",
+      "derived_facts": [
+        {
+          "fact_id": "a3b75a93-80ad-4972-a274-63b5659c7642_fact_001",
+          "subject": "maggie_moonlight_delgado",
+          "time": null,
+          "location": "malibu_pier",
+          "statement": "Maggie 'Moonlight' Delgado was seen taking a solitary walk along Malibu Pier shortly before the drowning incident.",
+          "source_card_id": "a3b75a93-80ad-4972-a274-63b5659c7642",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "279e9e8a-ae6e-4f3e-ae94-be5d494891b6",
+      "card_type": "clue",
+      "card_title": "Maggie's Sand-Covered Shoes",
+      "card_contents": "Maggie was found with sand-covered shoes despite claiming to have stayed indoors all evening.",
+      "clue_type": "physical_evidence",
+      "suspect_name": "Maggie 'Moonlight' Delgado",
+      "clue_weight": "mid",
+      "act": 3,
+      "game_card_type": "search",
+      "derived_facts": [
+        {
+          "fact_id": "279e9e8a-ae6e-4f3e-ae94-be5d494891b6_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Maggie was found with sand-covered shoes despite claiming to have stayed indoors all evening.",
+          "source_card_id": "279e9e8a-ae6e-4f3e-ae94-be5d494891b6",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "e0fce91a-f478-4306-86f9-7bc1e31e644d",
+      "card_type": "clue",
+      "card_title": "Maggie's Interest in the Heirloom",
+      "card_contents": "Maggie expressed curiosity about the heirloom surfboard and its rumored treasure map during conversations at The Tiki Hut.",
+      "clue_type": "conversation_record",
+      "suspect_name": "Maggie 'Moonlight' Delgado",
+      "clue_weight": "low",
+      "act": 3,
+      "game_card_type": "conversation",
+      "derived_facts": [
+        {
+          "fact_id": "e0fce91a-f478-4306-86f9-7bc1e31e644d_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": "the_tiki_hut",
+          "statement": "Maggie expressed curiosity about the heirloom surfboard and its rumored treasure map during conversations at The Tiki Hut.",
+          "source_card_id": "e0fce91a-f478-4306-86f9-7bc1e31e644d",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "52f9ed54-9f64-4d6c-9082-ac338a5db64d",
+      "card_type": "clue",
+      "card_title": "Eddie's Contradictory Statements",
+      "card_contents": "Eddie was caught lying about his whereabouts during the crucial hours surrounding Johnny's death.",
+      "clue_type": "statement_analysis",
+      "suspect_name": "Eddie 'The Fixer' Malone",
+      "clue_weight": "high",
+      "act": 1,
+      "game_card_type": "revelation",
+      "derived_facts": [
+        {
+          "fact_id": "52f9ed54-9f64-4d6c-9082-ac338a5db64d_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Eddie was caught lying about his whereabouts during the crucial hours surrounding Johnny's death.",
+          "source_card_id": "52f9ed54-9f64-4d6c-9082-ac338a5db64d",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "2533a3b7-a14a-4a39-8ece-b4cc5588521f",
+      "card_type": "clue",
+      "card_title": "Sandy's Argument Over Tournament Rules",
+      "card_contents": "Sandy was overheard having a heated argument with Johnny about the surf tournament's rules and prize money.",
+      "clue_type": "conversation_record",
+      "suspect_name": "Sandy 'Tiki' Thompson",
+      "clue_weight": "low",
+      "act": 1,
+      "game_card_type": "conversation",
+      "derived_facts": [
+        {
+          "fact_id": "2533a3b7-a14a-4a39-8ece-b4cc5588521f_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Sandy was overheard having a heated argument with Johnny about the surf tournament's rules and prize money.",
+          "source_card_id": "2533a3b7-a14a-4a39-8ece-b4cc5588521f",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "1aa67d46-b0aa-4bed-973f-cb0927d99953",
+      "card_type": "clue",
+      "card_title": "Ricky's Expertise with Ocean Currents",
+      "card_contents": "Ricky demonstrated knowledge of ocean currents that could facilitate staging a drowning accident.",
+      "clue_type": "expertise",
+      "suspect_name": "Ricky 'The Riff' Ramirez",
+      "clue_weight": "low",
+      "act": 1,
+      "game_card_type": "revelation",
+      "derived_facts": [
+        {
+          "fact_id": "1aa67d46-b0aa-4bed-973f-cb0927d99953_fact_001",
+          "subject": "scene",
+          "time": null,
+          "location": null,
+          "statement": "Ricky demonstrated knowledge of ocean currents that could facilitate staging a drowning accident.",
+          "source_card_id": "1aa67d46-b0aa-4bed-973f-cb0927d99953",
+          "source_card_ref": null
+        }
+      ]
+    },
+    {
+      "card_id": "6edb915a-0a4c-41cb-b190-3fff507f57df",
+      "card_type": "clue",
+      "card_title": "Tiki Torch Found Near the Shore",
+      "card_contents": "A partially burnt tiki torch was discovered near the water's edge at Surfer's Cove, with traces of salty seawater and a faint scent of coconut oil.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_001",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "19dfc44c-3ddd-4787-be11-7006274e588b",
+      "card_type": "clue",
+      "card_title": "Maggie Delgado's Necklace",
+      "card_contents": "A broken shell necklace belonging to Maggie 'Moonlight' Delgado was found tangled in the tiki torch's burnt remains.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_evidence_002",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "81dc2bbd-2f0b-4ece-809e-278555ee7c32",
+      "card_type": "solution",
+      "card_title": "Puzzle Answer",
+      "card_contents": "Maggie 'Moonlight' Delgado is the suspect implicated by the object relationship this clue reveals.",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_unlock_001",
+      "solve_instructions": null,
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "7068145a-7cbd-4fb1-85cc-e38a595ea044",
+      "card_type": "puzzle",
+      "card_title": "Puzzle: Object Combination at Surfer's Cove",
+      "card_contents": "What single fact emerges when combining the burnt tiki torch with Maggie Delgado's broken shell necklace and the wet footprints leading from The Tiki Hut to the shore?\n\nInstructions: Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Puzzle: Object Combination at Surfer's Cove)",
+      "act": 1,
+      "bundle_id": "puzzle_bundle_001",
+      "card_ref": "bundle_1_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_1_evidence_001",
+        "bundle_1_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_001"
+      ],
+      "difficulty": "easy",
+      "required_card_ids": [
+        "6edb915a-0a4c-41cb-b190-3fff507f57df",
+        "19dfc44c-3ddd-4787-be11-7006274e588b"
+      ],
+      "unlock_card_ids": [
+        "81dc2bbd-2f0b-4ece-809e-278555ee7c32"
+      ],
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves a suspect-linked object fact about Maggie 'Moonlight' Delgado.",
+      "solve_instructions": "Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Puzzle: Object Combination at Surfer's Cove)",
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "135a4847-9514-4d78-af9e-2c081b052801",
+      "card_type": "clue",
+      "card_title": "Ricky's Surfboard Locker Key",
+      "card_contents": "A small brass key engraved with the initials 'RR' was found in Ricky 'The Riff' Ramirez's jacket pocket. The key matches the unique lock on a storage locker at Surfer's Cove where surfboards are kept.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_001",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "c941c97e-b455-42af-bbc7-b951c1978cd7",
+      "card_type": "clue",
+      "card_title": "Locker Contents Inventory",
+      "card_contents": "The storage locker assigned to Ricky 'The Riff' Ramirez was found unlocked. Inside, there is a surfboard with a distinct missing fin and a hidden compartment beneath the deck, now empty.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_evidence_002",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "e7aa530a-2bbc-4957-9c48-a167fa2e5251",
+      "card_type": "solution",
+      "card_title": "Hidden Clue: Ricky's Involvement",
+      "card_contents": "Ricky 'The Riff' Ramirez is the suspect implicated by the object relationship this clue reveals.",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_unlock_002",
+      "solve_instructions": null,
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "4e930a8f-478d-406d-a4e5-03530b737b85",
+      "card_type": "puzzle",
+      "card_title": "Puzzle: Item Combination Question",
+      "card_contents": "What single fact emerges when combining the brass key found on Ricky 'The Riff' Ramirez with the unlocked storage locker containing a surfboard missing its fin and hidden compartment?\n\nInstructions: Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Puzzle: Item Combination Question)",
+      "act": 2,
+      "bundle_id": "puzzle_bundle_002",
+      "card_ref": "bundle_2_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_unlock_001",
+        "bundle_2_evidence_001",
+        "bundle_2_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_002"
+      ],
+      "difficulty": "easy",
+      "required_card_ids": [
+        "81dc2bbd-2f0b-4ece-809e-278555ee7c32",
+        "135a4847-9514-4d78-af9e-2c081b052801",
+        "c941c97e-b455-42af-bbc7-b951c1978cd7"
+      ],
+      "unlock_card_ids": [
+        "e7aa530a-2bbc-4957-9c48-a167fa2e5251"
+      ],
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves a suspect-linked object fact about Ricky 'The Riff' Ramirez.",
+      "solve_instructions": "Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Puzzle: Item Combination Question)",
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "12d44824-1e42-45d0-a109-64ed0ff760c9",
+      "card_type": "clue",
+      "card_title": "Sandy's Tiki Necklace",
+      "card_contents": "A distinctive tiki pendant necklace found tangled in the ropes near the missing surfboard's last known location at Surfer's Cove. The pendant matches the design on the stolen heirloom surfboard's fin.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_001",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "15800901-7acd-43e9-be00-47a4af2826bf",
+      "card_type": "clue",
+      "card_title": "Surfboard Fin Fragment",
+      "card_contents": "A broken fin piece recovered from the shallow waters near the shore, engraved with a tiki design identical to Sandy's necklace pendant.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_evidence_002",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "8151ca35-2f8d-4cc4-ace6-fd12c62aebdc",
+      "card_type": "solution",
+      "card_title": "Hidden Clue",
+      "card_contents": "Sandy 'Tiki' Thompson is the suspect implicated by the object relationship this clue reveals.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_unlock_003",
+      "solve_instructions": null,
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "f5a5c7b2-7f43-4a38-a97a-ec8a1d071012",
+      "card_type": "puzzle",
+      "card_title": "Item Combination Puzzle",
+      "card_contents": "What single fact emerges when combining the tiki pendant necklace found near the missing surfboard with the broken fin piece engraved with the same tiki design?\n\nInstructions: Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Item Combination Puzzle)",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_003",
+      "card_ref": "bundle_3_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_unlock_002",
+        "bundle_3_evidence_001",
+        "bundle_3_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_003"
+      ],
+      "difficulty": "easy",
+      "required_card_ids": [
+        "e7aa530a-2bbc-4957-9c48-a167fa2e5251",
+        "12d44824-1e42-45d0-a109-64ed0ff760c9",
+        "15800901-7acd-43e9-be00-47a4af2826bf"
+      ],
+      "unlock_card_ids": [
+        "8151ca35-2f8d-4cc4-ace6-fd12c62aebdc"
+      ],
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves a suspect-linked object fact about Sandy 'Tiki' Thompson.",
+      "solve_instructions": "Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Item Combination Puzzle)",
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "0a66ad6a-9523-4e54-8036-9943e155648a",
+      "card_type": "clue",
+      "card_title": "Recovered Inventory Note",
+      "card_contents": "The recovery inventory lists priceless heirloom surfboard with a hidden treasure map among effects traced to Eddie 'The Fixer' Malone beside records from Surfer's Cove shoreline near the private locker.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_001",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "d7bba9f5-2599-430b-b264-243da5867e31",
+      "card_type": "clue",
+      "card_title": "Custody Ledger",
+      "card_contents": "A custody entry shows Eddie 'The Fixer' Malone controlling the route toward players could uncover the hidden panel in Johnny's locker through clues about the locker’s unusual construction and testimonies about Johnny’s secretive behavior with the surfboard while Johnny 'Wave Rider' Malone's belongings were being searched.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_evidence_002",
+      "solve_instructions": null,
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "d4e1609d-75af-412d-b835-1f242d613603",
+      "card_type": "solution",
+      "card_title": "Final Possession Conclusion",
+      "card_contents": "the highlighted suspect is the suspect implicated by the object relationship this clue reveals.",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_unlock_004",
+      "solve_instructions": null,
+      "hidden_until_solved": true
+    },
+    {
+      "card_id": "230e8b35-5c8e-4895-99f5-24141f313129",
+      "card_type": "puzzle",
+      "card_title": "Final Puzzle 4",
+      "card_contents": "Use the visible evidence in this bundle to isolate the final possession constraint.\n\nPrevious targets:\nEarlier clue 1: Maggie 'Moonlight' Delgado is the suspect implicated by the object relationship this clue reveals.\nEarlier clue 2: Ricky 'The Riff' Ramirez is the suspect implicated by the object relationship this clue reveals.\nEarlier clue 3: Sandy 'Tiki' Thompson is the suspect implicated by the object relationship this clue reveals.\n\nResolve how the records around Eddie 'The Fixer' Malone, priceless heirloom surfboard with a hidden treasure map, and players could uncover the hidden panel in Johnny's locker through clues about the locker’s unusual construction and testimonies about Johnny’s secretive behavior with the surfboard combine into one final conclusion.\n\nInstructions: Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Final Puzzle 4)",
+      "act": 3,
+      "bundle_id": "puzzle_bundle_004",
+      "card_ref": "bundle_4_puzzle",
+      "puzzle_type": "item_combination",
+      "required_card_refs": [
+        "bundle_unlock_003",
+        "bundle_4_evidence_001",
+        "bundle_4_evidence_002"
+      ],
+      "unlock_card_refs": [
+        "bundle_unlock_004"
+      ],
+      "difficulty": "easy",
+      "required_card_ids": [
+        "8151ca35-2f8d-4cc4-ace6-fd12c62aebdc",
+        "0a66ad6a-9523-4e54-8036-9943e155648a",
+        "d7bba9f5-2599-430b-b264-243da5867e31"
+      ],
+      "unlock_card_ids": [
+        "d4e1609d-75af-412d-b835-1f242d613603"
+      ],
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves the hidden clue revealed by solving the puzzle.",
+      "solve_instructions": "Use the visible evidence in this bundle to answer: What concrete fact emerges from the combined evidence? (Final Puzzle 4)",
+      "hidden_until_solved": false
+    },
+    {
+      "card_id": "25b8ddbf-24aa-490e-b8d0-2a060719e4d8",
+      "card_type": "game_card",
+      "card_title": "Tiki Torch Toast",
+      "card_contents": "Raise your tiki torch and deliver a fiery, surf-inspired toast celebrating Johnny’s legacy—mix humor, nostalgia, and a hint of your simmering anger about the bar’s future.",
+      "act": 1,
+      "linked_character": "Sandy 'Tiki' Thompson",
+      "linked_character_id": "c70e62ac-a18d-4599-be68-ea30adff46b9",
+      "game_card_type": "performance",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "fe87ef5e-71f6-475b-992a-fddb89e2f813",
+      "card_type": "game_card",
+      "card_title": "Whispered Secrets",
+      "card_contents": "Lean in close to a player and share a juicy secret you overheard about Johnny’s plans or someone’s shady behavior—use this to stir suspicion or build alliances.",
+      "act": 2,
+      "linked_character": "Sandy 'Tiki' Thompson",
+      "linked_character_id": "c70e62ac-a18d-4599-be68-ea30adff46b9",
+      "game_card_type": "conversation",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "f8b7889d-d806-47a3-8019-3f8f59d15ca9",
+      "card_type": "game_card",
+      "card_title": "Tiki Habit",
+      "card_contents": "Frequently polish an imaginary surfboard or adjust your floral lei nervously when Johnny’s name comes up, showing your deep connection and conflicted feelings.",
+      "act": 1,
+      "linked_character": "Sandy 'Tiki' Thompson",
+      "linked_character_id": "c70e62ac-a18d-4599-be68-ea30adff46b9",
+      "game_card_type": "flavor"
+    },
+    {
+      "card_id": "fe9af562-9ec5-4f96-960f-42410d791654",
+      "card_type": "game_card",
+      "card_title": "Barter for Clues",
+      "card_contents": "Offer to trade a small personal item (like a tiki pendant) to another player in exchange for any information or an object they’ve found related to the missing heirloom surfboard.",
+      "act": 2,
+      "linked_character": "Sandy 'Tiki' Thompson",
+      "linked_character_id": "c70e62ac-a18d-4599-be68-ea30adff46b9",
+      "game_card_type": "trade",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "906f56ae-cbbc-495e-8a21-8be6ce4281d6",
+      "card_type": "game_card",
+      "card_title": "Beachside Argument",
+      "card_contents": "When questioned, firmly recount your heated argument with Johnny near the storage shack—emphasize your passion but insist you left before anything bad happened.",
+      "act": 3,
+      "linked_character": "Sandy 'Tiki' Thompson",
+      "linked_character_id": "c70e62ac-a18d-4599-be68-ea30adff46b9",
+      "game_card_type": "alibi",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "74f16eb6-1632-4f80-9b9b-69af6207d5e6",
+      "card_type": "game_card",
+      "card_title": "Surf Guitar Showdown",
+      "card_contents": "Challenge Johnny or another player to a quick guitar riff duel. Use exaggerated rockstar poses and sound effects to steal the spotlight—and maybe rattle Johnny’s confidence.",
+      "act": 1,
+      "linked_character": "Ricky 'The Riff' Ramirez",
+      "linked_character_id": "ab09d113-c4d5-4539-b124-3a81264aabee",
+      "game_card_type": "performance",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "f4f9ecc8-380e-4287-9dda-0d60b26c4ce3",
+      "card_type": "game_card",
+      "card_title": "Ocean Whisperer",
+      "card_contents": "Drop cryptic comments about ocean currents and tides, hinting you know how accidents can be staged. Use surfer slang and a laid-back attitude to keep others guessing.",
+      "act": 1,
+      "linked_character": "Ricky 'The Riff' Ramirez",
+      "linked_character_id": "ab09d113-c4d5-4539-b124-3a81264aabee",
+      "game_card_type": "flavor"
+    },
+    {
+      "card_id": "ec48c84e-6d7b-45d6-a2b0-e280443edae9",
+      "card_type": "game_card",
+      "card_title": "Rivalry Rekindled",
+      "card_contents": "Find a moment to casually bring up your rivalry with Johnny in front of others, mixing jealousy with charm. See if anyone bites or tries to defend Johnny’s honor.",
+      "act": 2,
+      "linked_character": "Ricky 'The Riff' Ramirez",
+      "linked_character_id": "ab09d113-c4d5-4539-b124-3a81264aabee",
+      "game_card_type": "conversation",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "3f01d927-306f-4e54-8644-dd6734c55d9b",
+      "card_type": "game_card",
+      "card_title": "Shoreline Alibi",
+      "card_contents": "When questioned about Johnny’s drowning, insist you were riding waves nearby with your surfboard. Offer a shaky but confident story that leaves room for doubt.",
+      "act": 2,
+      "linked_character": "Ricky 'The Riff' Ramirez",
+      "linked_character_id": "ab09d113-c4d5-4539-b124-3a81264aabee",
+      "game_card_type": "alibi",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "42127230-da8e-47da-b8a3-c45b1cff98fa",
+      "card_type": "game_card",
+      "card_title": "Secret Surfboard Swap",
+      "card_contents": "Attempt to secretly trade or examine surfboards with another player, especially if they have Johnny’s missing heirloom. Use a sneaky excuse like tuning strings or checking wax.",
+      "act": 3,
+      "linked_character": "Ricky 'The Riff' Ramirez",
+      "linked_character_id": "ab09d113-c4d5-4539-b124-3a81264aabee",
+      "game_card_type": "trade",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "7218c1df-8af3-4e2d-bd89-4218d90a1e70",
+      "card_type": "game_card",
+      "card_title": "Moonlight Swim Solo",
+      "card_contents": "Improvise a mysterious, hypnotic dance mimicking ocean waves under a spotlight or tiki torch. Use slow, flowing movements to draw attention and hint at your secret knowledge of the tides.",
+      "act": 1,
+      "linked_character": "Maggie 'Moonlight' Delgado",
+      "linked_character_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da",
+      "game_card_type": "performance",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "99630a46-d311-4665-8fb2-7651b30f8c51",
+      "card_type": "game_card",
+      "card_title": "Whispered Tide Secrets",
+      "card_contents": "Lean in close to another player and share a cryptic clue about the hidden map or Johnny’s last known movements. Speak softly, as if sharing a secret only the ocean knows.",
+      "act": 2,
+      "linked_character": "Maggie 'Moonlight' Delgado",
+      "linked_character_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da",
+      "game_card_type": "conversation",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "d1b13984-a607-44b4-84ed-e7bae4c7ec41",
+      "card_type": "game_card",
+      "card_title": "Saltwater Habit",
+      "card_contents": "Frequently lick your lips and glance toward the ocean, muttering about the tides and how the sea never forgets. Let this habit surface whenever tension rises or someone mentions Johnny or the surfboard.",
+      "act": 1,
+      "linked_character": "Maggie 'Moonlight' Delgado",
+      "linked_character_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da",
+      "game_card_type": "flavor"
+    },
+    {
+      "card_id": "5284ce97-9070-48e2-8f6a-dbdd8ab778b8",
+      "card_type": "game_card",
+      "card_title": "Swap a Shell Token",
+      "card_contents": "Offer another player a small shell or trinket from your pocket in exchange for a piece of gossip or a hint about the missing surfboard. Make the trade feel like a secret pact under the moonlight.",
+      "act": 2,
+      "linked_character": "Maggie 'Moonlight' Delgado",
+      "linked_character_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da",
+      "game_card_type": "trade",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "d3223779-7b73-4a95-9cfe-ef1020a1f807",
+      "card_type": "game_card",
+      "card_title": "Night Swim Alibi",
+      "card_contents": "Claim you were swimming alone in a hidden cove during the time of Johnny’s disappearance. Use your knowledge of tides to explain why no one could have followed you or seen you leave the water.",
+      "act": 3,
+      "linked_character": "Maggie 'Moonlight' Delgado",
+      "linked_character_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da",
+      "game_card_type": "alibi",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "2f288a36-18ef-45bc-a936-3aaf6b55beb1",
+      "card_type": "game_card",
+      "card_title": "Smooth Talker",
+      "card_contents": "Improvise a slick, fast-talking pitch trying to sell a shady 'get rich quick' scheme to another guest. Use Eddie's street-smart charm and a touch of desperation.",
+      "act": 1,
+      "linked_character": "Eddie 'The Fixer' Malone",
+      "linked_character_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f",
+      "game_card_type": "performance",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "ad5390b5-752b-45c0-92cc-acf7f74d02b8",
+      "card_type": "game_card",
+      "card_title": "Nervous Habit",
+      "card_contents": "Whenever someone asks about Johnny or the missing surfboard, Eddie nervously taps his watch three times and looks away, hinting at his hidden guilt or secrets.",
+      "act": 1,
+      "linked_character": "Eddie 'The Fixer' Malone",
+      "linked_character_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f",
+      "game_card_type": "flavor"
+    },
+    {
+      "card_id": "ff01eedb-683c-4e4f-a6f4-80d5dadf4d18",
+      "card_type": "game_card",
+      "card_title": "Brotherly Confrontation",
+      "card_contents": "Find a moment to challenge another guest about what they really know about Johnny's debts or the locker. Push with a mix of anger and regret to stir tension.",
+      "act": 2,
+      "linked_character": "Eddie 'The Fixer' Malone",
+      "linked_character_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f",
+      "game_card_type": "conversation",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "8a13bde9-cedd-4ae7-bdde-3a28ade5fdf9",
+      "card_type": "game_card",
+      "card_title": "Dodging Questions",
+      "card_contents": "When asked where Eddie was during the critical hours, dodge with a vague story about fixing a flat tire near the beach. Use this to create doubt or confusion.",
+      "act": 2,
+      "linked_character": "Eddie 'The Fixer' Malone",
+      "linked_character_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f",
+      "game_card_type": "alibi",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "52582454-1103-4a2c-a60f-eeaca2b2f0dc",
+      "card_type": "game_card",
+      "card_title": "Locker Key Bargain",
+      "card_contents": "Offer to trade a small secret or item you have for information or access to a locked area—hinting you once had the key to Johnny's private locker.",
+      "act": 3,
+      "linked_character": "Eddie 'The Fixer' Malone",
+      "linked_character_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f",
+      "game_card_type": "trade",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "debug": {
+    "bundle_stats": [
+      {
+        "bundle_id": "puzzle_bundle_001",
+        "card_count": 4,
+        "required_count": 2,
+        "unlock_count": 1,
+        "difficulty": "easy",
+        "clue_target": "Maggie 'Moonlight' Delgado is the suspect implicated by the object relationship this clue reveals."
+      },
+      {
+        "bundle_id": "puzzle_bundle_002",
+        "card_count": 4,
+        "required_count": 3,
+        "unlock_count": 1,
+        "difficulty": "easy",
+        "clue_target": "Ricky 'The Riff' Ramirez is the suspect implicated by the object relationship this clue reveals."
+      },
+      {
+        "bundle_id": "puzzle_bundle_003",
+        "card_count": 4,
+        "required_count": 3,
+        "unlock_count": 1,
+        "difficulty": "easy",
+        "clue_target": "Sandy 'Tiki' Thompson is the suspect implicated by the object relationship this clue reveals."
+      },
+      {
+        "bundle_id": "puzzle_bundle_004",
+        "card_count": 4,
+        "required_count": 3,
+        "unlock_count": 1,
+        "difficulty": "easy",
+        "clue_target": "the highlighted suspect is the suspect implicated by the object relationship this clue reveals."
+      }
+    ],
+    "rejection_log": [
+      {
+        "stage": "characters_builder_agent",
+        "attempt": 1,
+        "reason": "characters_builder_agent weak suspect slot without enough deduction axes: Maggie 'Moonlight' Delgado"
+      },
+      {
+        "stage": "character_secret_agent",
+        "character": "Eddie 'The Fixer' Malone",
+        "attempt": 1,
+        "reason": "character_secret_agent missing motive hook for Eddie 'The Fixer' Malone"
+      }
+    ],
+    "warning_log": [
+      {
+        "stage": "roster_integrity",
+        "reason": "unknown_capitalized_phrases",
+        "unknown_phrases": [
+          "Last Wave Mystery",
+          "Johnny Malone",
+          "Sandy Thompson",
+          "Use Eddie"
+        ]
+      },
+      {
+        "stage": "targeted_playability_repair_agent",
+        "reason": "repair_attempt_not_improved",
+        "scopes": [
+          "roster"
+        ],
+        "previous_score": 8.5,
+        "candidate_score": 7.5
+      },
+      {
+        "stage": "playability_repair_agent",
+        "reason": "repair_attempt_not_improved",
+        "previous_score": 8.5,
+        "candidate_score": 8.5
+      }
+    ],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "story_title": "Surf's Up: Last Wave Mystery",
+  "story_description": "Dive into the vibrant world of 1960s surf culture during the final day of summer and the thrilling big wave tournament. Players will ride the waves of intrigue and uncover secrets beneath the sun-soaked beach party. Perfect for fans of theatrical fun and classic Surf Rock vibes.",
+  "story_rating": "Teen 13+",
+  "story_themes": "1960s, surf culture, beach party, big wave tournament, theatrical, fun, Surf Rock, mystery",
+  "playability_report": {
+    "score_10": 8.5,
+    "score_percent": 85,
+    "grade": "B",
+    "pass": true,
+    "status": "needs_repair",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 1,
+    "issues": [
+      {
+        "severity": "major",
+        "code": "unknown_roster_entities",
+        "points": 1.5,
+        "message": "Cards reference unsupported names or places: Last Wave Mystery, Johnny Malone, Sandy Thompson, Use Eddie",
+        "unknown_phrases": [
+          "Last Wave Mystery",
+          "Johnny Malone",
+          "Sandy Thompson",
+          "Use Eddie"
+        ]
+      }
+    ]
+  },
+  "playability_history": [
+    {
+      "step_name": "story_metadata_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "story_blurb_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "world_building_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "characters_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "treasure_hunt_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "core_truth_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "case_state_builder_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "breadcrumb_trail_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "trail_review_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "narrative_generator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "narrative_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "character_profile_refinement_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "character_secret_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "suspect_coverage_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "story_acts_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "host_speech_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "item_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "post_clue_dedup_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "clue_target_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "puzzle_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "bundle_linker_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "structural_preflight_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "ambiguity_balancer_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "solvability_validator_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "game_card_agent",
+      "score_10": 10,
+      "status": "ready_for_playtest",
+      "issue_count": 0
+    },
+    {
+      "step_name": "roster_integrity_validator_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "card_quality_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "final_editor_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "targeted_playability_repair_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "playability_repair_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "evidence_canonicalizer_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "bundle_structure_validator_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "post_final_invariants_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "bundle_integrity_validator_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    },
+    {
+      "step_name": "mvp_quality_gate_agent",
+      "score_10": 8.5,
+      "status": "needs_repair",
+      "issue_count": 1
+    }
+  ],
+  "storyBlurb": "At the electrifying finale of the 1960 Big Wave Surf Tournament, held on the sun-drenched shores of Malibu's legendary Surfer's Cove, the party erupts with surf rock anthems and tiki torches—but the celebration crashes when the beloved local surf legend, Johnny 'Wave Rider' Malone, is found mysteriously drowned under suspicious circumstances. Amidst the crashing waves and neon beach bonfires, a priceless heirloom surfboard, rumored to hold a secret map to a hidden treasure buried beneath the sands, vanishes without a trace. As the sun sets on the last day of summer, surfers, beach bums, and rockabilly revelers must unravel the tangled tides of jealousy, secrets, and stolen dreams to catch the killer and recover the missing treasure before the waves wash it all away.",
+  "storyEntities": {
+    "people": [
+      {
+        "name": "Johnny 'Wave Rider' Malone",
+        "summary": "Beloved local surf legend and tournament favorite, victim of the mysterious drowning."
+      },
+      {
+        "name": "Sandy 'Tiki' Thompson",
+        "summary": "Charismatic tiki bar owner and longtime friend of Johnny, known for her sharp wit and deep knowledge of local lore."
+      },
+      {
+        "name": "Ricky 'The Riff' Ramirez",
+        "summary": "Lead guitarist of the surf rock band playing at the party, rumored to have a secret rivalry with Johnny."
+      }
+    ],
+    "locations": [
+      {
+        "name": "Surfer's Cove",
+        "summary": "The iconic beach and tournament site with towering waves and hidden coves, central to the investigation."
+      },
+      {
+        "name": "The Tiki Hut",
+        "summary": "Sandy's tiki bar, a hotspot for surfers and musicians, filled with memorabilia and potential clues."
+      },
+      {
+        "name": "Malibu Pier",
+        "summary": "A bustling pier with fishing boats and vendors, where Johnny was last seen alive and where the surfboard was last spotted."
+      }
+    ],
+    "items": [
+      {
+        "name": "Heirloom Surfboard",
+        "summary": "Johnny's prized surfboard, intricately carved and rumored to conceal a map to a buried treasure; currently missing."
+      },
+      {
+        "name": "Surf Tournament Trophy",
+        "summary": "The coveted trophy awarded to the winner, found wiped clean of fingerprints but bearing a mysterious scratch."
+      },
+      {
+        "name": "Surf Rock Setlist",
+        "summary": "The band's playlist for the night, containing cryptic notes that may hint at hidden motives or secrets."
+      }
+    ]
+  },
+  "world": "In the golden haze of 1960 Malibu, Surfer's Cove pulses with youthful energy and salty rebellion. Here, the Pacific's towering waves sculpt legends, and the air thrums with surf rock's electrifying riffs beneath tiki torches flickering against the twilight. This sun-drenched stretch of sand is a crucible where dreams and rivalries collide, where the ocean's vast mystery mirrors the tangled human secrets buried beneath the carefree facade of beach bonfires and neon-lit nights. The Cove is not just a place to ride waves but a sanctuary of identity and hidden histories, where every grain of sand whispers of lost treasures and unspoken betrayals.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Maggie 'Moonlight' Delgado",
+        "summary": "A mysterious night-time swimmer and local folklore keeper, Maggie is known for her uncanny ability to navigate the ocean by moonlight and her deep connection to Malibu's hidden histories."
+      },
+      {
+        "name": "Eddie 'The Fixer' Malone",
+        "summary": "Johnny's estranged younger brother, a mechanic with a chip on his shoulder and a shadowy past, who arrives in town just days before the tournament, stirring old family tensions."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Forgotten Shipwreck",
+        "summary": "An ancient, partially submerged vessel just off Surfer's Cove, rumored to be the origin of the treasure map hidden within Johnny's heirloom surfboard, and a focal point for clandestine meetings and secret dives."
+      },
+      {
+        "name": "The Neon Diner",
+        "summary": "A late-night eatery near Malibu Pier, frequented by surfers and musicians alike, where overheard conversations and overheated tempers often spill into clues and conflicts."
+      }
+    ],
+    "items": [
+      {
+        "name": "Weathered Compass",
+        "summary": "An old, salt-stained compass found among Johnny's belongings, its needle erratic, rumored to be a key to deciphering the map carved into the heirloom surfboard."
+      },
+      {
+        "name": "Vinyl Record of 'The Riff's' Band",
+        "summary": "A limited pressing of the surf rock band's latest album, containing hidden messages etched into the grooves, possibly revealing motives or alliances."
+      }
+    ]
+  },
+  "reservedVictim": {
+    "name": "Johnny 'Wave Rider' Malone",
+    "summary": "Beloved local surf legend and tournament favorite, victim of the mysterious drowning."
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Eddie 'The Fixer' Malone",
+      "victim": "Johnny 'Wave Rider' Malone",
+      "location": "Surfer's Cove shoreline near the private locker",
+      "method": "drowned by forcefully holding underwater during a confrontation",
+      "motive": "Eddie wanted to seize the heirloom surfboard rumored to hold a treasure map to settle family debts and resented Johnny's refusal to share the inheritance",
+      "summary": "During a heated argument by the shoreline near Johnny's private locker, Eddie forcibly drowned Johnny to prevent him from selling the land and to claim the heirloom surfboard. Eddie then hid the surfboard to leverage the treasure map for financial gain. The drowning was intentional and concealed as an accident amid the surf tournament chaos.",
+      "opportunity": "Eddie had access to Johnny's private locker and was alone with him during the tournament's finale when the drowning occurred.",
+      "why_others_could_not": [
+        "Sandy was busy managing the bar and was seen arguing earlier but not near the water at the time",
+        "Ricky was performing on stage with a shaky alibi but lacked access to Johnny's locker",
+        "Maggie was swimming at night and had no confirmed presence at the shoreline during the murder time",
+        "Sandy 'Tiki' Thompson is ruled out as the killer: reconciled timelines, access limits, and motives under this solution exclude them.",
+        "Ricky 'The Riff' Ramirez is ruled out as the killer: reconciled timelines, access limits, and motives under this solution exclude them.",
+        "Maggie 'Moonlight' Delgado is ruled out as the killer: reconciled timelines, access limits, and motives under this solution exclude them."
+      ]
+    },
+    "treasure": {
+      "object": "priceless heirloom surfboard with a hidden treasure map",
+      "hiding_place": "inside Johnny's private locker at Surfer's Cove",
+      "concealment": "the surfboard was hidden behind a false panel in the locker, concealing the map carved into its underside",
+      "significance": "the surfboard holds the secret map to a buried treasure beneath the sands, motivating the murder and the theft to gain financial leverage",
+      "discovery_path": "players could uncover the hidden panel in Johnny's locker through clues about the locker’s unusual construction and testimonies about Johnny’s secretive behavior with the surfboard"
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "sandy_tiki_thompson",
+        "name": "Sandy 'Tiki' Thompson",
+        "title": "Sandy 'Tiki' Thompson",
+        "card_id": "c70e62ac-a18d-4599-be68-ea30adff46b9",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "ricky_the_riff_ramirez",
+        "name": "Ricky 'The Riff' Ramirez",
+        "title": "Ricky 'The Riff' Ramirez",
+        "card_id": "ab09d113-c4d5-4539-b124-3a81264aabee",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "maggie_moonlight_delgado",
+        "name": "Maggie 'Moonlight' Delgado",
+        "title": "Maggie 'Moonlight' Delgado",
+        "card_id": "338c69c2-9e67-4bb5-bfdb-b447b0ac44da",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "eddie_the_fixer_malone",
+        "name": "Eddie 'The Fixer' Malone",
+        "title": "Eddie 'The Fixer' Malone",
+        "card_id": "886e591e-d4b4-4bd7-9be6-73652a267e1f",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "eddie_the_fixer_malone",
+    "killer_name": "Eddie 'The Fixer' Malone",
+    "victim_name": "Johnny 'Wave Rider' Malone",
+    "murder": {
+      "location": "Surfer's Cove shoreline near the private locker",
+      "method": "drowned by forcefully holding underwater during a confrontation",
+      "motive": "Eddie wanted to seize the heirloom surfboard rumored to hold a treasure map to settle family debts and resented Johnny's refusal to share the inheritance",
+      "summary": "During a heated argument by the shoreline near Johnny's private locker, Eddie forcibly drowned Johnny to prevent him from selling the land and to claim the heirloom surfboard. Eddie then hid the surfboard to leverage the treasure map for financial gain. The drowning was intentional and concealed as an accident amid the surf tournament chaos.",
+      "opportunity": "Eddie had access to Johnny's private locker and was alone with him during the tournament's finale when the drowning occurred.",
+      "window_start": null,
+      "window_end": null
+    },
+    "treasure": {
+      "object": "priceless heirloom surfboard with a hidden treasure map",
+      "hiding_place": "inside Johnny's private locker at Surfer's Cove",
+      "concealment": "the surfboard was hidden behind a false panel in the locker, concealing the map carved into its underside",
+      "discovery_path": "players could uncover the hidden panel in Johnny's locker through clues about the locker’s unusual construction and testimonies about Johnny’s secretive behavior with the surfboard"
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "sandy_tiki_thompson",
+        "ricky_the_riff_ramirez",
+        "maggie_moonlight_delgado",
+        "eddie_the_fixer_malone"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "trails": [
+    {
+      "title": "Suspicious Barroom Feud",
+      "goal": "Widen suspicion toward Sandy and others by highlighting conflicts and odd behavior unrelated to the actual murder.",
+      "location_ref": "f2337112-36a4-4e69-893c-1fa09ce527ca",
+      "beats": [
+        {
+          "information": "Sandy was overheard arguing heatedly with Johnny earlier that evening about the surf tournament's rules and prize money.",
+          "game": "Discuss who might have a grudge against Johnny and how this argument could motivate someone else."
+        },
+        {
+          "information": "A bartender recalls Sandy stepping away from the bar at the time of the murder, but no one saw where she went.",
+          "game": "Consider if Sandy's absence could place her near the crime scene or if she had opportunity elsewhere."
+        },
+        {
+          "information": "An empty bottle with fingerprints matching Sandy's was found near the shoreline, but no witnesses saw her there.",
+          "game": "Debate whether Sandy's presence near the shoreline is suspicious or could be explained by other activities."
+        },
+        {
+          "information": "Despite the tension, Sandy was managing the bar and serving customers during the tournament finale, making her presence near the water unlikely.",
+          "game": "Weigh the alibi against the physical evidence and decide if Sandy remains a strong suspect or a red herring."
+        }
+      ]
+    },
+    {
+      "title": "Locker Access and Hidden Motives",
+      "goal": "Narrow suspicion toward Eddie by revealing his access, motive, and opportunity without directly naming him as the killer.",
+      "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748",
+      "beats": [
+        {
+          "information": "Eddie had a key to Johnny's private locker at Surfer's Cove, giving him exclusive access to Johnny's prized possessions.",
+          "game": "Discuss how access to the locker could provide motive or opportunity for foul play."
+        },
+        {
+          "information": "Witnesses saw Eddie and Johnny in a tense confrontation near the shoreline just before the drowning was reported.",
+          "game": "Analyze the possible reasons for their argument and how it might escalate."
+        },
+        {
+          "information": "The heirloom surfboard rumored to contain a treasure map was last seen in Johnny's locker, which Eddie desperately wanted to claim to settle family debts.",
+          "game": "Consider how the surfboard's value might drive someone to drastic actions."
+        },
+        {
+          "information": "No one else had both the motive and the opportunity to be alone with Johnny at the shoreline during the tournament's finale.",
+          "game": "Piece together the timeline and access to narrow down who could have committed the murder."
+        }
+      ]
+    },
+    {
+      "title": "Conflicting Alibis and Unseen Shadows",
+      "goal": "Present ambiguous clues that could implicate multiple suspects until combined with other trails.",
+      "location_ref": "48cb96f2-8a5c-455a-ab8c-c73757a550ca",
+      "beats": [
+        {
+          "information": "Ricky was performing on stage during the murder but his shaky alibi leaves room for doubt about his exact whereabouts.",
+          "game": "Debate whether Ricky's performance truly rules him out or if he could have slipped away unnoticed."
+        },
+        {
+          "information": "Maggie was seen swimming at night, but no one confirms her presence near the shoreline at the time of the murder.",
+          "game": "Discuss if Maggie's nighttime swim could place her near the crime scene or if it's unrelated."
+        },
+        {
+          "information": "A mysterious figure was spotted near the pier shortly before the drowning, but descriptions are vague and could fit multiple suspects.",
+          "game": "Consider who this figure might be and how this sighting affects the investigation."
+        },
+        {
+          "information": "Some footprints near the water's edge were partially washed away, making it difficult to identify who was present.",
+          "game": "Explore how the environment might obscure evidence and what that means for suspect identification."
+        }
+      ]
+    }
+  ],
+  "trail_review": {
+    "pass": true,
+    "problems": [],
+    "roles": {
+      "red_herring": true,
+      "killer_aligned": true,
+      "ambiguous": true
+    },
+    "trails": [
+      {
+        "title": "Suspicious Barroom Feud",
+        "goal": "Widen suspicion toward Sandy and others by highlighting conflicts and odd behavior unrelated to the actual murder.",
+        "location_ref": "f2337112-36a4-4e69-893c-1fa09ce527ca",
+        "beats": [
+          {
+            "information": "Sandy was overheard arguing heatedly with Johnny earlier that evening about the surf tournament's rules and prize money.",
+            "game": "Discuss who might have a grudge against Johnny and how this argument could motivate someone else."
+          },
+          {
+            "information": "A bartender recalls Sandy stepping away from the bar at the time of the murder, but no one saw where she went.",
+            "game": "Consider if Sandy's absence could place her near the crime scene or if she had opportunity elsewhere."
+          },
+          {
+            "information": "An empty bottle with fingerprints matching Sandy's was found near the shoreline, but no witnesses saw her there.",
+            "game": "Debate whether Sandy's presence near the shoreline is suspicious or could be explained by other activities."
+          },
+          {
+            "information": "Despite the tension, Sandy was managing the bar and serving customers during the tournament finale, making her presence near the water unlikely.",
+            "game": "Weigh the alibi against the physical evidence and decide if Sandy remains a strong suspect or a red herring."
+          }
+        ]
+      },
+      {
+        "title": "Locker Access and Hidden Motives",
+        "goal": "Narrow suspicion toward Eddie by revealing his access, motive, and opportunity without directly naming him as the killer.",
+        "location_ref": "347a939e-97e6-4504-bb9e-6b66376c9748",
+        "beats": [
+          {
+            "information": "Eddie had a key to Johnny's private locker at Surfer's Cove, giving him exclusive access to Johnny's prized possessions.",
+            "game": "Discuss how access to the locker could provide motive or opportunity for foul play."
+          },
+          {
+            "information": "Witnesses saw Eddie and Johnny in a tense confrontation near the shoreline just before the drowning was reported.",
+            "game": "Analyze the possible reasons for their argument and how it might escalate."
+          },
+          {
+            "information": "The heirloom surfboard rumored to contain a treasure map was last seen in Johnny's locker, which Eddie desperately wanted to claim to settle family debts.",
+            "game": "Consider how the surfboard's value might drive someone to drastic actions."
+          },
+          {
+            "information": "No one else had both the motive and the opportunity to be alone with Johnny at the shoreline during the tournament's finale.",
+            "game": "Piece together the timeline and access to narrow down who could have committed the murder."
+          }
+        ]
+      },
+      {
+        "title": "Conflicting Alibis and Unseen Shadows",
+        "goal": "Present ambiguous clues that could implicate multiple suspects until combined with other trails.",
+        "location_ref": "48cb96f2-8a5c-455a-ab8c-c73757a550ca",
+        "beats": [
+          {
+            "information": "Ricky was performing on stage during the murder but his shaky alibi leaves room for doubt about his exact whereabouts.",
+            "game": "Debate whether Ricky's performance truly rules him out or if he could have slipped away unnoticed."
+          },
+          {
+            "information": "Maggie was seen swimming at night, but no one confirms her presence near the shoreline at the time of the murder.",
+            "game": "Discuss if Maggie's nighttime swim could place her near the crime scene or if it's unrelated."
+          },
+          {
+            "information": "A mysterious figure was spotted near the pier shortly before the drowning, but descriptions are vague and could fit multiple suspects.",
+            "game": "Consider who this figure might be and how this sighting affects the investigation."
+          },
+          {
+            "information": "Some footprints near the water's edge were partially washed away, making it difficult to identify who was present.",
+            "game": "Explore how the environment might obscure evidence and what that means for suspect identification."
+          }
+        ]
+      }
+    ]
+  },
+  "narratives": {
+    "a": {
+      "suspect": "Eddie 'The Fixer' Malone",
+      "motive": "Eddie wanted to claim the heirloom surfboard rumored to hold a treasure map to settle his mounting family debts and resented Johnny's refusal to share the inheritance.",
+      "opportunity": "Eddie had exclusive access to Johnny's private locker and was seen in a heated confrontation with Johnny near the shoreline just before the drowning occurred.",
+      "supporting_evidence": [
+        "Eddie possessed a key to Johnny's private locker where the surfboard was kept.",
+        "Witnesses reported a tense argument between Eddie and Johnny near the water shortly before Johnny's death.",
+        "Eddie was caught lying about his whereabouts during the crucial hours of the murder."
+      ],
+      "misleading_evidence": [
+        "Eddie's troubled past and recent return make some question his reliability but do not directly prove guilt.",
+        "His claim of being elsewhere during the murder is supported by some but contradicted by others."
+      ],
+      "contradiction_hooks": [
+        "Eddie claims he never intended to harm Johnny, only to negotiate over the surfboard.",
+        "Some witnesses suggest the argument was about family issues, not the surfboard specifically."
+      ],
+      "narrative_arc": "Eddie's desperation to settle debts drives him to confront Johnny, escalating to a fatal struggle at the shoreline. His access and motive make him the prime suspect, but his attempts to cover his tracks and conflicting statements create doubt among the community, leading to a tense unraveling of the truth."
+    },
+    "b": {
+      "suspect": "Sandy 'Tiki' Thompson",
+      "motive": "Sandy resented Johnny's plans to sell the beloved Tiki Hut bar land to developers, which threatened her livelihood and community standing.",
+      "opportunity": "She had access to the beachside storage where the heirloom surfboard was kept and was seen arguing with Johnny hours before his death.",
+      "supporting_evidence": [
+        "Sandy was overheard having a heated argument with Johnny about the surf tournament's rules and prize money.",
+        "An empty bottle with her fingerprints was found near the shoreline where Johnny drowned.",
+        "She stepped away from the bar at the time of the murder, with no clear alibi for that period."
+      ],
+      "misleading_evidence": [
+        "Despite the argument, Sandy was managing the bar and serving customers during the tournament finale, suggesting she was not near the water.",
+        "No witnesses saw her near the shoreline at the time of the drowning."
+      ],
+      "contradiction_hooks": [
+        "Sandy claims her argument was strictly professional and unrelated to personal matters.",
+        "She insists she never left the bar area during the critical time frame."
+      ],
+      "narrative_arc": "Sandy's fierce protectiveness over her bar and resentment toward Johnny's plans create a motive. Her suspicious behavior and unexplained absence during the murder cast a shadow over her innocence, but conflicting alibis and lack of direct evidence keep the community divided on her guilt."
+    },
+    "c": {
+      "suspect": "Ricky 'The Riff' Ramirez",
+      "motive": "Ricky harbored jealousy and rivalry toward Johnny over fame and local legend status, fueling resentment that could lead to drastic actions.",
+      "opportunity": "Although performing on stage during the murder, his shaky alibi and knowledge of ocean currents gave him the chance to stage an accident near the shoreline.",
+      "supporting_evidence": [
+        "Ricky was spotted near the shoreline with a surfboard similar to the missing heirloom.",
+        "His alibi during the time of the drowning is uncertain and leaves room for doubt.",
+        "His expertise with ocean currents could facilitate staging a drowning accident."
+      ],
+      "misleading_evidence": [
+        "He was actively performing on stage, witnessed by many, which should rule him out.",
+        "No direct evidence places him at the crime scene during the murder."
+      ],
+      "contradiction_hooks": [
+        "Ricky denies ever leaving the stage during his set.",
+        "Some witnesses recall seeing him backstage, but times are vague."
+      ],
+      "narrative_arc": "Ricky's rivalry with Johnny and suspicious movements near the shoreline make him a candidate for foul play. His musical commitments and partial alibis create ambiguity, fueling speculation but never conclusively proving his involvement, leaving the community questioning his true role."
+    },
+    "true_narrative": "a"
+  },
+  "narrative_validation": {
+    "pass": true,
+    "problems": [],
+    "analysis": {
+      "suspects": [
+        "Eddie 'The Fixer' Malone",
+        "Sandy 'Tiki' Thompson",
+        "Ricky 'The Riff' Ramirez"
+      ],
+      "true_suspect": "Eddie 'The Fixer' Malone",
+      "eliminated_suspect": "Sandy 'Tiki' Thompson",
+      "red_herring": "Ricky 'The Riff' Ramirez",
+      "uses_only_characters": true,
+      "matches_solution": true,
+      "deduction_possible": true
+    }
+  },
+  "suspect_coverage": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": [],
+    "underused_suspects": [],
+    "required_early_suspects": [
+      "Maggie 'Moonlight' Delgado",
+      "Ricky 'The Riff' Ramirez",
+      "Sandy 'Tiki' Thompson"
+    ],
+    "viable_counts": {
+      "motive": 4,
+      "access": 3,
+      "opportunity": 4,
+      "weapon": 2
+    },
+    "suspect_signals": [
+      {
+        "name": "Sandy 'Tiki' Thompson",
+        "signal_count": 6,
+        "secret_count": 2,
+        "narrative_count": 1,
+        "signal_types": [
+          "motive",
+          "access",
+          "opportunity",
+          "location",
+          "contradiction",
+          "movement"
+        ],
+        "logistical_hooks": [
+          "access",
+          "location",
+          "movement"
+        ],
+        "competitive_hooks": [
+          "motive",
+          "opportunity",
+          "contradiction"
+        ]
+      },
+      {
+        "name": "Ricky 'The Riff' Ramirez",
+        "signal_count": 5,
+        "secret_count": 2,
+        "narrative_count": 1,
+        "signal_types": [
+          "motive",
+          "location",
+          "opportunity",
+          "contradiction",
+          "access"
+        ],
+        "logistical_hooks": [
+          "location",
+          "access"
+        ],
+        "competitive_hooks": [
+          "motive",
+          "opportunity",
+          "contradiction"
+        ]
+      },
+      {
+        "name": "Maggie 'Moonlight' Delgado",
+        "signal_count": 5,
+        "secret_count": 2,
+        "narrative_count": 0,
+        "signal_types": [
+          "location",
+          "opportunity",
+          "contradiction",
+          "weapon",
+          "motive"
+        ],
+        "logistical_hooks": [
+          "location",
+          "weapon"
+        ],
+        "competitive_hooks": [
+          "opportunity",
+          "contradiction",
+          "motive"
+        ]
+      },
+      {
+        "name": "Eddie 'The Fixer' Malone",
+        "signal_count": 8,
+        "secret_count": 2,
+        "narrative_count": 1,
+        "signal_types": [
+          "motive",
+          "access",
+          "movement",
+          "opportunity",
+          "location",
+          "weapon",
+          "object",
+          "contradiction"
+        ],
+        "logistical_hooks": [
+          "access",
+          "movement",
+          "location",
+          "weapon",
+          "object"
+        ],
+        "competitive_hooks": [
+          "motive",
+          "opportunity",
+          "contradiction"
+        ]
+      }
+    ]
+  },
+  "puzzle_bundles": [
+    {
+      "bundle_id": "puzzle_bundle_001",
+      "act": 1,
+      "puzzle_type": "item_combination",
+      "difficulty": "easy",
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves a suspect-linked object fact about Maggie 'Moonlight' Delgado.",
+      "clue_target": "Maggie 'Moonlight' Delgado is the suspect implicated by the object relationship this clue reveals.",
+      "card_ids": [
+        "6edb915a-0a4c-41cb-b190-3fff507f57df",
+        "19dfc44c-3ddd-4787-be11-7006274e588b",
+        "81dc2bbd-2f0b-4ece-809e-278555ee7c32",
+        "7068145a-7cbd-4fb1-85cc-e38a595ea044"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_002",
+      "act": 2,
+      "puzzle_type": "item_combination",
+      "difficulty": "easy",
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves a suspect-linked object fact about Ricky 'The Riff' Ramirez.",
+      "clue_target": "Ricky 'The Riff' Ramirez is the suspect implicated by the object relationship this clue reveals.",
+      "card_ids": [
+        "135a4847-9514-4d78-af9e-2c081b052801",
+        "c941c97e-b455-42af-bbc7-b951c1978cd7",
+        "e7aa530a-2bbc-4957-9c48-a167fa2e5251",
+        "4e930a8f-478d-406d-a4e5-03530b737b85"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_003",
+      "act": 3,
+      "puzzle_type": "item_combination",
+      "difficulty": "easy",
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves a suspect-linked object fact about Sandy 'Tiki' Thompson.",
+      "clue_target": "Sandy 'Tiki' Thompson is the suspect implicated by the object relationship this clue reveals.",
+      "card_ids": [
+        "12d44824-1e42-45d0-a109-64ed0ff760c9",
+        "15800901-7acd-43e9-be00-47a4af2826bf",
+        "8151ca35-2f8d-4cc4-ace6-fd12c62aebdc",
+        "f5a5c7b2-7f43-4a38-a97a-ec8a1d071012"
+      ]
+    },
+    {
+      "bundle_id": "puzzle_bundle_004",
+      "act": 3,
+      "puzzle_type": "item_combination",
+      "difficulty": "easy",
+      "actionable_gain": "Solve the puzzle to reveal the hidden clue in this bundle.",
+      "solution_summary": "This bundle proves the hidden clue revealed by solving the puzzle.",
+      "clue_target": "the highlighted suspect is the suspect implicated by the object relationship this clue reveals.",
+      "card_ids": [
+        "0a66ad6a-9523-4e54-8036-9943e155648a",
+        "d7bba9f5-2599-430b-b264-243da5867e31",
+        "d4e1609d-75af-412d-b835-1f242d613603",
+        "230e8b35-5c8e-4895-99f5-24141f313129"
+      ]
+    }
+  ],
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "ambiguity_notes": null,
+  "ambiguity_balancer_skipped": true,
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "duplicate_fact_clusters_clear": true,
+      "all_suspects_materially_compete": true,
+      "final_bundle_axis_progression_clear": true,
+      "early_clue_target_viability_clear": true,
+      "playability_preflight_alignment_clear": true
+    }
+  },
+  "costAccounting": {
+    "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+    "requestCount": 30,
+    "requests": [
+      {
+        "index": 2,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "story_blurb_agent",
+        "requestType": "json",
+        "schemaName": "story_blurb",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 384,
+        "completion_tokens": 531,
+        "total_tokens": 915,
+        "created_at": "2026-04-02T06:40:03.941Z"
+      },
+      {
+        "index": 3,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "world_building_agent",
+        "requestType": "json",
+        "schemaName": "world_building",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 907,
+        "completion_tokens": 428,
+        "total_tokens": 1335,
+        "created_at": "2026-04-02T06:40:11.287Z"
+      },
+      {
+        "index": 4,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "characters_builder_agent",
+        "requestType": "json",
+        "schemaName": "characters_builder",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1073,
+        "completion_tokens": 455,
+        "total_tokens": 1528,
+        "created_at": "2026-04-02T06:40:20.407Z"
+      },
+      {
+        "index": 5,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "characters_builder_agent",
+        "requestType": "json",
+        "schemaName": "characters_builder",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1094,
+        "completion_tokens": 379,
+        "total_tokens": 1473,
+        "created_at": "2026-04-02T06:40:27.380Z"
+      },
+      {
+        "index": 6,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "core_truth_agent",
+        "requestType": "json",
+        "schemaName": "core_truth",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1419,
+        "completion_tokens": 368,
+        "total_tokens": 1787,
+        "created_at": "2026-04-02T06:40:34.641Z"
+      },
+      {
+        "index": 7,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "treasure_hunt_agent",
+        "requestType": "json",
+        "schemaName": "treasure_hunt",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 723,
+        "completion_tokens": 318,
+        "total_tokens": 1041,
+        "created_at": "2026-04-02T06:40:40.751Z"
+      },
+      {
+        "index": 8,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "breadcrumb_trail_agent",
+        "requestType": "json",
+        "schemaName": "breadcrumb_trails",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1563,
+        "completion_tokens": 738,
+        "total_tokens": 2301,
+        "created_at": "2026-04-02T06:40:52.394Z"
+      },
+      {
+        "index": 9,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "trail_review_agent",
+        "requestType": "json",
+        "schemaName": "reviewed_trails",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 2247,
+        "completion_tokens": 765,
+        "total_tokens": 3012,
+        "created_at": "2026-04-02T06:41:09.292Z"
+      },
+      {
+        "index": 10,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "narrative_generator_agent",
+        "requestType": "json",
+        "schemaName": "suspect_narratives",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 2506,
+        "completion_tokens": 1148,
+        "total_tokens": 3654,
+        "created_at": "2026-04-02T06:41:21.119Z"
+      },
+      {
+        "index": 11,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "narrative_validator_agent",
+        "requestType": "json",
+        "schemaName": "narrative_validation",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 3239,
+        "completion_tokens": 136,
+        "total_tokens": 3375,
+        "created_at": "2026-04-02T06:41:28.417Z"
+      },
+      {
+        "index": 12,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 548,
+        "completion_tokens": 98,
+        "total_tokens": 646,
+        "created_at": "2026-04-02T06:41:32.969Z"
+      },
+      {
+        "index": 13,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 549,
+        "completion_tokens": 100,
+        "total_tokens": 649,
+        "created_at": "2026-04-02T06:41:36.959Z"
+      },
+      {
+        "index": 14,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 549,
+        "completion_tokens": 93,
+        "total_tokens": 642,
+        "created_at": "2026-04-02T06:41:40.617Z"
+      },
+      {
+        "index": 15,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 549,
+        "completion_tokens": 124,
+        "total_tokens": 673,
+        "created_at": "2026-04-02T06:41:45.539Z"
+      },
+      {
+        "index": 16,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "character_secret_agent",
+        "requestType": "json",
+        "schemaName": "character_secrets",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 567,
+        "completion_tokens": 90,
+        "total_tokens": 657,
+        "created_at": "2026-04-02T06:41:49.907Z"
+      },
+      {
+        "index": 17,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "story_acts_agent",
+        "requestType": "json",
+        "schemaName": "story_acts",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 2596,
+        "completion_tokens": 459,
+        "total_tokens": 3055,
+        "created_at": "2026-04-02T06:42:00.102Z"
+      },
+      {
+        "index": 18,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "host_speech_agent",
+        "requestType": "json",
+        "schemaName": "host_speech",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1922,
+        "completion_tokens": 481,
+        "total_tokens": 2403,
+        "created_at": "2026-04-02T06:42:09.024Z"
+      },
+      {
+        "index": 19,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "item_agent",
+        "requestType": "json",
+        "schemaName": "items",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 4099,
+        "completion_tokens": 378,
+        "total_tokens": 4477,
+        "created_at": "2026-04-02T06:42:14.670Z"
+      },
+      {
+        "index": 20,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "clue_agent",
+        "requestType": "json",
+        "schemaName": "clue_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1954,
+        "completion_tokens": 747,
+        "total_tokens": 2701,
+        "created_at": "2026-04-02T06:42:26.371Z"
+      },
+      {
+        "index": 21,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 909,
+        "completion_tokens": 250,
+        "total_tokens": 1159,
+        "created_at": "2026-04-02T06:42:31.815Z"
+      },
+      {
+        "index": 22,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1008,
+        "completion_tokens": 292,
+        "total_tokens": 1300,
+        "created_at": "2026-04-02T06:42:36.852Z"
+      },
+      {
+        "index": 23,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "puzzle_agent",
+        "requestType": "json",
+        "schemaName": "puzzle_bundle",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 1027,
+        "completion_tokens": 246,
+        "total_tokens": 1273,
+        "created_at": "2026-04-02T06:42:40.719Z"
+      },
+      {
+        "index": 24,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "solvability_validator_agent",
+        "requestType": "json",
+        "schemaName": "solvability_validation",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 11132,
+        "completion_tokens": 9,
+        "total_tokens": 11141,
+        "created_at": "2026-04-02T06:42:44.125Z"
+      },
+      {
+        "index": 25,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 595,
+        "completion_tokens": 274,
+        "total_tokens": 869,
+        "created_at": "2026-04-02T06:42:47.425Z"
+      },
+      {
+        "index": 26,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 594,
+        "completion_tokens": 276,
+        "total_tokens": 870,
+        "created_at": "2026-04-02T06:42:53.528Z"
+      },
+      {
+        "index": 27,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 593,
+        "completion_tokens": 306,
+        "total_tokens": 899,
+        "created_at": "2026-04-02T06:42:59.929Z"
+      },
+      {
+        "index": 28,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "game_card_agent",
+        "requestType": "json",
+        "schemaName": "game_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 585,
+        "completion_tokens": 276,
+        "total_tokens": 861,
+        "created_at": "2026-04-02T06:43:06.209Z"
+      },
+      {
+        "index": 29,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "final_editor_agent",
+        "requestType": "json",
+        "schemaName": "final_cards",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 16286,
+        "completion_tokens": 5778,
+        "total_tokens": 22064,
+        "created_at": "2026-04-02T06:44:34.939Z"
+      },
+      {
+        "index": 30,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "targeted_playability_repair_agent",
+        "requestType": "json",
+        "schemaName": "targeted_playability_repair",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 14754,
+        "completion_tokens": 5877,
+        "total_tokens": 20631,
+        "created_at": "2026-04-02T06:46:10.392Z"
+      },
+      {
+        "index": 31,
+        "runId": "Surf's Up- Last Wave Mystery-1775111989625-eq56zl",
+        "stepName": "playability_repair_agent",
+        "requestType": "json",
+        "schemaName": "playability_repair",
+        "model": "gpt-4.1-mini-2025-04-14",
+        "prompt_tokens": 14726,
+        "completion_tokens": 5911,
+        "total_tokens": 20637,
+        "created_at": "2026-04-02T06:47:24.365Z"
+      }
+    ],
+    "totals": {
+      "prompt_tokens": 90697,
+      "completion_tokens": 27331,
+      "total_tokens": 118028
+    }
+  }
+}

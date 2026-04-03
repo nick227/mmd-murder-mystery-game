@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { ui } from '../../utils/uiMarkers'
+import { useEffect } from 'react'
 
 interface Props {
   open: boolean
@@ -10,10 +10,19 @@ interface Props {
 }
 
 export function BottomSheet({ open, onClose, eyebrow, title, meta, children }: PropsWithChildren<Props>) {
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = ''
+      }
+    }
+  }, [open])
+
   if (!open) return null
 
   return (
-    <div className="focus-sheet" data-testid="bottom-sheet" {...ui('BottomSheet')}>
+    <div className="focus-sheet" data-testid="bottom-sheet">
       <button type="button" className="focus-sheet__backdrop" aria-label="Close" onClick={onClose} />
       <section className="focus-sheet__panel" role="dialog" aria-modal="true">
         <div className="focus-sheet__header">

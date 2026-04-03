@@ -19,11 +19,36 @@ export async function storiesRoutes(fastify: FastifyInstance) {
     },
   }, async (_req, reply) => {
     const files = await listStoryFiles()
-    const stories = files.map(item => ({
-      id: item.file,
-      title: item.file.replace(/\.json$/i, ''),
-      summary: 'Generated story JSON file.',
-      createdAt: item.createdAt,
+    const stories = await Promise.all(files.map(async item => {
+      try {
+        const raw = await loadStoryJson(item.file)
+        const { runtimeStory } = adaptGeneratedStoryToRuntime(raw)
+        const characters = runtimeStory.playerOrder
+          .map(id => runtimeStory.playersByCharacterId[id])
+          .filter(Boolean)
+          .map(player => ({
+            characterId: player.characterId,
+            name: player.name,
+            archetype: player.archetype,
+            portrait: player.image,
+          }))
+        const image = (raw as any)?.storyImage ?? runtimeStory.stageByAct?.[1]?.image
+        return {
+          id: item.file,
+          title: runtimeStory.title,
+          summary: runtimeStory.summary,
+          image,
+          characters,
+          createdAt: item.createdAt,
+        }
+      } catch {
+        return {
+          id: item.file,
+          title: item.file.replace(/\.json$/i, ''),
+          summary: 'Generated story JSON file.',
+          createdAt: item.createdAt,
+        }
+      }
     }))
     return reply.send(serializeDates(stories))
   })

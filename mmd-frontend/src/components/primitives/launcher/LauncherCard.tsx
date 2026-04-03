@@ -5,6 +5,7 @@ import { HostSetupSheet } from './HostSetupSheet'
 import { mergeLauncherGames } from './mergeLauncherGames'
 import { Media } from '../../ui/Media'
 import { CreateEditGameSheet } from './CreateEditGameSheet'
+import { useAuth } from '../../../hooks/useAuth'
 
 type Game = ReturnType<typeof mergeLauncherGames>[0]
 
@@ -20,6 +21,7 @@ function formatScheduledTime(scheduledTime?: string) {
 }
 
 export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?: RendererHandlers }) {
+  const { user, isLoading, login } = useAuth()
   const [sheetOpen, setSheetOpen] = useState(false)
   const [activeGame, setActiveGame] = useState<Game | undefined>()
   const openedForGameIdRef = useRef<string | null>(null)
@@ -27,6 +29,8 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
   const [editMode, setEditMode] = useState<'create' | 'edit'>('create')
   const [editTarget, setEditTarget] = useState<Game | null>(null)
   const [createStoryId, setCreateStoryId] = useState<string>('')
+  const [authError, setAuthError] = useState('')
+  const [authenticating, setAuthenticating] = useState(false)
 
   useEffect(() => {
     const cg = data.createdGame
@@ -37,6 +41,10 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
   }, [data.createdGame])
 
   const mergedGames = mergeLauncherGames(data)
+  const editSheetStories =
+    editMode === 'create' && createStoryId
+      ? data.stories.filter(story => story.id === createStoryId)
+      : data.stories
 
   return (
     <>
@@ -70,7 +78,20 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
                   <button
                     type="button"
                     className="action-btn action-btn--primary"
-                    onClick={() => {
+                    disabled={isLoading || authenticating}
+                    onClick={async () => {
+                      setAuthError('')
+                      setAuthenticating(true)
+                      let activeUser = user
+                      try {
+                        activeUser = activeUser ?? (await login())
+                      } finally {
+                        setAuthenticating(false)
+                      }
+                      if (!activeUser) {
+                        setAuthError('Sign in with Google to create a game.')
+                        return
+                      }
                       setCreateStoryId(story.id)
                       setEditMode('create')
                       setEditTarget(null)
@@ -84,6 +105,7 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
             ))}
           </div>
         )}
+        {authError ? <div className="empty-state u-mt-12">{authError}</div> : null}
       </section>
 
       {sheetOpen ? (
@@ -108,7 +130,7 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
           open={true}
           mode={editMode}
           apiBase={data.apiBase}
-          stories={data.stories}
+          stories={editSheetStories}
           existingGame={editTarget ?? undefined}
           initial={{
             storyId: editTarget?.storyId ?? (createStoryId || data.form.storyId),
@@ -162,6 +184,7 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
 
               const title = g.name?.trim().length ? g.name.trim() : 'Untitled game'
               const storyLine = g.storyTitle?.trim().length ? g.storyTitle.trim() : ''
+              const creatorLine = g.creatorName?.trim().length ? g.creatorName.trim() : ''
               const timeLabel = formatScheduledTime(g.scheduledTime)
               const locationLine = g.locationText?.trim().length ? g.locationText.trim() : ''
               const whenWhere = [locationLine, timeLabel].filter(Boolean).join(' · ')
@@ -195,6 +218,26 @@ export function LauncherCard({ data, handlers }: { data: LauncherData; handlers?
                     <div className="link-row__meta">{stateLabel}</div>
 
                     {storyLine ? <div className="link-row__meta">{storyLine}</div> : null}
+                    {creatorLine ? (
+                      <div className="link-row__meta">
+                        {g.creatorAvatar ? (
+                          <img
+                            src={g.creatorAvatar}
+                            alt={`${creatorLine} avatar`}
+                            style={{
+                              width: 20,
+                              height: 20,
+                              borderRadius: '999px',
+                              objectFit: 'cover',
+                              display: 'inline-block',
+                              verticalAlign: 'middle',
+                              marginRight: 8,
+                            }}
+                          />
+                        ) : null}
+                        <span>{`Hosted by ${creatorLine}`}</span>
+                      </div>
+                    ) : null}
                     {whenWhere ? <div className="link-row__meta">{whenWhere}</div> : null}
 
                     <div className="link-row__actions">

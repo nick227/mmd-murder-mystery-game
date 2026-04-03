@@ -9,6 +9,9 @@ type Game = {
   name?: string
   apiBase: string
   state?: GameState
+  creatorUserId?: string | null
+  creatorName?: string | null
+  creatorAvatar?: string | null
   storyTitle?: string
   storySummary?: string
   storyImage?: string
@@ -80,6 +83,9 @@ export function HostSetupSheet({
   const currentGame = game || (createdGame ? {
     id: createdGame.id,
     name: createdGame.name,
+    creatorUserId: createdGame.creatorUserId,
+    creatorName: createdGame.creatorName,
+    creatorAvatar: createdGame.creatorAvatar,
     apiBase,
     access: {
       hostKey: createdGame.hostKey,

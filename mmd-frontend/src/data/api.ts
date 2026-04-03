@@ -1,4 +1,10 @@
-import type { ApiGameSummary, HostApiGame, PlayerApiView, PostKind, StoryListItem } from './types'
+import type { ApiGameSummary, ApiPublicGameView, HostApiGame, PlayerApiView, PostMovePayload, StoryListItem } from './types'
+
+type StreamStatus = 'connected' | 'disconnected'
+
+function buildApiUrl(apiBase: string, path: string) {
+  return `${apiBase}${path}`
+}
 
 async function request<T>(url: string, init?: RequestInit): Promise<T> {
   const response = await fetch(url, init)
@@ -9,8 +15,26 @@ async function request<T>(url: string, init?: RequestInit): Promise<T> {
   return response.json() as Promise<T>
 }
 
+function subscribeToRoomStream(input: {
+  url: string
+  onUpdate: () => void
+  onStatusChange?: (status: StreamStatus) => void
+}) {
+  const stream = new EventSource(input.url)
+  stream.addEventListener('room-update', () => {
+    input.onUpdate()
+  })
+  stream.onopen = () => input.onStatusChange?.('connected')
+  stream.onerror = () => input.onStatusChange?.('disconnected')
+
+  return () => {
+    stream.close()
+    input.onStatusChange?.('disconnected')
+  }
+}
+
 export async function fetchStories(apiBase: string) {
-  return request<StoryListItem[]>(`${apiBase}/api/v1/stories`)
+  return request<StoryListItem[]>(buildApiUrl(apiBase, '/api/v1/stories'))
 }
 
 export async function createGame(apiBase: string, body: {
@@ -19,19 +43,24 @@ export async function createGame(apiBase: string, body: {
   scheduledTime: string
   locationText?: string
 }) {
-  return request<HostApiGame>(`${apiBase}/api/v1/games`, {
+  return request<HostApiGame>(buildApiUrl(apiBase, '/api/v1/games'), {
     method: 'POST',
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   })
 }
 
 export async function fetchGames(apiBase: string) {
-  return request<ApiGameSummary[]>(`${apiBase}/api/v1/games`)
+  return request<ApiGameSummary[]>(buildApiUrl(apiBase, '/api/v1/games'))
+}
+
+export async function fetchPublicGame(apiBase: string, gameId: string) {
+  return request<ApiPublicGameView>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/public`))
 }
 
 export async function fetchHostGame(apiBase: string, gameId: string, hostKey: string) {
-  return request<HostApiGame>(`${apiBase}/api/v1/games/${gameId}/host`, {
+  return request<HostApiGame>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/host`), {
     headers: { 'x-host-key': hostKey },
   })
 }
@@ -43,21 +72,21 @@ export async function postHostAction(
   action: 'start' | 'next-act' | 'done',
 ) {
   if (action === 'start') {
-    return request<unknown>(`${apiBase}/api/v1/game/${gameId}/start`, {
+    return request<unknown>(buildApiUrl(apiBase, `/api/v1/game/${gameId}/start`), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-host-key': hostKey },
       body: '{}',
     })
   }
   if (action === 'next-act') {
-    return request<unknown>(`${apiBase}/api/v1/game/${gameId}/advance`, {
+    return request<unknown>(buildApiUrl(apiBase, `/api/v1/game/${gameId}/advance`), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-host-key': hostKey },
       body: '{}',
     })
   }
   // 'done' remains on the legacy endpoint until End Night is migrated.
-  return request<unknown>(`${apiBase}/api/v1/games/${gameId}/host/${action}`, {
+  return request<unknown>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/host/${action}`), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -73,7 +102,7 @@ export async function postEndNight(
   hostKey: string,
   body: { who: string; how: string; why: string },
 ) {
-  return request<unknown>(`${apiBase}/api/v1/games/${gameId}/host/end-night`, {
+  return request<unknown>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/host/end-night`), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -84,7 +113,7 @@ export async function postEndNight(
 }
 
 export async function cancelGame(apiBase: string, gameId: string, hostKey: string) {
-  return request<ApiGameSummary>(`${apiBase}/api/v1/games/${gameId}/host/cancel`, {
+  return request<ApiGameSummary>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/host/cancel`), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -95,7 +124,7 @@ export async function cancelGame(apiBase: string, gameId: string, hostKey: strin
 }
 
 export async function rescheduleGame(apiBase: string, gameId: string, hostKey: string, scheduledTime: string) {
-  return request<ApiGameSummary>(`${apiBase}/api/v1/games/${gameId}/host/reschedule`, {
+  return request<ApiGameSummary>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/host/reschedule`), {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -105,13 +134,29 @@ export async function rescheduleGame(apiBase: string, gameId: string, hostKey: s
   })
 }
 
+export async function updateScheduledGame(
+  apiBase: string,
+  gameId: string,
+  hostKey: string,
+  body: { name: string; scheduledTime: string; locationText: string },
+) {
+  return request<ApiGameSummary>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/host/update`), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-host-key': hostKey,
+    },
+    body: JSON.stringify(body),
+  })
+}
+
 export async function joinPlayerByCharacter(
   apiBase: string,
   gameId: string,
   characterId: string,
   playerName: string,
 ) {
-  return request<{ message: string }>(`${apiBase}/api/v1/play/${gameId}/character/${characterId}/join`, {
+  return request<{ message: string }>(buildApiUrl(apiBase, `/api/v1/play/${gameId}/character/${characterId}/join`), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ playerName }),
@@ -119,7 +164,7 @@ export async function joinPlayerByCharacter(
 }
 
 export async function fetchPlayerViewByCharacter(apiBase: string, gameId: string, characterId: string) {
-  return request<PlayerApiView>(`${apiBase}/api/v1/play/${gameId}/character/${characterId}`)
+  return request<PlayerApiView>(buildApiUrl(apiBase, `/api/v1/play/${gameId}/character/${characterId}`))
 }
 
 export async function submitObjective(
@@ -129,27 +174,50 @@ export async function submitObjective(
   objectiveId: string,
 ) {
   // API authority submit endpoint (cardId = objectiveId)
-  return request<{ message: string }>(`${apiBase}/api/v1/game/${gameId}/submit`, {
+  return request<{ message: string }>(buildApiUrl(apiBase, `/api/v1/game/${gameId}/submit`), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ characterId, cardId: objectiveId, act: 0 }),
   })
 }
 
-/** Player post to the room feed. Server route is still `/move`; JSON field remains `moveType`. */
-export async function postToFeed(
+export async function postMove(
   apiBase: string,
   gameId: string,
-  body: { characterId: string; postKind: PostKind; text?: string; targetCharacterId?: string },
+  body: PostMovePayload,
 ) {
-  return request<{ message: string }>(`${apiBase}/api/v1/game/${gameId}/move`, {
+  return request<{ message: string }>(buildApiUrl(apiBase, `/api/v1/game/${gameId}/move`), {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      characterId: body.characterId,
-      moveType: body.postKind,
-      text: body.text,
-      targetCharacterId: body.targetCharacterId,
-    }),
+    body: JSON.stringify(body),
+  })
+}
+
+export function subscribePlayerRoomStream(
+  apiBase: string,
+  gameId: string,
+  characterId: string,
+  onUpdate: () => void,
+  onStatusChange?: (status: StreamStatus) => void,
+) {
+  return subscribeToRoomStream({
+    url: buildApiUrl(apiBase, `/api/v1/play/${gameId}/character/${characterId}/stream`),
+    onUpdate,
+    onStatusChange,
+  })
+}
+
+export function subscribeHostRoomStream(
+  apiBase: string,
+  gameId: string,
+  hostKey: string,
+  onUpdate: () => void,
+  onStatusChange?: (status: StreamStatus) => void,
+) {
+  const query = new URLSearchParams({ hostKey })
+  return subscribeToRoomStream({
+    url: buildApiUrl(apiBase, `/api/v1/games/${gameId}/host/stream?${query.toString()}`),
+    onUpdate,
+    onStatusChange,
   })
 }
