@@ -70,12 +70,13 @@ async function findPlayerByCharacter(gameId: string, characterId: string) {
   })
 }
 
-async function joinPlayerSlot(player: any, playerName: string) {
+async function joinPlayerSlot(player: any, playerName: string, userId?: string) {
   const updated = await prisma.gamePlayer.update({
     where: { id: player.id },
     data: {
       playerName,
       joinedAt: player.joinedAt ?? new Date(),
+      userId: userId ?? null, // Attach user ID if available
     },
   })
   return prisma.gameEvent.create({
@@ -132,7 +133,8 @@ export async function playersRoutes(fastify: FastifyInstance) {
       }
 
       const body = validate(JoinGameBodySchema, req.body)
-      const event = await joinPlayerSlot(player, body.playerName)
+      const userId = req.session.userId
+      const event = await joinPlayerSlot(player, body.playerName, userId)
       publishRoomEvent({ gameId: player.gameId, eventId: event.id, eventType: String(event.type) })
       return reply.send({ message: `Welcome, ${body.playerName}!` })
     }
@@ -167,7 +169,8 @@ export async function playersRoutes(fastify: FastifyInstance) {
       }
 
       const body = validate(JoinGameBodySchema, req.body)
-      const event = await joinPlayerSlot(player, body.playerName)
+      const userId = req.session.userId
+      const event = await joinPlayerSlot(player, body.playerName, userId)
       publishRoomEvent({ gameId: player.gameId, eventId: event.id, eventType: String(event.type) })
       return reply.send({ message: `Welcome, ${body.playerName}!` })
     }

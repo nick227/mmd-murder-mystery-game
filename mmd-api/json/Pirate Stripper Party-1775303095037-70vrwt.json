@@ -1,0 +1,357 @@
+{
+  "runId": "Pirate Stripper Party-1775303095037-70vrwt",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Pirate Stripper Party-1775303095037-70vrwt",
+  "playerCount": 2,
+  "userPrompt": "Pirate Stripper Party",
+  "storyStyle": "funny, silly",
+  "cardsPerPlayer": 1,
+  "cluesPerPlayer": 1,
+  "puzzleCount": 0,
+  "profileCardsPerCharacter": 0,
+  "includeMetadata": false,
+  "includeWorldbuilding": false,
+  "includeHostSpeeches": false,
+  "includeSecrets": false,
+  "includeItems": false,
+  "cards": [
+    {
+      "card_id": "692ae214-fd2b-44c5-9ac4-5ee9456183db",
+      "card_type": "character",
+      "card_title": "Captain Scarlet Jigglebeard",
+      "card_contents": "The notorious and flamboyant leader of the Sassy Siren's crew, Captain Scarlet Jigglebeard is as famous for her dazzling feather boas as she is for her cunning pirating skills. Known for her sharp wit and sharper cutlass, she has a penchant for stirring up trouble and a secret obsession with the legendary lost treasure. Her recent quarrels with the Siren over treasure maps and dance routines have made her a prime suspect in the mysterious keelhauling.",
+      "act": 1
+    },
+    {
+      "card_id": "a017e29e-d6ad-43f7-82d5-7164d97d93e5",
+      "card_type": "character",
+      "card_title": "Lola 'The Lure' McSwash",
+      "card_contents": "A sultry burlesque dancer with a knack for distraction and deception, Lola 'The Lure' McSwash uses her charm and sass to navigate the treacherous waters of pirate politics. Rumored to have a hidden agenda involving the treasure and a secret past with the Siren, Lola's motives are as murky as the depths below. Her presence at the party is as captivating as it is suspicious, making her a tantalizing suspect in the Siren's untimely misfortune.",
+      "act": 2
+    },
+    {
+      "card_id": "74df6baa-595a-4bf3-afdf-a998d462cbf2",
+      "card_type": "clue",
+      "card_title": "Whispers Beneath the Sassy Siren",
+      "card_contents": "Listen close, matey, to the creak of the boards beneath yer feet. Where the Sassy Siren's main deck groans with secrets, a hidden latch awaits the daring. Seek the secret compartments, for Captain Scarlet's cunning hand has stashed away more than just memories—there lies a path to Jigglebeard's fortune.",
+      "act": 1,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "low"
+    },
+    {
+      "card_id": "16ed37dc-bf3a-4591-9cbf-691c37d3712f",
+      "card_type": "clue",
+      "card_title": "Feathers and Feuds in the Crow's Nest",
+      "card_contents": "High above the raucous revelry, the crow's nest tells tales of scandal and strife. Captain Scarlet's disputes with the Siren echo in the salty air, hinting where the treasure sleeps. Follow the trail of feather boas and whispered grudges—only the bold will uncover the chest that holds gold, jewels, and the legacy of the infamous Jigglebeard.",
+      "act": 2,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "low"
+    },
+    {
+      "card_id": "27bd459b-bc5d-4081-9e49-d3181cbed431",
+      "card_type": "clue",
+      "card_title": "Captain Jigglebeard's legendary lost treasure chest Lead",
+      "card_contents": "Captain Jigglebeard's legendary lost treasure chest is the inheritance object at the center of the treasure trail. The treasure chest is significant as it contains gold, jewels, and scandalous feather boas, symbolizing Captain Jigglebeard's legacy and the crew's fortunes",
+      "act": 3,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "high",
+      "hidden_until_solved": true,
+      "meta": {
+        "treasure_stage": "clue"
+      }
+    },
+    {
+      "card_id": "80952d10-d77c-4ecc-8f04-88ff0b7d1d34",
+      "card_type": "treasure",
+      "card_title": "Captain Jigglebeard's legendary lost treasure chest",
+      "card_contents": "Host reveal: read when the group recovers the treasure or at the end of Act 3.\n\nTreasure: Captain Jigglebeard's legendary lost treasure chest\nWhere it was hidden: hidden compartment beneath the Sassy Siren's main deck\nResolution: The treasure chest is significant as it contains gold, jewels, and scandalous feather boas, symbolizing Captain Jigglebeard's legacy and the crew's fortunes. Players can find it by searching for secret compartments on the Sassy Siren, particularly beneath the main deck where Captain Scarlet hid it to keep it safe from rivals. Clues about its location are hinted through the treasure maps and Captain Scarlet's disputes with the Siren.",
+      "act": 3,
+      "hidden_until_solved": true,
+      "meta": {
+        "treasure_stage": "reveal"
+      }
+    },
+    {
+      "card_id": "6cdc5786-22ff-4c33-87d6-b44c7f56b231",
+      "card_type": "story_act",
+      "card_title": "A Deadly Discovery on the Sassy Siren's Deck",
+      "card_contents": "The lively Pirate Stripper Party aboard the Sassy Siren takes a dark turn when the sultry Siren herself is found keelhauled in the crow's nest, her usual flair for scandal replaced by silence. Captain Scarlet Jigglebeard's recent heated disputes with the Siren over treasure maps and dance routines cast a shadow over the festivities. As whispers swirl and eyes dart, the crew wonders who among them harbored enough resentment or ambition to commit such a daring act. The once raucous deck now hums with tension, setting the stage for secrets to surface.",
+      "act": 1,
+      "location_ref": "Sassy Siren Deck"
+    },
+    {
+      "card_id": "c5f4760d-f947-4a91-a864-fb9b55e7d1d7",
+      "card_type": "story_act",
+      "card_title": "Lola 'The Lure' McSwash's Mysterious Motives",
+      "card_contents": "Suspicion shifts as Lola 'The Lure' McSwash's enigmatic past with the Siren comes to light. Known for her captivating charm and deft distractions, Lola's intentions regarding the lost treasure and her true allegiance remain unclear. Rumors hint at secret meetings and whispered deals beneath the flickering lanterns. Contradictory accounts of her whereabouts during the incident deepen the mystery, raising the stakes for everyone aboard. The Sassy Siren's deck buzzes with intrigue as alliances and rivalries grow ever more tangled.",
+      "act": 2,
+      "location_ref": "Sassy Siren Deck"
+    },
+    {
+      "card_id": "dfd76f6d-f457-4ffa-b7cc-8d000411933a",
+      "card_type": "story_act",
+      "card_title": "Tensions Reach a Boiling Point on the Sassy Siren's Deck",
+      "card_contents": "As the night wears on, the crew's patience thins and accusations fly like cannonballs. The search for the legendary lost treasure intensifies, but so does the pressure to uncover the truth behind the Siren's keelhauling. Captain Scarlet Jigglebeard and Lola 'The Lure' McSwash find themselves under the spotlight, their conflicting stories and hidden desires clashing openly. With trust eroding and secrets threatening to spill, every glance and whispered word could tip the balance. The Sassy Siren's deck becomes a crucible where loyalties are tested, but the final truth remains just beyond reach.",
+      "act": 3,
+      "location_ref": "Sassy Siren Deck"
+    },
+    {
+      "card_id": "57618eeb-b2d4-4aae-8915-0a87391a1d49",
+      "card_type": "clue",
+      "card_title": "Scarlet's Heated Exchange",
+      "murder_canon": {
+        "victim": "the sultry Siren",
+        "location": "crow's nest"
+      },
+      "card_contents": "Several witnesses overheard Captain Scarlet Jigglebeard arguing fiercely with the sultry Siren about the choreography and the treasure maps just hours before she was found. His voice was sharp, and his glare colder than the ocean depths.",
+      "role": "suspect_pressure",
+      "target_id": "captain_scarlet_jigglebeard",
+      "weight": "high",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "704c9173-bdd7-4523-ac59-9d5928c8cf06",
+      "card_type": "clue",
+      "card_title": "Lola's Dance Floor Alibi",
+      "murder_canon": {
+        "victim": "the sultry Siren",
+        "location": "crow's nest"
+      },
+      "card_contents": "Lola 'The Lure' McSwash was seen captivating the crowd with her sultry moves on the main deck during the time the sultry Siren went missing. Many patrons can vouch she never left the dance floor for long.",
+      "role": "alibi",
+      "target_id": "lola_the_lure_mcswash",
+      "weight": "mid",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "5eb14500-0312-40da-8869-dc5899e5a94f",
+      "card_type": "clue",
+      "card_title": "Scarlet's Rum-Soaked Hands",
+      "murder_canon": {
+        "victim": "the sultry Siren",
+        "location": "crow's nest"
+      },
+      "card_contents": "A bottle of rum found near the crow's nest had fingerprints smudged with dirt and sweat, matching Captain Scarlet's hands. Yet, he claimed to have been below deck, nursing a headache from the party's chaos.",
+      "role": "contradiction",
+      "target_id": "captain_scarlet_jigglebeard",
+      "weight": "mid",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "baba3bfe-918c-4a6f-b087-da9cb3c754df",
+      "card_type": "clue",
+      "card_title": "Lola's Whispered Warning",
+      "murder_canon": {
+        "victim": "the sultry Siren",
+        "location": "crow's nest"
+      },
+      "card_contents": "Lola confided to a close friend that she feared a power struggle brewing between Captain Scarlet and the sultry Siren, hinting at secrets that could topple the captain’s reign. She seemed uneasy but refused to say more.",
+      "role": "suspect_pressure",
+      "target_id": "lola_the_lure_mcswash",
+      "weight": "low",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "46efc531-078e-47c3-b7cf-4b3f1dca32f9",
+      "card_type": "game_card",
+      "card_title": "Feather Boa Flirtation",
+      "card_contents": "Strut up to another player and dramatically toss one of your imaginary feather boas around their shoulders. Deliver a flirtatious pirate pun or compliment, then challenge them to reveal a secret about themselves in exchange for keeping the boa. If they refuse, you must reveal a fake scandalous secret about yourself instead!",
+      "linked_character": "Captain Scarlet Jigglebeard",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "76c02a96-9655-4cee-9147-2cce6d099687",
+      "card_type": "game_card",
+      "card_title": "Siren's Seductive Whisper",
+      "card_contents": "Choose one player and lean in close to whisper a tantalizing but completely fabricated secret about the Siren's treasure. Use your sultriest voice and charm to make them believe it. If they react with surprise or curiosity, you've successfully distracted them—gain a clue from their hand or pocket without them noticing.",
+      "linked_character": "Lola 'The Lure' McSwash",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [],
+    "warning_log": [],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "Ahoy, mateys and mischief-makers! The infamous Pirate Stripper Party has docked at the rickety, rum-soaked deck of the Sassy Siren, a floating tavern where the only thing more scandalous than the booty is the booty-shaking! This motley crew of buccaneers, burlesque dancers, and one very confused parrot have gathered to celebrate the legendary lost treasure of Captain Jigglebeard—a chest rumored to contain gold, jewels, and the world's most scandalous feather boas. But when the sultry Siren herself is found keelhauled (and decidedly unstrippered) in the crow's nest, the party turns from playful to perilous. With rum flowing, secrets unraveling, and egos as inflated as the sails, who will claim the treasure—and who will be forced to walk the plank? Set sail on this raucous romp through scandal, sass, and shanties, where the only thing sharper than the cutlasses are the one-liners!",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Captain Scarlet Jigglebeard",
+      "victim": "the sultry Siren",
+      "location": "crow's nest",
+      "method": "keelhauling",
+      "motive": "dispute over treasure maps and dance routines",
+      "opportunity": "quarrel led to Siren being isolated in the crow's nest during the party",
+      "window": "during the height of the Pirate Stripper Party",
+      "window_start": "evening",
+      "window_end": "late night",
+      "murder_solution": "Captain Scarlet Jigglebeard killed the sultry Siren by keelhauling her in the crow's nest during the Pirate Stripper Party. The motive was a heated dispute over the treasure maps and control of dance routines, which threatened Captain Scarlet's leadership and access to the legendary lost treasure. The quarrel escalated, and the Siren was isolated in the crow's nest, providing Captain Scarlet the opportunity to commit the murder unnoticed amid the party's chaos. The murder occurred between evening and late night, when the revelry masked the crime."
+    },
+    "treasure": {
+      "object": "Captain Jigglebeard's legendary lost treasure chest",
+      "hiding_place": "hidden compartment beneath the Sassy Siren's main deck",
+      "treasure_solution": "The treasure chest is significant as it contains gold, jewels, and scandalous feather boas, symbolizing Captain Jigglebeard's legacy and the crew's fortunes. Players can find it by searching for secret compartments on the Sassy Siren, particularly beneath the main deck where Captain Scarlet hid it to keep it safe from rivals. Clues about its location are hinted through the treasure maps and Captain Scarlet's disputes with the Siren."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "captain_scarlet_jigglebeard",
+        "name": "Captain Scarlet Jigglebeard",
+        "title": "Captain Scarlet Jigglebeard",
+        "card_id": "692ae214-fd2b-44c5-9ac4-5ee9456183db",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "lola_the_lure_mcswash",
+        "name": "Lola 'The Lure' McSwash",
+        "title": "Lola 'The Lure' McSwash",
+        "card_id": "a017e29e-d6ad-43f7-82d5-7164d97d93e5",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "captain_scarlet_jigglebeard",
+    "killer_name": "Captain Scarlet Jigglebeard",
+    "victim_name": "the sultry Siren",
+    "murder": {
+      "location": "crow's nest",
+      "method": "keelhauling",
+      "motive": "dispute over treasure maps and dance routines",
+      "summary": "Captain Scarlet Jigglebeard killed the sultry Siren by keelhauling her in the crow's nest during the Pirate Stripper Party. The motive was a heated dispute over the treasure maps and control of dance routines, which threatened Captain Scarlet's leadership and access to the legendary lost treasure. The quarrel escalated, and the Siren was isolated in the crow's nest, providing Captain Scarlet the opportunity to commit the murder unnoticed amid the party's chaos. The murder occurred between evening and late night, when the revelry masked the crime.",
+      "opportunity": "quarrel led to Siren being isolated in the crow's nest during the party",
+      "window": "during the height of the Pirate Stripper Party",
+      "window_start": "evening",
+      "window_end": "late night"
+    },
+    "treasure": {
+      "object": "Captain Jigglebeard's legendary lost treasure chest",
+      "hiding_place": "hidden compartment beneath the Sassy Siren's main deck",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "captain_scarlet_jigglebeard",
+        "lola_the_lure_mcswash"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "clue_targets": [],
+  "puzzle_bundle_drafts": [],
+  "truth_trail": {
+    "skipped": true,
+    "reason": "puzzleCount=0"
+  },
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "card_surface": {
+    "counts_by_card_type": {
+      "character": 2,
+      "clue": 7,
+      "treasure": 1,
+      "story_act": 3,
+      "game_card": 2
+    },
+    "treasure_clue_count": 3,
+    "treasure_reveal_card_count": 1
+  },
+  "host_ui_hints": {
+    "export_note": "No lobby or layout is defined in the builder JSON. The host app chooses which cards are lobby tiles, hand cards, or gated by act.",
+    "character_secrets": null,
+    "finale_treasure": {
+      "card_id": "80952d10-d77c-4ecc-8f04-88ff0b7d1d34",
+      "act": 3,
+      "hidden_until_solved": true,
+      "linked_item_id": null,
+      "presentation_hint": "Finale reveal: unlock after murder is resolved (or your act-3 rule). Not a lobby item — host reads aloud or reveals as the last beat."
+    },
+    "game_over": {
+      "suggested_host_sequence": [
+        "Act 3 story_act + host_speech (final call to accuse).",
+        "Players vote or accuse.",
+        "Reveal bundle solution cards (murder canon).",
+        "Unlock and present card_type \"treasure\" (macguffin resolution).",
+        "Declare the mystery closed; optional debrief."
+      ],
+      "structural_markers": {
+        "hidden_solution_card_ids": [],
+        "treasure_reveal_card_id": "80952d10-d77c-4ecc-8f04-88ff0b7d1d34"
+      },
+      "ui_suggestion": "Show a dedicated “case closed” / session-complete screen (or modal) after the treasure card is shown, so players get a clear end state beyond running out of cards."
+    }
+  },
+  "costAccounting": {
+    "runId": "Pirate Stripper Party-1775303095037-70vrwt",
+    "requestCount": 0,
+    "requests": [],
+    "totals": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    }
+  }
+}

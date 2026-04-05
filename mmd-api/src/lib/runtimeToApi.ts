@@ -379,6 +379,7 @@ export function runtimeStoryToHostMeta(input: {
     startedAt: input.game.startedAt ? input.game.startedAt.toISOString() : null,
     state: input.game.state,
     currentAct: input.game.currentAct,
+    maxAct: maxActForStory(input.story),
     locationText: input.game.locationText,
     createdAt: input.game.createdAt.toISOString(),
     updatedAt: input.game.updatedAt.toISOString(),

@@ -76,6 +76,7 @@ export const GameSchema = z.object({
   locationText: z.string().nullable(),
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
+  joinedCharacterIds: z.array(z.string()).optional(),
 })
 
 export const GameHostViewSchema = GameSchema.extend({

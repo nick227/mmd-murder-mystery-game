@@ -1,0 +1,435 @@
+{
+  "runId": "Rodeo Rustle-1775297354590-xypdxt",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\pending-1775297354590-xypdxt",
+  "playerCount": 2,
+  "userPrompt": "Rodeo Rustle",
+  "storyStyle": "funny, western",
+  "cardsPerPlayer": 1,
+  "cluesPerPlayer": 1,
+  "puzzleCount": 0,
+  "includeMetadata": false,
+  "includeWorldbuilding": false,
+  "includeHostSpeeches": false,
+  "cards": [
+    {
+      "card_id": "de55f631-bb3b-48d0-aea4-370eb6ffc454",
+      "card_type": "character",
+      "card_title": "Clara 'Six-Shooter' Malone - The Dancehall Diva",
+      "card_contents": "Clara Malone is the sultry star of Tumbleweed Junction's Silver Spur Saloon, known for her sharp wit and quicker draw. Once a rodeo queen herself, Clara coveted the Golden Spur trophy, believing it would cement her legacy beyond the dancehall. She was seen arguing with Old Buck McGraw the night before his death over a rumored secret about the trophy's true worth. Clara’s charm hides a fierce determination to rise above her station, making her motives as fiery as her reputation.",
+      "act": 1
+    },
+    {
+      "card_id": "c92091c2-09b2-4b0b-bf51-26f34529d742",
+      "card_type": "character",
+      "card_title": "Jed 'Snake Eyes' Thompson - The Card Shark",
+      "card_contents": "Jed Thompson is a slick gambler with a reputation as slippery as a rattlesnake. He arrived in town just days before the Rodeo Rustle, drawn by the promise of high stakes and higher rewards. Jed was caught cheating in a poker game against Old Buck McGraw, who threatened to run him out of town. With debts piling and the Golden Spur missing, Jed’s desperation and cunning make him a prime suspect in both the theft and the marshal’s murder.",
+      "act": 2
+    },
+    {
+      "card_id": "9443431a-318e-48f6-96ba-649a8b219267",
+      "card_type": "clue",
+      "card_title": "Whispers Beneath the Whiskey",
+      "card_contents": "In the heart of Tumbleweed Junction where spirits flow and tales grow tall, seek the place where the barkeep's shadow falls. Beneath the chatter and clinking glass, a secret hides where few dare pass.",
+      "act": 1,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "low"
+    },
+    {
+      "card_id": "4c31a40c-a73c-477f-ae79-aad11d24e5d2",
+      "card_type": "clue",
+      "card_title": "The Hidden Spur's Haven",
+      "card_contents": "Look low where the dust meets the floor, beneath the place where patrons pour. Amidst the bustle and the bar's loud cheer, a concealed chamber holds what you seek near.",
+      "act": 2,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "low"
+    },
+    {
+      "card_id": "d4ee735c-99af-4657-acbd-b99666ab09f6",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Clara was seen sneaking into the saloon's hayloft late at night, the only place where Old Buck McGraw's body was found, despite claiming to be at the dancehall all evening.",
+      "act": 1,
+      "linked_character": "Clara 'Six-Shooter' Malone - The Dancehall Diva",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "6328a7e0-7185-42dc-b28d-2c24de309814",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Clara wanted the Golden Spur for herself because winning it would grant her control over the rodeo events and boost her standing, threatening Old Buck McGraw's authority as marshal.",
+      "act": 2,
+      "linked_character": "Clara 'Six-Shooter' Malone - The Dancehall Diva",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "90775dd8-7c98-4486-ab16-2e2a72226d54",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Jed was seen sneaking into the saloon's hayloft late at night, a place only the marshal and trusted staff were supposed to access.",
+      "act": 3,
+      "linked_character": "Jed 'Snake Eyes' Thompson - The Card Shark",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "adb6caf8-8afe-40f5-98b1-14f3fba0efc7",
+      "card_type": "secret",
+      "card_title": "Secret",
+      "card_contents": "Jed wanted the Golden Spur because winning it would erase his gambling debts and give him leverage over the town's elite, threatening Old Buck McGraw's control over the rodeo.",
+      "act": 1,
+      "linked_character": "Jed 'Snake Eyes' Thompson - The Card Shark",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "ef7638ec-554f-4965-b841-5080614b7ff7",
+      "card_type": "clue",
+      "card_title": "Golden Spur trophy Lead",
+      "card_contents": "Golden Spur trophy is the inheritance object at the center of the treasure trail. The Golden Spur trophy is hidden in a secret compartment beneath the saloon's bar, a place overlooked due to the bar's busy atmosphere",
+      "act": 3,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "high",
+      "hidden_until_solved": true,
+      "meta": {
+        "treasure_stage": "clue"
+      }
+    },
+    {
+      "card_id": "c4b6db8b-753f-4b49-87f7-dab4f639454e",
+      "card_type": "treasure",
+      "card_title": "Golden Spur trophy",
+      "card_contents": "Host reveal: read when the group recovers the treasure or at the end of Act 3.\n\nTreasure: Golden Spur trophy\nWhere it was hidden: secret compartment beneath the saloon's bar\nResolution: The Golden Spur trophy is hidden in a secret compartment beneath the saloon's bar, a place overlooked due to the bar's busy atmosphere. Players could discover it by investigating the saloon thoroughly, especially focusing on the bar area and any unusual fixtures. The trophy's recovery is crucial as it is the symbol of the Rodeo Rustle showdown and holds significant value to the town's legacy and the characters' motivations.",
+      "act": 3,
+      "hidden_until_solved": true,
+      "meta": {
+        "treasure_stage": "reveal"
+      }
+    },
+    {
+      "card_id": "7333bde1-1fd2-4316-8156-41e7a303045b",
+      "card_type": "story_act",
+      "card_title": "The Saloon Hayloft: A Deadly Discovery",
+      "card_contents": "The sun sets on Tumbleweed Junction as the Silver Spur Saloon buzzes with uneasy whispers. Old Buck McGraw, the respected rodeo marshal, has been found dead in the hayloft, a six-shooter lodged in his back. Clara 'Six-Shooter' Malone, the dancehall diva, was seen arguing heatedly with Buck the night before over a secret tied to the Golden Spur trophy. The saloon's patrons eye each other warily, knowing that beneath the lively music and laughter, a deadly game is unfolding. Who among them had the motive and the means to kill the marshal and steal the legendary prize?",
+      "act": 1,
+      "location_ref": "Silver Spur Saloon"
+    },
+    {
+      "card_id": "9618a48b-92d0-429e-b1fe-0d687281e879",
+      "card_type": "story_act",
+      "card_title": "The Poker Table Tensions Rise",
+      "card_contents": "At the back of the Silver Spur Saloon, Jed 'Snake Eyes' Thompson shuffles his cards with a practiced grin, but the atmosphere is thick with suspicion. Rumors swirl that Jed was caught cheating Old Buck McGraw just days before the murder, a confrontation that ended with Buck threatening to run him out of town. With the Golden Spur still missing and debts mounting, Jed’s desperation is palpable. Yet, others wonder if Jed’s slippery nature is a smokescreen for someone else’s darker intentions. The stakes have never been higher, and every glance at the poker table hides a question: who benefits most from Buck’s death?",
+      "act": 2,
+      "location_ref": "Silver Spur Saloon"
+    },
+    {
+      "card_id": "d2002c69-81f1-4d4b-90aa-bfc380015795",
+      "card_type": "story_act",
+      "card_title": "The Saloon's Shadows Deepen",
+      "card_contents": "As the night deepens in the Silver Spur Saloon, tensions reach a boiling point. Clara’s fiery determination to claim the Golden Spur and Jed’s tangled debts paint a complex web of motives. Whispers hint at secrets buried in the saloon’s shadows—old grudges, hidden alliances, and unexpected betrayals. The missing trophy remains elusive, and the truth about Old Buck McGraw’s murder feels just out of reach. With tempers flaring and trust fraying, the townsfolk must decide who to believe—and who to fear—as the mystery tightens its grip.",
+      "act": 3,
+      "location_ref": "Silver Spur Saloon"
+    },
+    {
+      "card_id": "1c97f13c-842e-42ab-a0b0-01401447c4b2",
+      "card_type": "clue",
+      "card_title": "Shadows in the Hayloft",
+      "murder_canon": {
+        "victim": "Old Buck McGraw",
+        "location": "saloon's hayloft"
+      },
+      "card_contents": "Several townsfolk whisper that Clara was seen near the saloon's hayloft shortly before Old Buck was found. Some say she had a heated argument with the marshal earlier that day, her eyes blazing with fury over a lost dancehall bet.",
+      "role": "suspect_pressure",
+      "target_id": "clara_six_shooter_malone_the_dancehall_diva",
+      "weight": "mid",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "3116a49e-0d89-4b19-9d93-1c42093c2cd4",
+      "card_type": "clue",
+      "card_title": "Cards on the Table",
+      "murder_canon": {
+        "victim": "Old Buck McGraw",
+        "location": "saloon's hayloft"
+      },
+      "card_contents": "Jed 'Snake Eyes' Thompson was caught cheating during the rodeo's card games just days before the murder. Old Buck had threatened to expose him, which would have meant Jed's swift banishment from Tumbleweed Junction.",
+      "role": "suspect_pressure",
+      "target_id": "jed_snake_eyes_thompson_the_card_shark",
+      "weight": "high",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "fc2c586b-21f5-4ca5-998a-421237310bc4",
+      "card_type": "clue",
+      "card_title": "Diva's Dancehall Alibi",
+      "murder_canon": {
+        "victim": "Old Buck McGraw",
+        "location": "saloon's hayloft"
+      },
+      "card_contents": "Clara claims she was entertaining a group of cowboys in the main saloon room at the time of the shooting. Several patrons recall her lively performance, but none can confirm her whereabouts during the exact moment Old Buck was killed.",
+      "role": "alibi",
+      "target_id": "clara_six_shooter_malone_the_dancehall_diva",
+      "weight": "low",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "fc7cbca8-db56-4349-a056-4584a68afe52",
+      "card_type": "clue",
+      "card_title": "Snake Eyes' Nervous Glance",
+      "murder_canon": {
+        "victim": "Old Buck McGraw",
+        "location": "saloon's hayloft"
+      },
+      "card_contents": "Though Jed insists he was dealing cards at the far end of the saloon, a few noticed his hands trembling and his gaze darting towards the hayloft. Some say he left the table briefly, but no one saw where he went.",
+      "role": "contradiction",
+      "target_id": "jed_snake_eyes_thompson_the_card_shark",
+      "weight": "mid",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "4b8757cc-ac78-48a5-8eba-1b37181b8407",
+      "card_type": "game_card",
+      "card_title": "Sultry Dance Challenge",
+      "card_contents": "Challenge another player to a quick dance-off right here in the saloon. Use your charm and flair to win their admiration or distract them from their secrets. If you win, ask them a personal question about the Golden Spur or Old Buck McGraw that only a close confidante might know.",
+      "linked_character": "Clara 'Six-Shooter' Malone - The Dancehall Diva",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "e45f3dd9-2497-43f6-a9e7-9f4193d64952",
+      "card_type": "game_card",
+      "card_title": "Snake Eyes' Double or Nothing",
+      "card_contents": "Challenge another player to a quick game of chance—flip a coin or roll a die. If you win, they must reveal a secret or clue about their character. If you lose, reveal a fake secret about yourself to the group in character as Jed, spinning a wild tale about your past to distract and charm.",
+      "linked_character": "Jed 'Snake Eyes' Thompson - The Card Shark",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [
+      {
+        "stage": "item_agent",
+        "attempt": 1,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": ""
+      },
+      {
+        "stage": "item_agent",
+        "attempt": 2,
+        "reason": "OpenAI error (400): {\n  \"error\": {\n    \"message\": \"Invalid schema for response_format 'items': In context=('properties', 'cards', 'items'), 'required' is required to be supplied and to be an array including every key in properties. Missing 'location_ref'.\",\n    \"type\": \"invalid_request_error\",\n    \"param\": \"response_format\",\n    \"code\": null\n  }\n}",
+        "used_titles": ""
+      }
+    ],
+    "warning_log": [
+      {
+        "stage": "item_agent",
+        "reason": "best_effort_items",
+        "message": "item_agent failed strict per-character item generation; emitting best-effort set (0 items)."
+      },
+      {
+        "stage": "post_final_invariants_agent",
+        "reason": "duplicate_titles_by_type",
+        "duplicates": [
+          {
+            "card_type": "secret",
+            "normalized_title": "secret",
+            "card_ids": [
+              "d4ee735c-99af-4657-acbd-b99666ab09f6",
+              "6328a7e0-7185-42dc-b28d-2c24de309814",
+              "90775dd8-7c98-4486-ab16-2e2a72226d54",
+              "adb6caf8-8afe-40f5-98b1-14f3fba0efc7"
+            ]
+          }
+        ]
+      }
+    ],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "Welcome to the dusty, sun-baked town of Tumbleweed Junction, 1883, where the annual Rodeo Rustle showdown has drawn cowpokes, card sharks, and cattle rustlers alike to compete for the legendary Golden Spur—a jeweled trophy said to bring luck and fortune to its holder. This year, the stakes are higher than a rattlesnake's rattle, as the prized spur has gone missing just before the grand finale, and worse, the beloved rodeo marshal, Old Buck McGraw, is found dead in the saloon's hayloft, a six-shooter in his back. With tempers hotter than a branding iron and reputations on the line, every wrangler, gambler, and dancehall diva is a suspect, and the town's social order teeters on the edge of chaos. Saddle up for a rootin'-tootin' whodunit where the only thing sharper than the spurs are the tongues, and the truth is buried deeper than a prospector's claim.",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Jed 'Snake Eyes' Thompson - The Card Shark",
+      "victim": "Old Buck McGraw",
+      "location": "saloon's hayloft",
+      "method": "six-shooter gunshot to the back",
+      "motive": "to prevent Old Buck from exposing his cheating and to cover up the theft of the Golden Spur",
+      "opportunity": "Old Buck was alone in the hayloft confronting Jed after catching him cheating",
+      "window": "the night before the grand finale",
+      "window_start": "evening",
+      "window_end": "midnight",
+      "murder_solution": "Jed Thompson, desperate to avoid being run out of town for cheating, confronted Old Buck McGraw in the saloon's hayloft. When Old Buck threatened to expose him and reclaim the missing Golden Spur trophy, Jed shot him in the back with a six-shooter. The isolation of the hayloft and the distraction of the town's festivities gave Jed the perfect opportunity to commit the murder unnoticed. His motive was to silence Old Buck and keep the theft of the Golden Spur hidden until he could escape with it."
+    },
+    "treasure": {
+      "object": "Golden Spur trophy",
+      "hiding_place": "secret compartment beneath the saloon's bar",
+      "treasure_solution": "The Golden Spur trophy is hidden in a secret compartment beneath the saloon's bar, a place overlooked due to the bar's busy atmosphere. Players could discover it by investigating the saloon thoroughly, especially focusing on the bar area and any unusual fixtures. The trophy's recovery is crucial as it is the symbol of the Rodeo Rustle showdown and holds significant value to the town's legacy and the characters' motivations."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "clara_six_shooter_malone_the_dancehall_diva",
+        "name": "Clara 'Six-Shooter' Malone - The Dancehall Diva",
+        "title": "Clara 'Six-Shooter' Malone - The Dancehall Diva",
+        "card_id": "de55f631-bb3b-48d0-aea4-370eb6ffc454",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "jed_snake_eyes_thompson_the_card_shark",
+        "name": "Jed 'Snake Eyes' Thompson - The Card Shark",
+        "title": "Jed 'Snake Eyes' Thompson - The Card Shark",
+        "card_id": "c92091c2-09b2-4b0b-bf51-26f34529d742",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "jed_snake_eyes_thompson_the_card_shark",
+    "killer_name": "Jed 'Snake Eyes' Thompson - The Card Shark",
+    "victim_name": "Old Buck McGraw",
+    "murder": {
+      "location": "saloon's hayloft",
+      "method": "six-shooter gunshot to the back",
+      "motive": "to prevent Old Buck from exposing his cheating and to cover up the theft of the Golden Spur",
+      "summary": "Jed Thompson, desperate to avoid being run out of town for cheating, confronted Old Buck McGraw in the saloon's hayloft. When Old Buck threatened to expose him and reclaim the missing Golden Spur trophy, Jed shot him in the back with a six-shooter. The isolation of the hayloft and the distraction of the town's festivities gave Jed the perfect opportunity to commit the murder unnoticed. His motive was to silence Old Buck and keep the theft of the Golden Spur hidden until he could escape with it.",
+      "opportunity": "Old Buck was alone in the hayloft confronting Jed after catching him cheating",
+      "window": "the night before the grand finale",
+      "window_start": "evening",
+      "window_end": "midnight"
+    },
+    "treasure": {
+      "object": "Golden Spur trophy",
+      "hiding_place": "secret compartment beneath the saloon's bar",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "clara_six_shooter_malone_the_dancehall_diva",
+        "jed_snake_eyes_thompson_the_card_shark"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "clue_targets": [],
+  "puzzle_bundle_drafts": [],
+  "truth_trail": {
+    "skipped": true,
+    "reason": "puzzleCount=0"
+  },
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "card_surface": {
+    "counts_by_card_type": {
+      "character": 2,
+      "clue": 7,
+      "secret": 4,
+      "treasure": 1,
+      "story_act": 3,
+      "game_card": 2
+    },
+    "treasure_clue_count": 3,
+    "treasure_reveal_card_count": 1
+  },
+  "host_ui_hints": {
+    "export_note": "No lobby or layout is defined in the builder JSON. The host app chooses which cards are lobby tiles, hand cards, or gated by act.",
+    "character_secrets": {
+      "count": 4,
+      "presentation_hint": "Usually not lobby collectibles — they are per-character private text. Hand out or reveal in-scene when a player earns it (not a shared lobby stack).",
+      "card_ids": [
+        "d4ee735c-99af-4657-acbd-b99666ab09f6",
+        "6328a7e0-7185-42dc-b28d-2c24de309814",
+        "90775dd8-7c98-4486-ab16-2e2a72226d54",
+        "adb6caf8-8afe-40f5-98b1-14f3fba0efc7"
+      ]
+    },
+    "finale_treasure": {
+      "card_id": "c4b6db8b-753f-4b49-87f7-dab4f639454e",
+      "act": 3,
+      "hidden_until_solved": true,
+      "linked_item_id": null,
+      "presentation_hint": "Finale reveal: unlock after murder is resolved (or your act-3 rule). Not a lobby item — host reads aloud or reveals as the last beat."
+    },
+    "game_over": {
+      "suggested_host_sequence": [
+        "Act 3 story_act + host_speech (final call to accuse).",
+        "Players vote or accuse.",
+        "Reveal bundle solution cards (murder canon).",
+        "Unlock and present card_type \"treasure\" (macguffin resolution).",
+        "Declare the mystery closed; optional debrief."
+      ],
+      "structural_markers": {
+        "hidden_solution_card_ids": [],
+        "treasure_reveal_card_id": "c4b6db8b-753f-4b49-87f7-dab4f639454e"
+      },
+      "ui_suggestion": "Show a dedicated “case closed” / session-complete screen (or modal) after the treasure card is shown, so players get a clear end state beyond running out of cards."
+    }
+  },
+  "costAccounting": {
+    "runId": "pending-1775297354590-xypdxt",
+    "requestCount": 0,
+    "requests": [],
+    "totals": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    }
+  }
+}

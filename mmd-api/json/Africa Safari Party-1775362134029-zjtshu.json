@@ -1,0 +1,326 @@
+{
+  "runId": "Africa Safari Party-1775362134029-zjtshu",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Africa Safari Party-1775362134029-zjtshu",
+  "playerCount": 3,
+  "userPrompt": "Africa Safari Party",
+  "storyStyle": "scary, dark",
+  "cardsPerPlayer": 1,
+  "cluesPerPlayer": 1,
+  "puzzleCount": 0,
+  "profileCardsPerCharacter": 0,
+  "includeMetadata": false,
+  "includeWorldbuilding": false,
+  "includeHostSpeeches": false,
+  "includeSecrets": false,
+  "includeItems": false,
+  "cards": [
+    {
+      "card_id": "ad606f92-a90b-4cb5-af3e-0e83e4ced58d",
+      "card_type": "character",
+      "card_title": "Lady Evelyn Ashcroft, Disgraced Heiress",
+      "card_contents": "Once the jewel of British high society, Lady Evelyn's family fortune was shattered by scandal and ruin. Driven by desperation and a thirst for redemption, she seeks the Black Lion to reclaim her lost honor and power. Her charm masks a ruthless streak, and whispers suggest she has made dangerous pacts to secure her ambitions.",
+      "act": 1
+    },
+    {
+      "card_id": "53f233fb-804d-408c-82d9-5bbbf29fcdaf",
+      "card_type": "character",
+      "card_title": "Colonel Thabo Mbeki, Shadowy Mercenary",
+      "card_contents": "A former soldier turned mercenary, Colonel Mbeki is a man of few words and many secrets. Hired under mysterious circumstances to protect the expedition, his true loyalties are unclear. Haunted by his past in covert operations, he is rumored to have a personal vendetta connected to the Black Lion's curse.",
+      "act": 2
+    },
+    {
+      "card_id": "e8f6e03e-de55-4c3c-9479-a622c7a93c70",
+      "card_type": "character",
+      "card_title": "Dr. Samuel Grant, Wealthy Adventurer and Archaeologist",
+      "card_contents": "A globe-trotting archaeologist with a reputation for bending ethics, Dr. Grant is obsessed with uncovering artifacts of immense power. His interest in the Black Lion is both professional and personal, driven by a desire to prove his theories and secure his legacy. His presence raises questions about how far he will go to possess the artifact.",
+      "act": 3
+    },
+    {
+      "card_id": "2b949c96-2789-41e3-982d-b8242daf4356",
+      "card_type": "solution",
+      "card_title": "Murder Solution",
+      "card_contents": "Colonel Thabo Mbeki killed the Host beneath the ancient baobab tree by stabbing him during a sudden storm that distracted the other guests. His motive was a personal vendetta tied to the Black Lion's curse, as the Host had betrayed his family decades ago to gain control of the artifact. The storm provided cover and confusion, allowing Mbeki to act without immediate suspicion. The murder shattered the fragile trust among the guests, setting the stage for paranoia and betrayal.",
+      "role": "murder",
+      "hidden": true,
+      "reveal": "host_reveal"
+    },
+    {
+      "card_id": "d82c26bc-755a-461b-aa0a-f761fa50a9ff",
+      "card_type": "solution",
+      "card_title": "Treasure Solution",
+      "card_contents": "The Black Lion is the central object of desire, believed to grant immense power but cursed with a dark history. Players could discover it by exploring the crumbling safari lodge ruins, specifically searching for hidden compartments or secret rooms. Finding the artifact reveals the true stakes behind the murder and the intertwined fates of the characters.",
+      "role": "treasure",
+      "hidden": true,
+      "reveal": "host_reveal"
+    },
+    {
+      "card_id": "e0376128-c484-4ab9-8297-acc165c5193f",
+      "card_type": "story_act",
+      "card_title": "A Deadly Gathering Beneath the Baobab",
+      "card_contents": "As the sun sets over the savannah, the guests convene at the dilapidated safari lodge, each driven by their own secret motives. Lady Evelyn Ashcroft's desperate charm hides a ruthless ambition to reclaim her family's honor through the Black Lion. Dr. Samuel Grant's obsession with the artifact's power hints at a willingness to cross moral lines. Colonel Thabo Mbeki's silent presence as protector raises questions about his true agenda. But when the charismatic host is found brutally slain beneath the ancient baobab tree, suspicion fractures the fragile group. Was the murder a desperate act of greed, revenge, or something darker tied to the cursed artifact?",
+      "act": 1
+    },
+    {
+      "card_id": "81ec9ffd-bf49-4d80-b62f-67766d4dde10",
+      "card_type": "story_act",
+      "card_title": "Shifting Shadows and Conflicting Loyalties",
+      "card_contents": "New revelations cast doubt on the guests' stories. Colonel Mbeki's past covert operations suggest a personal vendetta linked to the Black Lion’s curse, but his silence deepens the mystery. Lady Evelyn’s rumored dangerous pacts hint at alliances that may have turned deadly, yet her desperation could mask deeper fears. Meanwhile, Dr. Grant's ethical bending raises questions about how far he might go to possess the artifact. Contradictory accounts emerge about movements on the night of the murder, and whispers of betrayal ripple through the group. Who truly benefits from the host’s death, and whose secrets are worth killing for?",
+      "act": 2
+    },
+    {
+      "card_id": "39fdc228-607d-439f-aff3-cfde776a9e59",
+      "card_type": "story_act",
+      "card_title": "Pressure Mounts Amidst Unraveling Truths",
+      "card_contents": "With tensions at a breaking point, the guests face mounting scrutiny. Lady Evelyn’s charm now feels like calculated manipulation, but can her ruthless streak alone explain the murder? Colonel Mbeki’s loyalties remain murky—was he protecting the group or orchestrating chaos? Dr. Grant’s obsession with legacy raises the stakes, but does ambition justify murder? Conflicting testimonies about the artifact’s whereabouts and the host’s final moments force the group to confront uncomfortable truths. As alliances crumble and paranoia deepens, the question remains: who among them wields the deadliest power?",
+      "act": 3
+    },
+    {
+      "card_id": "f2730c99-318b-4ed2-a345-60281ce0fdc3",
+      "card_type": "clue",
+      "card_title": "Bloodstained Mercenary's Scarf",
+      "card_contents": "A torn scarf soaked in dark crimson lies tangled in the dry grass near the ancient baobab tree. Its rare, custom weave hints it belongs solely to Colonel Thabo Mbeki, raising questions about his presence there.",
+      "target_name": "Colonel Thabo Mbeki, Shadowy Mercenary",
+      "target_id": "colonel_thabo_mbeki",
+      "weight": "high"
+    },
+    {
+      "card_id": "ff62ccde-a423-43e7-82ac-693dd7a86d28",
+      "card_type": "clue",
+      "card_title": "Disgraced Heiress's Secret Letter",
+      "card_contents": "Inside a dusty drawer, a crumpled letter reveals a bitter dispute over the Black Lion artifact. Written in Lady Evelyn Ashcroft's distinct handwriting, its sharp words suggest deep resentment and hidden motives.",
+      "target_name": "Lady Evelyn Ashcroft, Disgraced Heiress",
+      "target_id": "lady_evelyn_ashcroft",
+      "weight": "mid"
+    },
+    {
+      "card_id": "c24679fc-571f-4964-a943-23a8eaf842a5",
+      "card_type": "clue",
+      "card_title": "Archaeologist's Disturbed Excavation Notes",
+      "card_contents": "Torn pages from excavation logs show hurried entries about a forbidden dig near the baobab tree. These disturbed notes hint at Dr. Samuel Grant's secretive search for the Black Lion, possibly beyond official permission.",
+      "target_name": "Dr. Samuel Grant, Wealthy Adventurer and Archaeologist",
+      "target_id": "dr_samuel_grant",
+      "weight": "low"
+    },
+    {
+      "card_id": "26d487fe-8e9b-4321-980f-dc6311744992",
+      "card_type": "game_card",
+      "card_title": "Veiled Compliment",
+      "card_contents": "Raise your glass and deliver a charming toast to another guest, praising a suspicious trait or past deed—make it sound sincere but leave a subtle sting. Watch their reaction and use it to unsettle or manipulate them during the evening.",
+      "linked_character": "Lady Evelyn Ashcroft",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "7bd003af-c1c8-4689-9d4c-e3894751964f",
+      "card_type": "game_card",
+      "card_title": "Silent Watch",
+      "card_contents": "Find a quiet corner and eavesdrop on a whispered conversation between two guests without being noticed. Afterward, share a cryptic hint with the group about what you overheard, sowing doubt and suspicion.",
+      "linked_character": "Colonel Thabo Mbeki",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "fbf930de-cf1b-431c-921d-06ab898131c9",
+      "card_type": "game_card",
+      "card_title": "Unearth a Hidden Motive",
+      "card_contents": "Secretly approach another player and convince them to share a hidden motive or secret about their connection to the Black Lion. Use your charm and cunning to coax out information without revealing your own agenda. Then, dramatically reveal this secret to the group, casting suspicion and shifting alliances.",
+      "linked_character": "Dr. Samuel Grant",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [],
+    "warning_log": [],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "Under the oppressive heat of a dying African sun, a disparate group of wealthy adventurers, disgraced colonial heirs, and shadowy mercenaries gather at the crumbling ruins of a once-glorious safari lodge deep in the savannah, drawn by whispers of the fabled Black Lion, a cursed tribal artifact said to grant unimaginable power. But when the charismatic host is found brutally slain beneath the ancient baobab tree, the fragile alliances shatter, and paranoia seeps like venom into the night air. Each guest harbors secrets tied to the artifact's dark past, and as the encroaching wilderness seems to close in, they must confront not only the killer among them but the ghosts of imperial greed and betrayal that haunt their every step. In this grim tale of ambition and vengeance, trust is a luxury none can afford, and survival demands unearthing truths better left buried.",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Colonel Thabo Mbeki",
+      "victim": "Host",
+      "location": "beneath the ancient baobab tree",
+      "method": "brutal stabbing",
+      "motive": "personal vendetta linked to the Black Lion's curse",
+      "opportunity": "during the night when guests were distracted by a sudden storm",
+      "window": "nighttime during the storm",
+      "window_start": "nightfall",
+      "window_end": "midnight",
+      "murder_solution": "Colonel Thabo Mbeki killed the Host beneath the ancient baobab tree by stabbing him during a sudden storm that distracted the other guests. His motive was a personal vendetta tied to the Black Lion's curse, as the Host had betrayed his family decades ago to gain control of the artifact. The storm provided cover and confusion, allowing Mbeki to act without immediate suspicion. The murder shattered the fragile trust among the guests, setting the stage for paranoia and betrayal."
+    },
+    "treasure": {
+      "object": "Black Lion, the cursed tribal artifact",
+      "hiding_place": "hidden compartment within the ruins of the safari lodge",
+      "treasure_solution": "The Black Lion is the central object of desire, believed to grant immense power but cursed with a dark history. Players could discover it by exploring the crumbling safari lodge ruins, specifically searching for hidden compartments or secret rooms. Finding the artifact reveals the true stakes behind the murder and the intertwined fates of the characters."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "lady_evelyn_ashcroft",
+        "name": "Lady Evelyn Ashcroft",
+        "title": "Lady Evelyn Ashcroft, Disgraced Heiress",
+        "card_id": "ad606f92-a90b-4cb5-af3e-0e83e4ced58d",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "colonel_thabo_mbeki",
+        "name": "Colonel Thabo Mbeki",
+        "title": "Colonel Thabo Mbeki, Shadowy Mercenary",
+        "card_id": "53f233fb-804d-408c-82d9-5bbbf29fcdaf",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "dr_samuel_grant",
+        "name": "Dr. Samuel Grant",
+        "title": "Dr. Samuel Grant, Wealthy Adventurer and Archaeologist",
+        "card_id": "e8f6e03e-de55-4c3c-9479-a622c7a93c70",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "colonel_thabo_mbeki",
+    "killer_name": "Colonel Thabo Mbeki",
+    "victim_name": "Host",
+    "murder": {
+      "location": "beneath the ancient baobab tree",
+      "method": "brutal stabbing",
+      "motive": "personal vendetta linked to the Black Lion's curse",
+      "summary": "Colonel Thabo Mbeki killed the Host beneath the ancient baobab tree by stabbing him during a sudden storm that distracted the other guests. His motive was a personal vendetta tied to the Black Lion's curse, as the Host had betrayed his family decades ago to gain control of the artifact. The storm provided cover and confusion, allowing Mbeki to act without immediate suspicion. The murder shattered the fragile trust among the guests, setting the stage for paranoia and betrayal.",
+      "opportunity": "during the night when guests were distracted by a sudden storm",
+      "window": "nighttime during the storm",
+      "window_start": "nightfall",
+      "window_end": "midnight"
+    },
+    "treasure": {
+      "object": "Black Lion, the cursed tribal artifact",
+      "hiding_place": "hidden compartment within the ruins of the safari lodge",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "lady_evelyn_ashcroft",
+        "colonel_thabo_mbeki",
+        "dr_samuel_grant"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "card_surface": {
+    "counts_by_card_type": {
+      "character": 3,
+      "solution": 2,
+      "story_act": 3,
+      "clue": 3,
+      "game_card": 3
+    },
+    "solution_reveal_count": 2,
+    "solution_roles": {
+      "murder": 1,
+      "treasure": 1
+    }
+  },
+  "host_ui_hints": {
+    "export_note": "No lobby or layout is defined in the builder JSON. The host app chooses which cards are lobby tiles, hand cards, or gated by act.",
+    "character_secrets": null,
+    "finale_solutions": {
+      "murder_card_id": "2b949c96-2789-41e3-982d-b8242daf4356",
+      "treasure_card_id": "d82c26bc-755a-461b-aa0a-f761fa50a9ff",
+      "reveal": "host_reveal",
+      "presentation_hint": "Finale reveal: host triggers Reveal Secrets to post the murder solution, then the treasure solution."
+    },
+    "game_over": {
+      "suggested_host_sequence": [
+        "Act 3 story_act (final call to accuse).",
+        "Players vote or accuse.",
+        "Host clicks Reveal Secrets.",
+        "Reveal murder solution, then treasure solution.",
+        "Declare the mystery closed; optional debrief."
+      ],
+      "structural_markers": {
+        "solution_card_ids": [
+          "2b949c96-2789-41e3-982d-b8242daf4356",
+          "d82c26bc-755a-461b-aa0a-f761fa50a9ff"
+        ],
+        "murder_solution_card_id": "2b949c96-2789-41e3-982d-b8242daf4356",
+        "treasure_solution_card_id": "d82c26bc-755a-461b-aa0a-f761fa50a9ff"
+      },
+      "ui_suggestion": "Show a dedicated \"case closed\" / session-complete screen (or modal) after the treasure solution card is shown."
+    }
+  },
+  "costAccounting": {
+    "runId": "Africa Safari Party-1775362134029-zjtshu",
+    "requestCount": 0,
+    "requests": [],
+    "totals": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    }
+  }
+}

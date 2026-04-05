@@ -1,0 +1,393 @@
+{
+  "runId": "Underwater Sea Grand Coronation-1775305254851-3etwvz",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\Underwater Sea Grand Coronation-1775305254851-3etwvz",
+  "playerCount": 2,
+  "userPrompt": "Underwater Sea Grand Coronation",
+  "storyStyle": "fantasy, musical, theatrical",
+  "cardsPerPlayer": 3,
+  "cluesPerPlayer": 1,
+  "puzzleCount": 0,
+  "profileCardsPerCharacter": 3,
+  "includeMetadata": false,
+  "includeWorldbuilding": false,
+  "includeHostSpeeches": false,
+  "includeSecrets": false,
+  "includeItems": false,
+  "cards": [
+    {
+      "card_id": "413c96d5-9d10-4138-b306-c5513d998074",
+      "card_type": "character",
+      "card_title": "Lira, the Siren Songstress",
+      "card_contents": "A mesmerizing performer whose haunting melodies echo through the coral palace halls. Lira's voice is said to sway even the fiercest sea creatures, and her loyalty to the royal family is as deep as the ocean itself. However, whispers suggest she coveted the Pearl of Tides, believing its power could amplify her songs and secure her place in the royal court forever. Her presence at the coronation was marked by subtle glances and secretive murmurs, hinting at a hidden agenda beneath her enchanting exterior.",
+      "act": 1
+    },
+    {
+      "card_id": "2b74bb04-4e50-4235-b034-665b80a39840",
+      "card_type": "character",
+      "card_title": "Captain Drax, Commander of the Kelp Guard",
+      "card_contents": "A stalwart protector of the underwater realm, Captain Drax commands the elite Kelp Guard with unwavering discipline. Known for his stern demeanor and fierce dedication, he harbors resentment towards the royal advisor, whose counsel often undermined his authority. The disappearance of the Pearl and the advisor's death have cast suspicion on him, as some recall heated disputes between the two. Yet, beneath his gruff exterior lies a complex figure torn between duty and personal vendettas, making him a compelling suspect in the unfolding mystery.",
+      "act": 2
+    },
+    {
+      "card_id": "01b872e4-7be5-4c02-9a2a-585e6b888b1d",
+      "card_type": "clue",
+      "card_title": "Whispers Beneath the Coral Throne",
+      "card_contents": "Amidst the glowing coral, where the royal heir will soon be crowned, lies a secret unseen by many. Seek the place where the throne meets the sea's embrace, for hidden in its shadows is a compartment that guards what the waves whisper about.",
+      "act": 1,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "low"
+    },
+    {
+      "card_id": "b6d3dec9-9a32-47dd-81e1-426a32151695",
+      "card_type": "clue",
+      "card_title": "Echoes of the Lost Advisor",
+      "card_contents": "In the kelp gardens where silence now reigns, the fallen advisor's last steps trace a path. Follow the currents of his final gaze toward the throne's domain, where the missing relic stirs the tides of treachery and truth.",
+      "act": 2,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "low"
+    },
+    {
+      "card_id": "6b490954-28a2-492a-9d09-aa0f7bdf73d7",
+      "card_type": "clue",
+      "card_title": "Pearl of Tides Lead",
+      "card_contents": "Pearl of Tides is the inheritance object at the center of the treasure trail. The Pearl of Tides is a priceless relic that controls ocean currents, crucial for the unity of the sea clans",
+      "act": 3,
+      "role": "treasure",
+      "target_id": null,
+      "weight": "high",
+      "hidden_until_solved": true,
+      "meta": {
+        "treasure_stage": "clue"
+      }
+    },
+    {
+      "card_id": "4cc19c37-61c2-476b-914a-d77829bea39e",
+      "card_type": "treasure",
+      "card_title": "Pearl of Tides",
+      "card_contents": "Host reveal: read when the group recovers the treasure or at the end of Act 3.\n\nTreasure: Pearl of Tides\nWhere it was hidden: hidden compartment beneath the coral throne\nResolution: The Pearl of Tides is a priceless relic that controls ocean currents, crucial for the unity of the sea clans. It was hidden by the killer beneath the coral throne to conceal it during the chaos of the coronation. Players can find it by investigating the throne area and discovering a secret compartment, revealing the missing treasure and linking it to the murder motive.",
+      "act": 3,
+      "hidden_until_solved": true,
+      "meta": {
+        "treasure_stage": "reveal"
+      }
+    },
+    {
+      "card_id": "97e25b86-6146-4033-a897-e324ce709eb0",
+      "card_type": "story_act",
+      "card_title": "The Coronation's Dark Prelude",
+      "card_contents": "As the grand coral palace thrums with anticipation for Prince Thalor's coronation, the atmosphere is thick with both celebration and unease. Lira, the Siren Songstress, captivates the court with her enchanting melodies, yet her furtive glances toward the Pearl of Tides hint at deeper desires. Suddenly, the joyous tide is broken—the Pearl has vanished, and the royal advisor is discovered lifeless among the palace's kelp gardens. Whispers ripple through the crowd: who could betray the crown on such a sacred day? The shimmering halls of the coral palace now hold more shadows than light, and every guest is a potential bearer of secrets.",
+      "act": 1,
+      "location_ref": "coral palace"
+    },
+    {
+      "card_id": "54aaef6f-335f-45dc-b73b-30bd26b05425",
+      "card_type": "story_act",
+      "card_title": "Tensions in the Kelp Gardens",
+      "card_contents": "The kelp gardens, once a serene refuge beneath the palace, have become the center of suspicion and unease. Captain Drax, commander of the Kelp Guard, stands accused by murmurs of harboring a grudge against the royal advisor. Their past disputes are no secret, and some recall heated confrontations that might have sown deadly seeds. Yet, Drax's stern dedication to duty complicates the picture—could his loyalty mask a darker intent, or is he a scapegoat in a deeper intrigue? The stolen Pearl's mysterious disappearance only thickens the fog of uncertainty, as the gardens' swaying fronds seem to conceal more than just seaweed.",
+      "act": 2,
+      "location_ref": "kelp gardens"
+    },
+    {
+      "card_id": "832cfdda-f039-4555-8ea2-149ebedc85c5",
+      "card_type": "story_act",
+      "card_title": "Echoes Beneath the Waves",
+      "card_contents": "Pressure mounts within the coral palace as the coronation's promise teeters on the edge of collapse. Lira's secretive murmurs and Captain Drax's conflicted demeanor draw sharper scrutiny, while the missing Pearl remains elusive. The kelp gardens and palace halls alike whisper of betrayal, but the true currents beneath these waves remain obscured. Players must navigate the swirling tides of loyalty and suspicion, weighing each narrative carefully. With time running short, the court demands answers—but the depths of truth may yet remain hidden beneath layers of performance and deception.",
+      "act": 3,
+      "location_ref": "coral palace"
+    },
+    {
+      "card_id": "46337104-6684-419c-bc6f-b5c2afcfdb1c",
+      "card_type": "clue",
+      "card_title": "Tension in the Kelp Shadows",
+      "murder_canon": {
+        "victim": "Royal Advisor",
+        "location": "kelp gardens"
+      },
+      "card_contents": "Several witnesses recall a heated exchange between Captain Drax and the Royal Advisor near the kelp gardens just before the ceremony's chorus began. Their voices were sharp, filled with anger and resentment. The tension was palpable, drawing uneasy glances from nearby courtiers.",
+      "role": "suspect_pressure",
+      "target_id": "captain_drax",
+      "weight": "high",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "281525d3-3fa3-4472-a328-04f7f86654ff",
+      "card_type": "clue",
+      "card_title": "Lira's Soothing Melody",
+      "murder_canon": {
+        "victim": "Royal Advisor",
+        "location": "kelp gardens"
+      },
+      "card_contents": "Lira was seen performing a captivating song during the coronation chorus, her voice enchanting the gathered crowd. Many noted her presence was constant and visible, seemingly keeping her away from the kelp gardens during the critical moments.",
+      "role": "alibi",
+      "target_id": "lira",
+      "weight": "mid",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "17ba94ec-9cfb-4d45-bcd3-ac3b73988e84",
+      "card_type": "clue",
+      "card_title": "Captain Drax's Guarded Silence",
+      "murder_canon": {
+        "victim": "Royal Advisor",
+        "location": "kelp gardens"
+      },
+      "card_contents": "When questioned about his whereabouts during the disappearance of the Pearl of Tides, Captain Drax offered vague answers, claiming he was on routine patrol but unable to provide witnesses. His silence raises questions about his true movements during the ceremony.",
+      "role": "contradiction",
+      "target_id": "captain_drax",
+      "weight": "mid",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "3ff586f9-05ca-4fa9-8f65-489775e1d232",
+      "card_type": "clue",
+      "card_title": "Whispers of Envy",
+      "murder_canon": {
+        "victim": "Royal Advisor",
+        "location": "kelp gardens"
+      },
+      "card_contents": "Court whispers hint that Lira envied the Royal Advisor's influence over the prince and the clans. Though no direct evidence links her to the crime, her jealousy could have motivated secret plots beneath the palace's glowing halls.",
+      "role": "suspect_pressure",
+      "target_id": "lira",
+      "weight": "low",
+      "bundle_id": null,
+      "evidence_type": null
+    },
+    {
+      "card_id": "661bc006-5929-41f4-9a4d-4875ad445a9c",
+      "card_type": "game_card",
+      "card_title": "Enchanting Duet",
+      "card_contents": "Invite another player to join you in an improvised duet, weaving a haunting melody that hints at hidden secrets. Use your song to subtly accuse or praise, shifting suspicion or alliance.",
+      "linked_character": "Lira",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "6f7d5898-dade-4459-8767-4ecf7cea94e1",
+      "card_type": "game_card",
+      "card_title": "Whispered Secrets",
+      "card_contents": "Slip away unnoticed to eavesdrop on a nearby conversation. After listening, share a cryptic hint with the group about what you overheard, stirring intrigue without revealing your source.",
+      "linked_character": "Lira",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "443eba49-10a1-49b2-b79f-01aa311b0d55",
+      "card_type": "game_card",
+      "card_title": "The Pearl's Lure",
+      "card_contents": "Challenge a player to a playful contest of charm or wit—like a quick riddle or a flirtatious exchange. If you win, secretly steal a small item from them to symbolize your desire for the Pearl of Tides.",
+      "linked_character": "Lira",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "a6ba1f3c-e853-4977-8115-fe2e9dc91eb3",
+      "card_type": "game_card",
+      "card_title": "Stern Toast with a Sting",
+      "card_contents": "Raise your glass and deliver a commanding toast praising the royal advisor's wisdom—but slip in a cryptic hint about his questionable loyalties. Watch reactions carefully and see who reacts defensively or nervously.",
+      "linked_character": "Captain Drax",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "82b16484-ec98-4045-b8e8-74b969608630",
+      "card_type": "game_card",
+      "card_title": "Silent Kelp Shadow",
+      "card_contents": "Find a moment to stealthily eavesdrop on a whispered conversation nearby without being noticed. Use your keen guard instincts to catch secrets that others might want hidden. Share your overheard clue only when it benefits your defense or accusation.",
+      "linked_character": "Captain Drax",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "ae8ab3e0-37cd-4ec9-8802-e962c0027173",
+      "card_type": "game_card",
+      "card_title": "Grudge Dance Challenge",
+      "card_contents": "Challenge the person who seems closest to the advisor to a dramatic dance-off, using sharp, precise movements that mimic a duel. Use this theatrical contest to assert dominance and unsettle your rival, while entertaining the court with your commanding presence.",
+      "linked_character": "Captain Drax",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [],
+    "warning_log": [],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "Beneath the shimmering waves of the Sapphire Abyss, the grand coral palace of Queen Nerissa gleams with bioluminescent splendor as the underwater realms gather for the long-awaited Coronation of her heir, Prince Thalor, whose ascension promises unity among the fractious sea clans. Yet, as the melodic tides of the ceremonial chorus swell, a priceless relic—the Pearl of Tides, said to command the ocean's currents—vanishes, and with it, the trusted royal advisor is found lifeless among the kelp gardens, a silent victim of treachery. In this fantastical, musical spectacle set in a timeless era of myth and magic, the court is suffused with swirling currents of suspicion, jealousy, and ancient grudges, where every note sung and every gesture performed hides a deeper secret. The players must navigate the theatrical intrigue and emotional undercurrents of loyalty and betrayal, unraveling a mystery that threatens not only the coronation but the fragile peace of the entire underwater kingdom.",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Captain Drax, Commander of the Kelp Guard",
+      "victim": "Royal Advisor",
+      "location": "kelp gardens",
+      "method": "strangled with kelp",
+      "motive": "resentment over undermined authority",
+      "opportunity": "heated argument during coronation preparations",
+      "window": "during the ceremonial chorus",
+      "window_start": "start of the ceremonial chorus",
+      "window_end": "end of the ceremonial chorus",
+      "murder_solution": "Captain Drax killed the Royal Advisor in the kelp gardens by strangling him with kelp. The motive was Drax's resentment towards the advisor, who frequently undermined his authority as commander of the Kelp Guard. The opportunity arose during the coronation preparations when a heated argument broke out between them, allowing Drax to isolate the advisor. The murder took place during the ceremonial chorus, when attention was focused elsewhere, giving Drax the chance to commit the crime unnoticed."
+    },
+    "treasure": {
+      "object": "Pearl of Tides",
+      "hiding_place": "hidden compartment beneath the coral throne",
+      "treasure_solution": "The Pearl of Tides is a priceless relic that controls ocean currents, crucial for the unity of the sea clans. It was hidden by the killer beneath the coral throne to conceal it during the chaos of the coronation. Players can find it by investigating the throne area and discovering a secret compartment, revealing the missing treasure and linking it to the murder motive."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "lira",
+        "name": "Lira",
+        "title": "Lira, the Siren Songstress",
+        "card_id": "413c96d5-9d10-4138-b306-c5513d998074",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "captain_drax",
+        "name": "Captain Drax",
+        "title": "Captain Drax, Commander of the Kelp Guard",
+        "card_id": "2b74bb04-4e50-4235-b034-665b80a39840",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "captain_drax",
+    "killer_name": "Captain Drax",
+    "victim_name": "Royal Advisor",
+    "murder": {
+      "location": "kelp gardens",
+      "method": "strangled with kelp",
+      "motive": "resentment over undermined authority",
+      "summary": "Captain Drax killed the Royal Advisor in the kelp gardens by strangling him with kelp. The motive was Drax's resentment towards the advisor, who frequently undermined his authority as commander of the Kelp Guard. The opportunity arose during the coronation preparations when a heated argument broke out between them, allowing Drax to isolate the advisor. The murder took place during the ceremonial chorus, when attention was focused elsewhere, giving Drax the chance to commit the crime unnoticed.",
+      "opportunity": "heated argument during coronation preparations",
+      "window": "during the ceremonial chorus",
+      "window_start": "start of the ceremonial chorus",
+      "window_end": "end of the ceremonial chorus"
+    },
+    "treasure": {
+      "object": "Pearl of Tides",
+      "hiding_place": "hidden compartment beneath the coral throne",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "lira",
+        "captain_drax"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "clue_targets": [],
+  "puzzle_bundle_drafts": [],
+  "truth_trail": {
+    "skipped": true,
+    "reason": "puzzleCount=0"
+  },
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "card_surface": {
+    "counts_by_card_type": {
+      "character": 2,
+      "clue": 7,
+      "treasure": 1,
+      "story_act": 3,
+      "game_card": 6
+    },
+    "treasure_clue_count": 3,
+    "treasure_reveal_card_count": 1
+  },
+  "host_ui_hints": {
+    "export_note": "No lobby or layout is defined in the builder JSON. The host app chooses which cards are lobby tiles, hand cards, or gated by act.",
+    "character_secrets": null,
+    "finale_treasure": {
+      "card_id": "4cc19c37-61c2-476b-914a-d77829bea39e",
+      "act": 3,
+      "hidden_until_solved": true,
+      "linked_item_id": null,
+      "presentation_hint": "Finale reveal: unlock after murder is resolved (or your act-3 rule). Not a lobby item — host reads aloud or reveals as the last beat."
+    },
+    "game_over": {
+      "suggested_host_sequence": [
+        "Act 3 story_act + host_speech (final call to accuse).",
+        "Players vote or accuse.",
+        "Reveal bundle solution cards (murder canon).",
+        "Unlock and present card_type \"treasure\" (macguffin resolution).",
+        "Declare the mystery closed; optional debrief."
+      ],
+      "structural_markers": {
+        "hidden_solution_card_ids": [],
+        "treasure_reveal_card_id": "4cc19c37-61c2-476b-914a-d77829bea39e"
+      },
+      "ui_suggestion": "Show a dedicated “case closed” / session-complete screen (or modal) after the treasure card is shown, so players get a clear end state beyond running out of cards."
+    }
+  },
+  "costAccounting": {
+    "runId": "Underwater Sea Grand Coronation-1775305254851-3etwvz",
+    "requestCount": 0,
+    "requests": [],
+    "totals": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    }
+  }
+}

@@ -73,6 +73,84 @@ async function readConcealedAnnouncements(storyFile: string | null): Promise<Arr
   }
 }
 
+async function readTreasureAnnouncements(storyFile: string | null): Promise<Array<Record<string, unknown>>> {
+  if (!storyFile) return []
+  try {
+    const raw = await loadStoryJson(storyFile)
+    const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
+    const treasures = runtimeStory.cards.filter(card => String(card.source?.cardType ?? '') === 'treasure')
+
+    const seen = new Set<string>()
+    const announcements: Array<Record<string, unknown>> = []
+    for (let i = 0; i < treasures.length; i++) {
+      const card = treasures[i]
+      const dedupeKey = card.id ?? `${card.act}:${card.title ?? ''}:${card.text}`
+      if (seen.has(dedupeKey)) continue
+      seen.add(dedupeKey)
+
+      const title = typeof card.title === 'string' ? card.title.trim() : ''
+      const text = typeof card.text === 'string' ? card.text.trim() : ''
+      const message = `${title ? `${title}\n` : ''}${text}`.trim()
+      if (!message) continue
+
+      announcements.push({
+        message,
+        cardType: 'treasure',
+        cardId: card.id ?? null,
+        act: card.act,
+        revealedByHost: true,
+      })
+    }
+    return announcements
+  } catch {
+    return []
+  }
+}
+
+async function readSolutionAnnouncements(storyFile: string | null): Promise<Array<Record<string, unknown>>> {
+  if (!storyFile) return []
+  try {
+    const raw = await loadStoryJson(storyFile)
+    const cards = (raw as any).cards ?? []
+    const solutions = cards.filter((c: any) => c.card_type === 'solution' && c.reveal === 'host_reveal')
+
+    const announcements: Array<Record<string, unknown>> = []
+    for (const card of solutions) {
+      const title = typeof card.card_title === 'string' ? card.card_title.trim() : ''
+      const text = typeof card.card_contents === 'string' ? card.card_contents.trim() : ''
+      const message = `${title ? `${title}\n` : ''}${text}`.trim()
+      if (!message) continue
+
+      announcements.push({
+        message,
+        cardType: 'solution',
+        cardId: card.card_id ?? null,
+        role: card.role ?? null,
+        revealedByHost: true,
+      })
+    }
+    return announcements
+  } catch {
+    return []
+  }
+}
+
+async function readMysterySolution(storyFile: string | null): Promise<{ who: string; how: string; why: string } | null> {
+  if (!storyFile) return null
+  try {
+    const raw = await loadStoryJson(storyFile)
+    const coreTruth = (raw as any).coreTruth
+    if (!coreTruth?.murder) return null
+    const murder = coreTruth.murder
+    const who = murder.killer ?? 'Unknown'
+    const how = murder.location && murder.method ? `${murder.location} - ${murder.method}` : (murder.method ?? 'Unknown')
+    const why = murder.motive ?? 'Unknown motive'
+    return { who, how, why }
+  } catch {
+    return null
+  }
+}
+
 function withCharacterNames(game: any) {
   return {
     ...withCreatorFields(game),
@@ -215,6 +293,7 @@ export async function gamesRoutes(fastify: FastifyInstance) {
         players: {
           create: characters.map((char: any) => ({
             characterId: char.characterId,
+            characterName: char.name,
             loginKey: generateKey('char'),
           })),
         },
@@ -263,6 +342,60 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       },
     })
     return reply.send(games.map(withCreatorFields))
+  })
+
+  fastify.get<{
+    Querystring: { limit?: string; offset?: string }
+  }>('/my/games', {
+    schema: {
+      tags: ['Games'],
+      summary: 'Get user-specific games',
+      querystring: {
+        type: 'object',
+        properties: { 
+          limit: { type: 'string', description: 'Maximum number of games to return' },
+          offset: { type: 'string', description: 'Number of games to skip' }
+        },
+      },
+      response: {
+        200: toJsonSchema(GameSchema.array()),
+      },
+    },
+  }, async (req, reply) => {
+    const userId = req.session.userId
+    if (!userId) {
+      return reply.status(401).send({ statusCode: 401, error: 'Unauthorized', message: 'Sign in required' })
+    }
+
+    const limit = req.query.limit ? parseInt(req.query.limit) : undefined
+    const offset = req.query.offset ? parseInt(req.query.offset) : 0
+    
+    const games = await prisma.game.findMany({
+      where: {
+        OR: [
+          { ownerUserId: userId },
+          { players: { some: { userId: userId } } },
+        ],
+      },
+      orderBy: [
+        { state: 'asc' }, // SCHEDULED games first, then PLAYING, etc.
+        { scheduledTime: 'desc' }, // Newest scheduled time within each state
+        { createdAt: 'desc' }, // Newest creation as tiebreaker
+      ],
+      skip: offset,
+      take: limit,
+      include: {
+        players: {
+          where: { userId: userId },
+          select: { characterId: true, characterName: true },
+        },
+      },
+    })
+    return reply.send(games.map(g => ({
+      ...withCreatorFields(g),
+      hostKey: g.ownerUserId === userId ? g.hostKey : undefined,
+      joinedCharacters: g.players.map(p => ({ characterId: p.characterId, characterName: p.characterName })),
+    })))
   })
 
   fastify.get<{ Params: { id: string } }>('/games/:id/host', {
@@ -744,20 +877,21 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       where: { id: game.id },
       data: { state: 'REVEAL' },
     })
+
+    // Sequential reveal: hidden cards → treasures → mystery answers (killer solution)
+    const SEQUENTIAL_DELAY_MS = 800
+
+    // 1. Post concealed announcements (hidden cards)
     const concealedAnnouncements = await readConcealedAnnouncements(game.storyFile)
-    const revealEvents = await Promise.all(
-      concealedAnnouncements.map(payload =>
-        prisma.gameEvent.create({
-          data: {
-            gameId: game.id,
-            playerId: null,
-            type: 'ANNOUNCEMENT',
-            payload: payload as any,
-          },
-        })
-      )
-    )
-    for (const event of revealEvents) {
+    for (const payload of concealedAnnouncements) {
+      const event = await prisma.gameEvent.create({
+        data: {
+          gameId: game.id,
+          playerId: null,
+          type: 'ANNOUNCEMENT',
+          payload: payload as any,
+        },
+      })
       publishRoomEvent({
         gameId: game.id,
         eventId: event.id,
@@ -765,7 +899,79 @@ export async function gamesRoutes(fastify: FastifyInstance) {
         gameState: updated.state,
         currentAct: updated.currentAct,
       })
+      await new Promise(resolve => setTimeout(resolve, SEQUENTIAL_DELAY_MS))
     }
+
+    // 2. Post treasure announcements
+    const treasureAnnouncements = await readTreasureAnnouncements(game.storyFile)
+    for (const payload of treasureAnnouncements) {
+      const event = await prisma.gameEvent.create({
+        data: {
+          gameId: game.id,
+          playerId: null,
+          type: 'ANNOUNCEMENT',
+          payload: payload as any,
+        },
+      })
+      publishRoomEvent({
+        gameId: game.id,
+        eventId: event.id,
+        eventType: String(event.type),
+        gameState: updated.state,
+        currentAct: updated.currentAct,
+      })
+      await new Promise(resolve => setTimeout(resolve, SEQUENTIAL_DELAY_MS))
+    }
+
+    // 3. Post solution cards (murder solution + treasure solution)
+    const solutionAnnouncements = await readSolutionAnnouncements(game.storyFile)
+    for (const payload of solutionAnnouncements) {
+      const event = await prisma.gameEvent.create({
+        data: {
+          gameId: game.id,
+          playerId: null,
+          type: 'ANNOUNCEMENT',
+          payload: payload as any,
+        },
+      })
+      publishRoomEvent({
+        gameId: game.id,
+        eventId: event.id,
+        eventType: String(event.type),
+        gameState: updated.state,
+        currentAct: updated.currentAct,
+      })
+      await new Promise(resolve => setTimeout(resolve, SEQUENTIAL_DELAY_MS))
+    }
+
+    // 4. Post mystery answers (killer solution) as the FINAL entry
+    // Use story solution if available, otherwise fall back to host-provided answers
+    const storySolution = await readMysterySolution(game.storyFile)
+    const finalWho = storySolution?.who ?? body.who
+    const finalHow = storySolution?.how ?? body.how
+    const finalWhy = storySolution?.why ?? body.why
+    const mysteryPayload = {
+      message: `🕵️ THE KILLER REVEALED\n\nWHO: ${finalWho}\n\nHOW: ${finalHow}\n\nWHY: ${finalWhy}`,
+      cardType: 'mystery_solution',
+      revealedByHost: true,
+      isFinalReveal: true,
+    }
+    const finalEvent = await prisma.gameEvent.create({
+      data: {
+        gameId: game.id,
+        playerId: null,
+        type: 'ANNOUNCEMENT',
+        payload: mysteryPayload as any,
+      },
+    })
+    publishRoomEvent({
+      gameId: game.id,
+      eventId: finalEvent.id,
+      eventType: String(finalEvent.type),
+      gameState: updated.state,
+      currentAct: updated.currentAct,
+    })
+
     publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })
 
     return reply.send(serializeDates(answers))

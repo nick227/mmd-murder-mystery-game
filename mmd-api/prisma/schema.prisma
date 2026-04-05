@@ -73,13 +73,15 @@ model Game {
 }
 
 model GamePlayer {
-  id          String    @id @default(cuid())
-  gameId      String
-  characterId String    // references story character id
-  playerName  String?   // filled when guest opens link
-  loginKey    String    @unique // the URL token: /play/{gameId}/{loginKey}
-  joinedAt    DateTime?
-  createdAt   DateTime  @default(now())
+  id            String    @id @default(cuid())
+  gameId        String
+  characterId   String    // references story character id
+  characterName String?   // character name at time of joining
+  playerName    String?   // filled when guest opens link
+  loginKey      String    @unique // URL token: /play/{gameId}/{loginKey}
+  joinedAt      DateTime?
+  userId        String?   // Google user ID when logged in
+  createdAt     DateTime  @default(now())
 
   game   Game        @relation(fields: [gameId], references: [id], onDelete: Cascade)
   events GameEvent[]
