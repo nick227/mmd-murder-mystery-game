@@ -6,7 +6,6 @@ export const defaultLauncherData: LauncherData = {
   apiBase: DEFAULT_API_BASE,
   stories: [],
   allGames: [],
-  savedGames: [],
   activeGamePublic: null,
   activeGamePublicKey: null,
   form: {

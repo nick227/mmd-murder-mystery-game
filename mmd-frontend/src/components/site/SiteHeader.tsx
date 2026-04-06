@@ -4,13 +4,13 @@ import { useAuth } from '../../hooks/useAuth'
 
 export interface SiteHeaderProps {
   /** Current view mode for context-aware display */
-  mode?: 'launcher' | 'host' | 'room'
+  mode?: 'launcher' | 'host' | 'room' | 'play'
   /** Override default branding link behavior */
   onBrandClick?: () => void
 }
 
 export function SiteHeader({ onBrandClick }: SiteHeaderProps) {
-  const { user, isLoading, login, logout } = useAuth()
+  const { user, isLoading, login, logout: _logout } = useAuth()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const handleBrandClick = () => {

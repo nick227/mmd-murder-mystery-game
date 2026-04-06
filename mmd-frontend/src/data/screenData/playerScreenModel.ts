@@ -14,10 +14,10 @@ function formatTimestamp(createdAt?: string): string | undefined {
 
 export function mapApiEventToProgressFeedItem(event: ApiGameEvent): FeedItem | null {
   const payload = event.payload ?? {}
-  let text = ''
+  let text: string
   let title: string | undefined
   let body: string | undefined
-  let variant: FeedVariant = 'room'
+  let variant: FeedVariant
   let media: FeedItem['media'] = undefined
   let actDivider: number | undefined
   let layout: FeedItem['layout'] = 'row'
@@ -126,62 +126,6 @@ export function mapApiEventToProgressFeedItem(event: ApiGameEvent): FeedItem | n
   }
 }
 
-function applyNarrationBlockRule(input: FeedItem[]): FeedItem[] {
-  const isNarration = (it: FeedItem) => (it.variant ?? 'room') === 'narration'
-  const isRoom = (it: FeedItem) => (it.variant ?? 'room') === 'room'
-
-  const out: FeedItem[] = []
-  let i = 0
-  while (i < input.length) {
-    const current = input[i]
-    if (!isNarration(current)) {
-      out.push(current)
-      i++
-      continue
-    }
-
-    const narrationBlock: FeedItem[] = []
-    const postponedRoom: FeedItem[] = []
-
-    while (i < input.length) {
-      const it = input[i]
-      if (isNarration(it)) {
-        narrationBlock.push(it)
-        i++
-        continue
-      }
-      if (isRoom(it)) {
-        postponedRoom.push(it)
-        i++
-        continue
-      }
-      break
-    }
-
-    out.push(...narrationBlock, ...postponedRoom)
-  }
-
-  return out
-}
-
-function computeNarrationStacking(input: FeedItem[]): FeedItem[] {
-  const isNarration = (it: FeedItem) => (it.variant ?? 'room') === 'narration'
-  const out = input.slice()
-
-  for (let i = 0; i < out.length; i++) {
-    const cur = out[i]
-    if (!isNarration(cur)) continue
-    const prev = out[i - 1]
-    const next = out[i + 1]
-    const prevIsNarration = prev ? isNarration(prev) : false
-    const nextIsNarration = next ? isNarration(next) : false
-    cur.stacking = prevIsNarration || nextIsNarration
-      ? (prevIsNarration && nextIsNarration ? 'mid' : prevIsNarration ? 'end' : 'start')
-      : 'solo'
-  }
-
-  return out
-}
 
 function buildPlayerFeed(apiEvents: ApiGameEvent[], input: {
   gameState: 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
@@ -218,7 +162,7 @@ function buildPlayerFeed(apiEvents: ApiGameEvent[], input: {
         }]
       : []
 
-  return computeNarrationStacking(applyNarrationBlockRule([...defaultSystem, ...mapped, ...revealItems, ...finalVerdictItem]))
+  return [...defaultSystem, ...mapped, ...revealItems, ...finalVerdictItem]
 }
 
 function buildPlayerEvidence(input: {
@@ -396,6 +340,8 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
       act: input.currentAct,
       title,
       subtitle: input.gameName,
+      hostName: input.creatorName ?? null,
+      locationText: input.locationText ?? null,
       storyTitle: input.storyTitle,
       scheduledTime: input.scheduledTime,
       description,
@@ -410,7 +356,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
     players,
     feed,
     view: {
-      doNow: personal.filter(o => !o.completed).slice(0, 3),
+      doNow: personal.slice(0, 3),
       evidence,
     },
     objectives: {
@@ -440,8 +386,8 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
     },
     gameActions: [],
     join: {
-      title: '',
-      subtitle: '',
+      title: title || 'Join Game',
+      subtitle: input.gameName || '',
       playerName: playerNameDraft,
       submitLabel: 'Join room',
     },

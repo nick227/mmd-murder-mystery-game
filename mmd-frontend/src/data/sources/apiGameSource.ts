@@ -3,6 +3,7 @@ import {
   createGame,
   fetchGames,
   fetchHostGame,
+  fetchMyGames,
   fetchPublicGame,
   fetchPlayerViewByCharacter,
   fetchStories,
@@ -19,6 +20,7 @@ import type { GameSource } from './types'
 export const apiGameSource: GameSource = {
   fetchStories,
   fetchGames,
+  fetchMyGames,
   fetchPublicGame,
   createGame,
   fetchHostGame,

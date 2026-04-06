@@ -1,6 +1,6 @@
 export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
 export type TabId = 'lobby' | 'game' | 'profile'
-export type ViewMode = 'launcher' | 'host' | 'room'
+export type ViewMode = 'launcher' | 'host' | 'room' | 'play'
 export type FeedItemType = 'chat' | 'announcement' | 'system'
 export type FeedVariant = 'narration' | 'social' | 'mechanic' | 'room'
 
@@ -46,6 +46,10 @@ export interface StageData {
   title: string
   /** Game instance name (shown in app header). */
   subtitle: string
+  /** Host display name (player lobby header). */
+  hostName?: string | null
+  /** Game location (player lobby header). */
+  locationText?: string | null
   /** Story title (shown inside the stage "story area"). */
   storyTitle?: string
   /** ISO datetime for scheduled start (if scheduled). */
@@ -185,7 +189,6 @@ export interface LauncherData {
   stories: StoryListItem[]
   form: CreateGameFormData
   allGames: ApiGameSummary[]
-  savedGames: StoredGameLink[]
   activeGamePublic?: ApiPublicGameView | null
   activeGamePublicKey?: string | null
   loadingMore?: boolean
@@ -360,6 +363,7 @@ export interface HostApiGame {
   startedAt: string | null
   state: GameState
   currentAct: number
+  maxAct: number
   locationText: string | null
   stageTitle?: string | null
   stageText?: string | null
@@ -385,6 +389,8 @@ export interface ApiGameSummary {
   locationText: string | null
   createdAt: string
   updatedAt: string
+  hostKey?: string
+  joinedCharacters?: Array<{ characterId: string; characterName: string | null }>
 }
 
 export interface ApiPublicGameView {
@@ -414,6 +420,7 @@ export interface ApiPublicGameView {
 export interface PlayerApiView {
   gameId: string
   gameName: string
+  creatorName?: string | null
   storyTitle?: string
   storyBlurb?: string
   gameState: GameState

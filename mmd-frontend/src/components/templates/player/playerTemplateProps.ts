@@ -21,6 +21,8 @@ export type PlayerGameTemplateProps = {
   doNow: ObjectiveItem[]
   evidence: EvidenceItem[]
   handlers?: RendererHandlers
+  /** Game state to control visibility of content. */
+  gameState?: ScreenData['game']['state']
 }
 
 export type PlayerProfileTemplateProps = {

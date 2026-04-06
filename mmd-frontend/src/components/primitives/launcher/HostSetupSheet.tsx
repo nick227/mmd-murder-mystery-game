@@ -46,14 +46,14 @@ function PlayerLinks({ game, apiBase, handlers }: { game: Game; apiBase: string;
         return (
           <div key={characterId} className="link-row">
             <strong>{`Player ${characterId}`}</strong>
-            <code>{url}</code>
             <div className="link-row__actions">
               <button
                 type="button"
                 className="mini-btn"
+                title="Click to copy link"
                 onClick={() => handlers?.onCopyText?.(url)}
               >
-                Copy link
+            <code>{url}</code>
               </button>
               <button
                 type="button"

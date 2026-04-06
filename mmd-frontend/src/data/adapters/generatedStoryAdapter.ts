@@ -319,7 +319,7 @@ export function adaptGeneratedStoryRunToRuntime(
 
     if (intent === 'reveal') {
       runtimeCards.push({
-        ...(base as any),
+        ...base,
         intent,
         bundleId: asString(card.bundle_id) ?? null,
         hiddenUntilSolved: typeof card.hidden_until_solved === 'boolean' ? card.hidden_until_solved : undefined,

@@ -59,6 +59,14 @@ export async function fetchGames(apiBase: string, options?: { limit?: number; of
   return request<ApiGameSummary[]>(buildApiUrl(apiBase, `/api/v1/games${query ? `?${query}` : ''}`))
 }
 
+export async function fetchMyGames(apiBase: string, options?: { limit?: number; offset?: number }) {
+  const params = new URLSearchParams()
+  if (options?.limit) params.append('limit', options.limit.toString())
+  if (options?.offset) params.append('offset', options.offset.toString())
+  const query = params.toString()
+  return request<ApiGameSummary[]>(buildApiUrl(apiBase, `/api/v1/my/games${query ? `?${query}` : ''}`))
+}
+
 export async function fetchPublicGame(apiBase: string, gameId: string) {
   return request<ApiPublicGameView>(buildApiUrl(apiBase, `/api/v1/games/${gameId}/public`))
 }

@@ -5,6 +5,7 @@ export type HostAction = 'start' | 'next-act' | 'done'
 export interface GameSource {
   fetchStories(apiBase: string): Promise<StoryListItem[]>
   fetchGames(apiBase: string, options?: { limit?: number; offset?: number }): Promise<ApiGameSummary[]>
+  fetchMyGames(apiBase: string, options?: { limit?: number; offset?: number }): Promise<ApiGameSummary[]>
   fetchPublicGame(apiBase: string, gameId: string): Promise<ApiPublicGameView>
   createGame(
     apiBase: string,
@@ -16,7 +17,6 @@ export interface GameSource {
   updateScheduledGame(apiBase: string, gameId: string, hostKey: string, body: { name: string; scheduledTime: string; locationText: string }): Promise<ApiGameSummary>
   postHostAction(apiBase: string, gameId: string, hostKey: string, action: HostAction): Promise<unknown>
   postEndNight(apiBase: string, gameId: string, hostKey: string, body: { who: string; how: string; why: string }): Promise<unknown>
-
   joinPlayerByCharacter(apiBase: string, gameId: string, characterId: string, playerName: string): Promise<{ message: string }>
   submitObjective(apiBase: string, gameId: string, characterId: string, objectiveId: string): Promise<{ message: string }>
   postMove(apiBase: string, gameId: string, body: PostMovePayload): Promise<{ message: string }>

@@ -14,6 +14,7 @@ export function GameSurface({ data, handlers }: Props) {
       doNow={data.view?.doNow ?? []}
       evidence={data.view?.evidence ?? []}
       handlers={handlers}
+      gameState={data.game.state}
     />
   )
 }

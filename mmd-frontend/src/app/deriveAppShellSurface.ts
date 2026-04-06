@@ -1,7 +1,7 @@
 import type { AppShellSurface } from '../utils/uiMarkers'
 
 export function deriveAppShellSurface(
-  mode: 'launcher' | 'host' | 'room',
+  mode: 'launcher' | 'host' | 'room' | 'play',
   joined: boolean,
   activeTab: 'lobby' | 'game' | 'profile',
 ): AppShellSurface {

@@ -11,10 +11,9 @@ import { selectPageSchema } from '../schemas/selectPageSchema'
 import { deriveAppShellSurface } from './deriveAppShellSurface'
 import { AppView } from './AppView'
 import { RoomProvider, type RoomContextValue } from './roomContext'
-import { useRoomTabSync } from './useRoomTabSync'
 import { AuthProvider } from '../auth/AuthProvider'
 
-export function AppController() {
+function AppControllerInner() {
   const { mode, apiBase, gameId, characterId, hostKey } = useViewMode()
   const [activeTab, setActiveTab] = useTabState(mode === 'room' ? 'lobby' : 'game')
   const [showInviteLinks, setShowInviteLinks] = useState(false)
@@ -36,20 +35,6 @@ export function AppController() {
       : Boolean(schema.tabs && mode === 'host')
 
   const tabs = mode === 'room' ? (playerPageSchema.tabs ?? []) : (schema.tabs ?? [])
-  const playerSurfaceDefault = useMemo(() => {
-    if (mode !== 'room') return null
-    const g = player.screenData.game.state
-    return g === 'SCHEDULED' ? 'lobby' : 'game'
-  }, [mode, player.screenData.game.state])
-
-  useRoomTabSync({
-    mode,
-    joined: player.joined,
-    gameState: player.screenData.game.state,
-    targetTab: playerSurfaceDefault,
-    setActiveTab,
-  })
-
   useEffect(() => {
     if (mode !== 'room') return
     if (player.joined) return
@@ -65,6 +50,15 @@ export function AppController() {
         const t = state.screenData.game.scheduledTime
         const when = isScheduled && t ? new Date(t).toLocaleString() : ''
         return when ? `${gameName} · ${when}` : gameName
+      })()
+
+  const documentTitle =
+    mode === 'launcher'
+      ? 'Murder Mystery Dinner'
+      : (() => {
+        const gameName = state.screenData.game.subtitle?.trim() || 'Game room'
+        const storyTitle = state.screenData.game.storyTitle?.trim()
+        return storyTitle ? `${gameName} | ${storyTitle}` : gameName
       })()
 
   const eyebrow =
@@ -98,6 +92,10 @@ export function AppController() {
       delete document.body.dataset.mode
     }
   }, [mode])
+
+  useEffect(() => {
+    document.title = documentTitle
+  }, [documentTitle])
 
   const shellSurface = useMemo(
     () => deriveAppShellSurface(mode, player.joined, activeTab),
@@ -199,8 +197,14 @@ export function AppController() {
   )
 
   return (
+    <RoomProvider value={roomValue}>{view}</RoomProvider>
+  )
+}
+
+export function AppController() {
+  return (
     <AuthProvider>
-      <RoomProvider value={roomValue}>{view}</RoomProvider>
+      <AppControllerInner />
     </AuthProvider>
   )
 }

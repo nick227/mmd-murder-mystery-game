@@ -1,16 +1,29 @@
 import { useEffect, useRef, useState } from 'react'
-import type { LauncherData, RendererHandlers } from '../../../data/types'
+import type { LauncherData, RendererHandlers, ApiGameSummary, StoryListItem } from '../../../data/types'
 import { navigateInAppFromHref } from '../../../app/inAppNavigation'
 import { HostSetupSheet } from './HostSetupSheet'
-import { mergeLauncherGames } from './mergeLauncherGames'
-import { Media } from '../../ui/Media'
 import { CreateEditGameSheet } from './CreateEditGameSheet'
+import { Media } from '../../ui/Media'
 import { useAuth } from '../../../hooks/useAuth'
 
-const GAMES_PER_PAGE = 10
-const INITIAL_LOAD_LIMIT = 20
-
-type Game = ReturnType<typeof mergeLauncherGames>[0]
+// Convert ApiGameSummary to HostSetupSheet Game type
+function apiGameToGameWithStory(apiGame: ApiGameSummary, story?: StoryListItem) {
+  return {
+    id: apiGame.id,
+    name: apiGame.name,
+    apiBase: '', // Not available in ApiGameSummary, will use data.apiBase
+    state: apiGame.state,
+    creatorUserId: apiGame.creatorUserId,
+    creatorName: apiGame.creatorName,
+    creatorAvatar: apiGame.creatorAvatar,
+    storyTitle: story?.title,
+    storySummary: story?.summary,
+    storyImage: story?.image,
+    storyId: apiGame.storyId,
+    scheduledTime: apiGame.scheduledTime,
+    locationText: apiGame.locationText,
+  }
+}
 
 function formatScheduledTime(scheduledTime?: string) {
   if (!scheduledTime) return ''
@@ -29,11 +42,11 @@ export function LauncherCard({ data, handlers }: {
 }) {
   const { user, isLoading, login } = useAuth()
   const [sheetOpen, setSheetOpen] = useState(false)
-  const [activeGame, setActiveGame] = useState<Game | undefined>()
+  const [activeGame, setActiveGame] = useState<ApiGameSummary | undefined>()
   const openedForGameIdRef = useRef<string | null>(null)
   const [editSheetOpen, setEditSheetOpen] = useState(false)
   const [editMode, setEditMode] = useState<'create' | 'edit'>('create')
-  const [editTarget, setEditTarget] = useState<Game | null>(null)
+  const [editTarget, setEditTarget] = useState<ApiGameSummary | null>(null)
   const [createStoryId, setCreateStoryId] = useState<string>('')
   const [authError, setAuthError] = useState('')
   const [authenticating, setAuthenticating] = useState(false)
@@ -49,15 +62,8 @@ export function LauncherCard({ data, handlers }: {
     setSheetOpen(true)
   }, [data.createdGame])
 
-  const mergedGames = mergeLauncherGames(data)
-  
-  // Separate API games (with story enrichment) from stored games
-  const apiGameIds = new Set(data.allGames.map(g => g.id))
-  const apiGames = mergedGames.filter(g => apiGameIds.has(g.id))
-  const storedGamesOnly = mergedGames.filter(g => !apiGameIds.has(g.id))
-  
-  // Show paginated API games + all stored games
-  const displayedGames = [...apiGames.slice(0, data.allGames.length), ...storedGamesOnly]
+  // Use API games directly - no more merge logic needed
+  const displayedGames = data.allGames
   
   const handleLoadMore = async () => {
     if (loadingMore || !hasMoreGames) return
@@ -132,15 +138,15 @@ export function LauncherCard({ data, handlers }: {
 
       {sheetOpen ? (
         <HostSetupSheet
-          game={activeGame}
+          game={activeGame ? apiGameToGameWithStory(activeGame, data.stories.find(s => s.id === activeGame.storyId)) : undefined}
           createdGame={data.createdGame}
           apiBase={data.apiBase}
           stories={data.stories}
-          publicGame={data.activeGamePublicKey && activeGame ? (data.activeGamePublicKey === `${activeGame.apiBase}:${activeGame.id}` ? data.activeGamePublic ?? null : null) : null}
+          publicGame={data.activeGamePublicKey && activeGame ? (data.activeGamePublicKey === `${data.apiBase}:${activeGame.id}` ? data.activeGamePublic ?? null : null) : null}
           onClose={() => setSheetOpen(false)}
-          onEditGame={g => {
+          onEditGame={(g) => {
             setEditMode('edit')
-            setEditTarget(g)
+            setEditTarget(g as unknown as ApiGameSummary) // Store as ApiGameSummary for editing
             setEditSheetOpen(true)
           }}
           handlers={handlers}
@@ -193,7 +199,7 @@ export function LauncherCard({ data, handlers }: {
               locationText: draft.locationText,
               characterId: draft.characterId,
               gameId: editTarget?.id,
-              hostKey: editTarget?.access?.hostKey,
+              hostKey: data.createdGame?.hostKey,
             })
           }}
         />
@@ -201,46 +207,66 @@ export function LauncherCard({ data, handlers }: {
 
       <section className="panel">
         {!displayedGames.length ? (
-          <div className="empty-state">No games yet.</div>
+          <div className="empty-state">
+            {user ? (
+              <>
+                <div>No games yet. Create your first game to get started!</div>
+                <button 
+                  type="button" 
+                  className="btn btn--primary" 
+                  onClick={() => {
+                    setEditMode('create')
+                    setEditTarget(null)
+                    setEditSheetOpen(true)
+                  }}
+                  style={{ marginTop: '1rem' }}
+                >
+                  Create Game
+                </button>
+              </>
+            ) : (
+              <>
+                <div>Please sign in to view your game history.</div>
+                <button 
+                  type="button" 
+                  className="action-btn action-btn--primary" 
+                  onClick={() => login()}
+                  style={{ marginTop: '1rem' }}
+                >
+                  Sign In
+                </button>
+              </>
+            )}
+          </div>
         ) : (
           <>
             <div className="link-list">
               {displayedGames.map((g) => {
-              // Debug logging for first few games
-              if (displayedGames.indexOf(g) < 3) {
-                console.log('Game data:', {
-                  id: g.id,
-                  name: g.name,
-                  state: g.state,
-                  storyTitle: g.storyTitle,
-                  apiBase: g.apiBase,
-                  dataApiBase: data.apiBase
-                })
-              }
-              
-              const stateLabel = g.state ?? (g.apiBase !== data.apiBase ? 'OTHER API' : 'UNKNOWN')
-              const hostUrl = g.access?.hostKey
-                ? `${window.location.origin}/host/${g.id}?hostKey=${g.access.hostKey}${g.apiBase ? `&api=${encodeURIComponent(g.apiBase)}` : ''}`
-                : null
+              const stateLabel = g.state ?? 'UNKNOWN'
 
               const title = g.name?.trim().length ? g.name.trim() : 'Untitled game'
-              const storyLine = g.storyTitle?.trim().length ? g.storyTitle.trim() : ''
+              const story = g.storyId ? data.stories.find(s => s.id === g.storyId) : null
+              const storyLine = story?.title?.trim().length ? story.title.trim() : ''
               const creatorLine = g.creatorName?.trim().length ? g.creatorName.trim() : ''
               const timeLabel = formatScheduledTime(g.scheduledTime)
               const locationLine = g.locationText?.trim().length ? g.locationText.trim() : ''
               const whenWhere = [locationLine, timeLabel].filter(Boolean).join(' · ')
 
+              const joinedCharacters = g.joinedCharacters ?? []
+              const isHost = !!g.hostKey
+              const hasJoined = joinedCharacters.length > 0
+
               return (
-                <div key={`${g.apiBase}:${g.id}`} className={`link-row ${g.storyImage ? 'link-row--has-image' : ''}`}>
-                  {g.storyImage ? (
+                <div key={g.id} className={`link-row ${story?.image ? 'link-row--has-image' : ''}`}>
+                  {story?.image ? (
                     <div className="link-row__image">
                       <Media
-                        src={g.storyImage}
-                        alt={`${g.storyTitle || 'Story'} thumbnail`}
+                        src={story.image}
+                        alt={`${story.title || 'Story'} thumbnail`}
                         variant="thumb"
                         ratio="1:1"
                         fit="cover"
-                        fallback={{ type: 'gradient', label: g.storyTitle?.charAt(0) || 'S' }}
+                        fallback={{ type: 'gradient', label: story.title?.charAt(0) || 'S' }}
                       />
                     </div>
                   ) : null}
@@ -251,7 +277,7 @@ export function LauncherCard({ data, handlers }: {
                       onClick={() => {
                         setActiveGame(g)
                         setSheetOpen(true)
-                        handlers?.onLauncherOpenGameDetails?.(g.id, g.apiBase)
+                        handlers?.onLauncherOpenGameDetails?.(g.id, data.apiBase)
                       }}
                     >
                       <strong>{title}</strong>
@@ -282,16 +308,23 @@ export function LauncherCard({ data, handlers }: {
                     {whenWhere ? <div className="link-row__meta">{whenWhere}</div> : null}
 
                     <div className="link-row__actions">
-                      {hostUrl ? (
-                        <>
-                          <button type="button" className="mini-btn" onClick={() => navigateInAppFromHref(hostUrl)}>
-                            Open host
-                          </button>
-                          <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(hostUrl)}>
-                            Copy host link
-                          </button>
-                        </>
+                      {isHost && !hasJoined ? (
+                        <button type="button" className="mini-btn" onClick={() => {
+                          const hostUrl = `${window.location.origin}/host/${g.id}?hostKey=${g.hostKey}${data.apiBase ? `&api=${encodeURIComponent(data.apiBase)}` : ''}`
+                          navigateInAppFromHref(hostUrl)
+                        }}>
+                          Rejoin Game
+                        </button>
                       ) : null}
+                      {joinedCharacters.map(char => {
+                        const gameUrl = `${window.location.origin}/room/${g.id}/${char.characterId}${data.apiBase ? `?api=${encodeURIComponent(data.apiBase)}` : ''}`
+                        const charName = char.characterName ?? 'Character'
+                        return (
+                          <button key={char.characterId} type="button" className="mini-btn" onClick={() => navigateInAppFromHref(gameUrl)}>
+                            Rejoin as {charName}
+                          </button>
+                        )
+                      })}
                     </div>
                   </div>
                 </div>

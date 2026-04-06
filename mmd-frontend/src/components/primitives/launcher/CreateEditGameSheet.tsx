@@ -1,4 +1,4 @@
-import { useMemo, useState, useRef } from 'react'
+import { useMemo, useState } from 'react'
 import type { CreateGameFormData, StoryListItem } from '../../../data/types'
 import { BottomSheet } from '../../ui/BottomSheet'
 import { LoadingOverlay } from '../../ui/LoadingOverlay'
@@ -150,7 +150,9 @@ export function CreateEditGameSheet({
                   characterId: draft.characterId,
                 })
                 
-                // Show loading overlay for create mode
+                // Close the sheet first, then show loading overlay
+                onClose()
+                
                 if (mode === 'create') {
                   setShowLoadingOverlay(true)
                 }

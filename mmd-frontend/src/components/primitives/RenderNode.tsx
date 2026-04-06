@@ -66,19 +66,22 @@ export function RenderNode({ node, data, handlers }: {
             <div><strong>Game ID</strong><span>{hostInfo.gameId}</span></div>
           </div>
           <div className="link-list u-mt-12">
-            {hostInfo.playerLinks
-              .filter(link => !link.joined)
-              .map(link => (
-                <div key={link.characterId} className="link-row">
-                  <strong>{link.label}</strong>
-                  <code className="truncate">{link.url}</code>
-                  <div className="link-row__actions">
-                    <button type="button" className="mini-btn" onClick={() => handlers?.onCopyText?.(link.url)}>
-                      Copy link
-                    </button>
-                  </div>
+            {hostInfo.playerLinks.map(link => (
+              <div key={link.characterId} className="link-row">
+                <div className="link-row__label">
+                  <span>{link.label}</span>
+                  &nbsp;-&nbsp;
+                  <span className={`status-badge ${link.joined ? 'status-badge--online' : 'status-badge--offline'}`}>
+                     {link.joined ? 'online' : 'waiting'}
+                  </span>
                 </div>
-              ))}
+                <div className="link-row__actions">
+                  <button title="Click to copy link" type="button" className="mini-btn action-btn action-btn--secondary" onClick={() => handlers?.onCopyText?.(link.url)}>
+                    <code className="truncate">{link.url}</code>
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </Card>
       )

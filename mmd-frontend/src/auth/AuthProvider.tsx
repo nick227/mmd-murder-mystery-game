@@ -51,6 +51,7 @@ function logGoogleDebug(message: string, details?: Record<string, unknown>) {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const googleInitializedRef = useRef(false)
   const loginResolverRef = useRef<((user: User | null) => void) | null>(null)
   const loginPromiseRef = useRef<Promise<User | null> | null>(null)
   const loginTimeoutRef = useRef<number | null>(null)
@@ -75,6 +76,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let cancelled = false
+    let initPoller: number | null = null
 
     const checkAuthStatus = async () => {
       try {
@@ -95,6 +97,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     void checkAuthStatus()
 
     const initGoogle = () => {
+      if (googleInitializedRef.current) return
       const google = getGoogle()
       const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
       if (!google?.accounts?.id || !clientId) return
@@ -104,6 +107,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         clientId,
       })
 
+      googleInitializedRef.current = true
       google.accounts.id.initialize({
         client_id: clientId,
         callback: async (response: { credential: string }) => {
@@ -131,10 +135,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // No auto One Tap on mount — avatar uses login() to prompt (clearer UX, fewer duplicate prompts)
     }
 
+    const scheduleInitPolling = () => {
+      if (initPoller !== null) return
+      initPoller = window.setInterval(() => {
+        if (googleInitializedRef.current) return
+        initGoogle()
+      }, 250)
+      window.setTimeout(() => {
+        if (initPoller !== null) {
+          window.clearInterval(initPoller)
+          initPoller = null
+        }
+      }, 15000)
+    }
+
     if (getGoogle()) {
       initGoogle()
     } else {
-      window.addEventListener('load', initGoogle, { once: true })
+      const script = document.querySelector('script[src="https://accounts.google.com/gsi/client"]')
+      script?.addEventListener('load', initGoogle, { once: true })
+      scheduleInitPolling()
     }
 
     return () => {
@@ -142,7 +162,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       clearLoginTimeout()
       loginResolverRef.current = null
       loginPromiseRef.current = null
-      window.removeEventListener('load', initGoogle)
+      if (initPoller !== null) {
+        window.clearInterval(initPoller)
+        initPoller = null
+      }
     }
   }, [])
 
@@ -171,6 +194,36 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!google?.accounts?.id) {
       console.warn('Google Sign-In script not loaded yet; wait a moment and try again')
       return null
+    }
+    if (!googleInitializedRef.current) {
+      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
+      if (clientId) {
+        google.accounts.id.initialize({
+          client_id: clientId,
+          callback: async (response: { credential: string }) => {
+            try {
+              const res = await fetch(`${AUTH_BASE}/google`, {
+                method: 'POST',
+                credentials: 'include',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token: response.credential }),
+              })
+
+              if (res.ok) {
+                const nextUser = (await res.json()) as User
+                setUser(nextUser)
+                settleLogin(nextUser)
+              } else {
+                settleLogin(null)
+              }
+            } catch (error) {
+              console.error('Auth error:', error)
+              settleLogin(null)
+            }
+          },
+        })
+        googleInitializedRef.current = true
+      }
     }
     if (user) return user
     if (loginPromiseRef.current) return loginPromiseRef.current

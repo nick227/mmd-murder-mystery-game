@@ -491,26 +491,23 @@ button { cursor: pointer; }
   padding: 9px 12px 8px;
 }
 .feed-item--variant-mechanic {
-  padding: 9px 12px 9px;
-  border-left: 3px solid rgba(94,194,255,.45);
+  background: rgba(255,255,0,.04);
 }
 .feed-item--variant-social {
-  padding: 10px 12px 10px;
   background: rgba(255,255,255,.04);
 }
 .feed-item--variant-narration {
-  padding: 14px 14px 13px;
-  background: rgba(142,125,255,.12);
-  border-color: rgba(142,125,255,.20);
+  background: var(--panel-2);
+  border-color: var(--line);
 }
 .feed-item--variant-narration .feed-item__text {
-  font-size: 1.05rem;
-  line-height: 1.55;
-  letter-spacing: .01em;
+  font-size: .98rem;
+  line-height: 1.45;
+  letter-spacing: normal;
 }
 .feed-item--variant-narration .feed-item__top {
-  text-transform: uppercase;
-  letter-spacing: .06em;
+  text-transform: none;
+  letter-spacing: .02em;
 }
 .feed-item--final-verdict {
   border-color: rgba(255, 191, 94, .65);
@@ -608,8 +605,8 @@ button { cursor: pointer; }
   margin-bottom: 5px;
 }
 .feed-item--variant-narration .feed-item__top {
-  font-size: .74rem;
-  margin-bottom: 10px;
+  font-size: .76rem;
+  margin-bottom: 8px;
 }
 .feed-act-divider {
   padding: 2px 0 10px;
@@ -817,6 +814,13 @@ button { cursor: pointer; }
   white-space: nowrap;
   color: white;
 }
+.action-btn:hover {
+  background: rgba(25, 55, 255, 0.1);
+}
+.action-btn:active {
+  background: blueviolet;
+  color: white;
+}
 .action-btn:disabled { opacity: .5; }
 .action-btn--primary { background: linear-gradient(135deg, var(--accent), #6d5ef5); }
 .action-btn--secondary { background: var(--panel-2); border: 1px solid var(--line); }
@@ -913,6 +917,22 @@ button { cursor: pointer; }
 }
 .composer-textarea { resize: vertical; min-height: 88px; }
 .composer-actions, .launcher-actions { display: flex; gap: 8px; }
+.lobby-meta__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+}
+.lobby-meta__row + .lobby-meta__row { border-top: 1px solid var(--line); }
+.lobby-meta__label {
+  color: var(--muted);
+  font-size: .85rem;
+}
+.lobby-meta__value {
+  font-weight: 600;
+  text-align: right;
+}
 .mini-btn--active { background: rgba(94,194,255,.18); }
 
 /* ── Focus Panel (bottom sheet) ───────────────────────────────────────────── */
@@ -1034,4 +1054,33 @@ button { cursor: pointer; }
 }
 .flex-col {
   flex-direction: column;
+}
+
+/* Waiting state for pre-game */
+.waiting-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  gap: 16px;
+  min-height: 60vh;
+}
+.waiting-state__icon {
+  font-size: 3rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+.waiting-state__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.waiting-state__subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 280px;
 }

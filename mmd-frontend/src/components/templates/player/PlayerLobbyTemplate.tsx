@@ -23,8 +23,26 @@ export function PlayerLobbyTemplate({
   hostHandlers,
   hostError,
 }: PlayerLobbyTemplateProps) {
+  const hostName = stage.hostName && stage.hostName.trim().length ? stage.hostName.trim() : 'Host'
+  const locationText = stage.locationText && stage.locationText.trim().length ? stage.locationText.trim() : 'Location TBD'
+
   return (
     <Surface testId="surface-lobby" surface="lobby" dataUi="LobbySurface">
+      <Panel className="lobby-meta" dataUi="LobbyMeta">
+        <PanelHeader title="Game details" />
+        <div className="lobby-meta__row">
+          <div className="lobby-meta__label">Game</div>
+          <div className="lobby-meta__value">{stage.subtitle}</div>
+        </div>
+        <div className="lobby-meta__row">
+          <div className="lobby-meta__label">Host</div>
+          <div className="lobby-meta__value">{hostName}</div>
+        </div>
+        <div className="lobby-meta__row">
+          <div className="lobby-meta__label">Location</div>
+          <div className="lobby-meta__value">{locationText}</div>
+        </div>
+      </Panel>
       <Stage
         data={stage}
         players={players}

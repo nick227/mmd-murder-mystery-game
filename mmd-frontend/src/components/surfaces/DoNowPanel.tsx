@@ -1,120 +1,131 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { ObjectiveItem, RendererHandlers } from '../../data/types'
 import { Panel } from '../ui/Panel'
 import { PanelHeader } from '../ui/PanelHeader'
+import { Media } from '../ui/Media'
 
 interface Props {
   items: ObjectiveItem[]
   handlers?: RendererHandlers
 }
 
-type CompletedRow = {
-  item: ObjectiveItem
-  exiting: boolean
-}
+const MIN_CELEBRATION_MS = 3000
 
 export function DoNowPanel({ items, handlers }: Props) {
-  const [completedById, setCompletedById] = useState<Record<string, CompletedRow>>({})
   const [submittingById, setSubmittingById] = useState<Record<string, boolean>>({})
-  const completionTimersRef = useRef<Record<string, number>>({})
-  const removalTimersRef = useRef<Record<string, number>>({})
+  const [frozenItems, setFrozenItems] = useState<ObjectiveItem[] | null>(null)
 
-  useEffect(() => () => {
-    for (const timerId of Object.values(completionTimersRef.current)) {
-      window.clearTimeout(timerId)
-    }
-    for (const timerId of Object.values(removalTimersRef.current)) {
-      window.clearTimeout(timerId)
+  const timersRef = useRef<Record<string, number>>({})
+
+  // cleanup timers
+  useEffect(() => {
+    return () => {
+      Object.values(timersRef.current).forEach(clearTimeout)
     }
   }, [])
 
-  const visible = [
-    ...items.filter(i => !i.completed && !completedById[i.id]),
-    ...Object.values(completedById).map(entry => ({
-      ...entry.item,
-      completed: true,
-      exiting: entry.exiting,
-    })),
-  ].slice(0, 3)
+  // unfreeze only when actually frozen + no submissions left
+  useEffect(() => {
+    if (frozenItems && Object.keys(submittingById).length === 0) {
+      setFrozenItems(null)
+    }
+  }, [submittingById, frozenItems])
+
+  const visible = useMemo(
+    () => frozenItems ?? items.slice(0, 3),
+    [frozenItems, items]
+  )
+
   if (!visible.length) return null
 
   return (
     <Panel testId="do-now-panel">
       <PanelHeader title="Objectives" />
+
       <div className="list-block">
         {visible.map(item => (
           <div
             key={item.id}
             className={[
-              'list-row',
+              'list-col',
               item.completed ? 'list-row--completed' : '',
-              'exiting' in item && item.exiting ? 'list-row--exiting' : '',
             ].filter(Boolean).join(' ')}
             data-intent={String(item.intent ?? '')}
             data-testid="do-now-item"
           >
-            <div className="list-row__main">
+            <div style={{ width: '100%', marginBottom: 10 }}>
+              <Media
+                alt="Game Card"
+                variant="hero"
+                ratio="16:9"
+                fit="cover"
+                fallback={{ type: 'gradient', label: item.intent }}
+              />
+            </div>
+
+            <div className="list-row__main" style={{ width: '100%', marginBottom: 20 }}>
               <div className="list-row__text">
                 <span className="list-row__text-inner">{item.text}</span>
               </div>
             </div>
-            <div className="list-row__action">
-              {item.completed ? <div className="badge badge--submitted">Submitted</div> : null}
+
+            <div className="list-row__action" style={{ width: '100%', marginBottom: 10 }}>
               <button
                 type="button"
                 disabled={Boolean(submittingById[item.id]) || item.completed}
-                className={item.completed ? 'check-button check-button--checked' : 'check-button'}
+                className={
+                  (item.completed || submittingById[item.id])
+                    ? 'check-button check-button--checked'
+                    : 'check-button'
+                }
                 data-testid={`objective-toggle:${item.id}`}
                 onClick={async () => {
                   const submit = handlers?.onObjectiveSubmit
-                  if (!submit) return
-                  if (item.completed) return
+                  if (!submit || item.completed) return
 
-                  setSubmittingById(current => ({ ...current, [item.id]: true }))
-                  setCompletedById(current => ({
-                    ...current,
-                    [item.id]: { item: { ...item, completed: true }, exiting: false },
+                  // snapshot once (race safe)
+                  setFrozenItems(prev => prev ?? items.slice(0, 3))
+
+                  const start = Date.now()
+
+                  setSubmittingById(s => ({
+                    ...s,
+                    [item.id]: true
                   }))
-
-                  completionTimersRef.current[item.id] = window.setTimeout(() => {
-                    setCompletedById(current => current[item.id]
-                      ? {
-                        ...current,
-                        [item.id]: { ...current[item.id], exiting: true },
-                      }
-                      : current)
-                  }, 2000)
-
-                  removalTimersRef.current[item.id] = window.setTimeout(() => {
-                    setCompletedById(current => {
-                      if (!current[item.id]) return current
-                      const next = { ...current }
-                      delete next[item.id]
-                      return next
-                    })
-                  }, 2400)
 
                   try {
                     await submit(item.id)
+
+                    const elapsed = Date.now() - start
+                    const wait = Math.max(0, MIN_CELEBRATION_MS - elapsed)
+
+                    if (timersRef.current[item.id]) {
+                      clearTimeout(timersRef.current[item.id])
+                    }
+
+                    timersRef.current[item.id] = window.setTimeout(() => {
+                      setSubmittingById(current => {
+                        const next = { ...current }
+                        delete next[item.id]
+                        return next
+                      })
+                    }, wait)
+
                   } catch {
-                    window.clearTimeout(completionTimersRef.current[item.id])
-                    window.clearTimeout(removalTimersRef.current[item.id])
-                    delete completionTimersRef.current[item.id]
-                    delete removalTimersRef.current[item.id]
-                    setCompletedById(current => {
-                      if (!current[item.id]) return current
+                    setSubmittingById(current => {
                       const next = { ...current }
                       delete next[item.id]
                       return next
                     })
-                  } finally {
-                    setSubmittingById(current => ({ ...current, [item.id]: false }))
                   }
                 }}
               >
-                {submittingById[item.id] ? 'Submitting...' : item.completed ? 'Submitted' : 'Submit'}
+                {submittingById[item.id]
+                  ? '🎉 CONGRATULATIONS!'
+                  : item.completed
+                    ? 'Completed'
+                    : 'Submit'}
               </button>
-              <div className="list-row__helper">{item.completed ? 'Posted to the room feed.' : 'Posts to the room feed.'}</div>
             </div>
           </div>
         ))}

@@ -76,7 +76,7 @@ export function List({
           <div
             key={item.id}
             className={[
-              'list-row',
+              'list-col',
               isObjective && item.completed ? 'list-row--complete' : '',
               flashById[item.id] ? 'list-row--flash' : '',
             ].filter(Boolean).join(' ')}

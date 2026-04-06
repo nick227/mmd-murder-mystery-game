@@ -37,3 +37,9 @@ export function navigateInAppFromHref(href: string) {
     window.location.assign(href)
   }
 }
+
+/** Close sheet first, then navigate after paint frame to ensure sheet closes before navigation. */
+export function closeThenNavigate(close: () => void, path: string) {
+  close()
+  requestAnimationFrame(() => navigateInApp(path))
+}

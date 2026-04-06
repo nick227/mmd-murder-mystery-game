@@ -107,7 +107,7 @@ export function runtimeStoryToPlayerApiView(input: {
   const solved = new Set(input.solvedActs ?? [])
   const unlocked = unlockedCardsForAct(input.story.cards, input.currentAct).filter(card => {
     if (card.intent !== 'reveal') return true
-    const reveal = card as any
+    const reveal = card as RuntimeCard & { intent: 'reveal'; hiddenUntilSolved?: boolean }
     if (!reveal.hiddenUntilSolved) return true
     return solved.has(card.act)
   })
