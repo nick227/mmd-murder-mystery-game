@@ -25,8 +25,8 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
   } = room
 
   if (!joined) {
-    // Always show LobbySurface for lobby tab - JoinCard handles the join form
-    if (activeTab === 'lobby') {
+    // Room activity surface (Feed tab): JoinCard handles the join form
+    if (activeTab === 'feed') {
       return (
         <LobbySurface
           data={screenData}
@@ -65,17 +65,17 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
               <div style={{ textAlign: 'center', margin: '1rem 0', color: 'var(--text-secondary)' }}>
                 OR
               </div>
-              <div>Enter your name in the Lobby tab to join as a guest.</div>
+              <div>Enter your name in the Feed tab to join as a guest.</div>
             </div>
           ) : (
-            <div className="empty-state">Enter your name in Lobby to join.</div>
+            <div className="empty-state">Enter your name in Feed to join.</div>
           )}
         </section>
       </main>
     )
   }
 
-  if (activeTab === 'lobby') {
+  if (activeTab === 'feed') {
     return (
       <LobbySurface
         data={screenData}

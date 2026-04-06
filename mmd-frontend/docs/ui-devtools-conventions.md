@@ -59,7 +59,7 @@ Avoid nouns as actions (`composer`, `feed`, `button`).
 |-----------|--------|--------|
 | `data-surface` | App shell only | `launcher` \| `host` \| `lobby` \| `game` \| `profile` |
 | `data-ui` | Major components | File/export name |
-| `data-tab` | Bottom nav buttons + shell when tabbed | `lobby` \| `game` \| `profile` |
+| `data-tab` | Bottom nav buttons + shell when tabbed | `feed` \| `game` \| `profile` |
 | `data-game-state` | App shell only | Mirrors `game.state` |
 | `data-action` | Primary actions | Verbs; see `actionVerb` for id → verb |
 

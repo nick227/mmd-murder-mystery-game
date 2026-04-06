@@ -37,7 +37,7 @@ test('feed propagates across clients without manual sync', async ({ browser }) =
   await expect(player1Page.getByTestId('stage-eyebrow')).toContainText('PLAYING', { timeout: 15_000 })
   await expect(player2Page.getByTestId('stage-eyebrow')).toContainText('PLAYING', { timeout: 15_000 })
 
-  await player1Page.getByRole('button', { name: 'Lobby' }).click()
+  await player1Page.getByRole('button', { name: 'Feed' }).click()
   await player1Page.getByTestId('composer-panel').locator('textarea').fill('realtime post check')
   await player1Page.getByTestId('composer-panel').getByRole('button', { name: 'Post' }).click()
 
