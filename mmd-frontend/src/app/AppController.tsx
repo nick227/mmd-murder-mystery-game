@@ -29,17 +29,9 @@ function AppControllerInner() {
 
   const schema = selectPageSchema(mode)
 
-  const showTabs =
-    mode === 'room'
-      ? true
-      : Boolean(schema.tabs && mode === 'host')
+  const showTabs = mode === 'room' ? false : Boolean(schema.tabs && mode === 'host')
 
   const tabs = mode === 'room' ? (playerPageSchema.tabs ?? []) : (schema.tabs ?? [])
-  useEffect(() => {
-    if (mode !== 'room') return
-    if (player.joined) return
-    setActiveTab('lobby')
-  }, [mode, player.joined, gameId, characterId, setActiveTab])
 
   const title =
     mode === 'launcher'

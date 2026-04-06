@@ -101,7 +101,6 @@ export class GameHarness {
 
   async submitObjective() {
     await this.ensureJoined()
-    await this.page.getByRole('button', { name: 'Lobby' }).click()
     const firstToggle = this.page.locator('[data-testid^="objective-toggle:"]').first()
     await firstToggle.click()
   }

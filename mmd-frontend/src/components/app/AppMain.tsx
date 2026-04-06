@@ -36,7 +36,7 @@ export function AppMain(props: AppMainProps) {
   }
 
   return mode === 'room' ? (
-    <RoomRouter activeTab={activeTab} />
+    <RoomRouter />
   ) : (
     <PageRenderer
       schema={schema}

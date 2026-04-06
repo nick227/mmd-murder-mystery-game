@@ -1,6 +1,7 @@
 import type { PlayerLobbyTemplateProps } from './playerTemplateProps'
 import { ActionsBar } from '../../primitives'
 import { JoinCard } from '../../primitives/JoinCard'
+import { Pills } from '../../primitives/Pills'
 import { Stage } from '../../primitives'
 import { PresenceRail } from '../../presence/PresenceRail'
 import { Feed } from '../../feed/Feed'
@@ -9,6 +10,7 @@ import { Panel } from '../../ui/Panel'
 import { PanelHeader } from '../../ui/PanelHeader'
 import { ComposerPanel } from '../../surfaces/ComposerPanel'
 import { LobbyActSection } from '../../surfaces/LobbyActSection'
+import { LobbyEvidenceSection } from '../../surfaces/LobbyEvidenceSection'
 import { PlayerProfileTemplate } from './PlayerProfileTemplate'
 
 export function PlayerLobbyTemplate({
@@ -49,24 +51,6 @@ export function PlayerLobbyTemplate({
           <div className="lobby-meta__value">{locationText}</div>
         </div>
       </Panel>
-      <Stage
-        data={stage}
-        players={players}
-        showPlayers={false}
-        showDescription={Boolean((stage.storyBlurb ?? stage.description).trim())}
-        display="story"
-      />
-      {joined ? <PlayerProfileTemplate profile={profile} embedded /> : null}
-      {joined ? (
-        <LobbyActSection
-          stage={stage}
-          players={players}
-          doNow={doNow}
-          evidence={evidence}
-          handlers={handlers}
-          gameState={gameState}
-        />
-      ) : null}
       {!joined && join ? <JoinCard join={join} game={stage} handlers={handlers} /> : null}
       <PresenceRail players={players} size="large" title="In room" currentCharacterId={currentCharacterId} />
       {hostActions?.length ? (
@@ -84,6 +68,32 @@ export function PlayerLobbyTemplate({
         <PanelHeader title="Status" />
         <div style={{ color: 'var(--text)', lineHeight: 1.45 }}>{statusLine}</div>
       </Panel>
+      <Stage
+        data={stage}
+        players={players}
+        showPlayers={false}
+        showDescription={Boolean((stage.storyBlurb ?? stage.description).trim())}
+        display="story"
+      />
+      {joined ? <PlayerProfileTemplate profile={profile} embedded /> : null}
+      {joined ? (
+        <LobbyActSection
+          stage={stage}
+          players={players}
+          doNow={doNow}
+          handlers={handlers}
+          gameState={gameState}
+        />
+      ) : null}
+      {joined && players.length > 0 ? (
+        <Panel dataUi="PlayerCardsPanel">
+          <PanelHeader title="Players" meta={String(players.length)} />
+          <div className="player-pills">
+            <Pills players={players} />
+          </div>
+        </Panel>
+      ) : null}
+      {joined ? <LobbyEvidenceSection evidence={evidence} currentAct={stage.act} /> : null}
       {joined && composer ? <ComposerPanel data={composer} handlers={handlers} /> : null}
       <Feed
         items={feed}

@@ -4,12 +4,12 @@ import { ui } from '../../utils/uiMarkers'
 
 export type { SurfaceId } from '../../utils/uiMarkers'
 
-type SurfaceUi = 'LobbySurface' | 'GameSurface' | 'ProfileSurface'
+type SurfaceUi = 'LobbySurface' | 'ProfileSurface'
 
 export function Surface(props: PropsWithChildren<{
   testId?: string
   surface: SurfaceId
-  /** Must match this file name as exported: LobbySurface | GameSurface | ProfileSurface */
+  /** Must match this file name as exported: LobbySurface | ProfileSurface */
   dataUi: SurfaceUi
 }>) {
   return (

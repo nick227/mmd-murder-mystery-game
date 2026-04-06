@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import type {
-  EvidenceItem,
   GameState,
   ObjectiveItem,
   RendererHandlers,
@@ -9,23 +7,18 @@ import type {
 } from '../../data/types'
 import { Stage } from '../primitives'
 import { DoNowPanel } from './DoNowPanel'
-import { EvidenceSection } from './EvidenceSection'
-import { FocusPanel } from './FocusPanel'
 import { ui } from '../../utils/uiMarkers'
 
 type Props = {
   stage: StageData
   players: RoomPlayer[]
   doNow: ObjectiveItem[]
-  evidence: EvidenceItem[]
   handlers?: RendererHandlers
   gameState: GameState
 }
 
-/** Current act, objectives, and evidence — same data as former Game tab; advances via host + poll. */
-export function LobbyActSection({ stage, players, doNow, evidence, handlers, gameState }: Props) {
-  const [focus, setFocus] = useState<EvidenceItem | null>(null)
-
+/** Current act banner + objectives; evidence is a separate block below player cards. */
+export function LobbyActSection({ stage, players, doNow, handlers, gameState }: Props) {
   if (gameState === 'SCHEDULED') {
     return (
       <section className="screen-stack surface surface--game" data-testid="lobby-act" {...ui('LobbyActSection')}>
@@ -47,9 +40,7 @@ export function LobbyActSection({ stage, players, doNow, evidence, handlers, gam
         showDescription={true}
         display="act"
       />
-      <FocusPanel item={focus} onClose={() => setFocus(null)} />
       <DoNowPanel items={doNow} handlers={handlers} />
-      <EvidenceSection items={evidence} currentAct={stage.act} onItemClick={setFocus} />
     </section>
   )
 }

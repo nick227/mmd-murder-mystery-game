@@ -14,7 +14,7 @@ export function AppShell(props: AppShellProps) {
 
   return (
     <div
-      className="app-shell"
+      className={showTabs ? 'app-shell' : 'app-shell app-shell--no-tabs'}
       data-testid={`mode-${mode}`}
       data-surface={shellSurface}
       data-game-state={gameState}

@@ -33,7 +33,7 @@ Do **not** put `data-game-state` on `PageRenderer`, `Stage`, or inner `Surface` 
 
 ## `data-ui` naming (strict)
 
-Use the **exported component name** from its `.tsx` file (PascalCase), e.g. `GameSurface`, `BottomNav`, `Feed`, `ComposerPanel`, `Stage`.
+Use the **exported component name** from its `.tsx` file (PascalCase), e.g. `LobbySurface`, `BottomNav`, `Feed`, `ComposerPanel`, `Stage`.
 
 Avoid kebab-case or role names (`game-feed`, `composer-panel`) so names stay tied to source files and do not drift.
 
@@ -59,7 +59,7 @@ Avoid nouns as actions (`composer`, `feed`, `button`).
 |-----------|--------|--------|
 | `data-surface` | App shell only | `launcher` \| `host` \| `lobby` \| `game` \| `profile` |
 | `data-ui` | Major components | File/export name |
-| `data-tab` | Bottom nav buttons + shell when tabbed | `lobby` \| `game` |
+| `data-tab` | Bottom nav + shell when tabbed (not used in **room** mode) | host: per schema; room: none |
 | `data-game-state` | App shell only | Mirrors `game.state` |
 | `data-action` | Primary actions | Verbs; see `actionVerb` for id → verb |
 
@@ -69,7 +69,7 @@ Avoid nouns as actions (`composer`, `feed`, `button`).
 
 - **`AppView`** shell (`div.app-shell`): `data-ui`, `data-surface`, `data-game-state`, `data-tab` when tabs visible  
 - **`body`**: `data-mode`  
-- **`Surface`**: `data-ui` = `LobbySurface` \| `GameSurface` \| `ProfileSurface`; CSS classes `surface surface--*`; **no** `data-surface` / `data-game-state`  
+- **`Surface`**: `data-ui` = `LobbySurface` \| `ProfileSurface`; CSS classes `surface surface--*`; **no** `data-surface` / `data-game-state`  
 - **`BottomNav`**, **`Feed`**, **`ComposerPanel`**, **`PresenceRail`**, **`Stage`**, **`BottomSheet`**  
 - **ActionsBar**: `data-action={actionVerb(item.id)}`  
 - Join / launcher / invite / reload: `join`, `start`, `invite`, `reload`, composer `post`  

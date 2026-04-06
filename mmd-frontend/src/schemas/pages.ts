@@ -13,10 +13,8 @@
  * | host      | `hostPageSchema`        | `PageRenderer` → stage + feed + actions |
  * | room      | `playerPageSchema`     | **Tabs** drive surfaces, not `layouts` (see below) |
  *
- * ## Room mode (player) — tabs vs schema
- * `playerPageSchema.tabs` supplies BottomNav labels only. Actual UI is **first-class surfaces**:
- * - `lobby` → `LobbySurface` / **`PlayerLobbyTemplate`** (story stage, embedded profile section, join, timeline, host controls, composer).
- * - `game` → `GameSurface` (optional placeholder). Act stage, objectives, and evidence render on Lobby (`LobbyActSection` under profile).
+ * ## Room mode (player) — single scroll (`LobbySurface` only)
+ * No bottom tabs. **`PlayerLobbyTemplate`**: game meta, room list, host controls, status, story stage, profile, act + objectives, player pills, evidence, composer, feed.
  *
  * So: launcher/host are “pure schema” pages; room is schema for chrome + documented surface split.
  *
@@ -53,10 +51,7 @@ export const launcherPageSchema: PageSchema = {
  */
 export const playerPageSchema: PageSchema = {
   id: 'player-game',
-  tabs: [
-    { id: 'lobby', label: 'Lobby' },
-    { id: 'game', label: 'Game' },
-  ],
+  tabs: undefined,
   layouts: {},
 }
 
