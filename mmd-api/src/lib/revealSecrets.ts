@@ -8,7 +8,7 @@ interface GameState {
 
 interface RevealOptions {
   game: GameState
-  state: { state: string; currentAct: number }
+  state: { state: 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'; currentAct: number }
   storyFile: string | null
   delayMs?: number
 }

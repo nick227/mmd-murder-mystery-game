@@ -183,6 +183,5 @@ export function runtimeStoryToPlayerApiView(input: {
     unlockedMysteries: [],
     unlockedPuzzles,
     unlockedCards,
-    mysteryAnswers: input.state === 'REVEAL' ? (input.revealAnswers ?? []) : undefined,
   }
 }

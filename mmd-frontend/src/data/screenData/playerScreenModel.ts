@@ -129,7 +129,7 @@ export function mapApiEventToProgressFeedItem(event: ApiGameEvent): FeedItem | n
 
 function buildPlayerFeed(apiEvents: ApiGameEvent[], input: {
   gameState: 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
-  revealAnswers?: Array<{ track: 'who' | 'how' | 'why'; answer: string }>
+  revealCards?: Array<{ id: string; text: string; act?: number }>
 }): FeedItem[] {
   const defaultSystem: FeedItem[] =
     input.gameState === 'SCHEDULED'
@@ -142,27 +142,20 @@ function buildPlayerFeed(apiEvents: ApiGameEvent[], input: {
     .map(mapApiEventToProgressFeedItem)
     .filter((it): it is FeedItem => Boolean(it))
 
-  const revealItems: FeedItem[] = (input.revealAnswers ?? []).map(answer => ({
-    id: `reveal-${answer.track}`,
-    type: 'announcement',
-    text: `${answer.track.toUpperCase()}: ${answer.answer}`,
-  }))
-
-  const verdictLines = (input.revealAnswers ?? []).map(answer => `${answer.track.toUpperCase()}: ${answer.answer}`)
-  const finalVerdictItem: FeedItem[] =
-    (input.gameState === 'REVEAL' || input.gameState === 'DONE') && verdictLines.length
-      ? [{
-          id: 'final-verdict',
+  const revealItems: FeedItem[] =
+    (input.gameState === 'REVEAL' || input.gameState === 'DONE') && (input.revealCards ?? []).length
+      ? (input.revealCards ?? []).map(card => ({
+          id: `reveal-card:${card.id}`,
           type: 'announcement',
           variant: 'narration',
           layout: 'cinematic',
-          title: 'Final Verdict',
-          body: verdictLines.join('\n'),
-          text: verdictLines.join('\n'),
-        }]
+          title: card.act ? `Reveal (Act ${card.act})` : 'Reveal',
+          body: card.text,
+          text: card.text,
+        }))
       : []
 
-  return [...defaultSystem, ...mapped, ...revealItems, ...finalVerdictItem]
+  return [...defaultSystem, ...mapped, ...revealItems]
 }
 
 function buildPlayerEvidence(input: {
@@ -249,7 +242,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
 
   const instructionCards = cards.filter(c => String(c.type ?? '') === 'instruction')
   const clueCards = cards.filter(c => String(c.type ?? '') === 'clue')
-  const revealCards = cards.filter(c => String(c.type ?? '') === 'reveal')
+  const revealObjectiveCards = cards.filter(c => String(c.type ?? '') === 'reveal')
 
   const personal: ObjectiveItem[] = instructionCards.map((card, index) => ({
     id: String(card.id ?? `card-${index}`),
@@ -270,7 +263,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
       : undefined,
   }))
 
-  const reveals: ObjectiveItem[] = revealCards.map((card, index) => ({
+  const reveals: ObjectiveItem[] = revealObjectiveCards.map((card, index) => ({
     id: String(card.id ?? `reveal-${index}`),
     text: String(card.text ?? 'Reveal'),
     completed: false,
@@ -316,12 +309,22 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
   const evidence = buildPlayerEvidence({
     clues: clueCards,
     puzzles,
-    reveals: revealCards,
+    reveals: revealObjectiveCards,
     items: visibleItems,
     treasures: visibleTreasures,
     infos: visibleInfos,
   })
-  const feed = buildPlayerFeed(input.feed ?? [], { gameState: input.gameState, revealAnswers: input.mysteryAnswers })
+  const revealFeedCards =
+    (input.unlockedCards ?? [])
+      .filter(card => String((card as { type?: unknown }).type ?? '') === 'reveal')
+      .map((card, index) => ({
+        id: String((card as { id?: unknown }).id ?? `reveal-${index}`),
+        text: String((card as { text?: unknown }).text ?? ''),
+        act: typeof (card as { act?: unknown }).act === 'number' ? (card as { act?: unknown }).act as number : undefined,
+      }))
+      .filter(c => Boolean(c.text.trim()))
+
+  const feed = buildPlayerFeed(input.feed ?? [], { gameState: input.gameState, revealCards: revealFeedCards })
 
   const secrets = Array.isArray((character as { secrets?: unknown }).secrets) ? ((character as { secrets?: unknown }).secrets as string[]) : []
   const inventoryItems = visibleItems.map((item, index) => ({

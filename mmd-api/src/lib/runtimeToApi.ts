@@ -44,7 +44,6 @@ export function runtimeStoryToPlayerApiView(input: {
     currentAct: number
     scheduledTime: Date
     locationText: string | null
-    mysteryAnswers?: Array<{ track: 'who' | 'how' | 'why'; answer: string }> | null
     players: Array<{ id: string; characterId: string; playerName: string | null; joinedAt: Date | null }>
   }
   me: { id: string; characterId: string; playerName: string | null }
@@ -335,10 +334,6 @@ export function runtimeStoryToPlayerApiView(input: {
     unlockedMysteries: [],
     unlockedPuzzles,
     unlockedCards,
-    mysteryAnswers:
-      (isReveal || isDone) && Array.isArray(input.game.mysteryAnswers) && input.game.mysteryAnswers.length
-        ? input.game.mysteryAnswers.map(a => ({ track: a.track, answer: a.answer }))
-        : undefined,
   }
 }
 

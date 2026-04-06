@@ -441,6 +441,5 @@ export interface PlayerApiView {
   unlockedMysteries: Array<Record<string, unknown>>
   unlockedPuzzles: Array<Record<string, unknown>>
   unlockedCards: Array<Record<string, unknown>>
-  mysteryAnswers?: Array<{ track: 'who' | 'how' | 'why'; answer: string }>
   storyImage?: string | null
 }
