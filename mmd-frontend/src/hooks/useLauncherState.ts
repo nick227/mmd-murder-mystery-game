@@ -6,7 +6,7 @@ import type { RendererHandlers, ScreenData, TabId } from '../data/types'
 import { IN_APP_NAVIGATE_EVENT, navigateInApp } from '../app/inAppNavigation'
 import { TIMING } from './polling'
 
-const INITIAL_LOAD_LIMIT = 20
+const INITIAL_LOAD_LIMIT = 5
 
 function readQuery(name: string) {
   return new URLSearchParams(window.location.search).get(name)
@@ -201,9 +201,30 @@ export function useLauncherState() {
                       url: buildPlayerPath(game.id, player.characterId, buildShareQuery({ apiBase: input.apiBase })),
                     })),
                   },
+                  allGames: [
+                    {
+                      id: game.id,
+                      storyId: game.storyId,
+                      name: game.name,
+                      creatorUserId: game.creatorUserId ?? null,
+                      creatorName: game.creatorName ?? null,
+                      creatorAvatar: game.creatorAvatar ?? null,
+                      scheduledTime: game.scheduledTime,
+                      startedAt: game.startedAt,
+                      state: game.state,
+                      currentAct: game.currentAct,
+                      locationText: game.locationText ?? null,
+                      createdAt: game.createdAt,
+                      updatedAt: game.updatedAt,
+                      hostKey: game.hostKey,
+                      joinedCharacters: [],
+                    },
+                    ...(current.launcher.allGames ?? []).filter(existing => existing.id !== game.id),
+                  ],
                 }
               : current.launcher,
           }))
+          setCurrentGamesCount(prev => prev + 1)
           const query = new URLSearchParams()
           query.set('hostKey', game.hostKey)
           if (input.apiBase) query.set('api', input.apiBase)
