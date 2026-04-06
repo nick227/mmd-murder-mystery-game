@@ -4,6 +4,7 @@ export type PlayerLobbyTemplateProps = {
   stage: StageData
   players: RoomPlayer[]
   feed: FeedItem[]
+  profile: ScreenData['profile']
   statusLine: string
   join?: ScreenData['join']
   joined?: boolean
@@ -27,4 +28,6 @@ export type PlayerGameTemplateProps = {
 
 export type PlayerProfileTemplateProps = {
   profile: ScreenData['profile']
+  /** Render as a section inside lobby (`surface--profile`) instead of a full-screen `main`. */
+  embedded?: boolean
 }

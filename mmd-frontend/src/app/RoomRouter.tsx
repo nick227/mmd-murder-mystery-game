@@ -1,7 +1,6 @@
 import type { TabId } from '../data/types'
 import { GameSurface } from '../components/surfaces/GameSurface'
 import { LobbySurface } from '../components/surfaces/LobbySurface'
-import { ProfileSurface } from '../components/surfaces/ProfileSurface'
 import { useRoomContext } from './roomContext'
 import { useAuth } from '../hooks/useAuth'
 
@@ -25,8 +24,7 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
   } = room
 
   if (!joined) {
-    // Room activity surface (Feed tab): JoinCard handles the join form
-    if (activeTab === 'feed') {
+    if (activeTab === 'lobby') {
       return (
         <LobbySurface
           data={screenData}
@@ -43,7 +41,7 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
       <main className="screen-stack">
         <section className="panel">
           <div className="panel__header">
-            <h2>{activeTab === 'game' ? 'Game' : 'Profile'}</h2>
+            <h2>Game</h2>
             <div className="panel__meta">Join first</div>
           </div>
           {!user ? (
@@ -65,17 +63,17 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
               <div style={{ textAlign: 'center', margin: '1rem 0', color: 'var(--text-secondary)' }}>
                 OR
               </div>
-              <div>Enter your name in the Feed tab to join as a guest.</div>
+              <div>Enter your name in the Lobby tab to join as a guest.</div>
             </div>
           ) : (
-            <div className="empty-state">Enter your name in Feed to join.</div>
+            <div className="empty-state">Enter your name in Lobby to join.</div>
           )}
         </section>
       </main>
     )
   }
 
-  if (activeTab === 'feed') {
+  if (activeTab === 'lobby') {
     return (
       <LobbySurface
         data={screenData}
@@ -87,10 +85,6 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
         hostError={hostError}
       />
     )
-  }
-
-  if (activeTab === 'profile') {
-    return <ProfileSurface data={screenData} />
   }
 
   return (

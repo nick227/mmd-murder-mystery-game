@@ -55,7 +55,7 @@ for (const storyTitle of await storyTitlesToTest()) {
     // 1) Pregame waiting state: player joins before host starts, sees waiting for host.
     await player.ensureJoined('Player 0')
     await player.sync()
-    await playerPage.getByRole('button', { name: 'Feed' }).click()
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
     await expect(playerPage.getByText('Waiting for the host')).toBeVisible()
 
     // 3) Multi-player join (minimum 2)
@@ -68,7 +68,7 @@ for (const storyTitle of await storyTitlesToTest()) {
 
     // 2) Refresh resilience: player refresh retains joined state.
     await playerPage.reload()
-    await playerPage.getByRole('button', { name: 'Feed' }).click()
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
     await playerPage.getByTestId('bottom-nav-game').click()
     await expect(playerPage.getByTestId('stage-eyebrow')).toBeVisible()
     await expect(playerPage.getByTestId('join-name')).toHaveCount(0)
@@ -106,8 +106,8 @@ for (const storyTitle of await storyTitlesToTest()) {
     const hasClue = (await playerPage.locator('.list-row__title').filter({ hasText: 'Clue' }).count()) > 0
     expect(hasPuzzle || hasClue).toBeTruthy()
 
-    // Minimal structured post: player posts to feed, host sees it (composer on Feed tab).
-    await playerPage.getByRole('button', { name: 'Feed' }).click()
+    // Minimal structured post: player posts to feed, host sees it (composer on Lobby tab).
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
     await playerPage.getByTestId('composer-panel').locator('textarea').fill('study')
     await playerPage.getByTestId('composer-panel').getByRole('button', { name: 'Post' }).click()
     await host.sync()

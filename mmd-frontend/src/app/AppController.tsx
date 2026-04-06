@@ -15,7 +15,7 @@ import { AuthProvider } from '../auth/AuthProvider'
 
 function AppControllerInner() {
   const { mode, apiBase, gameId, characterId, hostKey } = useViewMode()
-  const [activeTab, setActiveTab] = useTabState(mode === 'room' ? 'feed' : 'game')
+  const [activeTab, setActiveTab] = useTabState(mode === 'room' ? 'lobby' : 'game')
   const [showInviteLinks, setShowInviteLinks] = useState(false)
 
   const launcher = useLauncherState()
@@ -38,7 +38,7 @@ function AppControllerInner() {
   useEffect(() => {
     if (mode !== 'room') return
     if (player.joined) return
-    setActiveTab('feed')
+    setActiveTab('lobby')
   }, [mode, player.joined, gameId, characterId, setActiveTab])
 
   const title =

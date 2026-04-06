@@ -6,6 +6,7 @@ import { Media } from '../../ui/Media'
 import { Panel } from '../../ui/Panel'
 import { PanelHeader } from '../../ui/PanelHeader'
 import { Surface } from '../../ui/Surface'
+import { ui } from '../../../utils/uiMarkers'
 
 function ProfilePanel({ data }: { data: PlayerProfileTemplateProps['profile'] }) {
   const initials = initialsFromName(data.characterName)
@@ -52,12 +53,28 @@ function ProfileList({ title, items, emptyText }: { title: string; items: Profil
   )
 }
 
-export function PlayerProfileTemplate({ profile }: PlayerProfileTemplateProps) {
-  return (
-    <Surface testId="surface-profile" surface="profile" dataUi="ProfileSurface">
+export function PlayerProfileTemplate({ profile, embedded }: PlayerProfileTemplateProps) {
+  const body = (
+    <>
       <ProfilePanel data={profile} />
       <ProfileList title="Secrets" items={profile.secrets} emptyText="No secrets yet." />
       <ProfileList title="Items" items={profile.items} emptyText="No items yet." />
+    </>
+  )
+  if (embedded) {
+    return (
+      <section
+        className="screen-stack surface surface--profile"
+        data-testid="lobby-profile"
+        {...ui('ProfileSurface')}
+      >
+        {body}
+      </section>
+    )
+  }
+  return (
+    <Surface testId="surface-profile" surface="profile" dataUi="ProfileSurface">
+      {body}
     </Surface>
   )
 }

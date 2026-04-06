@@ -23,6 +23,7 @@ export function LobbySurface({ data, handlers, joined, currentCharacterId, hostA
       stage={data.game}
       players={data.players}
       feed={data.feed}
+      profile={data.profile}
       statusLine={statusLine}
       join={data.join}
       joined={joined}

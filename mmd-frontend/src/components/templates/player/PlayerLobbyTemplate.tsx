@@ -8,11 +8,13 @@ import { Surface } from '../../ui/Surface'
 import { Panel } from '../../ui/Panel'
 import { PanelHeader } from '../../ui/PanelHeader'
 import { ComposerPanel } from '../../surfaces/ComposerPanel'
+import { PlayerProfileTemplate } from './PlayerProfileTemplate'
 
 export function PlayerLobbyTemplate({
   stage,
   players,
   feed,
+  profile,
   statusLine,
   join,
   joined,
@@ -50,6 +52,7 @@ export function PlayerLobbyTemplate({
         showDescription={Boolean((stage.storyBlurb ?? stage.description).trim())}
         display="story"
       />
+      {joined ? <PlayerProfileTemplate profile={profile} embedded /> : null}
       {!joined && join ? <JoinCard join={join} game={stage} handlers={handlers} /> : null}
       <PresenceRail players={players} size="large" title="In room" currentCharacterId={currentCharacterId} />
       {hostActions?.length ? (

@@ -1,5 +1,5 @@
 export type GameState = 'SCHEDULED' | 'PLAYING' | 'REVEAL' | 'DONE' | 'CANCELLED'
-export type TabId = 'feed' | 'game' | 'profile'
+export type TabId = 'lobby' | 'game'
 export type ViewMode = 'launcher' | 'host' | 'room' | 'play'
 export type FeedItemType = 'chat' | 'announcement' | 'system'
 export type FeedVariant = 'narration' | 'social' | 'mechanic' | 'room'

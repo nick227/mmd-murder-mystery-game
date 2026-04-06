@@ -15,9 +15,8 @@
  *
  * ## Room mode (player) — tabs vs schema
  * `playerPageSchema.tabs` supplies BottomNav labels only. Actual UI is **first-class surfaces**:
- * - `feed` → `LobbySurface` / **`PlayerLobbyTemplate`** (room activity: story stage, join, timeline, host controls, composer). Tab id is `feed`; shell `data-surface` stays `lobby` until tokens migrate.
- * - `game` → `GameSurface` (stage + do-now + evidence).
- * - `profile` → `ProfileSurface`.
+ * - `lobby` → `LobbySurface` / **`PlayerLobbyTemplate`** (story stage, embedded profile section, join, timeline, host controls, composer).
+ * - `game` → `GameSurface` (stage + do-now + evidence). Character profile lives on Lobby only.
  *
  * So: launcher/host are “pure schema” pages; room is schema for chrome + documented surface split.
  *
@@ -55,9 +54,8 @@ export const launcherPageSchema: PageSchema = {
 export const playerPageSchema: PageSchema = {
   id: 'player-game',
   tabs: [
-    { id: 'feed', label: 'Feed' },
+    { id: 'lobby', label: 'Lobby' },
     { id: 'game', label: 'Game' },
-    { id: 'profile', label: 'Profile' },
   ],
   layouts: {},
 }
