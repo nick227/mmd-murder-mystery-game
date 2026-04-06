@@ -7,7 +7,7 @@ Conventions so the DOM is **self-describing** in Chrome/Firefox DevTools. Use wi
 Use these to jump straight to the live shell and key widgets:
 
 ```text
-[data-surface="game"]
+[data-surface="lobby"]
 [data-ui="ComposerPanel"]
 [data-action="post"]
 [data-mode="room"]
@@ -22,7 +22,7 @@ Use these to jump straight to the live shell and key widgets:
 **One place only:** the root shell `div.app-shell` in **`AppView.tsx`**:
 
 - `data-ui="App"` (matches the default export name **`App`** in `App.tsx`, rendered via **`AppController`** → **`AppView`**)
-- `data-surface` — current high-level screen: `launcher` \| `host` \| `lobby` \| `game` \| `profile`
+- `data-surface` — current high-level screen: `launcher` \| `host` \| `lobby` (room/play always `lobby`)
 - `data-game-state` — `ScreenData.game.state` (same value everywhere in the app; no duplicates)
 
 Do **not** put `data-game-state` on `PageRenderer`, `Stage`, or inner `Surface` roots. Inner `<main class="surface surface--…">` keeps **CSS** classes `surface surface--lobby|game|profile` for styling but **no** `data-surface` attribute (avoids nested/conflicting markers).
@@ -57,7 +57,7 @@ Avoid nouns as actions (`composer`, `feed`, `button`).
 
 | Attribute | Where | Notes |
 |-----------|--------|--------|
-| `data-surface` | App shell only | `launcher` \| `host` \| `lobby` \| `game` \| `profile` |
+| `data-surface` | App shell only | `launcher` \| `host` \| `lobby` |
 | `data-ui` | Major components | File/export name |
 | `data-tab` | Bottom nav + shell when tabbed (not used in **room** mode) | host: per schema; room: none |
 | `data-game-state` | App shell only | Mirrors `game.state` |
