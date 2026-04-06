@@ -122,6 +122,7 @@ export const JoinGameBodySchema = z.object({
 export const PlayerViewSchema = z.object({
   gameId: z.string(),
   gameName: z.string(),
+  creatorName: z.string().nullable().optional(),
   storyTitle: z.string().optional(),
   storyBlurb: z.string().optional(),
   gameState: GameStateSchema,

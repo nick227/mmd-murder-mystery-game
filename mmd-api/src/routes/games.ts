@@ -19,6 +19,7 @@ import {
 import { loadStoryJson } from '../lib/storyJson.js'
 import { adaptGeneratedStoryToRuntime } from '../lib/generatedRuntimeAdapter.js'
 import { attachRoomEventStream, publishRoomEvent, publishRoomState } from '../lib/roomEvents.js'
+import { revealSolutionsSequentially } from '../lib/revealSecrets.js'
 
 /** No further `/advance` or `/host/next-act` after this; host must POST `/host/end-night`. */
 const HOST_RUNTIME_MAX_ACT = 5
@@ -29,123 +30,6 @@ async function readStageImageForAct(storyFile: string | null, act: number): Prom
     const raw = await loadStoryJson(storyFile)
     const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
     return runtimeStory.stageByAct?.[act]?.image ?? null
-  } catch {
-    return null
-  }
-}
-
-async function readConcealedAnnouncements(storyFile: string | null): Promise<Array<Record<string, unknown>>> {
-  if (!storyFile) return []
-  try {
-    const raw = await loadStoryJson(storyFile)
-    const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
-    const concealed = runtimeStory.cards
-      .filter(card => {
-        const cardType = String(card.source?.cardType ?? '')
-        return card.intent === 'reveal' || cardType === 'secret' || (card as any).hiddenUntilSolved === true
-      })
-      .sort((a, b) => a.act - b.act || String(a.title ?? '').localeCompare(String(b.title ?? '')))
-
-    const seen = new Set<string>()
-    const announcements: Array<Record<string, unknown>> = []
-    for (let i = 0; i < concealed.length; i++) {
-      const card = concealed[i]
-      const dedupeKey = card.id ?? `${card.act}:${card.title ?? ''}:${card.text}`
-      if (seen.has(dedupeKey)) continue
-      seen.add(dedupeKey)
-
-      const title = typeof card.title === 'string' ? card.title.trim() : ''
-      const text = typeof card.text === 'string' ? card.text.trim() : ''
-      const message = `${title ? `${title}\n` : ''}${text}`.trim()
-      if (!message) continue
-
-      announcements.push({
-        message,
-        cardType: String(card.source?.cardType ?? card.intent ?? 'reveal'),
-        cardId: card.id ?? null,
-        act: card.act,
-        revealedByHost: true,
-      })
-    }
-    return announcements
-  } catch {
-    return []
-  }
-}
-
-async function readTreasureAnnouncements(storyFile: string | null): Promise<Array<Record<string, unknown>>> {
-  if (!storyFile) return []
-  try {
-    const raw = await loadStoryJson(storyFile)
-    const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
-    const treasures = runtimeStory.cards.filter(card => String(card.source?.cardType ?? '') === 'treasure')
-
-    const seen = new Set<string>()
-    const announcements: Array<Record<string, unknown>> = []
-    for (let i = 0; i < treasures.length; i++) {
-      const card = treasures[i]
-      const dedupeKey = card.id ?? `${card.act}:${card.title ?? ''}:${card.text}`
-      if (seen.has(dedupeKey)) continue
-      seen.add(dedupeKey)
-
-      const title = typeof card.title === 'string' ? card.title.trim() : ''
-      const text = typeof card.text === 'string' ? card.text.trim() : ''
-      const message = `${title ? `${title}\n` : ''}${text}`.trim()
-      if (!message) continue
-
-      announcements.push({
-        message,
-        cardType: 'treasure',
-        cardId: card.id ?? null,
-        act: card.act,
-        revealedByHost: true,
-      })
-    }
-    return announcements
-  } catch {
-    return []
-  }
-}
-
-async function readSolutionAnnouncements(storyFile: string | null): Promise<Array<Record<string, unknown>>> {
-  if (!storyFile) return []
-  try {
-    const raw = await loadStoryJson(storyFile)
-    const cards = (raw as any).cards ?? []
-    const solutions = cards.filter((c: any) => c.card_type === 'solution' && c.reveal === 'host_reveal')
-
-    const announcements: Array<Record<string, unknown>> = []
-    for (const card of solutions) {
-      const title = typeof card.card_title === 'string' ? card.card_title.trim() : ''
-      const text = typeof card.card_contents === 'string' ? card.card_contents.trim() : ''
-      const message = `${title ? `${title}\n` : ''}${text}`.trim()
-      if (!message) continue
-
-      announcements.push({
-        message,
-        cardType: 'solution',
-        cardId: card.card_id ?? null,
-        role: card.role ?? null,
-        revealedByHost: true,
-      })
-    }
-    return announcements
-  } catch {
-    return []
-  }
-}
-
-async function readMysterySolution(storyFile: string | null): Promise<{ who: string; how: string; why: string } | null> {
-  if (!storyFile) return null
-  try {
-    const raw = await loadStoryJson(storyFile)
-    const coreTruth = (raw as any).coreTruth
-    if (!coreTruth?.murder) return null
-    const murder = coreTruth.murder
-    const who = murder.killer ?? 'Unknown'
-    const how = murder.location && murder.method ? `${murder.location} - ${murder.method}` : (murder.method ?? 'Unknown')
-    const why = murder.motive ?? 'Unknown motive'
-    return { who, how, why }
   } catch {
     return null
   }
@@ -436,6 +320,14 @@ export async function gamesRoutes(fastify: FastifyInstance) {
     const raw = await loadStoryJson(game.storyFile)
     const runtimeStory = adaptGeneratedStoryToRuntime(raw).runtimeStory
     const characters = runtimeStory.playerOrder.map(id => runtimeStory.playersByCharacterId[id]).filter(Boolean)
+    let maxAct = 1
+    for (const key of Object.keys(runtimeStory.stageByAct ?? {})) {
+      const n = Number(key)
+      if (Number.isInteger(n) && n > maxAct) maxAct = n
+    }
+    for (const card of runtimeStory.cards) {
+      if (typeof card.act === 'number' && Number.isFinite(card.act) && card.act > maxAct) maxAct = card.act
+    }
     return reply.send(withCharacterNames({
       ...game,
       feed: game.events,
@@ -443,6 +335,7 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       _characters: characters,
       storyId: game.storyFile,
       storyFile: game.storyFile,
+      maxAct,
     }))
   })
 
@@ -878,98 +771,10 @@ export async function gamesRoutes(fastify: FastifyInstance) {
       data: { state: 'REVEAL' },
     })
 
-    // Sequential reveal: hidden cards → treasures → mystery answers (killer solution)
-    const SEQUENTIAL_DELAY_MS = 800
-
-    // 1. Post concealed announcements (hidden cards)
-    const concealedAnnouncements = await readConcealedAnnouncements(game.storyFile)
-    for (const payload of concealedAnnouncements) {
-      const event = await prisma.gameEvent.create({
-        data: {
-          gameId: game.id,
-          playerId: null,
-          type: 'ANNOUNCEMENT',
-          payload: payload as any,
-        },
-      })
-      publishRoomEvent({
-        gameId: game.id,
-        eventId: event.id,
-        eventType: String(event.type),
-        gameState: updated.state,
-        currentAct: updated.currentAct,
-      })
-      await new Promise(resolve => setTimeout(resolve, SEQUENTIAL_DELAY_MS))
-    }
-
-    // 2. Post treasure announcements
-    const treasureAnnouncements = await readTreasureAnnouncements(game.storyFile)
-    for (const payload of treasureAnnouncements) {
-      const event = await prisma.gameEvent.create({
-        data: {
-          gameId: game.id,
-          playerId: null,
-          type: 'ANNOUNCEMENT',
-          payload: payload as any,
-        },
-      })
-      publishRoomEvent({
-        gameId: game.id,
-        eventId: event.id,
-        eventType: String(event.type),
-        gameState: updated.state,
-        currentAct: updated.currentAct,
-      })
-      await new Promise(resolve => setTimeout(resolve, SEQUENTIAL_DELAY_MS))
-    }
-
-    // 3. Post solution cards (murder solution + treasure solution)
-    const solutionAnnouncements = await readSolutionAnnouncements(game.storyFile)
-    for (const payload of solutionAnnouncements) {
-      const event = await prisma.gameEvent.create({
-        data: {
-          gameId: game.id,
-          playerId: null,
-          type: 'ANNOUNCEMENT',
-          payload: payload as any,
-        },
-      })
-      publishRoomEvent({
-        gameId: game.id,
-        eventId: event.id,
-        eventType: String(event.type),
-        gameState: updated.state,
-        currentAct: updated.currentAct,
-      })
-      await new Promise(resolve => setTimeout(resolve, SEQUENTIAL_DELAY_MS))
-    }
-
-    // 4. Post mystery answers (killer solution) as the FINAL entry
-    // Use story solution if available, otherwise fall back to host-provided answers
-    const storySolution = await readMysterySolution(game.storyFile)
-    const finalWho = storySolution?.who ?? body.who
-    const finalHow = storySolution?.how ?? body.how
-    const finalWhy = storySolution?.why ?? body.why
-    const mysteryPayload = {
-      message: `🕵️ THE KILLER REVEALED\n\nWHO: ${finalWho}\n\nHOW: ${finalHow}\n\nWHY: ${finalWhy}`,
-      cardType: 'mystery_solution',
-      revealedByHost: true,
-      isFinalReveal: true,
-    }
-    const finalEvent = await prisma.gameEvent.create({
-      data: {
-        gameId: game.id,
-        playerId: null,
-        type: 'ANNOUNCEMENT',
-        payload: mysteryPayload as any,
-      },
-    })
-    publishRoomEvent({
-      gameId: game.id,
-      eventId: finalEvent.id,
-      eventType: String(finalEvent.type),
-      gameState: updated.state,
-      currentAct: updated.currentAct,
+    await revealSolutionsSequentially({
+      game,
+      state: updated,
+      storyFile: game.storyFile,
     })
 
     publishRoomState({ gameId: game.id, gameState: updated.state, currentAct: updated.currentAct })

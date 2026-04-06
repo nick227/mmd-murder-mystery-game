@@ -39,6 +39,7 @@ export function runtimeStoryToPlayerApiView(input: {
   game: {
     id: string
     name: string
+    creatorName?: string | null
     state: GameState
     currentAct: number
     scheduledTime: Date
@@ -272,6 +273,7 @@ export function runtimeStoryToPlayerApiView(input: {
   return {
     gameId: input.game.id,
     gameName: input.game.name,
+    creatorName: input.game.creatorName ?? null,
     storyTitle: input.story.title,
     storyBlurb: input.story.summary,
     gameState: input.game.state,
