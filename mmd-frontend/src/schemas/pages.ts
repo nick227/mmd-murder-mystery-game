@@ -16,7 +16,7 @@
  * ## Room mode (player) — tabs vs schema
  * `playerPageSchema.tabs` supplies BottomNav labels only. Actual UI is **first-class surfaces**:
  * - `lobby` → `LobbySurface` / **`PlayerLobbyTemplate`** (story stage, embedded profile section, join, timeline, host controls, composer).
- * - `game` → `GameSurface` (stage + do-now + evidence). Character profile lives on Lobby only.
+ * - `game` → `GameSurface` (optional placeholder). Act stage, objectives, and evidence render on Lobby (`LobbyActSection` under profile).
  *
  * So: launcher/host are “pure schema” pages; room is schema for chrome + documented surface split.
  *

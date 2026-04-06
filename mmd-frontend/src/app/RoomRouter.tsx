@@ -87,10 +87,5 @@ export function RoomRouter({ activeTab }: { activeTab: TabId }) {
     )
   }
 
-  return (
-    <GameSurface
-      data={screenData}
-      handlers={handlers}
-    />
-  )
+  return <GameSurface />
 }

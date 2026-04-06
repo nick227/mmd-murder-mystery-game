@@ -16,7 +16,7 @@ export function LobbySurface({ data, handlers, joined, currentCharacterId, hostA
   const statusLine =
     data.game.state === 'SCHEDULED'
       ? 'Waiting for the host to start.'
-      : `Act ${data.game.act} is live. Follow the timeline here and use Game for objectives and evidence.`
+      : `Act ${data.game.act} is live. Objectives and evidence are below your character.`
 
   return (
     <PlayerLobbyTemplate
@@ -24,6 +24,9 @@ export function LobbySurface({ data, handlers, joined, currentCharacterId, hostA
       players={data.players}
       feed={data.feed}
       profile={data.profile}
+      doNow={data.view?.doNow ?? []}
+      evidence={data.view?.evidence ?? []}
+      gameState={data.game.state}
       statusLine={statusLine}
       join={data.join}
       joined={joined}

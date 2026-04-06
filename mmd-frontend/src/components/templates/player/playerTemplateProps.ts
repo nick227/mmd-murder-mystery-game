@@ -5,6 +5,9 @@ export type PlayerLobbyTemplateProps = {
   players: RoomPlayer[]
   feed: FeedItem[]
   profile: ScreenData['profile']
+  doNow: ObjectiveItem[]
+  evidence: EvidenceItem[]
+  gameState: ScreenData['game']['state']
   statusLine: string
   join?: ScreenData['join']
   joined?: boolean
@@ -14,16 +17,6 @@ export type PlayerLobbyTemplateProps = {
   hostActions?: ActionItem[]
   hostHandlers?: RendererHandlers
   hostError?: string
-}
-
-export type PlayerGameTemplateProps = {
-  stage: StageData
-  players: RoomPlayer[]
-  doNow: ObjectiveItem[]
-  evidence: EvidenceItem[]
-  handlers?: RendererHandlers
-  /** Game state to control visibility of content. */
-  gameState?: ScreenData['game']['state']
 }
 
 export type PlayerProfileTemplateProps = {

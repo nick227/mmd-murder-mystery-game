@@ -101,7 +101,7 @@ export class GameHarness {
 
   async submitObjective() {
     await this.ensureJoined()
-    await this.page.getByRole('button', { name: 'Game' }).click()
+    await this.page.getByRole('button', { name: 'Lobby' }).click()
     const firstToggle = this.page.locator('[data-testid^="objective-toggle:"]').first()
     await firstToggle.click()
   }
@@ -126,7 +126,10 @@ export class GameHarness {
   }
 
   private async getStage() {
-    const eyebrow = await this.page.getByTestId('stage-eyebrow').innerText()
+    const actEyebrow = this.page.getByTestId('stage-act-eyebrow')
+    const storyEyebrow = this.page.getByTestId('stage-eyebrow')
+    const loc = (await actEyebrow.count()) > 0 ? actEyebrow : storyEyebrow
+    const eyebrow = await loc.first().innerText()
     return parseStageEyebrow(eyebrow)
   }
 }

@@ -44,7 +44,7 @@ export function Stage({
         </div>
       ) : null}
       <div className="stage__content">
-        <div className="stage__eyebrow" data-testid="stage-eyebrow">
+        <div className="stage__eyebrow" data-testid={isActView ? 'stage-act-eyebrow' : 'stage-eyebrow'}>
           <span>{data.state}</span>
           <span aria-hidden="true"> · </span>
           <span>Act {data.act}</span>

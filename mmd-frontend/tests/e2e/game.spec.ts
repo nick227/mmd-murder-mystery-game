@@ -66,10 +66,9 @@ for (const storyTitle of await storyTitlesToTest()) {
       await expect(hostPage.getByText('Player 1 joined')).toBeVisible()
     }
 
-    // 2) Refresh resilience: player refresh retains joined state.
+    // 2) Refresh resilience: player refresh retains joined state (act UI lives on Lobby).
     await playerPage.reload()
     await playerPage.getByRole('button', { name: 'Lobby' }).click()
-    await playerPage.getByTestId('bottom-nav-game').click()
     await expect(playerPage.getByTestId('stage-eyebrow')).toBeVisible()
     await expect(playerPage.getByTestId('join-name')).toHaveCount(0)
 
@@ -87,23 +86,23 @@ for (const storyTitle of await storyTitlesToTest()) {
     // Validate START_GAME is visible to host via feed (event log).
     await expect(hostPage.getByText('Game started')).toBeVisible()
 
-    // Validate start propagates to player via server state.
+    // Validate start propagates to player via server state (act block on Lobby).
     await player.sync()
-    await playerPage.getByTestId('bottom-nav-game').click()
-    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('PLAYING')
-    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('Act 1')
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
+    await expect(playerPage.getByTestId('stage-act-eyebrow')).toContainText('PLAYING')
+    await expect(playerPage.getByTestId('stage-act-eyebrow')).toContainText('Act 1')
 
     await host.sync()
 
     // Act 1 content visibility (not optional)
     await player.sync()
-    await playerPage.getByTestId('bottom-nav-game').click()
-    await expect(playerPage.locator('.stage__description')).not.toHaveText('')
-    await playerPage.getByTestId('bottom-nav-game').click()
-    await expect.poll(async () => playerPage.locator('[data-testid^="objective-toggle:"]').count()).toBeGreaterThan(0)
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
+    await expect(playerPage.getByTestId('lobby-act').locator('.stage__description')).not.toHaveText('')
+    await expect.poll(async () => playerPage.getByTestId('lobby-act').locator('[data-testid^="objective-toggle:"]').count()).toBeGreaterThan(0)
     // Must have at least 1 clue OR puzzle visible.
-    const hasPuzzle = (await playerPage.locator('[data-intent=\"puzzle\"]').count()) > 0
-    const hasClue = (await playerPage.locator('.list-row__title').filter({ hasText: 'Clue' }).count()) > 0
+    const lobbyAct = playerPage.getByTestId('lobby-act')
+    const hasPuzzle = (await lobbyAct.locator('[data-intent=\"puzzle\"]').count()) > 0
+    const hasClue = (await lobbyAct.locator('.list-row__title').filter({ hasText: 'Clue' }).count()) > 0
     expect(hasPuzzle || hasClue).toBeTruthy()
 
     // Minimal structured post: player posts to feed, host sees it (composer on Lobby tab).
@@ -118,16 +117,16 @@ for (const storyTitle of await storyTitlesToTest()) {
     await expect(hostPage.getByTestId('feed-item').filter({ hasText: 'completed:' }).first()).toBeVisible()
 
     await player.sync()
-    await playerPage.getByTestId('bottom-nav-game').click()
-    await expect(playerPage.locator('[data-testid="evidence-item"][data-kind="reveal"]').first()).toBeVisible()
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
+    await expect(playerPage.getByTestId('lobby-act').locator('[data-testid="evidence-item"][data-kind="reveal"]').first()).toBeVisible()
 
     await host.advanceAct()
     await expect(hostPage.getByTestId('stage-eyebrow')).toContainText('Act 2')
     await expect.poll(async () => host.getAct()).toBe(2)
 
     await player.sync()
-    await playerPage.getByTestId('bottom-nav-game').click()
-    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('Act 2')
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
+    await expect(playerPage.getByTestId('stage-act-eyebrow')).toContainText('Act 2')
 
     // 4) Multi-act progression (>2): advance to Act 3 and verify player sees it.
     await host.advanceAct()
@@ -135,13 +134,13 @@ for (const storyTitle of await storyTitlesToTest()) {
     await expect.poll(async () => host.getAct()).toBe(3)
 
     await player.sync()
-    await playerPage.getByTestId('bottom-nav-game').click()
-    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('Act 3')
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
+    await expect(playerPage.getByTestId('stage-act-eyebrow')).toContainText('Act 3')
 
     // Refresh resilience after start: player refresh retains Act 1+ state (at least stays PLAYING).
     await playerPage.reload()
-    await playerPage.getByTestId('bottom-nav-game').click()
-    await expect(playerPage.getByTestId('stage-eyebrow')).toContainText('PLAYING')
+    await playerPage.getByRole('button', { name: 'Lobby' }).click()
+    await expect(playerPage.getByTestId('stage-act-eyebrow')).toContainText('PLAYING')
 
     await Promise.all([hostContext.close(), playerContext.close(), player2Context.close(), launcherContext.close()])
   })

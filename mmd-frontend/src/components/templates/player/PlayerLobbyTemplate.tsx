@@ -8,6 +8,7 @@ import { Surface } from '../../ui/Surface'
 import { Panel } from '../../ui/Panel'
 import { PanelHeader } from '../../ui/PanelHeader'
 import { ComposerPanel } from '../../surfaces/ComposerPanel'
+import { LobbyActSection } from '../../surfaces/LobbyActSection'
 import { PlayerProfileTemplate } from './PlayerProfileTemplate'
 
 export function PlayerLobbyTemplate({
@@ -15,6 +16,9 @@ export function PlayerLobbyTemplate({
   players,
   feed,
   profile,
+  doNow,
+  evidence,
+  gameState,
   statusLine,
   join,
   joined,
@@ -53,6 +57,16 @@ export function PlayerLobbyTemplate({
         display="story"
       />
       {joined ? <PlayerProfileTemplate profile={profile} embedded /> : null}
+      {joined ? (
+        <LobbyActSection
+          stage={stage}
+          players={players}
+          doNow={doNow}
+          evidence={evidence}
+          handlers={handlers}
+          gameState={gameState}
+        />
+      ) : null}
       {!joined && join ? <JoinCard join={join} game={stage} handlers={handlers} /> : null}
       <PresenceRail players={players} size="large" title="In room" currentCharacterId={currentCharacterId} />
       {hostActions?.length ? (
