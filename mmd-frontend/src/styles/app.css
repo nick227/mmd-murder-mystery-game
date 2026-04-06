@@ -316,10 +316,19 @@ button { cursor: pointer; }
   min-width: 0;
   box-sizing: border-box;
 }
+/* Main `Surface` is already `.screen-stack` padded; nested stacks must NOT add another 14px inset */
+.lobby-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
 .lobby-section .panel,
 .lobby-section .stage,
 .lobby-section .presence-rail,
-.lobby-section .screen-stack.surface {
+.lobby-section .lobby-stack.surface {
   max-width: 100%;
 }
 
@@ -925,13 +934,13 @@ button { cursor: pointer; }
 .composer-panel { display: flex; flex-direction: column; gap: 10px; }
 .composer-toggle { display: flex; gap: 8px; }
 .composer-select, .composer-textarea, .field__input {
-  width: calc(100% - 12px);
+  width: 100%;
+  box-sizing: border-box;
   background: #0f1731;
   color: var(--text);
   border: 2px solid var(--line);
   border-radius: 14px;
   padding: 12px;
-  margin: 0 auto;
 }
 .composer-textarea { resize: vertical; min-height: 88px; }
 .composer-actions, .launcher-actions { display: flex; gap: 8px; }

@@ -21,7 +21,7 @@ type Props = {
 export function LobbyActSection({ stage, players, doNow, handlers, gameState }: Props) {
   if (gameState === 'SCHEDULED') {
     return (
-      <section className="screen-stack surface surface--game" data-testid="lobby-act" {...ui('LobbyActSection')}>
+      <section className="lobby-stack surface surface--game" data-testid="lobby-act" {...ui('LobbyActSection')}>
         <div className="waiting-state">
           <div className="waiting-state__icon">⏳</div>
           <h2 className="waiting-state__title">Waiting to start game</h2>
@@ -32,7 +32,7 @@ export function LobbyActSection({ stage, players, doNow, handlers, gameState }: 
   }
 
   return (
-    <section className="screen-stack surface surface--game" data-testid="lobby-act" {...ui('LobbyActSection')}>
+    <section className="lobby-stack surface surface--game" data-testid="lobby-act" {...ui('LobbyActSection')}>
       <Stage
         data={stage}
         players={players}

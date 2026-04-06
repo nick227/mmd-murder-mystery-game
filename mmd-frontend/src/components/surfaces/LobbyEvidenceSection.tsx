@@ -13,7 +13,7 @@ export function LobbyEvidenceSection({ evidence, currentAct }: Props) {
   const [focus, setFocus] = useState<EvidenceItem | null>(null)
 
   return (
-    <section className="screen-stack surface surface--game" data-testid="lobby-evidence" {...ui('LobbyEvidenceSection')}>
+    <section className="lobby-stack surface surface--game" data-testid="lobby-evidence" {...ui('LobbyEvidenceSection')}>
       <FocusPanel item={focus} onClose={() => setFocus(null)} />
       <EvidenceSection items={evidence} currentAct={currentAct} onItemClick={setFocus} />
     </section>

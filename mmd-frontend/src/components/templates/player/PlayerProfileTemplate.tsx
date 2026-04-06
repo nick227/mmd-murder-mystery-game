@@ -64,7 +64,7 @@ export function PlayerProfileTemplate({ profile, embedded }: PlayerProfileTempla
   if (embedded) {
     return (
       <section
-        className="screen-stack surface surface--profile"
+        className="lobby-stack surface surface--profile"
         data-testid="lobby-profile"
         {...ui('ProfileSurface')}
       >
