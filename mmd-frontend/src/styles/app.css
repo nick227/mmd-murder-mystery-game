@@ -309,6 +309,20 @@ button { cursor: pointer; }
   padding: 14px 14px 0;
 }
 
+/* Player lobby: one wrapper per block — full column width, safe for flex overflow */
+.lobby-section {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.lobby-section .panel,
+.lobby-section .stage,
+.lobby-section .presence-rail,
+.lobby-section .screen-stack.surface {
+  max-width: 100%;
+}
+
 .panel {
   background: rgba(19, 27, 51, 0.95);
   border: 1px solid var(--line);
