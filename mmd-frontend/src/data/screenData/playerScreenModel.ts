@@ -341,6 +341,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
     game: {
       state: input.gameState,
       act: input.currentAct,
+      storyId: input.storyId,
       title,
       subtitle: input.gameName,
       hostName: input.creatorName ?? null,
@@ -387,7 +388,12 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
       recipients: [],
       canSend: false,
     },
-    gameActions: [],
+    gameActions: input.storyId
+      ? [
+          { id: 'download-cards', label: 'Download as cards', kind: 'secondary' },
+          { id: 'download-cards-pdf', label: 'Download PDF (Print)', kind: 'secondary' },
+        ]
+      : [],
     join: {
       title: title || 'Join Game',
       subtitle: input.gameName || '',

@@ -1,6 +1,7 @@
 import {
   cancelGame,
   createGame,
+  fetchStoryById,
   fetchGames,
   fetchHostGame,
   fetchMyGames,
@@ -19,6 +20,7 @@ import type { GameSource } from './types'
 
 export const apiGameSource: GameSource = {
   fetchStories,
+  fetchStoryById,
   fetchGames,
   fetchMyGames,
   fetchPublicGame,
@@ -34,4 +36,3 @@ export const apiGameSource: GameSource = {
   postMove,
   fetchPlayerViewByCharacter,
 }
-

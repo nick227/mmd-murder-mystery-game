@@ -28,7 +28,7 @@ export function BottomSheet({ open, onClose, eyebrow, title, meta, children }: P
         <div className="focus-sheet__header">
           <div>
             {eyebrow ? <div className="focus-sheet__eyebrow">{eyebrow}</div> : null}
-            <div className="focus-sheet__title">{title}</div>
+            {title ? <div className="focus-sheet__title">{title}</div> : null}
           </div>
           <button type="button" className="mini-btn" onClick={onClose}>Close</button>
         </div>

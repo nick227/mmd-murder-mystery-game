@@ -5,6 +5,7 @@ import { emptyScreenData } from '../data/mock'
 import type { RendererHandlers, ScreenData } from '../data/types'
 import { HOST_POLL_INTERVAL, TIMING } from './polling'
 import { buildHostScreen } from './screenBuilders'
+import { exportStoryCardsAsPdf, exportStoryCardsAsZip } from '../features/storyCardExport/storyCardExport'
 
 function getHostPollInterval(state: ScreenData['game']['state'], streamConnected: boolean): number {
   const intervals = HOST_POLL_INTERVAL
@@ -46,7 +47,10 @@ export function useHostScreenData(
   const [screenData, setScreenData] = useState<ScreenData>(emptyScreenData)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [exportError, setExportError] = useState('')
   const [streamConnected, setStreamConnected] = useState(false)
+  const [exportingActionId, setExportingActionId] = useState<string | null>(null)
+  const [exportProgress, setExportProgress] = useState<{ completed: number; total: number }>({ completed: 0, total: 0 })
   const queuedPushReloadRef = useRef<number | null>(null)
 
   useEffect(() => {
@@ -133,6 +137,31 @@ export function useHostScreenData(
     },
     onAction: async actionId => {
       if (!gameId || !hostKey) return
+      if (actionId === 'download-cards' || actionId === 'download-cards-pdf') {
+        setExportError('')
+        setExportingActionId(actionId)
+        setExportProgress({ completed: 0, total: 0 })
+        try {
+          const fetchedGame = await gameSource.fetchHostGame(apiBase, gameId, hostKey)
+          const fullStory = await gameSource.fetchStoryById(apiBase, fetchedGame.storyId)
+          const exportFn = actionId === 'download-cards-pdf' ? exportStoryCardsAsPdf : exportStoryCardsAsZip
+          await exportFn({
+            storyId: fetchedGame.storyId,
+            storyTitle: fullStory.title || fetchedGame.storyTitle || screenData.hostInfo?.storyTitle || 'story',
+            raw: fullStory.dataJson,
+            onProgress: (completed, total) => {
+              setExportProgress({ completed, total })
+            },
+          })
+        } catch (err) {
+          setExportError(err instanceof Error ? err.message : 'Card export failed')
+        } finally {
+          setExportingActionId(null)
+          setExportProgress({ completed: 0, total: 0 })
+        }
+        return
+      }
+
       setLoading(true)
       setError('')
       try {
@@ -165,9 +194,30 @@ export function useHostScreenData(
         window.prompt('Copy this value:', value)
       }
     },
-  }), [apiBase, gameId, hostKey, screenData.game.act, gameSource])
+  }), [apiBase, gameId, hostKey, screenData.game.act, screenData.hostInfo, gameSource])
 
   const reload = async () => reloadInternal()
 
-  return { screenData, handlers, loading, error, reload }
+  const nextScreenData =
+    exportingActionId
+      ? {
+          ...screenData,
+          gameActions: screenData.gameActions.map(item =>
+            item.id === exportingActionId
+              ? {
+                  ...item,
+                  label: (() => {
+                    const prefix = exportingActionId === 'download-cards-pdf' ? 'Building PDF...' : 'Exporting cards...'
+                    return exportProgress.total > 0
+                      ? `${prefix} ${exportProgress.completed} / ${exportProgress.total}`
+                      : prefix
+                  })(),
+                  disabled: true,
+                }
+              : { ...item, disabled: item.disabled || Boolean(exportingActionId) },
+          ),
+        }
+      : screenData
+
+  return { screenData: nextScreenData, handlers, loading, error: exportError || error, reload }
 }

@@ -23,6 +23,19 @@ export async function storiesRoutes(fastify: FastifyInstance) {
       try {
         const raw = await loadStoryJson(item.file)
         const { runtimeStory } = adaptGeneratedStoryToRuntime(raw)
+        const rawCards = Array.isArray((raw as any)?.cards) ? ((raw as any).cards as Array<Record<string, unknown>>) : []
+        const storyMeta = rawCards
+          .filter(card => card?.card_type === 'story_meta')
+          .map(card => ({
+            key: typeof card.card_title === 'string' ? card.card_title : '',
+            value: typeof card.card_contents === 'string' ? card.card_contents : '',
+          }))
+          .filter(entry => entry.key.length > 0 || entry.value.length > 0)
+        const cardCount = rawCards.length
+        const characterCount = rawCards.filter(card => card?.card_type === 'character').length
+        const clueCount = rawCards.filter(card => card?.card_type === 'clue').length
+        const puzzleCount = rawCards.filter(card => card?.card_type === 'puzzle').length
+        const secretCount = rawCards.filter(card => card?.card_type === 'secret').length
         const characters = runtimeStory.playerOrder
           .map(id => runtimeStory.playersByCharacterId[id])
           .filter(Boolean)
@@ -38,6 +51,12 @@ export async function storiesRoutes(fastify: FastifyInstance) {
           title: runtimeStory.title,
           summary: runtimeStory.summary,
           image,
+          storyMeta: storyMeta.length ? storyMeta : undefined,
+          characterCount,
+          cardCount,
+          clueCount,
+          puzzleCount,
+          secretCount,
           characters,
           createdAt: item.createdAt,
         }

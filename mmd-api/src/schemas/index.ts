@@ -12,6 +12,15 @@ export const StoryListItemSchema = z.object({
   title: z.string(),
   summary: z.string(),
   image: z.string().optional(),
+  storyMeta: z.array(z.object({
+    key: z.string(),
+    value: z.string(),
+  })).optional(),
+  characterCount: z.number().int().nonnegative().optional(),
+  cardCount: z.number().int().nonnegative().optional(),
+  clueCount: z.number().int().nonnegative().optional(),
+  puzzleCount: z.number().int().nonnegative().optional(),
+  secretCount: z.number().int().nonnegative().optional(),
   characters: z.array(z.object({
     characterId: z.string(),
     name: z.string(),
@@ -122,6 +131,7 @@ export const JoinGameBodySchema = z.object({
 export const PlayerViewSchema = z.object({
   gameId: z.string(),
   gameName: z.string(),
+  storyId: z.string().optional(),
   creatorName: z.string().nullable().optional(),
   storyTitle: z.string().optional(),
   storyBlurb: z.string().optional(),

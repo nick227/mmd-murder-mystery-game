@@ -1,9 +1,10 @@
-import type { ApiGameSummary, ApiPublicGameView, HostApiGame, PlayerApiView, PostMovePayload, StoryListItem } from '../types'
+import type { ApiGameSummary, ApiPublicGameView, FullStoryApiResponse, HostApiGame, PlayerApiView, PostMovePayload, StoryListItem } from '../types'
 
 export type HostAction = 'start' | 'next-act' | 'done'
 
 export interface GameSource {
   fetchStories(apiBase: string): Promise<StoryListItem[]>
+  fetchStoryById(apiBase: string, storyId: string): Promise<FullStoryApiResponse>
   fetchGames(apiBase: string, options?: { limit?: number; offset?: number }): Promise<ApiGameSummary[]>
   fetchMyGames(apiBase: string, options?: { limit?: number; offset?: number }): Promise<ApiGameSummary[]>
   fetchPublicGame(apiBase: string, gameId: string): Promise<ApiPublicGameView>

@@ -1,0 +1,510 @@
+{
+  "runId": "International Dog Show-1775464653951-mzklxd",
+  "runDir": "C:\\wamp64\\www\\mmdc2-dev-builder\\runs\\International Dog Show-1775464653951-mzklxd",
+  "playerCount": 2,
+  "userPrompt": "International Dog Show",
+  "storyStyle": "funny, dogs",
+  "cardsPerPlayer": 1,
+  "cluesPerPlayer": 1,
+  "puzzleCount": 0,
+  "profileCardsPerCharacter": 0,
+  "includeMetadata": true,
+  "includeWorldbuilding": true,
+  "includeHostSpeeches": false,
+  "includeSecrets": true,
+  "includeItems": false,
+  "cards": [
+    {
+      "card_id": "e186c341-d2e5-430e-96de-9872754510e1",
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Paws and Claws: The Canine Caper",
+      "act": 1
+    },
+    {
+      "card_id": "090022c1-1e98-4562-b581-e70d51c5d9b7",
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Step into the glamorous world of the International Dog Show, where every bark hides a secret and every wag could lead to a clue. Join a pack of colorful characters—both human and canine—as they unravel a scandal that threatens to shake the doggy kingdom. Expect laughter, intrigue, and a tail-wagging good time!",
+      "act": 1
+    },
+    {
+      "card_id": "63f05ed9-ee60-4be1-b0ad-cc6e8df2f806",
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "PG — mild thematic elements",
+      "act": 1
+    },
+    {
+      "card_id": "316adf75-f214-4caf-90b7-70a94a1c9b67",
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "cozy,mystery,animal-themed,ensemble cast,lighthearted",
+      "act": 1
+    },
+    {
+      "card_id": "d3450d66-f30a-4b88-8582-7e4b4bca40ab",
+      "card_type": "person",
+      "card_title": "Judge Penelope Fairweather",
+      "card_contents": "A renowned and somewhat enigmatic judge known for her impeccable taste and a suspiciously slippery reputation. Her decisions can make or break careers, and her presence commands both respect and wariness among competitors.",
+      "act": 1
+    },
+    {
+      "card_id": "eacbbabd-1602-4b7c-b543-57a33067a11e",
+      "card_type": "person",
+      "card_title": "Maxwell 'Max' Hargrove",
+      "card_contents": "The charismatic organizer of the International Dog Show, Max balances the chaos with a charming smile and a keen eye for detail. His deep love for dogs is matched only by his determination to keep the show’s reputation spotless.",
+      "act": 1
+    },
+    {
+      "card_id": "2a7b5b9a-1cd1-4c6d-ad55-374c7c4ee14c",
+      "card_type": "person",
+      "card_title": "Dr. Lila Thompson",
+      "card_contents": "The show’s trusted veterinarian, Lila is a calm and compassionate presence amidst the frenzy. Her knowledge of canine health and behavior often provides unexpected clues during the unfolding mystery.",
+      "act": 1
+    },
+    {
+      "card_id": "2b9f9c8f-8fda-4cbd-a1b5-a4e82ec66ea6",
+      "card_type": "location",
+      "card_title": "The Grand Arena",
+      "card_contents": "The heart of the International Dog Show, this vast, gleaming ring is where champions are crowned and reputations forged. Its polished floors and grandstands echo with cheers, barks, and the tension of competition.",
+      "act": 1
+    },
+    {
+      "card_id": "5a0f79be-b9dc-4024-be5a-02767151a666",
+      "card_type": "location",
+      "card_title": "The Kennel Row",
+      "card_contents": "A labyrinth of meticulously arranged kennels where dogs and their handlers prepare, rest, and sometimes scheme. The air here is a mix of excitement, nerves, and the occasional mischief, making it a hotbed for overheard secrets and furtive meetings.",
+      "act": 1
+    },
+    {
+      "card_id": "3236bc13-752c-4573-8f82-d64e0997de7a",
+      "card_type": "location",
+      "card_title": "The Judges’ Lounge",
+      "card_contents": "A secluded, elegantly furnished room reserved for judges and officials. Behind its closed doors, decisions are debated, alliances formed, and the undercurrents of scandal begin to surface.",
+      "act": 1
+    },
+    {
+      "card_id": "379d888a-283d-4bdb-8a4c-1007a6854f3c",
+      "card_type": "location",
+      "card_title": "The Trophy Room",
+      "card_contents": "A glittering vault of history and prestige, housing the grand prizes and mementos of past champions. The room’s polished surfaces and glass cases reflect the high stakes and deep desires that drive the competitors.",
+      "act": 1
+    },
+    {
+      "card_id": "92568dd1-460a-42d2-b9d7-95eca0b6b0e7",
+      "card_type": "item",
+      "card_title": "The Golden Collar Trophy",
+      "card_contents": "The coveted grand prize awarded to the top dog at the International Dog Show. More than just a symbol of victory, it represents status, legacy, and the intense rivalry that fuels the competition.",
+      "act": 1
+    },
+    {
+      "card_id": "cdad94ba-eddf-4010-801f-104ec6306540",
+      "card_type": "item",
+      "card_title": "The Show Ledger",
+      "card_contents": "An official record book detailing entries, scores, and judge’s notes. Its pages hold the key to understanding the unfolding scandal and tracking the subtle shifts in the competition.",
+      "act": 1
+    },
+    {
+      "card_id": "175be595-a04a-45ed-9fd7-678e8173daad",
+      "card_type": "item",
+      "card_title": "The Whisper Whistle",
+      "card_contents": "A discreet whistle used by handlers to communicate with their dogs during the show. Its subtle sound can influence performances and, in the wrong hands, become a tool for manipulation.",
+      "act": 1
+    },
+    {
+      "card_id": "cdbb10cb-171c-4b6e-bde9-5f54fbcd7688",
+      "card_type": "character",
+      "card_title": "Felicity Fairbark - The Ambitious Handler",
+      "card_contents": "Felicity Fairbark is a polished and determined dog handler known for her impeccable grooming skills and fierce competitive spirit. She’s been training her prized Afghan Hound, Duchess, for years, dreaming of the grand prize that would cement her reputation. Felicity’s charm masks a sharp mind and a willingness to bend rules to protect her standing. Rumors whisper that she’s been involved in underhanded deals to secure better judging spots and has a secret rivalry with the show’s judge. Could her ambition have pushed her to sabotage a competitor’s dog to ensure victory?",
+      "act": 1
+    },
+    {
+      "card_id": "82d8f737-f09d-42c9-926f-ebc1fe187a8d",
+      "card_type": "character",
+      "card_title": "Maxwell 'Max' Pawsworthy - The Eccentric Judge",
+      "card_contents": "Maxwell Pawsworthy, affectionately known as Max, is the charismatic yet mysterious judge of the International Dog Show. With a long history in the canine world, Max is respected but also known for his unpredictable decisions and quirky judging criteria. Behind his jovial demeanor lies a man who’s fiercely protective of the show’s integrity — or so it seems. Some suspect Max has favorites and that his impartiality might be compromised by old grudges or secret alliances. Is Max’s slippery nature hiding a deeper motive, or is he simply a victim of the tangled politics of the dog show?",
+      "act": 2
+    },
+    {
+      "card_id": "ee7b1324-12af-4abd-99e8-766319a22f21",
+      "card_type": "solution",
+      "card_title": "Murder Solution",
+      "card_contents": "Harold Jenkins, a non-playable staff member and whistleblower, was poisoned by Felicity Fairbark using a tainted dog treat. Felicity feared Harold would expose her underhanded deals and secret rivalry with the judge, which could ruin her chances of winning the grand prize. She took advantage of Harold's solitary inspection of the dogs' supplies behind the main show ring tents during the break between judging and awards. The timing allowed her to act unnoticed, ensuring the scandal remained buried and her ambition intact.",
+      "role": "murder",
+      "hidden": true,
+      "reveal": "host_reveal"
+    },
+    {
+      "card_id": "cf0f01fe-dc5f-4df0-b058-54c750ade390",
+      "card_type": "solution",
+      "card_title": "Treasure Solution",
+      "card_contents": "The Original Canine Championship Trophy is a symbol of true victory and integrity in the dog show world. Players can find it by investigating the judges' lounge and discovering the locked display case. Unlocking it reveals the trophy and clues about the show's history and the importance of fair competition, helping to contextualize the motives behind the murder and the stakes of the scandal.",
+      "role": "treasure",
+      "hidden": true,
+      "reveal": "host_reveal"
+    },
+    {
+      "card_id": "97068b01-0bf7-4c62-8e43-8605e0f477fe",
+      "card_type": "secret",
+      "card_title": "My Darkest Secret",
+      "card_contents": "The truth is, I am the one who killed Harold Jenkins at behind the main show ring tents. Harold Jenkins, a non-playable staff member and whistleblower, was poisoned by Felicity Fairbark using a tainted dog treat. Felicity feared Harold would expose her underhanded deals and secret rivalry with the judge, which could ruin her chances of winning the grand prize. She took advantage of Harold's solitary inspection of the dogs' supplies behind the main show ring tents during the break between judging and awards. The timing allowed her to act unnoticed, ensuring the scandal remained buried and her ambition intact.",
+      "act": 3,
+      "linked_character": "Felicity Fairbark - The Ambitious Handler",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "240aee66-a399-4c09-b3b8-9c633064dd3b",
+      "card_type": "secret",
+      "card_title": "Late-Night Access to the Grooming Area",
+      "card_contents": "Felicity was seen entering the restricted grooming area late at night, a place only staff and judges are allowed, raising questions about her intentions and possible tampering with other competitors' dogs.",
+      "act": 1,
+      "linked_character": "Felicity Fairbark - The Ambitious Handler",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "d5f67746-86a5-458f-9df5-c8064c0e2003",
+      "card_type": "secret",
+      "card_title": "Desperate to Win the Grand Prize",
+      "card_contents": "Felicity wanted the grand prize desperately because winning would secure her a lucrative sponsorship deal and elevate her status in the dog show world, giving her a strong motive to sabotage rivals or manipulate outcomes.",
+      "act": 2,
+      "linked_character": "Felicity Fairbark - The Ambitious Handler",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "54ccda75-cc7b-4bdc-ac43-f3abaea7407d",
+      "card_type": "secret",
+      "card_title": "Late Night Access to Trophy Room",
+      "card_contents": "Max was seen entering the trophy room alone late at night, an area off-limits to judges after hours, raising questions about his intentions and activities during that time.",
+      "act": 3,
+      "linked_character": "Maxwell 'Max' Pawsworthy - The Eccentric Judge",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "33ec7d6c-4695-4f03-81cb-eb9bd5156614",
+      "card_type": "secret",
+      "card_title": "Desire to Control the Show's Outcome",
+      "card_contents": "Max wanted the grand prize for his favored dog because winning would restore his reputation after recent judging controversies, giving him a clear motive to influence the results unfairly.",
+      "act": 1,
+      "linked_character": "Maxwell 'Max' Pawsworthy - The Eccentric Judge",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "04c12cde-8ea0-478d-9b24-652e570755c2",
+      "card_type": "story_act",
+      "card_title": "A Glittering Stage and Hidden Rivalries",
+      "card_contents": "As the International Dog Show kicks off in the Grand Arena, excitement buzzes through the air. Felicity Fairbark grooms Duchess with meticulous care, her competitive edge sharper than ever. Whispers swirl around the Kennel Row about her rumored underhanded tactics and a simmering rivalry with Judge Maxwell Pawsworthy. Meanwhile, Max, known for his quirky judging style, is seen conferring quietly in the Judges’ Lounge, his demeanor unusually guarded. Amidst the glittering collars and barking crowds, a sudden disruption hints that beneath the polished surface, tensions are running dangerously high. What secrets are these handlers and judges hiding as the competition heats up?",
+      "act": 1
+    },
+    {
+      "card_id": "e0e98e9a-a1e9-43a8-b7a4-6913ba513406",
+      "card_type": "story_act",
+      "card_title": "Unpredictable Judgments and Conflicting Alibis",
+      "card_contents": "The show takes a twist as Maxwell Pawsworthy’s recent decisions spark controversy—some handlers praise his expertise, others question his impartiality. Rumors emerge of secret meetings in the Judges’ Lounge and possible favoritism, but Max insists his choices uphold the show’s integrity. Meanwhile, Felicity’s rivalry with Max deepens, with some witnesses claiming to have overheard heated exchanges. Contradictory accounts arise about who was where during critical moments, and a mysterious slip in the Trophy Room raises more questions than answers. Is Max manipulating outcomes behind the scenes, or is he entangled in a web of accusations spun by ambitious competitors?",
+      "act": 2
+    },
+    {
+      "card_id": "64f352af-83a2-419c-9826-0f88aa0839d8",
+      "card_type": "story_act",
+      "card_title": "Pressure Mounts Amidst Secrets and Suspicions",
+      "card_contents": "As the final rounds approach, the spotlight narrows on the tangled relationships between Felicity and Max. Evidence surfaces that challenges their narratives—cryptic notes, unexpected alliances, and unexplained absences at key locations like the Kennel Row and Trophy Room. The handlers and judges face mounting pressure to reveal their true motives, yet each revelation seems to deepen the mystery. With the grand prize hanging in the balance, every whispered secret and suspicious movement demands scrutiny. Who truly holds the power to sway the outcome, and what lengths will they go to secure victory? The answers remain elusive, urging all to look closer and question everything.",
+      "act": 3
+    },
+    {
+      "card_id": "2567bdd4-cd97-4370-9f27-14de6c8f3c78",
+      "card_type": "clue",
+      "card_title": "Torn Ribbon with Hidden Paw Print",
+      "murder_canon": {
+        "victim": "Harold Jenkins",
+        "location": "behind the main show ring tents"
+      },
+      "card_contents": "A torn blue ribbon lies near the show ring, marked by a rare breed-specific paw print that faintly matches Felicity Fairbark's prized dog. Could this link her to the mystery unfolding?",
+      "target_name": "Felicity Fairbark - The Ambitious Handler",
+      "target_id": "felicity_fairbark_the_ambitious_handler",
+      "weight": "high"
+    },
+    {
+      "card_id": "b52875a0-2d3e-4ace-92d5-5845a97b4eae",
+      "card_type": "clue",
+      "card_title": "Judge's Slippery Footprint",
+      "murder_canon": {
+        "victim": "Harold Jenkins",
+        "location": "behind the main show ring tents"
+      },
+      "card_contents": "Behind the main tent, a muddy footprint with an eccentric sole pattern stands out. Its uniqueness suggests it might belong to Judge Maxwell 'Max' Pawsworthy, raising questions about his movements during the chaos.",
+      "target_name": "Maxwell 'Max' Pawsworthy - The Eccentric Judge",
+      "target_id": "maxwell_max_pawsworthy_the_eccentric_judge",
+      "weight": "mid"
+    },
+    {
+      "card_id": "971d774d-906d-4c76-a839-ede65a90106d",
+      "card_type": "game_card",
+      "card_title": "Polish and Ploy",
+      "card_contents": "Perform a quick grooming demonstration on an imaginary dog, boasting about Duchess's unbeatable shine. Then, secretly slip a whispered rumor about the judge’s bias to another player, planting seeds of doubt and stirring the pot.",
+      "linked_character": "Felicity Fairbark - The Ambitious Handler",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "18b5cb70-6435-4d03-b39c-acf8d6e7b6fd",
+      "card_type": "game_card",
+      "card_title": "Max's Mysterious Toast",
+      "card_contents": "Stand up and give a dramatic toast praising someone at the party—but make it suspiciously over-the-top and hint at a secret reason behind your admiration. Watch their reaction and see if anyone challenges your words!",
+      "linked_character": "Maxwell 'Max' Pawsworthy - The Eccentric Judge",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "debug": {
+    "bundle_stats": [],
+    "rejection_log": [],
+    "warning_log": [
+      {
+        "stage": "post_final_invariants_agent",
+        "reason": "deprecated_hidden_until_solved",
+        "message": "post_final_invariants_agent: card 97068b01-0bf7-4c62-8e43-8605e0f477fe still uses hidden_until_solved"
+      }
+    ],
+    "connectivity": [],
+    "gain_counts": {},
+    "strength_counts": {},
+    "state_change_flags": []
+  },
+  "storyBlurb": "Welcome to the tail-wagging chaos of the International Dog Show, where pooches strut their stuff and secrets sniff their way out! In a world where pedigree means everything, a mischievous mutt named Buster uncovers a scandal that could topple the canine kingdom. Amidst glittering collars, barking rivalries, and a suspiciously slippery judge, the dogs—and their humans—must solve the mystery before the grand prize goes to the wrong paws. Prepare for a howl-arious romp filled with slobbery kisses, wagging tails, and a mystery that’s anything but ruff!",
+  "storyEntities": {
+    "people": [],
+    "locations": [],
+    "items": []
+  },
+  "playability_report": {
+    "score_10": 10,
+    "score_percent": 100,
+    "grade": "A",
+    "pass": true,
+    "status": "ready_for_playtest",
+    "partial": false,
+    "step_name": "mvp_quality_gate_agent",
+    "issue_count": 0,
+    "issues": []
+  },
+  "story_title": "Paws and Claws: The Canine Caper",
+  "story_description": "Step into the glamorous world of the International Dog Show, where every bark hides a secret and every wag could lead to a clue. Join a pack of colorful characters—both human and canine—as they unravel a scandal that threatens to shake the doggy kingdom. Expect laughter, intrigue, and a tail-wagging good time!",
+  "story_rating": "PG — mild thematic elements",
+  "story_themes": "cozy,mystery,animal-themed,ensemble cast,lighthearted",
+  "world": "Set in the bustling, glittering heart of the International Dog Show, this world pulses with the energy of competition and camaraderie beneath the grandiose tents and polished arenas. Here, pedigree is a currency, and every wag of a tail is a statement of pride or a whisper of rivalry. The air is thick with the scent of fresh-cut grass, leather collars, and the faint undertone of nervous anticipation. Behind the gleaming trophies and perfectly coiffed coats lies a labyrinth of secrets, alliances, and whispered scandals. This is a place where the line between human ambition and canine instinct blurs, creating a vibrant tapestry of humor, mystery, and heart. The showground itself is a microcosm of society, where every kennel and ring holds stories waiting to be uncovered, and every bark might just be the key to unraveling the truth.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Judge Penelope Fairweather",
+        "summary": "A renowned and somewhat enigmatic judge known for her impeccable taste and a suspiciously slippery reputation. Her decisions can make or break careers, and her presence commands both respect and wariness among competitors."
+      },
+      {
+        "name": "Maxwell 'Max' Hargrove",
+        "summary": "The charismatic organizer of the International Dog Show, Max balances the chaos with a charming smile and a keen eye for detail. His deep love for dogs is matched only by his determination to keep the show’s reputation spotless."
+      },
+      {
+        "name": "Dr. Lila Thompson",
+        "summary": "The show’s trusted veterinarian, Lila is a calm and compassionate presence amidst the frenzy. Her knowledge of canine health and behavior often provides unexpected clues during the unfolding mystery."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Grand Arena",
+        "summary": "The heart of the International Dog Show, this vast, gleaming ring is where champions are crowned and reputations forged. Its polished floors and grandstands echo with cheers, barks, and the tension of competition."
+      },
+      {
+        "name": "The Kennel Row",
+        "summary": "A labyrinth of meticulously arranged kennels where dogs and their handlers prepare, rest, and sometimes scheme. The air here is a mix of excitement, nerves, and the occasional mischief, making it a hotbed for overheard secrets and furtive meetings."
+      },
+      {
+        "name": "The Judges’ Lounge",
+        "summary": "A secluded, elegantly furnished room reserved for judges and officials. Behind its closed doors, decisions are debated, alliances formed, and the undercurrents of scandal begin to surface."
+      },
+      {
+        "name": "The Trophy Room",
+        "summary": "A glittering vault of history and prestige, housing the grand prizes and mementos of past champions. The room’s polished surfaces and glass cases reflect the high stakes and deep desires that drive the competitors."
+      }
+    ],
+    "items": [
+      {
+        "name": "The Golden Collar Trophy",
+        "summary": "The coveted grand prize awarded to the top dog at the International Dog Show. More than just a symbol of victory, it represents status, legacy, and the intense rivalry that fuels the competition."
+      },
+      {
+        "name": "The Show Ledger",
+        "summary": "An official record book detailing entries, scores, and judge’s notes. Its pages hold the key to understanding the unfolding scandal and tracking the subtle shifts in the competition."
+      },
+      {
+        "name": "The Whisper Whistle",
+        "summary": "A discreet whistle used by handlers to communicate with their dogs during the show. Its subtle sound can influence performances and, in the wrong hands, become a tool for manipulation."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Felicity Fairbark - The Ambitious Handler",
+      "victim": "Harold Jenkins",
+      "location": "behind the main show ring tents",
+      "method": "poisoned dog treat",
+      "motive": "to eliminate a whistleblower threatening her reputation",
+      "opportunity": "Harold was alone inspecting the dogs' supplies during a break",
+      "window": "between the afternoon judging and the evening awards ceremony",
+      "window_start": "2:00 PM",
+      "window_end": "6:00 PM",
+      "murder_solution": "Harold Jenkins, a non-playable staff member and whistleblower, was poisoned by Felicity Fairbark using a tainted dog treat. Felicity feared Harold would expose her underhanded deals and secret rivalry with the judge, which could ruin her chances of winning the grand prize. She took advantage of Harold's solitary inspection of the dogs' supplies behind the main show ring tents during the break between judging and awards. The timing allowed her to act unnoticed, ensuring the scandal remained buried and her ambition intact."
+    },
+    "treasure": {
+      "object": "The Original Canine Championship Trophy",
+      "hiding_place": "inside the locked trophy display case in the judges' lounge",
+      "treasure_solution": "The Original Canine Championship Trophy is a symbol of true victory and integrity in the dog show world. Players can find it by investigating the judges' lounge and discovering the locked display case. Unlocking it reveals the trophy and clues about the show's history and the importance of fair competition, helping to contextualize the motives behind the murder and the stakes of the scandal."
+    }
+  },
+  "case_state": {
+    "suspects": [
+      {
+        "suspect_id": "felicity_fairbark_the_ambitious_handler",
+        "name": "Felicity Fairbark - The Ambitious Handler",
+        "title": "Felicity Fairbark - The Ambitious Handler",
+        "card_id": "cdbb10cb-171c-4b6e-bde9-5f54fbcd7688",
+        "playable": true,
+        "is_killer": true,
+        "baseline": {
+          "access": "possible",
+          "motive": "possible",
+          "means": "possible",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      },
+      {
+        "suspect_id": "maxwell_max_pawsworthy_the_eccentric_judge",
+        "name": "Maxwell 'Max' Pawsworthy - The Eccentric Judge",
+        "title": "Maxwell 'Max' Pawsworthy - The Eccentric Judge",
+        "card_id": "82d8f737-f09d-42c9-926f-ebc1fe187a8d",
+        "playable": true,
+        "is_killer": false,
+        "baseline": {
+          "access": "unknown",
+          "motive": "unknown",
+          "means": "unknown",
+          "alibi": "unknown"
+        },
+        "baseline_constraints": []
+      }
+    ],
+    "killer_id": "felicity_fairbark_the_ambitious_handler",
+    "killer_name": "Felicity Fairbark - The Ambitious Handler",
+    "victim_name": "Harold Jenkins",
+    "murder": {
+      "location": "behind the main show ring tents",
+      "method": "poisoned dog treat",
+      "motive": "to eliminate a whistleblower threatening her reputation",
+      "summary": "Harold Jenkins, a non-playable staff member and whistleblower, was poisoned by Felicity Fairbark using a tainted dog treat. Felicity feared Harold would expose her underhanded deals and secret rivalry with the judge, which could ruin her chances of winning the grand prize. She took advantage of Harold's solitary inspection of the dogs' supplies behind the main show ring tents during the break between judging and awards. The timing allowed her to act unnoticed, ensuring the scandal remained buried and her ambition intact.",
+      "opportunity": "Harold was alone inspecting the dogs' supplies during a break",
+      "window": "between the afternoon judging and the evening awards ceremony",
+      "window_start": "2:00 PM",
+      "window_end": "6:00 PM"
+    },
+    "treasure": {
+      "object": "The Original Canine Championship Trophy",
+      "hiding_place": "inside the locked trophy display case in the judges' lounge",
+      "concealment": "",
+      "discovery_path": ""
+    },
+    "state_progression": {
+      "viable_suspects": [
+        "felicity_fairbark_the_ambitious_handler",
+        "maxwell_max_pawsworthy_the_eccentric_judge"
+      ],
+      "eliminated_suspects": [],
+      "constraints": []
+    }
+  },
+  "structural_preflight": {
+    "pass": true,
+    "status": "ready",
+    "issue_count": 0,
+    "issues": []
+  },
+  "solvability_validation": {
+    "pass": true,
+    "problems": []
+  },
+  "mvp_quality_gate": {
+    "pass": true,
+    "status": "ready_for_playtest",
+    "top_causes": [],
+    "checks": {
+      "structural_clear": true,
+      "playability_clear": true,
+      "no_critical_issues": true
+    }
+  },
+  "card_surface": {
+    "counts_by_card_type": {
+      "story_meta": 4,
+      "person": 3,
+      "location": 4,
+      "item": 3,
+      "character": 2,
+      "solution": 2,
+      "secret": 5,
+      "story_act": 3,
+      "clue": 2,
+      "game_card": 2
+    },
+    "solution_reveal_count": 2,
+    "solution_roles": {
+      "murder": 1,
+      "treasure": 1
+    }
+  },
+  "host_ui_hints": {
+    "export_note": "No lobby or layout is defined in the builder JSON. The host app chooses which cards are lobby tiles, hand cards, or gated by act.",
+    "character_secrets": {
+      "count": 5,
+      "presentation_hint": "Usually not lobby collectibles - they are per-character private text. Hand out or reveal in-scene when a player earns it (not a shared lobby stack).",
+      "card_ids": [
+        "97068b01-0bf7-4c62-8e43-8605e0f477fe",
+        "240aee66-a399-4c09-b3b8-9c633064dd3b",
+        "d5f67746-86a5-458f-9df5-c8064c0e2003",
+        "54ccda75-cc7b-4bdc-ac43-f3abaea7407d",
+        "33ec7d6c-4695-4f03-81cb-eb9bd5156614"
+      ]
+    },
+    "finale_solutions": {
+      "murder_card_id": "ee7b1324-12af-4abd-99e8-766319a22f21",
+      "treasure_card_id": "cf0f01fe-dc5f-4df0-b058-54c750ade390",
+      "reveal": "host_reveal",
+      "presentation_hint": "Finale reveal: host triggers Reveal Secrets to post the murder solution, then the treasure solution."
+    },
+    "game_over": {
+      "suggested_host_sequence": [
+        "Act 3 story_act (final call to accuse).",
+        "Players vote or accuse.",
+        "Host clicks Reveal Secrets.",
+        "Reveal murder solution, then treasure solution.",
+        "Declare the mystery closed; optional debrief."
+      ],
+      "structural_markers": {
+        "solution_card_ids": [
+          "ee7b1324-12af-4abd-99e8-766319a22f21",
+          "cf0f01fe-dc5f-4df0-b058-54c750ade390"
+        ],
+        "murder_solution_card_id": "ee7b1324-12af-4abd-99e8-766319a22f21",
+        "treasure_solution_card_id": "cf0f01fe-dc5f-4df0-b058-54c750ade390"
+      },
+      "ui_suggestion": "Show a dedicated \"case closed\" / session-complete screen (or modal) after the treasure solution card is shown."
+    }
+  },
+  "costAccounting": {
+    "runId": "International Dog Show-1775464653951-mzklxd",
+    "requestCount": 0,
+    "requests": [],
+    "totals": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    }
+  }
+}

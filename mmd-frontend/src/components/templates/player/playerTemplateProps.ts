@@ -17,6 +17,7 @@ export type PlayerLobbyTemplateProps = {
   hostActions?: ActionItem[]
   hostHandlers?: RendererHandlers
   hostError?: string
+  exportActions?: ActionItem[]
 }
 
 export type PlayerProfileTemplateProps = {

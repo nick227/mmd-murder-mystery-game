@@ -38,6 +38,7 @@ export function runtimeStoryToPlayerApiView(input: {
   storyImage?: string | null
   game: {
     id: string
+    storyFile: string
     name: string
     creatorName?: string | null
     state: GameState
@@ -273,6 +274,7 @@ export function runtimeStoryToPlayerApiView(input: {
   return {
     gameId: input.game.id,
     gameName: input.game.name,
+    storyId: input.game.storyFile,
     creatorName: input.game.creatorName ?? null,
     storyTitle: input.story.title,
     storyBlurb: input.story.summary,

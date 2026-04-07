@@ -1,0 +1,286 @@
+{
+  "cards": [
+    {
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Backyard BBQ Massacre",
+      "act": 1,
+      "card_id": "934220fc-cffa-49aa-95cc-f52d42ecf88c"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Join us for the annual Backyard BBQ where summer fun turns into a thrilling mystery. As neighbors gather for a cookout, secrets simmer beneath the surface, and trust becomes the rarest ingredient. Can you uncover the truth before the night ends in chaos?",
+      "act": 1,
+      "card_id": "f1dd817c-4e4b-4f38-bedb-a126ae3396c7"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "PG-13 — moderate suspense and mild violence references",
+      "act": 1,
+      "card_id": "6043ce1e-068c-4656-8f8a-d5f3157b4b8a"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "summer, small town, outdoor, suspense, ensemble cast, food-themed",
+      "act": 1,
+      "card_id": "d442da0c-1ac9-420b-b1ef-002098d48f19"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Mayor Evelyn Hart",
+      "card_contents": "The charismatic and protective mayor of Maple Hollow, Evelyn has long championed the Backyard BBQ as a symbol of community unity. Beneath her warm exterior lies a steely resolve to keep the town's darker secrets buried, making her both an ally and an enigma in the unfolding chaos.",
+      "act": 1,
+      "card_id": "2eb2f4cc-34bb-4e0b-a12e-0b9558807c7a"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Tommy Briggs",
+      "card_contents": "Local butcher and grill master extraordinaire, Tommy is known for his secret sauce recipe that draws crowds every year. His jovial demeanor masks a troubled past, and his knowledge of the town's underbelly might hold keys to the night's sinister turn.",
+      "act": 1,
+      "card_id": "1b8711eb-0b3f-4583-86fd-eae02861c492"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Sheriff Linda Crane",
+      "card_contents": "Maple Hollow's no-nonsense sheriff, Linda is skeptical of the town's idyllic image. Her keen instincts and investigative experience position her as the first line of defense against the creeping dread that unfolds during the BBQ.",
+      "act": 1,
+      "card_id": "f3bfa984-9789-49eb-a401-31a11f32d8fa"
+    },
+    {
+      "card_type": "location",
+      "card_title": "Maple Hollow Community Park",
+      "card_contents": "The sprawling green heart of the town, where the annual Backyard BBQ takes place. Its picnic tables and playground equipment are familiar landmarks, but under the flickering tiki torches, the park transforms into a labyrinth of suspicion and hidden dangers.",
+      "act": 1,
+      "card_id": "effa9ed3-368a-44b1-bfd5-9876ab495403"
+    },
+    {
+      "card_type": "location",
+      "card_title": "Briggs Butcher Shop",
+      "card_contents": "Tommy Briggs' family-run butcher shop, a rustic storefront filled with the aroma of cured meats and spices. The shop holds more than just meat; it's a repository of whispered rumors and clues tied to the secret sauce's sinister nature.",
+      "act": 1,
+      "card_id": "b43d8986-34f7-47d9-a56f-df359edbaf0d"
+    },
+    {
+      "card_type": "location",
+      "card_title": "The Hollow Gazette Office",
+      "card_contents": "Home to the town's newspaper, this modest brick building is a trove of local history and recent reports. Investigating old articles and editorials here can reveal patterns and secrets that explain the BBQ's dark evolution.",
+      "act": 1,
+      "card_id": "c7483d84-c4dd-45d0-b79b-aa6cf9fd00f6"
+    },
+    {
+      "card_type": "item",
+      "card_title": "Tommy's Secret Sauce",
+      "card_contents": "A tangy, smoky condiment that has become the centerpiece of the BBQ. Its recipe is fiercely guarded, but its mysterious ingredients may be the catalyst for the night's deadly events.",
+      "act": 1,
+      "card_id": "aa9a62a6-e889-4aa3-a846-64e2c8f4604b"
+    },
+    {
+      "card_type": "item",
+      "card_title": "The Tiki Torches",
+      "card_contents": "Line the perimeter of the BBQ area, their flickering flames casting both light and shadows. They serve as silent witnesses to the night's unfolding drama and are sometimes used to signal or conceal movements.",
+      "act": 1,
+      "card_id": "eae24d4a-b9cf-4b74-b6cc-4e9c293a99b4"
+    },
+    {
+      "card_type": "item",
+      "card_title": "Maple Hollow Yearbook 1998",
+      "card_contents": "An old community yearbook found in the Gazette Office archives, containing photographs and notes that hint at past incidents eerily similar to the current BBQ massacre, suggesting a cyclical curse or long-buried vendetta.",
+      "act": 1,
+      "card_id": "a8d9a709-ff9c-4295-815d-39027436b96e"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Maggie Turner - The Ambitious Baker",
+      "card_contents": "Maggie Turner is the town's beloved pastry chef, known for her award-winning pies and infectious enthusiasm for all things sweet. This year, she brought her famous cherry cobbler to the BBQ, hoping to impress the neighbors and secure a spot in the upcoming county fair. But beneath her friendly smile, Maggie harbors resentment toward the BBQ committee for overlooking her bakery in favor of larger chains. She’s been seen arguing quietly with the event organizer earlier in the day. Could her desire for recognition have pushed her to sabotage the secret sauce?\n\nMotives to suspect: Overlooked ambition, recent disputes with organizers, protective of her culinary reputation.",
+      "card_id": "3f9a2af7-71d7-474c-b9d0-d6fe15bf7a59",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Backyard BBQ Massacre-1775562733371-mjhdcp/character/3f9a2af7-71d7-474c-b9d0-d6fe15bf7a59.png"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Frank Dawson - The Retired Firefighter",
+      "card_contents": "Frank Dawson is a gruff but well-meaning retired firefighter who has lived in Maple Hollow for over 30 years. Known for his legendary grilling skills, Frank took charge of the BBQ’s main course this year, proudly wielding his custom smoker. However, some neighbors whisper about his recent financial troubles and a bitter feud with a local developer threatening to buy his property. Frank’s temper has been shorter than usual, and he was seen lurking near the secret sauce cooler just before the chaos began.\n\nMotives to suspect: Financial stress, territorial disputes, suspicious behavior around the food.",
+      "card_id": "df10aaab-1cf3-456b-98c5-e0470f7eb54e",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Backyard BBQ Massacre-1775562733371-mjhdcp/character/df10aaab-1cf3-456b-98c5-e0470f7eb54e.png"
+    },
+    {
+      "card_type": "solution",
+      "role": "murder",
+      "card_title": "Murder Solution",
+      "card_contents": "Frank Dawson, burdened by financial troubles and a bitter feud over his property, poisoned the secret sauce to sabotage the event and create chaos. He took advantage of the moment when the sauce cooler was unattended to slip poison into it. Tom Harris, a local community member who was not a playable character but present at the BBQ, consumed the tainted sauce and died as a result. Frank's proximity to the secret sauce cooler and his suspicious behavior gave him the opportunity to commit the murder during the early evening feast.",
+      "reveal": "host_reveal",
+      "hidden": true,
+      "card_id": "3eb583b9-8042-4b9f-bb38-849a238f0fc9"
+    },
+    {
+      "card_type": "solution",
+      "role": "treasure",
+      "card_title": "Treasure Solution",
+      "card_contents": "Frank's old firefighter badge symbolizes his past and the pride he once held, contrasting with his current troubles. It was hidden inside his custom smoker, the centerpiece of the BBQ, and could be found by carefully inspecting the smoker after the murder. Discovering the badge provides insight into Frank's character and possible motives, helping players piece together the mystery.",
+      "reveal": "host_reveal",
+      "hidden": true,
+      "card_id": "f919be28-2923-4bee-82eb-cd03bdadc79b"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "My Darkest Secret",
+      "secret_type": "motive",
+      "card_contents": "The truth is, I am the one who killed Tom Harris at near the secret sauce cooler. Frank Dawson, burdened by financial troubles and a bitter feud over his property, poisoned the secret sauce to sabotage the event and create chaos. He took advantage of the moment when the sauce cooler was unattended to slip poison into it. Tom Harris, a local community member who was not a playable character but present at the BBQ, consumed the tainted sauce and died as a result. Frank's proximity to the secret sauce cooler and his suspicious behavior gave him the opportunity to commit the murder during the early evening feast.",
+      "linked_character": "Frank Dawson - The Retired Firefighter",
+      "act": 3,
+      "card_id": "19b55856-06c2-45d5-8d4e-9e2a08f0222a"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Secret Recipe Dispute with Victim",
+      "secret_type": "motive",
+      "card_contents": "Maggie Turner wanted the victim silenced because the victim threatened to expose that Maggie plagiarized the secret BBQ sauce recipe, which would ruin her budding reputation and bakery business.",
+      "linked_character": "Maggie Turner - The Ambitious Baker",
+      "card_id": "38691bb2-4840-41ea-98bb-73ff2afd1f92",
+      "act": 1
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Late Night Access to the Grill Area",
+      "secret_type": "access",
+      "card_contents": "Maggie was seen lingering near the grill area late at night when most guests had left, giving her opportunity to tamper with the food or ingredients unnoticed.",
+      "linked_character": "Maggie Turner - The Ambitious Baker",
+      "card_id": "c7c77018-56f6-46f6-ad45-4547295d390f",
+      "act": 2
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Late Night Access to the Grill Area",
+      "secret_type": "access",
+      "card_contents": "Frank was seen near the grill area alone late at night, despite the cookout officially ending hours earlier, suggesting he had access to the scene when others did not.",
+      "linked_character": "Frank Dawson - The Retired Firefighter",
+      "card_id": "23a5e6e7-56c1-48d3-b520-d36f4d191eb7",
+      "act": 3
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Financial Pressure from Unpaid Medical Bills",
+      "secret_type": "motive",
+      "card_contents": "Frank wanted the victim silenced because the victim had refused to cover medical bills for Frank's injured niece, causing Frank significant financial and emotional stress.",
+      "linked_character": "Frank Dawson - The Retired Firefighter",
+      "card_id": "2be63ce3-94d6-45b5-8355-82f84ba4e909",
+      "act": 1
+    },
+    {
+      "card_title": "Tensions Rise at Maple Hollow Community Park",
+      "card_contents": "The annual Backyard BBQ begins under the warm glow of tiki torches at Maple Hollow Community Park, but the festive atmosphere quickly sours. Maggie Turner, the ambitious baker, was overheard arguing with the event organizer about her exclusion from the official menu. Meanwhile, Frank Dawson, the retired firefighter, proudly mans the smoker but seems distracted, occasionally glancing toward the secret sauce cooler. Whispers circulate about the secret sauce's ingredients and whether someone tampered with it. The community's beloved event now carries a shadow of suspicion—who would want to spoil the feast, and why?",
+      "act": 1,
+      "card_id": "f38856a9-21eb-4c51-b205-ce2a9b8ab5ea",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Backyard BBQ Massacre-1775562733371-mjhdcp/story_act/f38856a9-21eb-4c51-b205-ce2a9b8ab5ea.png"
+    },
+    {
+      "card_title": "Conflicting Clues and Suspicious Movements",
+      "card_contents": "New information complicates the mystery: Frank Dawson was seen near the secret sauce cooler shortly before guests began falling ill, but Maggie Turner insists she saw him arguing with a mysterious figure near Briggs Butcher Shop earlier that day. Meanwhile, rumors surface about Frank's financial troubles and a heated dispute with a local developer, suggesting a motive beyond the BBQ itself. Yet Maggie's quiet resentment of the event organizers and her protective stance over her bakery's reputation hint at deeper grievances. The community is divided—are these tensions connected, or are they red herrings obscuring the true culprit?",
+      "act": 2,
+      "card_id": "427237f1-d38a-445b-942c-cc3c60edaa06",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Backyard BBQ Massacre-1775562733371-mjhdcp/story_act/427237f1-d38a-445b-942c-cc3c60edaa06.png"
+    },
+    {
+      "card_title": "Closing in on the Truth, or Deeper into Doubt?",
+      "card_contents": "As suspicion tightens, the Hollow Gazette Office reveals a series of past disputes and unexplained incidents linked to the BBQ committee, adding layers to the mystery. Maggie Turner’s recent confrontations and Frank Dawson’s erratic behavior both stand out, but neither narrative fully accounts for the strange events surrounding the secret sauce. The community must decide: is this a personal vendetta, a desperate act of survival, or something more insidious? With conflicting motives and overlapping alibis, the truth remains elusive, forcing everyone to question who they can truly trust as the night unfolds.",
+      "act": 3,
+      "card_id": "7c314122-60e7-4849-b9d5-a3abad57710f",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Backyard BBQ Massacre-1775562733371-mjhdcp/story_act/7c314122-60e7-4849-b9d5-a3abad57710f.png"
+    },
+    {
+      "card_title": "Sweet Sabotage Whisper",
+      "card_contents": "Find a quiet moment to slip behind the BBQ setup and secretly swap a small ingredient from the secret sauce container with a pinch of your own cherry cobbler spice mix. Then, casually mingle and drop a sly hint to another guest that the sauce might have been tampered with—watch the paranoia rise while you keep your hands clean!",
+      "linked_character": "Maggie Turner - The Ambitious Baker",
+      "target_character": null,
+      "target_character_id": null,
+      "card_id": "935c447a-6a40-437d-b102-b10132e4c665",
+      "card_type": "game_card"
+    },
+    {
+      "card_title": "Grill Master’s Secret",
+      "card_contents": "Step up to the smoker and boast loudly about your legendary BBQ skills. Then, secretly challenge another guest to a quick mini-competition: whoever can name the most ingredients in your secret sauce wins a small prize. Use this to pry out gossip or distract from your own suspicious behavior.",
+      "linked_character": "Frank Dawson - The Retired Firefighter",
+      "target_character": null,
+      "target_character_id": null,
+      "card_id": "7debea56-c30b-4dbe-8877-7d693bfce987",
+      "card_type": "game_card"
+    }
+  ],
+  "storyBlurb": "Welcome to the annual Backyard BBQ, where the grill sizzles and the laughter masks a creeping dread. In this small town, the summer cookout turns into a nightmare as the guests discover that the secret sauce is more sinister than anyone imagined. Beneath the flickering tiki torches and the scent of charred meat, a twisted game unfolds, pitting neighbor against neighbor in a chaotic fight for survival. With every bite, paranoia grows, and the line between friend and foe blurs. Can anyone escape the madness of the Backyard BBQ Massacre, or will this feast be their last?",
+  "story_title": "Backyard BBQ Massacre",
+  "story_description": "Join us for the annual Backyard BBQ where summer fun turns into a thrilling mystery. As neighbors gather for a cookout, secrets simmer beneath the surface, and trust becomes the rarest ingredient. Can you uncover the truth before the night ends in chaos?",
+  "story_rating": "PG-13 — moderate suspense and mild violence references",
+  "story_themes": "summer, small town, outdoor, suspense, ensemble cast, food-themed",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Backyard BBQ Massacre-1775562733371-mjhdcp/story/story.png",
+  "world": "Nestled in the heart of the American Midwest, the town of Maple Hollow is a sun-drenched enclave where the warmth of summer belies a simmering undercurrent of secrets. Streets lined with white picket fences and sprawling oak trees frame the familiar sights of porch swings and garden gnomes, but as twilight descends, the gentle glow of tiki torches casts long, unsettling shadows. The annual Backyard BBQ is more than a community tradition; it's a crucible where neighborly facades melt away, revealing fractures beneath the surface. The air is thick with the scent of smoky mesquite and sweet glaze, yet a palpable tension twists through the laughter, hinting at the darker ingredients simmering in the secret sauce. In this small town, the gathering place becomes a stage for paranoia and survival, where every shared plate could be a trap and every smile a mask.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Mayor Evelyn Hart",
+        "summary": "The charismatic and protective mayor of Maple Hollow, Evelyn has long championed the Backyard BBQ as a symbol of community unity. Beneath her warm exterior lies a steely resolve to keep the town's darker secrets buried, making her both an ally and an enigma in the unfolding chaos."
+      },
+      {
+        "name": "Tommy Briggs",
+        "summary": "Local butcher and grill master extraordinaire, Tommy is known for his secret sauce recipe that draws crowds every year. His jovial demeanor masks a troubled past, and his knowledge of the town's underbelly might hold keys to the night's sinister turn."
+      },
+      {
+        "name": "Sheriff Linda Crane",
+        "summary": "Maple Hollow's no-nonsense sheriff, Linda is skeptical of the town's idyllic image. Her keen instincts and investigative experience position her as the first line of defense against the creeping dread that unfolds during the BBQ."
+      }
+    ],
+    "locations": [
+      {
+        "name": "Maple Hollow Community Park",
+        "summary": "The sprawling green heart of the town, where the annual Backyard BBQ takes place. Its picnic tables and playground equipment are familiar landmarks, but under the flickering tiki torches, the park transforms into a labyrinth of suspicion and hidden dangers."
+      },
+      {
+        "name": "Briggs Butcher Shop",
+        "summary": "Tommy Briggs' family-run butcher shop, a rustic storefront filled with the aroma of cured meats and spices. The shop holds more than just meat; it's a repository of whispered rumors and clues tied to the secret sauce's sinister nature."
+      },
+      {
+        "name": "The Hollow Gazette Office",
+        "summary": "Home to the town's newspaper, this modest brick building is a trove of local history and recent reports. Investigating old articles and editorials here can reveal patterns and secrets that explain the BBQ's dark evolution."
+      }
+    ],
+    "items": [
+      {
+        "name": "Tommy's Secret Sauce",
+        "summary": "A tangy, smoky condiment that has become the centerpiece of the BBQ. Its recipe is fiercely guarded, but its mysterious ingredients may be the catalyst for the night's deadly events."
+      },
+      {
+        "name": "The Tiki Torches",
+        "summary": "Line the perimeter of the BBQ area, their flickering flames casting both light and shadows. They serve as silent witnesses to the night's unfolding drama and are sometimes used to signal or conceal movements."
+      },
+      {
+        "name": "Maple Hollow Yearbook 1998",
+        "summary": "An old community yearbook found in the Gazette Office archives, containing photographs and notes that hint at past incidents eerily similar to the current BBQ massacre, suggesting a cyclical curse or long-buried vendetta."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Frank Dawson - The Retired Firefighter",
+      "victim": "Tom Harris",
+      "location": "near the secret sauce cooler",
+      "method": "poisoning in the secret sauce",
+      "motive": "financial stress and territorial disputes",
+      "opportunity": "Frank was seen lurking near the secret sauce cooler just before the chaos",
+      "window": "early evening during the BBQ feast",
+      "window_start": "early evening",
+      "window_end": "during the BBQ feast",
+      "murder_solution": "Frank Dawson, burdened by financial troubles and a bitter feud over his property, poisoned the secret sauce to sabotage the event and create chaos. He took advantage of the moment when the sauce cooler was unattended to slip poison into it. Tom Harris, a local community member who was not a playable character but present at the BBQ, consumed the tainted sauce and died as a result. Frank's proximity to the secret sauce cooler and his suspicious behavior gave him the opportunity to commit the murder during the early evening feast."
+    },
+    "treasure": {
+      "object": "Frank Dawson's old firefighter badge",
+      "hiding_place": "inside the custom smoker",
+      "treasure_solution": "Frank's old firefighter badge symbolizes his past and the pride he once held, contrasting with his current troubles. It was hidden inside his custom smoker, the centerpiece of the BBQ, and could be found by carefully inspecting the smoker after the murder. Discovering the badge provides insight into Frank's character and possible motives, helping players piece together the mystery."
+    }
+  }
+}

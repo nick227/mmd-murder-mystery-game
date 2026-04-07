@@ -1,4 +1,4 @@
-import { FeedItem, HostApiGame, ScreenData } from '../data/types'
+import { ActionItem, FeedItem, HostApiGame, ScreenData } from '../data/types'
 import { mapApiEventToProgressFeedItem } from '../data/screenData/playerScreenModel'
 import { emptyScreenData } from '../data/mock'
 import { storyHeroImage } from '../utils/storyHeroImage'
@@ -55,6 +55,22 @@ export function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData 
   if (Array.isArray(game.feed) && game.feed.length) {
     feed.push(...game.feed.slice(-20).map(mapApiEventToProgressFeedItem).filter((it): it is FeedItem => Boolean(it)))
   }
+
+  const gameActions: ActionItem[] = [
+    { id: 'player-links', label: 'Player Links', kind: 'secondary' },
+    { id: 'download-cards', label: 'Download Cards', kind: 'secondary' },
+    { id: 'download-cards-pdf', label: 'Download PDF (Print)', kind: 'secondary' },
+    ...(game.state === 'SCHEDULED'
+      ? [
+          { id: 'start', label: 'Start Game', kind: 'primary' as const },
+        ]
+      : game.state === 'PLAYING'
+      ? [
+          { id: 'next', label: `Next Act (${game.currentAct + 1})`, kind: 'primary' as const, disabled: game.currentAct >= finalAct },
+          { id: 'reveal', label: 'Reveal Secrets', kind: 'secondary' as const, disabled: game.currentAct < finalAct },
+        ]
+      : []),
+  ]
 
   return {
     ...emptyScreenData,
@@ -128,23 +144,7 @@ export function buildHostScreen(game: HostApiGame, apiBase: string): ScreenData 
       recipients: [],
       canSend: false,
     },
-    gameActions:
-      game.state === 'SCHEDULED'
-        ? [
-            { id: 'player-links', label: 'Player Links', kind: 'secondary' },
-            { id: 'start', label: 'Start Game', kind: 'primary' }
-          ]
-        : game.state === 'PLAYING'
-        ? [
-            { id: 'player-links', label: 'Player Links', kind: 'secondary' },
-            { id: 'next', label: `Next Act (${game.currentAct + 1})`, kind: 'primary', disabled: game.currentAct >= finalAct },
-            { id: 'reveal', label: 'Reveal Secrets', kind: 'secondary', disabled: game.currentAct < finalAct },
-          ]
-        : game.state === 'REVEAL'
-        ? [
-            { id: 'player-links', label: 'Player Links', kind: 'secondary' },
-          ]
-        : [],
+    gameActions,
     hostInfo: {
       gameId: game.id,
       storyTitle: game.storyTitle ?? game.name,

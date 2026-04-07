@@ -33,6 +33,7 @@ export function LobbySurface({ data, handlers, joined, currentCharacterId, hostA
       currentCharacterId={currentCharacterId}
       composer={data.composer}
       handlers={handlers}
+      exportActions={data.gameActions.filter(action => action.id === 'download-cards' || action.id === 'download-cards-pdf')}
       hostActions={hostActions}
       hostHandlers={hostHandlers}
       hostError={hostError}

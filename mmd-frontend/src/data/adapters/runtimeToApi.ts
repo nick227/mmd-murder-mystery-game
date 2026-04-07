@@ -18,6 +18,18 @@ function unlockedCardsForAct(cards: RuntimeCard[], currentAct: number) {
   return cards.filter(c => c.act <= currentAct)
 }
 
+function maxActForStory(story: RuntimeStory): number {
+  let maxAct = 1
+  for (const key of Object.keys(story.stageByAct ?? {})) {
+    const n = Number(key)
+    if (Number.isInteger(n) && n > maxAct) maxAct = n
+  }
+  for (const card of story.cards) {
+    if (typeof card.act === 'number' && Number.isFinite(card.act) && card.act > maxAct) maxAct = card.act
+  }
+  return maxAct
+}
+
 export function runtimeStoryToHostApiGame(input: {
   story: RuntimeStory
   gameId: string
@@ -62,6 +74,7 @@ export function runtimeStoryToHostApiGame(input: {
     startedAt: input.state === 'SCHEDULED' ? null : new Date().toISOString(),
     state: input.state,
     currentAct: input.currentAct,
+    maxAct: maxActForStory(input.story),
     locationText: input.locationText ?? null,
     stageTitle: stage?.title ?? null,
     stageText,
@@ -163,6 +176,7 @@ export function runtimeStoryToPlayerApiView(input: {
   return {
     gameId: input.gameId,
     gameName: input.gameName,
+    storyId: input.story.id,
     gameState: input.state,
     currentAct: input.currentAct,
     scheduledTime: input.scheduledTime,

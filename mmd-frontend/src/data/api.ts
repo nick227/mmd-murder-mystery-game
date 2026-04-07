@@ -1,4 +1,4 @@
-import type { ApiGameSummary, ApiPublicGameView, HostApiGame, PlayerApiView, PostMovePayload, StoryListItem } from './types'
+import type { ApiGameSummary, ApiPublicGameView, FullStoryApiResponse, HostApiGame, PlayerApiView, PostMovePayload, StoryListItem } from './types'
 
 type StreamStatus = 'connected' | 'disconnected'
 
@@ -35,6 +35,10 @@ function subscribeToRoomStream(input: {
 
 export async function fetchStories(apiBase: string) {
   return request<StoryListItem[]>(buildApiUrl(apiBase, '/api/v1/stories'))
+}
+
+export async function fetchStoryById(apiBase: string, storyId: string) {
+  return request<FullStoryApiResponse>(buildApiUrl(apiBase, `/api/v1/stories/${encodeURIComponent(storyId)}`))
 }
 
 export async function createGame(apiBase: string, body: {

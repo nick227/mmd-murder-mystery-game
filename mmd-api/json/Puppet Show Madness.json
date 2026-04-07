@@ -1,0 +1,360 @@
+{
+  "cards": [
+    {
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Puppet Show Madness",
+      "act": 1,
+      "card_id": "c96e13a8-dbdc-4f99-9336-b62f4a5629ab"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Step into the whimsical world of Stringville's Puppet Theater for the annual 'Madness Marathon,' where puppets and puppeteers lose control and secrets unravel. When the star puppet vanishes mid-performance, guests must navigate slapstick chaos and witty banter to uncover the culprit before the curtain falls. Expect laughter, tangled strings, and a riotous mystery that blurs the line between man and marionette.",
+      "act": 1,
+      "card_id": "052b28ac-b969-4eac-8d01-d05a4b154e99"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "PG-13 — mild language, comedic chaos",
+      "act": 1,
+      "card_id": "1817cd99-fd8e-43ac-a729-3fe828369f26"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "comedy, mystery, puppetry, ensemble cast, slapstick, quirky town",
+      "act": 1,
+      "card_id": "35e26eed-e700-4c0b-80e4-016196e2f767"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Eloise Marwood",
+      "card_contents": "The enigmatic and sharp-witted theater manager whose knowledge of every puppet's quirks is rivaled only by her secretive past. Eloise balances the chaos of the Madness Marathon with a cool demeanor, but her eyes betray a deeper connection to the puppets than anyone suspects.",
+      "act": 1,
+      "card_id": "effa3e10-13a9-45ec-bea4-926cd66a0b4e"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Gideon Tink",
+      "card_contents": "An eccentric puppeteer known for his slapstick style and uncanny ability to coax life from even the most stubborn marionettes. Gideon's workshop is a cluttered labyrinth of strings and gears, and his loyalty to the theater is as unwavering as his penchant for practical jokes.",
+      "act": 1,
+      "card_id": "7a2168c3-fbbf-47c1-9ae7-2a23a8b8695f"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Mayor Lila Featherstone",
+      "card_contents": "Stringville's charismatic mayor who champions the Puppet Theater as the town's cultural soul. She is often seen mingling with the crowd during the Madness Marathon, her laughter ringing out as she deftly navigates the night's unpredictable antics.",
+      "act": 1,
+      "card_id": "5c13b7f1-40b6-4abb-a927-28a6d2629822"
+    },
+    {
+      "card_type": "location",
+      "card_title": "The Puppet Theater",
+      "card_contents": "A storied playhouse with creaking wooden floors and faded murals depicting legendary puppet tales. Its labyrinthine backstage is a maze of ropes, trapdoors, and shadowy corners where secrets hide and the vanished star puppet was last seen.",
+      "act": 1,
+      "card_id": "f8613ad7-a913-43a8-aea0-1dd604ce96e0"
+    },
+    {
+      "card_type": "location",
+      "card_title": "Gideon’s Workshop",
+      "card_contents": "A chaotic sanctuary filled with half-finished puppets, intricate mechanical parts, and the scent of wood shavings. This is where puppets are born and repaired, and where clues to the star puppet's disappearance might be hidden among the clutter.",
+      "act": 1,
+      "card_id": "6c59ee19-7f13-4930-96cb-f025340c69f2"
+    },
+    {
+      "card_type": "location",
+      "card_title": "The Stringville Market Square",
+      "card_contents": "A bustling hub of colorful stalls and lively townsfolk, often the site of impromptu puppet performances and gossip. The square's vibrant energy contrasts with the tense mystery unfolding at the theater, offering a glimpse into the community's pulse.",
+      "act": 1,
+      "card_id": "a5d53864-e0f7-4cee-944f-91ad61ff19b1"
+    },
+    {
+      "card_type": "item",
+      "card_title": "The Star Puppet",
+      "card_contents": "The centerpiece marionette of the Madness Marathon, renowned for its lifelike movements and mysterious craftsmanship. Its sudden disappearance mid-show triggers the chaos and investigation that ensues.",
+      "act": 1,
+      "card_id": "cc206796-6a49-4c79-a7f7-62fe8129845b"
+    },
+    {
+      "card_type": "item",
+      "card_title": "The Tangle of Strings",
+      "card_contents": "A legendary bundle of enchanted puppet strings rumored to grant puppets a semblance of free will. Kept under lock and key, these strings are both a prized artifact and a potential motive in the night's unfolding drama.",
+      "act": 1,
+      "card_id": "be05aced-da77-4660-b642-37ba26e37e69"
+    },
+    {
+      "card_type": "item",
+      "card_title": "The Director’s Ledger",
+      "card_contents": "A worn notebook containing rehearsal notes, puppet maintenance records, and cryptic annotations. This ledger holds vital clues about the relationships and tensions behind the scenes of the Puppet Theater.",
+      "act": 1,
+      "card_id": "8b75624b-31de-49b0-a062-361c67397636"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Lola Stringfellow - The Eccentric Puppeteer",
+      "card_contents": "Lola Stringfellow is the Puppet Theater's most flamboyant puppeteer, known for her wild costumes and unpredictable antics. With a sharp wit and a penchant for slapstick humor, Lola thrives in the chaotic madness of the annual 'Madness Marathon.' Rumor has it she’s been at odds with the star puppet’s creator over creative control, and some whisper she resents the puppet’s sudden rise to fame. Lola’s motive might be jealousy or a desperate bid to reclaim the spotlight, but her quirky charm and tangled strings make her both a delightful ally and a suspicious suspect.",
+      "card_id": "57ed6343-eeb4-48d0-9652-990243246eb8",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Puppet Show Madness-1775566884607-88afde/character/57ed6343-eeb4-48d0-9652-990243246eb8.png"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Mr. Patches - The Mysterious Marionette Master",
+      "card_contents": "Mr. Patches is a shadowy figure who rarely speaks but commands attention with his eerie marionettes that seem almost alive. As the theater’s longtime caretaker and puppet repairman, he knows every secret hidden in the backstage shadows. Some say he has a mystical connection to the puppets, and others suspect he’s hiding a grudge against the star puppet for overshadowing his own creations. His silent demeanor and cryptic smiles mask a mind full of secrets, making him a compelling suspect in the star puppet’s mysterious disappearance.",
+      "card_id": "5dbceaf7-6a2c-4cf8-b720-56a87d2d1e96",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Puppet Show Madness-1775566884607-88afde/character/5dbceaf7-6a2c-4cf8-b720-56a87d2d1e96.png"
+    },
+    {
+      "card_type": "solution",
+      "role": "murder",
+      "card_title": "Murder Solution",
+      "card_contents": "Mr. Patches, harboring resentment over the star puppet's fame eclipsing his own creations, sabotaged the puppet's internal mechanisms backstage during the chaotic Madness Marathon. Using his intimate knowledge of the puppet's engineering, he caused a fatal mechanical failure that led to the star puppet's disappearance mid-performance. The commotion and slapstick antics on stage provided the perfect cover for his actions, allowing him to move unnoticed behind the scenes. His silent demeanor and backstage access gave him the opportunity to execute the sabotage without immediate suspicion.",
+      "reveal": "host_reveal",
+      "hidden": true,
+      "card_id": "3cc4e36f-77bf-4815-a413-248f094f91f1"
+    },
+    {
+      "card_type": "solution",
+      "role": "treasure",
+      "card_title": "Treasure Solution",
+      "card_contents": "The Original Marionette Blueprint reveals the intricate design and secrets behind the star puppet's unique autonomy, crucial for understanding the sabotage. Players can discover it by thoroughly searching the puppet repair bench backstage, especially the hidden compartments known only to the caretaker. Finding the blueprint allows players to piece together how the mechanical failure was engineered, providing key evidence to solve the mystery.",
+      "reveal": "host_reveal",
+      "hidden": true,
+      "card_id": "453e4bcb-771d-4f26-b58f-e4643d73a8a6"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "My Darkest Secret",
+      "secret_type": "motive",
+      "card_contents": "The truth is, I am the one who killed The Star Puppet at Backstage of the Puppet Theater. Mr. Patches, harboring resentment over the star puppet's fame eclipsing his own creations, sabotaged the puppet's internal mechanisms backstage during the chaotic Madness Marathon. Using his intimate knowledge of the puppet's engineering, he caused a fatal mechanical failure that led to the star puppet's disappearance mid-performance. The commotion and slapstick antics on stage provided the perfect cover for his actions, allowing him to move unnoticed behind the scenes. His silent demeanor and backstage access gave him the opportunity to execute the sabotage without immediate suspicion.",
+      "linked_character": "Mr. Patches - The Mysterious Marionette Master",
+      "act": 3,
+      "card_id": "ae23126f-06fe-4902-abad-5af8d62cd404"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Backstage Key Possession",
+      "secret_type": "access",
+      "card_contents": "Lola was found in possession of a backstage key that only a few trusted crew members have, giving her access to the star puppet's storage area where it vanished.",
+      "linked_character": "Lola Stringfellow - The Eccentric Puppeteer",
+      "card_id": "1e8931ea-e9ba-4e6a-b80c-82905d58605e",
+      "act": 1
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Desire to Lead the Troupe",
+      "secret_type": "motive",
+      "card_contents": "Lola wanted the star puppet removed because she was jealous of its popularity and aimed to become the troupe's leading puppeteer, hoping to control the show's direction and fame.",
+      "linked_character": "Lola Stringfellow - The Eccentric Puppeteer",
+      "card_id": "176570f9-ca14-4c35-9123-b8bfdb383e82",
+      "act": 2
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Secret Backstage Key",
+      "secret_type": "access",
+      "card_contents": "Mr. Patches possesses a duplicate backstage key that allows him unrestricted access to all puppet storage areas, including the star puppet's private dressing room, even during locked hours.",
+      "linked_character": "Mr. Patches - The Mysterious Marionette Master",
+      "card_id": "45c0ce8e-ea6c-4d03-a49e-78c476010bc7",
+      "act": 3
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Desire to Control the Show's Direction",
+      "secret_type": "motive",
+      "card_contents": "Mr. Patches wanted the star puppet removed because he desired full creative control over the Puppet Theater's performances and believed the star puppet's popularity overshadowed his own influence, threatening his position as the lead marionette master.",
+      "linked_character": "Mr. Patches - The Mysterious Marionette Master",
+      "card_id": "06c0efe3-663e-47ce-b1c5-ac74633137d5",
+      "act": 1
+    },
+    {
+      "card_title": "Lola's Patchwork Glove",
+      "card_contents": "A brightly colored glove adorned with various fabric patches and tiny bells sewn into the fingertips. It jingles softly when moved and smells faintly of sawdust and paint.",
+      "linked_character": "Lola Stringfellow - The Eccentric Puppeteer",
+      "card_id": "82977996-f04c-4276-8ec9-7d190c29999b",
+      "card_type": "item",
+      "act": 1
+    },
+    {
+      "card_title": "Secret Script Pages",
+      "card_contents": "Several crumpled pages covered in handwritten notes and doodles, featuring alternative puppet dialogue and stage directions. Some lines are crossed out, others circled with urgent annotations in red ink.",
+      "linked_character": "Lola Stringfellow - The Eccentric Puppeteer",
+      "card_id": "051c1621-c5c7-4d1b-ad02-e7121065e0fe",
+      "card_type": "item",
+      "act": 2
+    },
+    {
+      "card_title": "Hidden Compartment Box",
+      "card_contents": "A small wooden box with an intricate carved pattern of puppets on the lid. The box has a secret latch on its underside, revealing a concealed compartment containing a miniature puppet head painted with exaggerated features.",
+      "linked_character": "Lola Stringfellow - The Eccentric Puppeteer",
+      "card_id": "781777ab-2b8a-425d-b9b4-44169a8359b1",
+      "card_type": "item",
+      "act": 3
+    },
+    {
+      "card_title": "Mr. Patches' Weathered Tool Kit",
+      "card_contents": "A small wooden box filled with tiny screwdrivers, spare puppet eyes, delicate strings, and patches of various fabrics. The tools are meticulously arranged, with some showing signs of recent use. The box has a faint scent of wood polish and old theater dust.",
+      "linked_character": "Mr. Patches - The Mysterious Marionette Master",
+      "card_id": "3ac4c5e2-8fc5-4004-a4cf-6a9cbc1159d3",
+      "card_type": "item",
+      "act": 1
+    },
+    {
+      "card_title": "Cryptic Marionette Note",
+      "card_contents": "A folded piece of parchment tucked inside a puppet's clothing. Written in a shaky hand, it reads: 'The strings that bind us hide more than movement. Watch the shadows where the puppets whisper.' The ink is smudged, as if hastily written or exposed to moisture.",
+      "linked_character": "Mr. Patches - The Mysterious Marionette Master",
+      "card_id": "0e473e9c-8411-46e7-978f-0dcd08350a11",
+      "card_type": "item",
+      "act": 2
+    },
+    {
+      "card_title": "Marionette with Missing Hand",
+      "card_contents": "A half-finished marionette held together by loose strings and missing its right hand. The wooden surface is carved with intricate patterns, and a small tag attached reads 'For the final act.' The puppet's eyes seem oddly lifelike, staring blankly ahead.",
+      "linked_character": "Mr. Patches - The Mysterious Marionette Master",
+      "card_id": "a25412a3-a65f-4661-aa88-dd911c693ddd",
+      "card_type": "item",
+      "act": 3
+    },
+    {
+      "card_title": "Curtain Call Chaos: The Vanishing Act",
+      "card_contents": "The annual 'Madness Marathon' erupts into pandemonium when the star puppet disappears mid-performance, leaving the audience stunned and the puppeteers scrambling. Lola Stringfellow, known for her flamboyant flair and whispered rivalries, was last seen arguing near the backstage ropes. Meanwhile, the labyrinthine Puppet Theater hides shadows and secrets—could the vanished puppet have slipped through a trapdoor or been spirited away by unseen hands? The tension between Lola's creative ambitions and the puppet's sudden fame sets tongues wagging. Was this a stunt gone wrong, a jealous act, or something more sinister? The stage is set, but the strings remain tangled.",
+      "act": 1,
+      "card_id": "478635d2-ed99-48d5-be77-b678d11ae6fd",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Puppet Show Madness-1775566884607-88afde/story_act/478635d2-ed99-48d5-be77-b678d11ae6fd.png"
+    },
+    {
+      "card_title": "Silent Strings and Shadowy Secrets",
+      "card_contents": "As the investigation deepens, Mr. Patches, the silent marionette master, emerges from the shadows. His eerie puppets and cryptic smiles hint at a connection to the missing star. Yet, whispers circulate that he harbors resentment toward the puppet's creator, perhaps jealous of the spotlight stolen from his own creations. Meanwhile, conflicting accounts place Lola near Gideon’s Workshop, where half-finished puppets clutter the space—did she seek to sabotage or rescue? Contradictions arise: some claim the vanished puppet was last seen near the Stringville Market Square, far from the theater’s backstage. Could the disappearance be a diversion, or is someone manipulating the narrative? The mystery deepens, and suspicion shifts like a marionette's dance.",
+      "act": 2,
+      "card_id": "d3ceb4fa-894b-4e74-9169-2c42645ee359",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Puppet Show Madness-1775566884607-88afde/story_act/d3ceb4fa-894b-4e74-9169-2c42645ee359.png"
+    },
+    {
+      "card_title": "Tangled Strings: Choices at the Final Bow",
+      "card_contents": "With the curtain about to fall, pressure mounts to untangle the web of motives and movements. Lola’s flamboyant antics clash with Mr. Patches’ silent enigma—both hold secrets, but which strings are truly pulled? The vanished puppet’s trail leads through the cluttered Gideon’s Workshop and the bustling Market Square, yet no single path offers certainty. Conflicting testimonies and hidden grudges cloud the truth, forcing all to question who benefits most from the chaos. As alliances form and doubts deepen, the final act demands choices: which narrative to trust, which suspects to confront, and which shadows to illuminate? The answer remains just out of reach, waiting for the sharpest eye to catch the final twist.",
+      "act": 3,
+      "card_id": "6fbf6efb-87e6-47d9-b54f-c6b5773201ee",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Puppet Show Madness-1775566884607-88afde/story_act/6fbf6efb-87e6-47d9-b54f-c6b5773201ee.png"
+    },
+    {
+      "card_id": "cc56190b-5df9-404a-a1b1-5e38b132a89a",
+      "card_type": "clue",
+      "card_title": "Torn Marionette String",
+      "murder_canon": {
+        "victim": "The Star Puppet",
+        "location": "Backstage of the Puppet Theater"
+      },
+      "card_contents": "A frayed marionette string with a unique pattern, found tangled backstage near the star puppet's dressing area. Its rare design matches Mr. Patches' puppets, hinting at a possible struggle or mishap behind the scenes.",
+      "target_name": "Mr. Patches - The Mysterious Marionette Master",
+      "target_id": "mr_patches_the_mysterious_marionette_master",
+      "weight": "high"
+    },
+    {
+      "card_id": "0b2127d2-20b2-467b-bc61-73518e25423f",
+      "card_type": "clue",
+      "card_title": "Cryptic Rehearsal Note",
+      "murder_canon": {
+        "victim": "The Star Puppet",
+        "location": "Backstage of the Puppet Theater"
+      },
+      "card_contents": "A folded note filled with odd phrases and puppet metaphors, discovered in Lola Stringfellow's dressing room. The coded language referencing 'cutting ties' suggests hidden tensions brewing before the show.",
+      "target_name": "Lola Stringfellow - The Eccentric Puppeteer",
+      "target_id": "lola_stringfellow_the_eccentric_puppeteer",
+      "weight": "mid"
+    },
+    {
+      "card_title": "Puppet Master’s Misdirection",
+      "card_contents": "Perform a quick, improvised puppet show using your hands or any small object nearby to distract two players. While they watch, subtly ask a third player a secret question about their character or intentions without the others noticing.",
+      "linked_character": "Lola Stringfellow - The Eccentric Puppeteer",
+      "target_character": null,
+      "target_character_id": null,
+      "card_id": "b32b4238-a425-405c-9078-f79623863ade",
+      "card_type": "game_card"
+    },
+    {
+      "card_title": "Puppet's Whisper",
+      "card_contents": "Silently choose one player and use your marionette to 'whisper' a secret to them. They must respond in character with a cryptic clue about the star puppet's disappearance without revealing too much. Keep your own expressions mysterious to deepen the intrigue.",
+      "linked_character": "Mr. Patches - The Mysterious Marionette Master",
+      "target_character": null,
+      "target_character_id": null,
+      "card_id": "38eba707-d78d-4e6b-bde5-af411c106f2c",
+      "card_type": "game_card"
+    }
+  ],
+  "storyBlurb": "Step right up to the zaniest puppet show in town, where marionettes have minds of their own and chaos is the main act! In the quirky town of Stringville, the beloved Puppet Theater is hosting its annual 'Madness Marathon'—a night where puppets and puppeteers alike lose control, secrets unravel, and laughter reigns supreme. When the star puppet mysteriously vanishes mid-performance, the line between man and marionette blurs, and everyone’s a suspect. Dive into a whirlwind of slapstick shenanigans, witty banter, and tangled strings as you unravel the hilarious mystery behind the Puppet Show Madness. Will you catch the culprit before the curtain falls? Expect the unexpected in this riotous romp where puppets pull the strings—and the punchlines!",
+  "story_title": "Puppet Show Madness",
+  "story_description": "Step into the whimsical world of Stringville's Puppet Theater for the annual 'Madness Marathon,' where puppets and puppeteers lose control and secrets unravel. When the star puppet vanishes mid-performance, guests must navigate slapstick chaos and witty banter to uncover the culprit before the curtain falls. Expect laughter, tangled strings, and a riotous mystery that blurs the line between man and marionette.",
+  "story_rating": "PG-13 — mild language, comedic chaos",
+  "story_themes": "comedy, mystery, puppetry, ensemble cast, slapstick, quirky town",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Puppet Show Madness-1775566884607-88afde/story/story.png",
+  "world": "Stringville is a whimsically eccentric town where every cobblestone seems to hum with the echoes of laughter and the occasional creak of a marionette's wooden joints. Nestled in a valley where mist curls like whispered secrets, the town's heart beats strongest at the Puppet Theater—a weathered yet charming playhouse adorned with peeling paint and strings that dangle like veins of magic. Here, puppetry is not merely entertainment but a cherished tradition, a dance between human and wood that blurs reality with fantasy. The annual 'Madness Marathon' is the town's most anticipated event, a night when the puppets' autonomy becomes a spectacle, and the boundaries between puppeteer and puppet dissolve into chaotic harmony. The atmosphere is thick with anticipation, mischief, and the faint scent of old velvet curtains mingling with popcorn. Every alleyway and backstage nook holds whispered stories, and the line between performer and performance is as tangled as the strings overhead.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Eloise Marwood",
+        "summary": "The enigmatic and sharp-witted theater manager whose knowledge of every puppet's quirks is rivaled only by her secretive past. Eloise balances the chaos of the Madness Marathon with a cool demeanor, but her eyes betray a deeper connection to the puppets than anyone suspects."
+      },
+      {
+        "name": "Gideon Tink",
+        "summary": "An eccentric puppeteer known for his slapstick style and uncanny ability to coax life from even the most stubborn marionettes. Gideon's workshop is a cluttered labyrinth of strings and gears, and his loyalty to the theater is as unwavering as his penchant for practical jokes."
+      },
+      {
+        "name": "Mayor Lila Featherstone",
+        "summary": "Stringville's charismatic mayor who champions the Puppet Theater as the town's cultural soul. She is often seen mingling with the crowd during the Madness Marathon, her laughter ringing out as she deftly navigates the night's unpredictable antics."
+      }
+    ],
+    "locations": [
+      {
+        "name": "The Puppet Theater",
+        "summary": "A storied playhouse with creaking wooden floors and faded murals depicting legendary puppet tales. Its labyrinthine backstage is a maze of ropes, trapdoors, and shadowy corners where secrets hide and the vanished star puppet was last seen."
+      },
+      {
+        "name": "Gideon’s Workshop",
+        "summary": "A chaotic sanctuary filled with half-finished puppets, intricate mechanical parts, and the scent of wood shavings. This is where puppets are born and repaired, and where clues to the star puppet's disappearance might be hidden among the clutter."
+      },
+      {
+        "name": "The Stringville Market Square",
+        "summary": "A bustling hub of colorful stalls and lively townsfolk, often the site of impromptu puppet performances and gossip. The square's vibrant energy contrasts with the tense mystery unfolding at the theater, offering a glimpse into the community's pulse."
+      }
+    ],
+    "items": [
+      {
+        "name": "The Star Puppet",
+        "summary": "The centerpiece marionette of the Madness Marathon, renowned for its lifelike movements and mysterious craftsmanship. Its sudden disappearance mid-show triggers the chaos and investigation that ensues."
+      },
+      {
+        "name": "The Tangle of Strings",
+        "summary": "A legendary bundle of enchanted puppet strings rumored to grant puppets a semblance of free will. Kept under lock and key, these strings are both a prized artifact and a potential motive in the night's unfolding drama."
+      },
+      {
+        "name": "The Director’s Ledger",
+        "summary": "A worn notebook containing rehearsal notes, puppet maintenance records, and cryptic annotations. This ledger holds vital clues about the relationships and tensions behind the scenes of the Puppet Theater."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Mr. Patches - The Mysterious Marionette Master",
+      "victim": "The Star Puppet",
+      "location": "Backstage of the Puppet Theater",
+      "method": "Sabotage causing fatal mechanical failure",
+      "motive": "Resentment over being overshadowed by the star puppet",
+      "opportunity": "Access to backstage during the chaos of the Madness Marathon",
+      "window": "During the mid-performance chaos",
+      "window_start": "During the opening act of the Madness Marathon",
+      "window_end": "Before the final act",
+      "murder_solution": "Mr. Patches, harboring resentment over the star puppet's fame eclipsing his own creations, sabotaged the puppet's internal mechanisms backstage during the chaotic Madness Marathon. Using his intimate knowledge of the puppet's engineering, he caused a fatal mechanical failure that led to the star puppet's disappearance mid-performance. The commotion and slapstick antics on stage provided the perfect cover for his actions, allowing him to move unnoticed behind the scenes. His silent demeanor and backstage access gave him the opportunity to execute the sabotage without immediate suspicion."
+    },
+    "treasure": {
+      "object": "The Original Marionette Blueprint",
+      "hiding_place": "Hidden compartment inside the puppet repair bench",
+      "treasure_solution": "The Original Marionette Blueprint reveals the intricate design and secrets behind the star puppet's unique autonomy, crucial for understanding the sabotage. Players can discover it by thoroughly searching the puppet repair bench backstage, especially the hidden compartments known only to the caretaker. Finding the blueprint allows players to piece together how the mechanical failure was engineered, providing key evidence to solve the mystery."
+    }
+  }
+}

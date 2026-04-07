@@ -6,7 +6,7 @@ import {
   LobbyEvidenceBlock,
   LobbyFeed,
   LobbyJoinSection,
-  LobbyMetaPanel,
+  LobbyMetaPanelWithHostAction,
   LobbyPlayerSurface,
   LobbyPlayersPanel,
   LobbyRoomList,
@@ -29,7 +29,13 @@ export function LobbySection({ id, children }: { id: LobbySectionId; children: R
 export function renderLobbySection(id: LobbySectionId, p: PlayerLobbyTemplateProps): ReactNode {
   switch (id) {
     case 'meta':
-      return <LobbyMetaPanel stage={p.stage} />
+      return (
+        <LobbyMetaPanelWithHostAction
+          stage={p.stage}
+          exportActions={p.exportActions}
+          handlers={p.handlers}
+        />
+      )
     case 'join':
       return !p.joined && p.join ? (
         <LobbyJoinSection join={p.join} stage={p.stage} handlers={p.handlers} />

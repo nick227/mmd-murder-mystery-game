@@ -43,6 +43,7 @@ export interface RoomPlayer {
 export interface StageData {
   state: GameState
   act: number
+  storyId?: string
   title: string
   /** Game instance name (shown in app header). */
   subtitle: string
@@ -152,6 +153,15 @@ export interface StoryListItem {
   title: string
   summary: string
   image?: string
+  storyMeta?: Array<{
+    key: string
+    value: string
+  }>
+  characterCount?: number
+  cardCount?: number
+  clueCount?: number
+  puzzleCount?: number
+  secretCount?: number
   characters?: Array<{
     characterId: string
     name: string
@@ -159,6 +169,15 @@ export interface StoryListItem {
     portrait?: string
   }>
   createdAt?: string
+}
+
+export interface FullStoryApiResponse {
+  id: string
+  title: string
+  summary: string
+  createdAt: string
+  updatedAt: string
+  dataJson: unknown
 }
 
 export interface CreateGameFormData {
@@ -282,6 +301,8 @@ export interface PageSchema {
 
 export interface RendererHandlers {
   onAction?: (actionId: string) => void
+  onDownloadStoryCards?: (input: { storyId: string; storyTitle?: string }) => Promise<void>
+  onDownloadStoryCardsPdf?: (input: { storyId: string; storyTitle?: string }) => Promise<void>
   onObjectiveToggle?: (objectiveId: string) => void
   onObjectiveSubmit?: (objectiveId: string) => Promise<void>
   onComposerModeChange?: (mode: 'public' | 'private') => void
@@ -420,6 +441,7 @@ export interface ApiPublicGameView {
 export interface PlayerApiView {
   gameId: string
   gameName: string
+  storyId?: string
   creatorName?: string | null
   storyTitle?: string
   storyBlurb?: string

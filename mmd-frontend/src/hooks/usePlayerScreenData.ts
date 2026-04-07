@@ -8,6 +8,7 @@ import type { FeedItem, PlayerApiView, PostMovePayload, RendererHandlers, Screen
 import { IN_APP_NAVIGATE_EVENT, navigateInApp } from '../app/inAppNavigation'
 import { POLL_INTERVAL, TIMING } from './polling'
 import { optimisticComposerItem, readClientRequestId, filterPendingComposerPosts, mergeFeedWithOptimistic, OptimisticComposerPost } from './optimisticComposer'
+import { exportStoryCardsAsPdf, exportStoryCardsAsZip } from '../features/storyCardExport/storyCardExport'
 
 function readQuery(name: string) {
   return new URLSearchParams(window.location.search).get(name)
@@ -71,7 +72,10 @@ export function usePlayerScreenData(
   const [view, setView] = useState<PlayerApiView | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [exportError, setExportError] = useState('')
   const [streamConnected, setStreamConnected] = useState(false)
+  const [exportingActionId, setExportingActionId] = useState<string | null>(null)
+  const [exportProgress, setExportProgress] = useState<{ completed: number; total: number }>({ completed: 0, total: 0 })
   const queuedPushReloadRef = useRef<number | null>(null)
   const [joinDraft, setJoinDraft] = useState('')
   const [optimisticComposerPosts, setOptimisticComposerPosts] = useState<OptimisticComposerPost[]>([])
@@ -209,6 +213,44 @@ export function usePlayerScreenData(
   }, [])
 
   const handlers: RendererHandlers = {
+    onDownloadStoryCards: async ({ storyId, storyTitle }) => {
+      setExportError('')
+      setExportingActionId('download-cards')
+      setExportProgress({ completed: 0, total: 0 })
+      try {
+        const fullStory = await gameSource.fetchStoryById(apiBase, storyId)
+        await exportStoryCardsAsZip({
+          storyId,
+          storyTitle: storyTitle || fullStory.title || 'story',
+          raw: fullStory.dataJson,
+          onProgress: (completed, total) => setExportProgress({ completed, total }),
+        })
+      } catch (err) {
+        setExportError(err instanceof Error ? err.message : 'Card export failed')
+      } finally {
+        setExportingActionId(null)
+        setExportProgress({ completed: 0, total: 0 })
+      }
+    },
+    onDownloadStoryCardsPdf: async ({ storyId, storyTitle }) => {
+      setExportError('')
+      setExportingActionId('download-cards-pdf')
+      setExportProgress({ completed: 0, total: 0 })
+      try {
+        const fullStory = await gameSource.fetchStoryById(apiBase, storyId)
+        await exportStoryCardsAsPdf({
+          storyId,
+          storyTitle: storyTitle || fullStory.title || 'story',
+          raw: fullStory.dataJson,
+          onProgress: (completed, total) => setExportProgress({ completed, total }),
+        })
+      } catch (err) {
+        setExportError(err instanceof Error ? err.message : 'PDF export failed')
+      } finally {
+        setExportingActionId(null)
+        setExportProgress({ completed: 0, total: 0 })
+      }
+    },
     onObjectiveSubmit: async objectiveId => {
       setScreenData(current => ({
         ...current,
@@ -317,6 +359,23 @@ export function usePlayerScreenData(
   const reload = async () => reloadInternal()
 
   const joined = Boolean(view?.playerName)
+  const nextScreenData =
+    exportingActionId
+      ? {
+          ...screenData,
+          gameActions: screenData.gameActions.map(item =>
+            item.id === exportingActionId
+              ? {
+                  ...item,
+                  label: exportProgress.total > 0
+                    ? `${exportingActionId === 'download-cards-pdf' ? 'Building PDF...' : 'Exporting cards...'} ${exportProgress.completed} / ${exportProgress.total}`
+                    : (exportingActionId === 'download-cards-pdf' ? 'Building PDF...' : 'Exporting cards...'),
+                  disabled: true,
+                }
+              : { ...item, disabled: item.disabled || Boolean(exportingActionId) },
+          ),
+        }
+      : screenData
 
-  return { screenData, handlers, loading, error, reload, joined }
+  return { screenData: nextScreenData, handlers, loading, error: exportError || error, reload, joined }
 }

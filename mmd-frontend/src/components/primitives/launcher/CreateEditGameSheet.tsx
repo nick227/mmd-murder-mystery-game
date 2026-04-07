@@ -74,10 +74,8 @@ export function CreateEditGameSheet({
       <BottomSheet
         open={open}
         onClose={onClose}
-        eyebrow={mode === 'create' ? 'Create game' : 'Edit game'}
-        title={mode === 'create' ? 'New game' : 'Update game'}
-        meta={mode === 'create' ? 'Fill everything out to create the game.' : 'Only unstarted games can be edited.'}
-      >
+        eyebrow={mode === 'create' ? 'Create game' : 'Edit game'} 
+        title={''}      >
         {error ? <div className="empty-state">{error}</div> : null}
 
         <div className="story-picker">

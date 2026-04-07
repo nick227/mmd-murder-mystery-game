@@ -54,6 +54,72 @@ export function LobbyMetaPanel({ stage }: { stage: StageData }) {
   )
 }
 
+export function LobbyMetaPanelWithHostAction({
+  stage,
+  exportActions,
+  handlers,
+}: {
+  stage: StageData
+  exportActions?: ActionItem[]
+  handlers?: RendererHandlers
+}) {
+  const hostName = lobbyHostLabel(stage)
+  const locationText = lobbyLocationLabel(stage)
+  return (
+    <Panel className="lobby-meta" dataUi="LobbyMeta">
+      <PanelHeader title="Game details" />
+      <div className="lobby-meta__row">
+        <div className="lobby-meta__label">Game</div>
+        <div className="lobby-meta__value">{stage.subtitle}</div>
+      </div>
+      <div className="lobby-meta__row">
+        <div className="lobby-meta__label">Host</div>
+        <div className="lobby-meta__value">{hostName}</div>
+      </div>
+      <div className="lobby-meta__row">
+        <div className="lobby-meta__label">Location</div>
+        <div className="lobby-meta__value">{locationText}</div>
+      </div>
+      {exportActions && exportActions.length ? (
+        <div className="lobby-meta__row lobby-meta__row--downloads">
+          <div className="lobby-meta__label">Downloads</div>
+          <div className="lobby-meta__value lobby-meta__value--downloads">
+            <div className="lobby-meta__downloads">
+              {exportActions.map(action => (
+                <button
+                  key={action.id}
+                  type="button"
+                  className={`action-btn action-btn--${action.kind ?? 'secondary'} lobby-meta__downloadBtn`}
+                  disabled={action.disabled}
+                  onClick={() => {
+                    if (action.id === 'download-cards' && stage.storyId) {
+                      void handlers?.onDownloadStoryCards?.({
+                        storyId: stage.storyId,
+                        storyTitle: stage.storyTitle ?? stage.subtitle,
+                      })
+                      return
+                    }
+                    if (action.id === 'download-cards-pdf' && stage.storyId) {
+                      void handlers?.onDownloadStoryCardsPdf?.({
+                        storyId: stage.storyId,
+                        storyTitle: stage.storyTitle ?? stage.subtitle,
+                      })
+                      return
+                    }
+                    handlers?.onAction?.(action.id)
+                  }}
+                >
+                  {action.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </Panel>
+  )
+}
+
 export function LobbyJoinSection({
   join,
   stage,
@@ -85,6 +151,8 @@ export function LobbyHostControls({
   hostHandlers?: RendererHandlers
   hostError?: string
 }) {
+  const visibleActions = hostActions.filter(action => action.id !== 'download-cards' && action.id !== 'download-cards-pdf')
+  if (!visibleActions.length && !hostError) return null
   return (
     <PanelBlock title="Host controls">
       {hostError ? (
@@ -92,7 +160,7 @@ export function LobbyHostControls({
           {hostError}
         </div>
       ) : null}
-      <ActionsBar items={hostActions} handlers={hostHandlers} />
+      {visibleActions.length ? <ActionsBar items={visibleActions} handlers={hostHandlers} /> : null}
     </PanelBlock>
   )
 }

@@ -1,0 +1,622 @@
+{
+  "cards": [
+    {
+      "card_id": "2c9b3f00-e5cc-4e40-a594-1f1369f0808e",
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Shadows Over Berlin",
+      "act": 1
+    },
+    {
+      "card_id": "97a1120c-282a-4ac4-8ffe-d3007c552fa0",
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Step into the tense world of Cold War espionage in 1983 Berlin, where secrets lurk in every corner and trust is a rare commodity. Players become elite spies entangled in a deadly game of deception and survival, navigating shifting alliances and hidden dangers. Can you uncover the truth before the city’s fragile peace shatters?",
+      "act": 1
+    },
+    {
+      "card_id": "a7b2471a-65a2-45f8-ad70-65db8358f198",
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "PG-13 — moderate violence and suspense",
+      "act": 1
+    },
+    {
+      "card_id": "1de04602-51ab-47d2-bb11-0f0eceb2bd73",
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "spy thriller, Cold War, espionage, political intrigue, 1980s, suspense, deception",
+      "act": 1
+    },
+    {
+      "card_id": "3cecd9f5-3956-4849-9f1e-a0cb55bd9f28",
+      "card_type": "person",
+      "card_title": "Klaus Richter",
+      "card_contents": "A seasoned Stasi officer whose icy demeanor masks a conflicted conscience; his knowledge of Berlin’s underworld and surveillance networks makes him a formidable player in the espionage game.",
+      "act": 1
+    },
+    {
+      "card_id": "490ca811-0b2e-4b19-9203-87027d5ea52d",
+      "card_type": "person",
+      "card_title": "Elena Volkova",
+      "card_contents": "A charismatic and resourceful KGB operative fluent in Berlin’s dialects and subcultures; her charm conceals a ruthless commitment to her mission and a hidden past that could unravel everything.",
+      "act": 1
+    },
+    {
+      "card_id": "010de00a-9c69-4c77-a04b-126c65a87b43",
+      "card_type": "person",
+      "card_title": "Hans Becker",
+      "card_contents": "An enigmatic informant with ties to both East and West, operating from the shadows; his allegiance is murky, but his intelligence is invaluable to anyone who can earn his trust.",
+      "act": 1
+    },
+    {
+      "card_id": "92987b8f-cf79-4af4-b766-03cf4c33848c",
+      "card_type": "location",
+      "card_title": "Checkpoint Charlie",
+      "card_contents": "The infamous border crossing between East and West Berlin, a tense chokepoint where spies exchange secrets under the watchful eyes of armed guards and cameras.",
+      "act": 1
+    },
+    {
+      "card_id": "17098ad5-3363-440b-8efc-1dff4106ba23",
+      "card_type": "location",
+      "card_title": "The Katzenkopf Club",
+      "card_contents": "A dimly lit jazz bar in West Berlin known as a neutral ground for clandestine meetings; its smoky atmosphere and live music provide cover for whispered deals and coded conversations.",
+      "act": 1
+    },
+    {
+      "card_id": "585754b4-b9fc-4b94-a283-5350c1a068f7",
+      "card_type": "location",
+      "card_title": "The Abandoned U-Bahn Station",
+      "card_contents": "A forgotten subterranean platform beneath the city, now a shadowy rendezvous spot for covert exchanges and hidden caches, echoing with the ghosts of Berlin’s divided past.",
+      "act": 1
+    },
+    {
+      "card_id": "728c8f98-4265-4246-9943-5d41d3e8dd51",
+      "card_type": "item",
+      "card_title": "The Cipher Disk",
+      "card_contents": "A compact mechanical device capable of encoding and decoding messages with intricate cipher patterns; its possession is crucial for secure communication amid pervasive surveillance.",
+      "act": 1
+    },
+    {
+      "card_id": "0b9e08f7-8f68-440c-b5ae-6f374f104261",
+      "card_type": "item",
+      "card_title": "The Black Ledger",
+      "card_contents": "A clandestine notebook containing encrypted records of covert operations and double agents, its pages a dangerous roadmap to the tangled web of espionage.",
+      "act": 1
+    },
+    {
+      "card_id": "0a4fa620-c7f4-4b63-8a3c-70220407f21e",
+      "card_type": "item",
+      "card_title": "The Phantom Microfilm",
+      "card_contents": "A tiny reel of film rumored to hold blueprints for a revolutionary technology that could shift the Cold War balance; its location is fiercely contested by all factions.",
+      "act": 1
+    },
+    {
+      "card_id": "9266fccf-9f92-4b10-a2df-a3e0672d1b0a",
+      "card_type": "character",
+      "card_title": "Klaus Richter - The Defector",
+      "card_contents": "Once a loyal operative of the East German Stasi, Klaus Richter now walks a perilous line as a defector to the West. Haunted by the secrets he carries, Klaus is driven by a desperate need to expose a clandestine technology that could tip the Cold War scales. His knowledge makes him a valuable asset—and a prime target. Is his defection genuine, or is he playing a deeper game of deception?",
+      "act": 1
+    },
+    {
+      "card_id": "65aa2918-caa0-45a9-a92f-a060cfeb0bc6",
+      "card_type": "character",
+      "card_title": "Anya Volkova - The KGB Enforcer",
+      "card_contents": "Anya Volkova is a ruthless KGB enforcer tasked with retrieving the stolen technology at any cost. Cold, calculating, and fiercely loyal to the Soviet cause, she blends charm with lethal precision. Anya's presence in Berlin is a shadowy reminder that betrayal is met with swift retribution. But beneath her steely exterior lies a secret that could unravel her mission—and her life.",
+      "act": 2
+    },
+    {
+      "card_id": "0140238e-e9df-4df3-a4ab-525b68338483",
+      "card_type": "character",
+      "card_title": "Maximilian Bauer - The West Berlin Informant",
+      "card_contents": "Maximilian Bauer operates in the neon-lit underbelly of West Berlin as a cunning informant for Western intelligence. His network of contacts spans from black-market dealers to political dissidents, making him a key player in the espionage game. Maximilian's motivations are murky; is he driven by ideology, greed, or survival? Trusting him could be as dangerous as trusting the enemy.",
+      "act": 3
+    },
+    {
+      "card_id": "59fd4b5e-cea5-4883-9979-34afaa7fdcee",
+      "card_type": "character",
+      "card_title": "Elena Fischer - The Double Agent",
+      "card_contents": "Elena Fischer is a master of disguise and deception, adept at playing both sides of the Berlin divide. Officially a cultural attaché, she covertly feeds intelligence to both East and West, manipulating events to her advantage. Her true allegiance is a mystery, and her involvement with the secret technology could ignite the fragile peace. In a city where trust is scarce, Elena's next move could change everything.",
+      "act": 1
+    },
+    {
+      "card_id": "58d85c5f-44db-4df1-8445-338fafa6df72",
+      "card_type": "character_profile",
+      "card_title": "Former Stasi Communications Expert",
+      "card_contents": "Klaus once specialized in intercepting and decoding Western radio transmissions, a skill that earned him both respect and suspicion within the Stasi. His expertise in encrypted messages makes him invaluable—and dangerous—to all sides.",
+      "act": 1,
+      "linked_character": "Klaus Richter - The Defector"
+    },
+    {
+      "card_id": "df54288c-214c-4371-931e-cdfb68e5f23d",
+      "card_type": "character_profile",
+      "card_title": "Scar from the Prague Incident",
+      "card_contents": "Anya bears a jagged scar along her left cheek, a souvenir from a brutal interrogation gone wrong during a covert operation in Prague. She rarely speaks of it, but the mark is a chilling reminder of the risks she embraces for the Motherland.",
+      "act": 1,
+      "linked_character": "Anya Volkova - The KGB Enforcer"
+    },
+    {
+      "card_id": "76d3cb5e-d6f8-43e3-9737-6a7f1920fdbf",
+      "card_type": "character_profile",
+      "card_title": "Master of Berlin's Black Markets",
+      "card_contents": "Maximilian is known for his uncanny ability to procure rare and forbidden items—from East German microfilm to Western luxury goods—making him indispensable to spies and smugglers alike. His contacts include shadowy dealers in Kreuzberg and former Stasi informants turned opportunists.",
+      "act": 1,
+      "linked_character": "Maximilian Bauer - The West Berlin Informant"
+    },
+    {
+      "card_id": "42d18fe2-ff1f-42fa-b0a4-11f920859332",
+      "card_type": "character_profile",
+      "card_title": "Fluent in Five Languages",
+      "card_contents": "Elena effortlessly switches between German, Russian, English, French, and Polish, a skill honed during her years at the University of Leipzig. This linguistic prowess allows her to infiltrate diverse circles across Berlin's divided sectors without raising suspicion.",
+      "act": 1,
+      "linked_character": "Elena Fischer - The Double Agent"
+    },
+    {
+      "card_id": "623a96cf-8d41-4222-a87f-b25c24dc46a5",
+      "card_type": "solution",
+      "card_title": "Murder Solution",
+      "card_contents": "Anya Volkova orchestrated the murder of Dr. Heinrich Müller, a scientist involved with the clandestine technology, to stop him from defecting and revealing critical information to Western intelligence. She arranged a secret meeting in an abandoned warehouse, exploiting the scientist's trust and isolation. During the meeting, Anya used a poisoned injection to kill Dr. Müller swiftly and silently. The late night timing and secluded location provided her the perfect opportunity to commit the murder without witnesses, ensuring the KGB's grip on the technology remained unbroken.",
+      "role": "murder",
+      "hidden": true,
+      "reveal": "host_reveal"
+    },
+    {
+      "card_id": "b94fe48a-29a0-47bd-bac8-e2f3d9d72fa7",
+      "card_type": "solution",
+      "card_title": "Treasure Solution",
+      "card_contents": "The prototype microchip is the key to understanding the new technology that could shift Cold War power balances. It was hidden inside a hollowed-out book in the Berlin State Library to avoid detection by both East and West intelligence agencies. Players can discover it by investigating Dr. Müller's personal effects and following clues pointing to his favorite research spot, leading them to the library and the concealed microchip.",
+      "role": "treasure",
+      "hidden": true,
+      "reveal": "host_reveal"
+    },
+    {
+      "card_id": "38f2f4c2-c33c-457e-8544-c3ae630c5b97",
+      "card_type": "secret",
+      "card_title": "My Darkest Secret",
+      "card_contents": "The truth is, I am the one who killed Dr. Heinrich Müller at abandoned warehouse in East Berlin. Anya Volkova orchestrated the murder of Dr. Heinrich Müller, a scientist involved with the clandestine technology, to stop him from defecting and revealing critical information to Western intelligence. She arranged a secret meeting in an abandoned warehouse, exploiting the scientist's trust and isolation. During the meeting, Anya used a poisoned injection to kill Dr. Müller swiftly and silently. The late night timing and secluded location provided her the perfect opportunity to commit the murder without witnesses, ensuring the KGB's grip on the technology remained unbroken.",
+      "act": 3,
+      "linked_character": "Anya Volkova - The KGB Enforcer",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "1eccaff2-4b24-4df8-bb45-c64f0f08b4f1",
+      "card_type": "secret",
+      "card_title": "Secret Meeting at the Abandoned Factory",
+      "card_contents": "Klaus was seen entering the abandoned factory near the Berlin Wall late at night, a location known for covert exchanges, despite officially claiming to be elsewhere.",
+      "act": 1,
+      "linked_character": "Klaus Richter - The Defector",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "b1de5a2f-6e1d-4ad4-b450-05a46191ba57",
+      "card_type": "secret",
+      "card_title": "Desire to Control the New Technology",
+      "card_contents": "Klaus wanted the clandestine technology because controlling it would grant him significant leverage over both East and West factions, ensuring his survival and power after defection.",
+      "act": 2,
+      "linked_character": "Klaus Richter - The Defector",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "2da28f85-0202-47f9-aa70-0f478e8d9bc1",
+      "card_type": "secret",
+      "card_title": "Late Night Access to the East Berlin Safehouse",
+      "card_contents": "Anya was seen entering the East Berlin safehouse late at night without authorization, raising suspicion about her involvement in covert activities related to the clandestine technology.",
+      "act": 3,
+      "linked_character": "Anya Volkova - The KGB Enforcer",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "f2e5f23e-05f8-421e-9dd2-caf391608e40",
+      "card_type": "secret",
+      "card_title": "Desire to Control the Technology to Strengthen KGB Influence",
+      "card_contents": "Anya wanted the clandestine technology because controlling it would significantly enhance the KGB's power and influence during the Cold War, making her a key player in the espionage game and ensuring her survival and promotion within the agency.",
+      "act": 1,
+      "linked_character": "Anya Volkova - The KGB Enforcer",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "00f5cb6a-7532-45a7-9333-04fb9a0274b9",
+      "card_type": "secret",
+      "card_title": "Secret Meeting at the Abandoned Factory",
+      "card_contents": "Maximilian was seen entering the abandoned factory near the Berlin Wall late at night, a location known for covert exchanges, suggesting unauthorized access to a critical site linked to the clandestine technology.",
+      "act": 2,
+      "linked_character": "Maximilian Bauer - The West Berlin Informant",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "1c43c60e-bfec-498d-a048-50ca4b8b3af1",
+      "card_type": "secret",
+      "card_title": "Desire to Control the Technology for Personal Gain",
+      "card_contents": "Maximilian wanted the clandestine technology because controlling it would allow him to broker deals with both East and West factions, securing his financial future and elevating his status within the espionage community.",
+      "act": 3,
+      "linked_character": "Maximilian Bauer - The West Berlin Informant",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "7f8b401e-4388-4d23-8d9b-4bd05627083d",
+      "card_type": "secret",
+      "card_title": "Secret Meeting in the Abandoned Warehouse",
+      "card_contents": "Elena was seen entering an abandoned warehouse near the Berlin Wall late at night, a location known for covert exchanges, despite officially being under surveillance and restricted access.",
+      "act": 1,
+      "linked_character": "Elena Fischer - The Double Agent",
+      "secret_type": "access"
+    },
+    {
+      "card_id": "67364e05-bb01-4428-b942-51c5faa1830b",
+      "card_type": "secret",
+      "card_title": "Desire to Control the Technology for Personal Gain",
+      "card_contents": "Elena wanted the clandestine technology because possessing it would allow her to manipulate both East and West factions, securing her independence and power beyond the reach of her handlers.",
+      "act": 2,
+      "linked_character": "Elena Fischer - The Double Agent",
+      "secret_type": "motive"
+    },
+    {
+      "card_id": "b8ccdcff-4c1c-4fb4-9fa6-d22d5ae126f2",
+      "card_type": "item",
+      "card_title": "Encrypted Stasi Communiqué",
+      "card_contents": "A folded, yellowed paper bearing the official stamp of the Stasi. The text is a dense cipher, with a series of numbers and symbols. Margins show faint fingerprints and a smudged red ink blot.",
+      "act": 1,
+      "linked_character": "Klaus Richter - The Defector"
+    },
+    {
+      "card_id": "9458468f-e41b-4c08-bcfe-2fa5ed08cd58",
+      "card_type": "item",
+      "card_title": "Hidden Compartment Locket",
+      "card_contents": "A small silver locket with an intricate engraving of the Berlin skyline. It opens to reveal a tiny, folded photograph of a man and woman, and a miniature microfilm reel tucked inside a secret cavity.",
+      "act": 2,
+      "linked_character": "Klaus Richter - The Defector"
+    },
+    {
+      "card_id": "bbd259b3-fda7-4024-8d3d-21de196b3b18",
+      "card_type": "item",
+      "card_title": "West Berlin Transit Pass",
+      "card_contents": "A laminated pass issued by West Berlin authorities. It bears Klaus’s name, a photo, and several official stamps marking recent border crossings. The back has a handwritten note in Cyrillic, partially obscured by a coffee stain.",
+      "act": 3,
+      "linked_character": "Klaus Richter - The Defector"
+    },
+    {
+      "card_id": "f35fc608-2b7b-4ab2-a3bb-cd001a456358",
+      "card_type": "item",
+      "card_title": "Soviet Issue Wristwatch",
+      "card_contents": "A sturdy wristwatch with a scratched stainless steel case and a faded red star emblem on the face. The back is engraved with a serial number and the Cyrillic inscription \"Время не ждет\" (Time waits for no one). The watch's minute hand is stuck at 23:47.",
+      "act": 1,
+      "linked_character": "Anya Volkova - The KGB Enforcer"
+    },
+    {
+      "card_id": "dff270fb-ef8a-4189-b303-b0fa91cbaafa",
+      "card_type": "item",
+      "card_title": "Concealed Lethal Hairpin",
+      "card_contents": "A slender metal hairpin, sharpened to a fine point at one end. It fits discreetly in a hairstyle or sleeve and has a faint residue of a clear substance on its tip. The pin is cold to the touch and weighs just a few grams.",
+      "act": 2,
+      "linked_character": "Anya Volkova - The KGB Enforcer"
+    },
+    {
+      "card_id": "5321ad5d-e8ac-4495-8f84-51465fc9fd32",
+      "card_type": "item",
+      "card_title": "Folded Berlin Map with Marked Safehouses",
+      "card_contents": "An old, creased map of Berlin, printed in German and Russian. Several locations are circled in red ink, connected by dotted lines. One location is annotated with the Cyrillic word \"Прикрытие\" (Cover). The map has faint coffee stains and a small tear near the eastern sector border.",
+      "act": 3,
+      "linked_character": "Anya Volkova - The KGB Enforcer"
+    },
+    {
+      "card_id": "941da205-c24d-495e-ba76-8fb06666199f",
+      "card_type": "item",
+      "card_title": "Encrypted Pocket Radio",
+      "card_contents": "A compact, black pocket radio with a series of dials and a small antenna. The frequency dial is set to a specific, unusual channel. A faint static hum can be heard when held close to the ear.",
+      "act": 1,
+      "linked_character": "Maximilian Bauer - The West Berlin Informant"
+    },
+    {
+      "card_id": "e55d8945-78a2-4092-952b-d1f8a66d9d18",
+      "card_type": "item",
+      "card_title": "Torn Photograph Fragment",
+      "card_contents": "A small, jagged piece of a torn photograph showing part of a man’s face wearing round glasses and a trench coat. The back of the fragment has a handwritten note in German: 'Treffen um Mitternacht' (Meeting at midnight).",
+      "act": 2,
+      "linked_character": "Maximilian Bauer - The West Berlin Informant"
+    },
+    {
+      "card_id": "909b4c71-0370-4fd8-a30d-a1841aa7d29f",
+      "card_type": "item",
+      "card_title": "Folded Newspaper Clipping",
+      "card_contents": "A yellowed clipping from a West Berlin newspaper dated two weeks ago. The headline reads 'Suspicious Activity Near Checkpoint Charlie.' The article mentions a mysterious figure seen exchanging briefcases late at night.",
+      "act": 3,
+      "linked_character": "Maximilian Bauer - The West Berlin Informant"
+    },
+    {
+      "card_id": "e2bf2d08-0b01-487c-ace9-8a91211451c0",
+      "card_type": "item",
+      "card_title": "Dual-Sided Identity Badge",
+      "card_contents": "One side bears the insignia of the West Berlin Cultural Attaché office; the reverse side shows a covert emblem linked to an East Berlin intelligence cell. The badge is worn and has faint fingerprints smudging both sides.",
+      "act": 1,
+      "linked_character": "Elena Fischer - The Double Agent"
+    },
+    {
+      "card_id": "1fe69d73-4491-42ad-99a6-afc635d86deb",
+      "card_type": "item",
+      "card_title": "Disguised Makeup Compact",
+      "card_contents": "A small, unassuming makeup compact containing powders and creams. Hidden beneath the mirror is a tiny, folded note with a series of coded numbers and letters. The compact has traces of recent use.",
+      "act": 2,
+      "linked_character": "Elena Fischer - The Double Agent"
+    },
+    {
+      "card_id": "9198566c-fcbe-4cf0-aeac-6bb4bf848594",
+      "card_type": "item",
+      "card_title": "Encrypted Appointment Diary",
+      "card_contents": "A leather-bound diary with entries in multiple languages. Some pages contain crossed-out names and times, others have cryptic symbols. Several pages are dog-eared and a pen is clipped to the cover.",
+      "act": 3,
+      "linked_character": "Elena Fischer - The Double Agent"
+    },
+    {
+      "card_id": "496854ec-729b-4b3d-b819-9922bb7fa317",
+      "card_type": "story_act",
+      "card_title": "Whispers at Checkpoint Charlie",
+      "card_contents": "Tensions rise as Klaus Richter is spotted near Checkpoint Charlie, nervously exchanging a coded message with an unknown figure. Meanwhile, Elena Fischer's presence at the Katzenkopf Club raises eyebrows; her charm masks a hidden agenda as she navigates between East and West contacts. The abandoned U-Bahn Station, rumored to be a drop point for the secret technology, remains eerily quiet. Who initiated the deadly game, and what secrets did they hope to protect or expose? The shadows deepen, and trust becomes a fragile currency.",
+      "act": 1
+    },
+    {
+      "card_id": "f691e1bc-f35e-44df-8116-3fa1a5201e2f",
+      "card_type": "story_act",
+      "card_title": "Anya's Ruthless Pursuit and a Confounding Discovery",
+      "card_contents": "Anya Volkova intensifies her search, her cold efficiency unsettling allies and foes alike. Yet, a conflicting report surfaces: a witness claims to have seen Anya meeting secretly with Maximilian Bauer at the Katzenkopf Club, exchanging more than just words. Could there be a hidden alliance or a double-cross in play? Meanwhile, clues from the abandoned U-Bahn Station hint at a sabotage attempt, complicating the mission. Loyalties blur, and the stakes escalate as suspicion fractures the fragile balance.",
+      "act": 2
+    },
+    {
+      "card_id": "43c4a2b2-f309-4c2f-ab76-e4afe1cd2401",
+      "card_type": "story_act",
+      "card_title": "Maximilian's Gambit and the Final Crossroads",
+      "card_contents": "Maximilian Bauer's network reveals a critical lead—an encrypted message pointing to a rendezvous that could expose the mastermind behind the chaos. Yet, his motives remain opaque: is he manipulating both sides for personal gain or survival? Elena Fischer's recent disappearance adds urgency, casting doubt on her true allegiance. As the clock ticks, alliances must be tested, and decisions made. In this tangled web of espionage, who holds the key to the deadly secret, and who will emerge from the fog of war unscathed?",
+      "act": 3
+    },
+    {
+      "card_id": "5c0ffd81-c50c-4a1f-ba20-410d4dabbbce",
+      "card_type": "host_speech",
+      "card_title": "Welcome to Berlin's Shadowed Streets",
+      "card_contents": "Good evening, agents and informants! Tonight, we plunge into the murky depths of 1983 Berlin, a city cleaved by walls and whispers. Two elite spies, locked in a deadly dance, find themselves ensnared in a web of secrets and lies. Somewhere in this divided city, a clandestine technology has surfaced—powerful enough to tip the scales of global dominance. Your mission: unravel the truth before the fog of deception consumes us all. Trust no one, question every shadow, and let the game begin!",
+      "act": 1
+    },
+    {
+      "card_id": "60c76a8e-1f4a-46cc-87e8-5e05c3c2a849",
+      "card_type": "host_speech",
+      "card_title": "The Plot Thickens: New Shadows Emerge",
+      "card_contents": "As the night deepens, so does the intrigue. Just when you thought you had a grasp on the players, a new tension fractures the fragile alliances. The hunt shifts—old loyalties crumble and fresh suspicions arise. The city's divided walls echo with fresh betrayals, and every whispered secret now carries a sharper edge. Prepare yourselves: the game is far from over, and the truth remains as elusive as ever.",
+      "act": 2
+    },
+    {
+      "card_id": "7da145e5-6566-4988-8773-9139ad2d8a6b",
+      "card_type": "host_speech",
+      "card_title": "Final Call: The Truth Awaits",
+      "card_contents": "Agents, the clock ticks down to your final reckoning. The shadows have danced long enough—now is the moment to expose the puppeteer behind this deadly game. Remember, in this world of espionage, trust is the rarest currency. Choose wisely, for your accusation will tip the balance between chaos and control. Step forward, reveal your truth, and let the final curtain fall on this chilling tale of deception.",
+      "act": 3
+    },
+    {
+      "card_id": "67014f70-06e9-4583-96be-4275f044aec6",
+      "card_type": "clue",
+      "card_title": "Encrypted Radio Transmission",
+      "murder_canon": {
+        "victim": "Dr. Heinrich Müller",
+        "location": "abandoned warehouse in East Berlin"
+      },
+      "card_contents": "A crackling encrypted radio transmission intercepted by Western agents hints at double dealings, with fragmented code phrases suggesting a hidden agenda involving Elena Fischer.",
+      "target_name": "Elena Fischer - The Double Agent",
+      "target_id": "elena_fischer_the_double_agent",
+      "weight": "mid"
+    },
+    {
+      "card_id": "c1567416-7eeb-4dfa-8f04-6a3dd35e6d73",
+      "card_type": "clue",
+      "card_title": "Bloodied Glove",
+      "murder_canon": {
+        "victim": "Dr. Heinrich Müller",
+        "location": "abandoned warehouse in East Berlin"
+      },
+      "card_contents": "A bloodied leather glove bearing a unique insignia, found near the abandoned warehouse, raises suspicion of a violent encounter linked to Anya Volkova.",
+      "target_name": "Anya Volkova - The KGB Enforcer",
+      "target_id": "anya_volkova_the_kgb_enforcer",
+      "weight": "high"
+    },
+    {
+      "card_id": "b1b770eb-7c97-43e6-852b-ba768e3981a6",
+      "card_type": "clue",
+      "card_title": "Defector’s Letter",
+      "murder_canon": {
+        "victim": "Dr. Heinrich Müller",
+        "location": "abandoned warehouse in East Berlin"
+      },
+      "card_contents": "A handwritten letter from a defector reveals fears of betrayal and names key players in a covert operation, hinting at Klaus Richter's possible intentions.",
+      "target_name": "Klaus Richter - The Defector",
+      "target_id": "klaus_richter_the_defector",
+      "weight": "mid"
+    },
+    {
+      "card_id": "97d05d66-4c07-4331-8634-2fafde52e568",
+      "card_type": "clue",
+      "card_title": "West Berlin Informant’s Notebook",
+      "murder_canon": {
+        "victim": "Dr. Heinrich Müller",
+        "location": "abandoned warehouse in East Berlin"
+      },
+      "card_contents": "A worn notebook filled with cryptic notes and suspicious contacts suggests clandestine meetings, possibly connected to Maximilian Bauer's secretive activities.",
+      "target_name": "Maximilian Bauer - The West Berlin Informant",
+      "target_id": "maximilian_bauer_the_west_berlin_informant",
+      "weight": "low"
+    },
+    {
+      "card_id": "7f4d5f41-2da7-4132-a086-6061a15c85ab",
+      "card_type": "game_card",
+      "card_title": "Shadow Toast",
+      "card_contents": "Raise your glass and deliver a cryptic toast praising a guest’s 'unwavering loyalty'—but hint subtly that you suspect their true allegiance. Watch their reaction and try to provoke a revealing slip.",
+      "linked_character": "Klaus Richter - The Defector",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "cebb2945-e1e3-4910-b104-0803095601d4",
+      "card_type": "game_card",
+      "card_title": "Silent Eavesdropper",
+      "card_contents": "Find a quiet spot and secretly listen in on a nearby conversation without being noticed. Afterward, share a vague but alarming piece of overheard information with another player to stir paranoia.",
+      "linked_character": "Klaus Richter - The Defector",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "eb998b01-d401-41ec-9248-669209851969",
+      "card_type": "game_card",
+      "card_title": "The Defector’s Ruse",
+      "card_contents": "Confess a fabricated, dramatic secret about your past as a Stasi operative—make it believable but false. Use this to manipulate another player’s trust or suspicion in your favor during the game.",
+      "linked_character": "Klaus Richter - The Defector",
+      "target_character": "Klaus Richter - The Defector",
+      "target_character_id": "klaus_richter_the_defector"
+    },
+    {
+      "card_id": "4c7286ee-b8b4-4fdc-9e75-80bf723a5ae4",
+      "card_type": "game_card",
+      "card_title": "Cold Charm Offensive",
+      "card_contents": "Deliver a chilling toast praising another guest's 'loyalty'—but make it dripping with icy sarcasm. Watch their reaction carefully and try to plant a seed of doubt about their true allegiance.",
+      "linked_character": "Anya Volkova - The KGB Enforcer",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "4decdc10-ade0-45d7-971d-2d2a9c87056d",
+      "card_type": "game_card",
+      "card_title": "Shadow's Whisper",
+      "card_contents": "Secretly eavesdrop on a nearby conversation without being noticed. Afterward, relay a cryptic snippet you 'overheard' to another player, stirring paranoia and suspicion.",
+      "linked_character": "Anya Volkova - The KGB Enforcer",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "245175bf-d25f-4b7c-8dd9-0568e9d6339a",
+      "card_type": "game_card",
+      "card_title": "Silent Retrieval",
+      "card_contents": "Attempt to stealthily 'borrow' a small item from another player's belongings during the party. If caught, bluff your way out by inventing a convincing KGB-related excuse.",
+      "linked_character": "Anya Volkova - The KGB Enforcer",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "9ff02d3f-6d54-4f79-a926-965b8d9f76ea",
+      "card_type": "game_card",
+      "card_title": "Whispered Toast",
+      "card_contents": "Raise your glass and deliver a suspiciously flattering toast to another player, hinting you know their darkest secret. Watch their reaction and try to read their poker face.",
+      "linked_character": "Maximilian Bauer - The West Berlin Informant",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "123cfd11-6c84-45e0-8fc0-c78f6cb48acb",
+      "card_type": "game_card",
+      "card_title": "Shadow Eavesdropper",
+      "card_contents": "Silently position yourself near two players engaged in conversation. Listen carefully and later reveal a juicy tidbit you 'accidentally overheard' to stir intrigue.",
+      "linked_character": "Maximilian Bauer - The West Berlin Informant",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "ea4cd569-8f10-4050-8cfc-12e35d374e26",
+      "card_type": "game_card",
+      "card_title": "The Double Agent's Bet",
+      "card_contents": "Challenge a player to a quick game of chance or skill (rock-paper-scissors, coin flip, etc.). If you win, demand a secret from them; if you lose, reveal a fabricated secret about yourself to keep your cover.",
+      "linked_character": "Maximilian Bauer - The West Berlin Informant",
+      "target_character": "Elena Fischer - The Double Agent",
+      "target_character_id": "elena_fischer_the_double_agent"
+    },
+    {
+      "card_id": "f9b63651-0d8c-4246-ab4e-00039142a86e",
+      "card_type": "game_card",
+      "card_title": "Double Toast",
+      "card_contents": "Raise your glass and deliver a dramatic toast praising another guest’s loyalty—suspiciously hint that their allegiance might be more complex than it seems. Watch reactions closely and plant seeds of doubt.",
+      "linked_character": "Elena Fischer - The Double Agent",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "d056d772-e5a6-41b0-8c06-6aa3e8781f14",
+      "card_type": "game_card",
+      "card_title": "Silent Eavesdrop",
+      "card_contents": "Find a conversation between two guests and listen unnoticed for at least 30 seconds. Then, subtly relay a misleading snippet of what you 'overheard' to someone else, stirring intrigue and mistrust.",
+      "linked_character": "Elena Fischer - The Double Agent",
+      "target_character": null,
+      "target_character_id": null
+    },
+    {
+      "card_id": "a721c31a-d9cd-4a69-9da0-9816d93db306",
+      "card_type": "game_card",
+      "card_title": "Secret Swap",
+      "card_contents": "Steal a small personal item from another guest without them noticing. Later, use it as 'evidence' to accuse them of espionage or betrayal, creating tension and shifting suspicion in the room.",
+      "linked_character": "Elena Fischer - The Double Agent",
+      "target_character": null,
+      "target_character_id": null
+    }
+  ],
+  "storyBlurb": "In the shadow-soaked alleys of 1983 Berlin, where every whisper could be a lie and every face a threat, two elite spies from opposing Cold War factions are trapped in a deadly game of cat and mouse. As a clandestine technology capable of altering global power dynamics surfaces, paranoia escalates, and alliances shatter. With the city's divided walls echoing secrets and betrayals, each move could ignite a violent chain reaction. In this high-stakes thriller, trust is a weapon, and survival demands a brutal reckoning. Dive into a world where espionage is an art of deception, and the line between hunter and hunted blurs in the chilling fog of war.",
+  "story_title": "Shadows Over Berlin",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/dezgo_7b2fbe6979626a47.jpg",
+  "story_description": "Step into the tense world of Cold War espionage in 1983 Berlin, where secrets lurk in every corner and trust is a rare commodity. Players become elite spies entangled in a deadly game of deception and survival, navigating shifting alliances and hidden dangers. Can you uncover the truth before the city’s fragile peace shatters?",
+  "story_rating": "PG-13 — moderate violence and suspense",
+  "story_themes": "spy thriller, Cold War, espionage, political intrigue, 1980s, suspense, deception",
+  "world": "Berlin, 1983—a city cleaved by ideology and concrete, where the Cold War’s chill seeps into every cracked pavement and whispered conversation. The city’s fractured skyline is a mosaic of faded grandeur and stark utilitarianism, its streets a labyrinth of shadowed alleys and neon-lit bars where secrets are currency and trust a dangerous gamble. The Berlin Wall stands not just as a physical barrier but as a psychological scar, dividing families and loyalties alike, its graffiti-stained surface a canvas of rebellion and despair. In this tense crucible, espionage is both art and survival, with every corner harboring hidden eyes and every encounter layered with deception. The atmosphere is thick with paranoia and anticipation, a city on the edge where the balance of global power could pivot on a single clandestine revelation.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Klaus Richter",
+        "summary": "A seasoned Stasi officer whose icy demeanor masks a conflicted conscience; his knowledge of Berlin’s underworld and surveillance networks makes him a formidable player in the espionage game."
+      },
+      {
+        "name": "Elena Volkova",
+        "summary": "A charismatic and resourceful KGB operative fluent in Berlin’s dialects and subcultures; her charm conceals a ruthless commitment to her mission and a hidden past that could unravel everything."
+      },
+      {
+        "name": "Hans Becker",
+        "summary": "An enigmatic informant with ties to both East and West, operating from the shadows; his allegiance is murky, but his intelligence is invaluable to anyone who can earn his trust."
+      }
+    ],
+    "locations": [
+      {
+        "name": "Checkpoint Charlie",
+        "summary": "The infamous border crossing between East and West Berlin, a tense chokepoint where spies exchange secrets under the watchful eyes of armed guards and cameras."
+      },
+      {
+        "name": "The Katzenkopf Club",
+        "summary": "A dimly lit jazz bar in West Berlin known as a neutral ground for clandestine meetings; its smoky atmosphere and live music provide cover for whispered deals and coded conversations."
+      },
+      {
+        "name": "The Abandoned U-Bahn Station",
+        "summary": "A forgotten subterranean platform beneath the city, now a shadowy rendezvous spot for covert exchanges and hidden caches, echoing with the ghosts of Berlin’s divided past."
+      }
+    ],
+    "items": [
+      {
+        "name": "The Cipher Disk",
+        "summary": "A compact mechanical device capable of encoding and decoding messages with intricate cipher patterns; its possession is crucial for secure communication amid pervasive surveillance."
+      },
+      {
+        "name": "The Black Ledger",
+        "summary": "A clandestine notebook containing encrypted records of covert operations and double agents, its pages a dangerous roadmap to the tangled web of espionage."
+      },
+      {
+        "name": "The Phantom Microfilm",
+        "summary": "A tiny reel of film rumored to hold blueprints for a revolutionary technology that could shift the Cold War balance; its location is fiercely contested by all factions."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Anya Volkova - The KGB Enforcer",
+      "victim": "Dr. Heinrich Müller",
+      "location": "abandoned warehouse in East Berlin",
+      "method": "poisoned injection",
+      "motive": "to prevent Dr. Müller from leaking the clandestine technology to the West",
+      "opportunity": "Dr. Müller was lured under false pretenses to the warehouse for a secret meeting",
+      "window": "late night hours before dawn",
+      "window_start": "2:00 AM",
+      "window_end": "4:00 AM",
+      "murder_solution": "Anya Volkova orchestrated the murder of Dr. Heinrich Müller, a scientist involved with the clandestine technology, to stop him from defecting and revealing critical information to Western intelligence. She arranged a secret meeting in an abandoned warehouse, exploiting the scientist's trust and isolation. During the meeting, Anya used a poisoned injection to kill Dr. Müller swiftly and silently. The late night timing and secluded location provided her the perfect opportunity to commit the murder without witnesses, ensuring the KGB's grip on the technology remained unbroken."
+    },
+    "treasure": {
+      "object": "prototype microchip for the clandestine technology",
+      "hiding_place": "inside a hollowed-out book in the Berlin State Library",
+      "treasure_solution": "The prototype microchip is the key to understanding the new technology that could shift Cold War power balances. It was hidden inside a hollowed-out book in the Berlin State Library to avoid detection by both East and West intelligence agencies. Players can discover it by investigating Dr. Müller's personal effects and following clues pointing to his favorite research spot, leading them to the library and the concealed microchip."
+    }
+  }
+}
