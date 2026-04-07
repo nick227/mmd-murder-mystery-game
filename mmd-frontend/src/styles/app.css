@@ -686,6 +686,22 @@ button { cursor: pointer; }
   gap: 10px;
   align-items: center;
 }
+.list-row--with-thumb { align-items: flex-start; }
+.list-row--with-thumb .list-row__action { align-self: center; }
+.list-row__thumb {
+  flex: 0 0 18%;
+  max-width: 18%;
+  min-width: 76px;
+  display: flex;
+}
+.list-row__thumb .media { width: 100%; }
+@media (max-width: 520px) {
+  .list-row__thumb {
+    flex-basis: 22%;
+    max-width: 22%;
+    min-width: 64px;
+  }
+}
 
 /* DoNowPanel: message-sized action rows */
 [data-testid="do-now-panel"] .list-row {
@@ -750,7 +766,7 @@ button { cursor: pointer; }
   background: rgba(255,255,255,.04);
   border-color: rgba(255,255,255,.06);
 }
-.list-row__main { flex: 1; }
+.list-row__main { flex: 1; min-width: 0; }
 .list-row__title { color: var(--muted); font-size: .78rem; margin-bottom: 4px; }
 .list-row__text { line-height: 1.5; font-size: .98rem; }
 .list-row--complete .list-row__text {

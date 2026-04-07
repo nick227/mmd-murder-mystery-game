@@ -443,6 +443,7 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
       name: titleFromCard(card) ?? 'Unknown Item',
       description: contentsFromCard(card) ?? '',
       act,
+      image: imageFromCard(card) ?? undefined,
       locationRef: asString(card.location_ref) ?? null,
     })
 
@@ -514,6 +515,7 @@ export function adaptGeneratedStoryToRuntime(raw: unknown): { runtimeStory: Runt
       intent,
       title: titleFromCard(card) ?? undefined,
       text,
+      image: imageFromCard(card) ?? undefined,
       source: { cardType, cardId },
       linked_character: linkedCharacter,
     }

@@ -13,6 +13,7 @@ export interface RuntimeCardBase {
   intent: RuntimeCardIntent
   title?: string
   text: string
+  image?: string
   source: {
     cardType: string
     cardId: string
@@ -64,6 +65,7 @@ export interface RuntimeItem {
   name: string
   description: string
   act: number
+  image?: string
   locationRef?: string | null
 }
 
@@ -96,4 +98,3 @@ export interface RuntimeStory {
   cards: RuntimeCard[]
   bundles: RuntimeBundle[]
 }
-

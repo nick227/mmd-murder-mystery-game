@@ -187,6 +187,7 @@ export function runtimeStoryToPlayerApiView(input: {
         name: card.title ?? 'Item',
         description: card.text ?? '',
         act: card.act,
+        image: card.image ?? undefined,
         locationRef: null,
       }))
   })()
@@ -200,9 +201,9 @@ export function runtimeStoryToPlayerApiView(input: {
   })()
 
   const unlockedCards = [
-    ...visibleInstructions.map((c, i) => ({ id: c.id ?? `inst-${i}`, text: c.text, act: c.act, type: 'instruction' })),
-    ...visibleClues.map((c, i) => ({ id: c.id ?? `clue-${i}`, text: c.text, act: c.act, type: 'clue', suspectName: (c as any).suspectName ?? null })),
-    ...visibleReveals.map((c, i) => ({ id: c.id ?? `reveal-${i}`, text: c.text, act: c.act, type: 'reveal' })),
+    ...visibleInstructions.map((c, i) => ({ id: c.id ?? `inst-${i}`, text: c.text, act: c.act, type: 'instruction', image: c.image ?? null })),
+    ...visibleClues.map((c, i) => ({ id: c.id ?? `clue-${i}`, text: c.text, act: c.act, type: 'clue', suspectName: (c as any).suspectName ?? null, image: c.image ?? null })),
+    ...visibleReveals.map((c, i) => ({ id: c.id ?? `reveal-${i}`, text: c.text, act: c.act, type: 'reveal', image: c.image ?? null })),
   ]
 
   const unlockedPuzzles = visiblePuzzles.map((c, index) => ({
@@ -211,6 +212,7 @@ export function runtimeStoryToPlayerApiView(input: {
     question: c.text,
     act: c.act,
     intent: 'puzzle',
+    image: c.image ?? null,
   }))
 
   const actStartByAct = new Map<number, Date>()
@@ -313,6 +315,7 @@ export function runtimeStoryToPlayerApiView(input: {
       title: c.title ?? null,
       text: c.text,
       cardType: String(c.source?.cardType ?? 'info'),
+      image: c.image ?? null,
     })),
     visibleItems: visibleItems.map((item, index) => ({
       id: item.id ?? `item-${index}`,
@@ -320,6 +323,7 @@ export function runtimeStoryToPlayerApiView(input: {
       name: item.name,
       description: item.description,
       locationRef: item.locationRef ?? null,
+      image: item.image ?? null,
     })),
     visibleHostSpeech: visibleHostSpeechCards.map((c, index) => ({
       id: c.id ?? `host-${index}`,
@@ -332,6 +336,7 @@ export function runtimeStoryToPlayerApiView(input: {
       act: c.act,
       title: c.title ?? null,
       text: c.text,
+      image: c.image ?? null,
     })),
     unlockedMysteries: [],
     unlockedPuzzles,

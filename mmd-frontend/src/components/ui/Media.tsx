@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { MediaProps } from '../../data/types'
 
 function ratioStyle(ratio: MediaProps['ratio']): { aspectRatio?: string } {
@@ -6,6 +6,21 @@ function ratioStyle(ratio: MediaProps['ratio']): { aspectRatio?: string } {
   if (ratio === '4:3') return { aspectRatio: '4 / 3' }
   if (ratio === '1:1') return { aspectRatio: '1 / 1' }
   return {}
+}
+
+function normalizeSrc(raw: string | undefined): string | undefined {
+  if (!raw) return undefined
+  const trimmed = raw.trim()
+  if (!trimmed) return undefined
+
+  // Avoid mangling opaque URLs.
+  if (/^(data|blob):/i.test(trimmed)) return trimmed
+
+  try {
+    return encodeURI(trimmed)
+  } catch {
+    return trimmed
+  }
 }
 
 export function Media({
@@ -28,13 +43,18 @@ export function Media({
   const effectiveFit: NonNullable<MediaProps['fit']> =
     fit ?? (variant === 'hero' ? 'cover' : variant === 'thumb' ? 'cover' : 'contain')
 
-  const effectiveSrc = kind === 'image' ? src : poster
+  const effectiveSrc = kind === 'image' ? normalizeSrc(src) : normalizeSrc(poster)
   const showFallback = failed || !effectiveSrc
   const wrapperStyle = useMemo(() => ratioStyle(ratio), [ratio])
   const zoomable = role === 'decorative' || role === 'content'
 
   const imgAlt = role === 'decorative' ? '' : alt
   const ariaHidden = role === 'decorative' ? true : undefined
+
+  useEffect(() => {
+    setFailed(false)
+    setLoaded(false)
+  }, [effectiveSrc])
 
   const fallbackLabel =
     typeof fallback.label === 'string' && fallback.label.trim().length > 0
@@ -90,4 +110,3 @@ export function Media({
     </div>
   )
 }
-

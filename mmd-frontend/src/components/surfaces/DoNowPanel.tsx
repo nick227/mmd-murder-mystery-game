@@ -55,6 +55,8 @@ export function DoNowPanel({ items, handlers }: Props) {
           >
             <div style={{ width: '100%', marginBottom: 10 }}>
               <Media
+                kind="image"
+                src={item.image ?? item.image_url ?? item.imageUrl}
                 alt="Game Card"
                 variant="hero"
                 ratio="16:9"

@@ -5,6 +5,7 @@ import type {
   RendererHandlers,
 } from '../../data/types'
 import { intentBadgeLabel } from '../../utils/uiText'
+import { Media } from '../ui/Media'
 
 const INTENT_RANK: Record<string, number> = {
   reveal: 0,
@@ -28,6 +29,20 @@ export function List({
   className?: string
 }) {
   if (!items.length) return <div className="empty-state">{emptyText ?? 'Nothing here yet.'}</div>
+
+  const imageFromItem = (item: ObjectiveItem | ProfileCardItem): string | undefined => {
+    const anyItem = item as unknown as {
+      image?: unknown
+      image_url?: unknown
+      imageUrl?: unknown
+      card_image?: unknown
+    }
+    const candidates = [anyItem.image, anyItem.image_url, anyItem.imageUrl, anyItem.card_image]
+    for (const candidate of candidates) {
+      if (typeof candidate === 'string' && candidate.trim().length > 0) return candidate.trim()
+    }
+    return undefined
+  }
 
   const textsById = useMemo(() => {
     const map = new Map<string, string>()
@@ -71,18 +86,36 @@ export function List({
         const submitting = Boolean(submittingById[item.id])
         const intent = isObjective && 'intent' in item ? String(item.intent ?? '') : ''
         const isReveal = isObjective && intent === 'reveal'
+        const imageSrc = imageFromItem(item)
 
         return (
           <div
             key={item.id}
             className={[
-              'list-col',
+              'list-row',
+              imageSrc ? 'list-row--with-thumb' : '',
               isObjective && item.completed ? 'list-row--complete' : '',
               flashById[item.id] ? 'list-row--flash' : '',
             ].filter(Boolean).join(' ')}
             data-testid={isObjective ? 'card' : undefined}
             data-intent={isObjective ? intent : undefined}
           >
+            {imageSrc ? (
+              <div className="list-row__thumb">
+                <Media
+                  kind="image"
+                  src={imageSrc}
+                  alt={'label' in item ? item.label : 'Card image'}
+                  ratio="1:1"
+                  variant="card"
+                  fit="cover"
+                  priority={false}
+                  sizes="(max-width: 768px) 96px, 140px"
+                  role="decorative"
+                  fallback={{ type: 'icon', label: 'Card' }}
+                />
+              </div>
+            ) : null}
             <div className="list-row__main">
               {'label' in item ? <div className="list-row__title">{item.label}</div> : null}
               {isObjective && intent ? (

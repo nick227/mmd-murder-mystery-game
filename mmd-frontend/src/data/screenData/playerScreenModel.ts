@@ -12,6 +12,17 @@ function formatTimestamp(createdAt?: string): string | undefined {
     : undefined
 }
 
+function asTrimmedString(value: unknown): string | undefined {
+  return typeof value === 'string' && value.trim().length > 0 ? value.trim() : undefined
+}
+
+function imageFromRecord(record: Record<string, unknown>): string | undefined {
+  return asTrimmedString(record.image)
+    ?? asTrimmedString(record.image_url)
+    ?? asTrimmedString((record as { imageUrl?: unknown }).imageUrl)
+    ?? asTrimmedString(record.card_image)
+}
+
 export function mapApiEventToProgressFeedItem(event: ApiGameEvent): FeedItem | null {
   const payload = event.payload ?? {}
   let text: string
@@ -172,7 +183,7 @@ function buildPlayerEvidence(input: {
     title: String(card.title ?? 'Clue'),
     text: String(card.text ?? 'Clue'),
     act: typeof card.act === 'number' ? card.act : undefined,
-    image: typeof (card as { image?: unknown }).image === 'string' ? String((card as { image?: unknown }).image) : undefined,
+    image: imageFromRecord(card),
   }))
 
   const puzzles: EvidenceItem[] = input.puzzles.map((puzzle, index) => ({
@@ -181,7 +192,7 @@ function buildPlayerEvidence(input: {
     title: String(puzzle.title ?? 'Puzzle'),
     text: String(puzzle.question ?? puzzle.title ?? 'Puzzle'),
     act: typeof puzzle.act === 'number' ? puzzle.act : undefined,
-    image: typeof (puzzle as { image?: unknown }).image === 'string' ? String((puzzle as { image?: unknown }).image) : undefined,
+    image: imageFromRecord(puzzle),
   }))
 
   const reveals: EvidenceItem[] = input.reveals.map((card, index) => ({
@@ -190,7 +201,7 @@ function buildPlayerEvidence(input: {
     title: 'Reveal',
     text: String(card.text ?? 'Reveal'),
     act: typeof card.act === 'number' ? card.act : undefined,
-    image: typeof (card as { image?: unknown }).image === 'string' ? String((card as { image?: unknown }).image) : undefined,
+    image: imageFromRecord(card),
   }))
 
   const items: EvidenceItem[] = input.items.map((item, index) => ({
@@ -199,6 +210,7 @@ function buildPlayerEvidence(input: {
     title: String((item as { name?: unknown }).name ?? (item as { title?: unknown }).title ?? 'Item'),
     text: String((item as { description?: unknown }).description ?? (item as { text?: unknown }).text ?? ''),
     act: typeof (item as { act?: unknown }).act === 'number' ? (item as { act?: unknown }).act as number : undefined,
+    image: imageFromRecord(item),
   }))
 
   const treasures: EvidenceItem[] = input.treasures.map((card, index) => ({
@@ -207,6 +219,7 @@ function buildPlayerEvidence(input: {
     title: String(card.title ?? 'Treasure'),
     text: String(card.text ?? ''),
     act: typeof card.act === 'number' ? card.act : undefined,
+    image: imageFromRecord(card),
   }))
 
   const infos: EvidenceItem[] = input.infos.map((card, index) => ({
@@ -215,6 +228,7 @@ function buildPlayerEvidence(input: {
     title: String(card.title ?? 'Info'),
     text: String(card.text ?? ''),
     act: typeof card.act === 'number' ? card.act : undefined,
+    image: imageFromRecord(card),
   }))
 
   return [...clues, ...puzzles, ...items, ...treasures, ...infos, ...reveals]
@@ -250,6 +264,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
     completed: submittedIds.has(String(card.id ?? '')),
     act: typeof card.act === 'number' ? card.act : undefined,
     intent: 'instruction',
+    image: imageFromRecord(card),
   }))
 
   const group: ObjectiveItem[] = puzzles.map((puzzle, index) => ({
@@ -261,6 +276,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
     intent: typeof (puzzle as { intent?: unknown }).intent === 'string'
       ? ((puzzle as { intent?: unknown }).intent as ObjectiveItem['intent'])
       : undefined,
+    image: imageFromRecord(puzzle),
   }))
 
   const reveals: ObjectiveItem[] = revealObjectiveCards.map((card, index) => ({
@@ -269,6 +285,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
     completed: false,
     act: typeof card.act === 'number' ? card.act : undefined,
     intent: 'reveal',
+    image: imageFromRecord(card),
   }))
 
   const players = (input.roomPlayers ?? []).map(player => ({
@@ -331,6 +348,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
     id: String(item.id ?? `item-${index}`),
     label: String((item as { name?: unknown }).name ?? 'Item'),
     value: String((item as { description?: unknown }).description ?? ''),
+    image: imageFromRecord(item),
   }))
 
   const portrait = typeof (character as { image?: unknown }).image === 'string' ? String((character as { image?: unknown }).image) : undefined
@@ -379,6 +397,7 @@ export function buildPlayerScreenModel(input: PlayerApiView, playerNameDraft: st
         id: String(card.id ?? `clue-${index}`),
         label: String(card.title ?? 'Clue'),
         value: String(card.text ?? 'Clue'),
+        image: imageFromRecord(card),
       })),
     },
     composer: {

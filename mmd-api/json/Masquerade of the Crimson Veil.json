@@ -1,0 +1,549 @@
+{
+  "includeImages": true,
+  "cards": [
+    {
+      "card_type": "story_meta",
+      "card_title": "Story title",
+      "card_contents": "Masquerade of the Crimson Veil",
+      "act": 1,
+      "card_id": "18ffbed4-b147-416e-9a95-d36be7c69884",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story_meta/18ffbed4-b147-416e-9a95-d36be7c69884.png"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story description",
+      "card_contents": "Step into the opulent world of a secretive Venetian ball where ancient traditions clash with modern intrigue. Amidst glittering chandeliers and hidden identities, a sudden murder threatens to expose deadly secrets. Can you unravel the mystery before the night ends and the masks come off?",
+      "act": 1,
+      "card_id": "fc1d4b24-ee20-47e4-9def-bb2dcd853365",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story_meta/fc1d4b24-ee20-47e4-9def-bb2dcd853365.png"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story rating",
+      "card_contents": "Adult 18+",
+      "act": 1,
+      "card_id": "a9c931a5-a027-47bd-8c22-c5196d3daae9",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story_meta/a9c931a5-a027-47bd-8c22-c5196d3daae9.png"
+    },
+    {
+      "card_type": "story_meta",
+      "card_title": "Story themes",
+      "card_contents": "vampires, mystery, masquerade, gothic, thriller, ensemble cast",
+      "act": 1,
+      "card_id": "6019896d-8401-45e9-900c-283c8cc883e0",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story_meta/6019896d-8401-45e9-900c-283c8cc883e0.png"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Donato Vellini",
+      "card_contents": "The enigmatic patriarch of the Venetian vampire coven, Donato embodies centuries of ruthless leadership. His charm masks a calculating mind that balances ancient codes with the demands of the modern world, enforcing order within the Masquerade with an iron will beneath his silk-clad exterior.",
+      "act": 1,
+      "card_id": "b282c594-a4ab-4486-9cdc-bb701d1ee5e0",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/person/b282c594-a4ab-4486-9cdc-bb701d1ee5e0.png"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Isabella Moretti",
+      "card_contents": "A rising figure within the coven, Isabella is a master of social manipulation and espionage. Her knowledge of Venice's underworld and high society alike makes her indispensable—and dangerous. She navigates the Masquerade with a smile that conceals both ambition and hidden scars.",
+      "act": 1,
+      "card_id": "a0bc8ddc-02d7-489d-82b4-8ceb5ca13497",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/person/a0bc8ddc-02d7-489d-82b4-8ceb5ca13497.png"
+    },
+    {
+      "card_type": "person",
+      "card_title": "Father Lorenzo",
+      "card_contents": "A conflicted priest who serves as the coven's reluctant spiritual advisor, wrestling with his own faith and the darkness he witnesses. His presence at the palazzo is a paradox, embodying the fragile truce between sacred tradition and unholy existence.",
+      "act": 1,
+      "card_id": "bfa3156c-38cc-42e5-8274-00e60282480d",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/person/bfa3156c-38cc-42e5-8274-00e60282480d.png"
+    },
+    {
+      "card_type": "location",
+      "card_title": "Palazzo Rosso",
+      "card_contents": "The ancestral home of the coven and the venue for the Masquerade of the Crimson Veil. Its crimson-draped halls and mirrored chambers hold centuries of secrets, with hidden passages and cryptic frescoes that hint at the coven's dark history and the power struggles beneath the surface.",
+      "act": 1,
+      "card_id": "ce1ccc29-6033-4b22-a9b1-417338327289",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/location/ce1ccc29-6033-4b22-a9b1-417338327289.png"
+    },
+    {
+      "card_type": "location",
+      "card_title": "The Silent Canal",
+      "card_contents": "A narrow, shadowed waterway behind the palazzo, known only to the coven and their trusted allies. It serves as a discreet escape route and a place for clandestine meetings, its still waters reflecting the duality of Venice itself—beauty and danger intertwined.",
+      "act": 1,
+      "card_id": "23af1d62-c1e3-4cd4-894e-0da394d4aa6e",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/location/23af1d62-c1e3-4cd4-894e-0da394d4aa6e.png"
+    },
+    {
+      "card_type": "location",
+      "card_title": "The Archivum",
+      "card_contents": "A secret chamber within the palazzo housing ancient tomes, blood-bound contracts, and relics of the coven's origins. Access is tightly controlled, for the knowledge contained within could upend the delicate balance of power if revealed.",
+      "act": 1,
+      "card_id": "be500996-a6bd-4599-a921-e5aae16a835a",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/location/be500996-a6bd-4599-a921-e5aae16a835a.png"
+    },
+    {
+      "card_type": "item",
+      "card_title": "The Crimson Veil Mask",
+      "card_contents": "An ornate mask worn exclusively during the Masquerade, crafted from crimson silk and encrusted with garnets. Beyond its aesthetic allure, it symbolizes the wearer's rank and allegiance within the coven, concealing identity while broadcasting subtle signals to insiders.",
+      "act": 1,
+      "card_id": "7b271e81-778b-4208-9ea5-565a329470fb",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/7b271e81-778b-4208-9ea5-565a329470fb.png"
+    },
+    {
+      "card_type": "item",
+      "card_title": "The Blood Ledger",
+      "card_contents": "A meticulously kept record of debts, favors, and transgressions among the coven members. Written in a cipher only a few can decode, this ledger is both a tool of control and a potential weapon, holding the keys to alliances and betrayals alike.",
+      "act": 1,
+      "card_id": "3581bfe0-2bda-489f-8c6f-f5aa4437d4ad",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/3581bfe0-2bda-489f-8c6f-f5aa4437d4ad.png"
+    },
+    {
+      "card_type": "item",
+      "card_title": "The Obsidian Dagger",
+      "card_contents": "A ceremonial blade rumored to be forged from volcanic glass and blessed in forgotten rites. It is both a symbol of authority and a weapon of execution within the coven, its presence a chilling reminder of the consequences of disloyalty.",
+      "act": 1,
+      "card_id": "ba4ad2a3-af9c-4d61-aaba-5210f2fc0ba7",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/ba4ad2a3-af9c-4d61-aaba-5210f2fc0ba7.png"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "card_contents": "A centuries-old vampire lord and the undisputed head of the Venetian coven, Lorenzo exudes an aura of cold authority beneath his ornate crimson mask. Known for his ruthless political maneuvers and unyielding adherence to ancient traditions, he views the Masquerade as both a celebration and a battleground. His motive lies in preserving the old order at any cost, and he harbors deep suspicion toward those who challenge his reign.",
+      "card_id": "06bfd4fa-6d53-4f4b-95a1-8fd8959938cd",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/character/06bfd4fa-6d53-4f4b-95a1-8fd8959938cd.png"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Isabella Vivaldi - The Enigmatic Socialite",
+      "card_contents": "A recent arrival to Venice's elite vampire circles, Isabella dazzles with her charm and mysterious past. Her modern views and connections to mortal high society threaten to disrupt the coven's secretive ways. Beneath her glittering facade lies ambition and a hunger for power, making her a wildcard whose loyalties are as masked as her identity.",
+      "card_id": "def76624-0c72-41fb-9690-aebe2a783b31",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/character/def76624-0c72-41fb-9690-aebe2a783b31.png"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Father Matteo Russo - The Fallen Cleric",
+      "card_contents": "Once a devout priest, Matteo now walks the line between darkness and redemption as a vampire who questions his cursed existence. His presence at the Masquerade is both scandalous and unsettling. Haunted by his past and driven by a secret agenda, he seeks to uncover truths that others would kill to keep hidden.",
+      "card_id": "66610ce7-2436-48c7-b3f1-3d35f1c99691",
+      "act": 3,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/character/66610ce7-2436-48c7-b3f1-3d35f1c99691.png"
+    },
+    {
+      "card_type": "character",
+      "card_title": "Serafina Bellini - The Silent Enforcer",
+      "card_contents": "A shadowy figure known for her lethal efficiency and unwavering loyalty to the coven's laws, Serafina rarely speaks but her actions resonate loudly. Clad in a sleek black gown and a mask that conceals her piercing gaze, she enforces discipline and eliminates threats without hesitation. Her motives are tied to maintaining order, but her personal vendettas may cloud her judgment.",
+      "card_id": "4ee32d5d-8bd0-4b4c-a044-101797c432db",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/character/4ee32d5d-8bd0-4b4c-a044-101797c432db.png"
+    },
+    {
+      "card_type": "solution",
+      "role": "murder",
+      "card_title": "Murder Solution",
+      "card_contents": "Marco Bellini, a non-playable nobleman rumored to challenge the coven's authority, was poisoned by Lorenzo di Moretti during the opening toast of the Masquerade. Lorenzo, intent on preserving the ancient traditions and his control over the Venetian coven, used the distraction of the masked gathering to slip poison into Marco's glass of spiced wine. The grand ballroom's opulence and the guests' focus on the ceremonial toast provided Lorenzo the perfect cover to commit the murder without immediate suspicion. This calculated act was meant to quash any emerging threats to his reign and maintain the fragile balance of power within the secretive vampire society.",
+      "reveal": "host_reveal",
+      "hidden": true,
+      "card_id": "8ee4f0c3-be73-42e5-8836-fff51dc68ff5",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/solution/8ee4f0c3-be73-42e5-8836-fff51dc68ff5.png"
+    },
+    {
+      "card_type": "solution",
+      "role": "treasure",
+      "card_title": "Treasure Solution",
+      "card_contents": "The Crimson Veil Pendant is a centuries-old artifact symbolizing the coven's leadership and holds encrypted secrets about their origins and vulnerabilities. Players can discover it by investigating the private chambers where the fresco conceals a hidden compartment. Unlocking this treasure reveals critical information that could shift power dynamics and expose hidden truths about the vampire society, making it a key to understanding the deeper layers of the Masquerade.",
+      "reveal": "host_reveal",
+      "hidden": true,
+      "card_id": "ec000ac8-1095-4035-8979-13fa25206c62",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/solution/ec000ac8-1095-4035-8979-13fa25206c62.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "My Darkest Secret",
+      "secret_type": "motive",
+      "card_contents": "The truth is, I am the one who killed Marco Bellini at the grand ballroom beneath the chandeliers. Marco Bellini, a non-playable nobleman rumored to challenge the coven's authority, was poisoned by Lorenzo di Moretti during the opening toast of the Masquerade. Lorenzo, intent on preserving the ancient traditions and his control over the Venetian coven, used the distraction of the masked gathering to slip poison into Marco's glass of spiced wine. The grand ballroom's opulence and the guests' focus on the ceremonial toast provided Lorenzo the perfect cover to commit the murder without immediate suspicion. This calculated act was meant to quash any emerging threats to his reign and maintain the fragile balance of power within the secretive vampire society.",
+      "linked_character": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "act": 3,
+      "card_id": "d7310e4d-8b00-4abb-802a-3ca8b4b5bf02",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/d7310e4d-8b00-4abb-802a-3ca8b4b5bf02.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Hidden Passageway Access",
+      "secret_type": "access",
+      "card_contents": "Lorenzo possesses a set of ancient keys granting him access to a secret passage connecting the main ballroom to the victim's private chambers, allowing movement unseen by others.",
+      "linked_character": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "card_id": "b1c050bf-edc4-4e2e-a64d-d12f87f4a362",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/b1c050bf-edc4-4e2e-a64d-d12f87f4a362.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Desire to Control the Coven's Legacy",
+      "secret_type": "motive",
+      "card_contents": "Lorenzo wanted the victim removed because the victim opposed Lorenzo's plan to consolidate power over the vampire coven's wealth and influence, threatening Lorenzo's leadership and control.",
+      "linked_character": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "card_id": "584214bf-ccb2-409e-8cba-c7cc7ad4d2df",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/584214bf-ccb2-409e-8cba-c7cc7ad4d2df.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Secret Passage Access to the Victim's Quarters",
+      "secret_type": "access",
+      "card_contents": "Isabella was seen entering a concealed servant passage that leads directly to the victim's private chambers during the time of the murder, despite claiming to be mingling in the ballroom.",
+      "linked_character": "Isabella Vivaldi - The Enigmatic Socialite",
+      "card_id": "bb750a9d-14eb-4ebc-98cc-fc657d3a628e",
+      "act": 3,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/bb750a9d-14eb-4ebc-98cc-fc657d3a628e.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Desire to Control the Coven's Wealth",
+      "secret_type": "motive",
+      "card_contents": "Isabella wanted the victim eliminated because the victim was planning to block her bid to take control over the coven's financial assets, which would elevate her status and power within the group.",
+      "linked_character": "Isabella Vivaldi - The Enigmatic Socialite",
+      "card_id": "5e2f9d4c-a2f5-475f-897b-f2fe744571a9",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/5e2f9d4c-a2f5-475f-897b-f2fe744571a9.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Secret Passage Access to the Palazzo's Inner Sanctum",
+      "secret_type": "access",
+      "card_contents": "Father Matteo was seen entering a restricted secret passage leading directly to the victim's private chambers shortly before the murder, despite being officially barred from this area due to his fall from grace.",
+      "linked_character": "Father Matteo Russo - The Fallen Cleric",
+      "card_id": "18294dd5-4914-4207-aa55-0f11b6937060",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/18294dd5-4914-4207-aa55-0f11b6937060.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Desire to Regain Coven Influence by Removing a Rival",
+      "secret_type": "motive",
+      "card_contents": "Father Matteo wanted the victim silenced because the victim had recently blocked his attempts to regain influence within the vampire coven, threatening his hopes of reclaiming status and power.",
+      "linked_character": "Father Matteo Russo - The Fallen Cleric",
+      "card_id": "188e65ff-c440-4d3e-a027-625d116b91c4",
+      "act": 3,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/188e65ff-c440-4d3e-a027-625d116b91c4.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Secret Access to the Palazzo's Inner Sanctum",
+      "secret_type": "access",
+      "card_contents": "Serafina was seen entering the palazzo's restricted inner sanctum shortly before the murder, a place only a few trusted coven members can access, raising suspicion about her involvement or knowledge of the crime.",
+      "linked_character": "Serafina Bellini - The Silent Enforcer",
+      "card_id": "dd97d849-8ebb-410c-aa6f-13d12da326e7",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/dd97d849-8ebb-410c-aa6f-13d12da326e7.png"
+    },
+    {
+      "card_type": "secret",
+      "card_title": "Desire to Usurp the Coven's Leadership",
+      "secret_type": "motive",
+      "card_contents": "Serafina wanted the victim dead because the victim was a direct obstacle to her ambition of becoming the coven's leader, threatening her plans to gain control over the coven's power and resources.",
+      "linked_character": "Serafina Bellini - The Silent Enforcer",
+      "card_id": "ec49b8bd-f965-4e9e-be85-6bb1cf380745",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/secret/ec49b8bd-f965-4e9e-be85-6bb1cf380745.png"
+    },
+    {
+      "card_title": "Lorenzo's Ornate Signet Ring",
+      "card_contents": "A heavy gold ring engraved with an intricate family crest featuring a coiled serpent. The inside bears faint traces of dried blood. The ring is warm to the touch despite the cool room temperature.",
+      "linked_character": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "card_id": "a4c20ba9-1445-4185-99a8-afeba7a49505",
+      "card_type": "item",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/a4c20ba9-1445-4185-99a8-afeba7a49505.png"
+    },
+    {
+      "card_title": "Ancient Parchment Scroll",
+      "card_contents": "A rolled parchment sealed with deep red wax stamped with a symbol resembling a blood drop entwined with a thorny vine. The scroll appears brittle and aged, with faded handwritten script visible through small tears.",
+      "linked_character": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "card_id": "2d8a6ad7-716b-453c-90a4-83678fb01d83",
+      "card_type": "item",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/2d8a6ad7-716b-453c-90a4-83678fb01d83.png"
+    },
+    {
+      "card_title": "Jeweled Cane with Hidden Compartment",
+      "card_contents": "A polished ebony cane topped with a ruby-encrusted handle. When pressed in a specific spot, a small compartment opens revealing a folded piece of faded velvet cloth stained with a dark substance.",
+      "linked_character": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "card_id": "ae69fd7e-57b0-4717-a260-fac72e64e3c1",
+      "card_type": "item",
+      "act": 3,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/ae69fd7e-57b0-4717-a260-fac72e64e3c1.png"
+    },
+    {
+      "card_title": "Isabella's Velvet Choker",
+      "card_contents": "A deep crimson velvet choker adorned with a small, intricate silver locket. The locket is locked tight; its back is engraved with a cryptic symbol resembling a serpent entwined around a rose.",
+      "linked_character": "Isabella Vivaldi - The Enigmatic Socialite",
+      "card_id": "3ac88af4-3ec0-476d-86e2-cdfa80ae1192",
+      "card_type": "item",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/3ac88af4-3ec0-476d-86e2-cdfa80ae1192.png"
+    },
+    {
+      "card_title": "Invitation to the Masquerade",
+      "card_contents": "A finely crafted invitation card embossed with gold leaf, bearing the seal of the vampire coven. The edges are slightly worn, and the handwriting inside is elegant but hurried, signed only with the initial 'I'.",
+      "linked_character": "Isabella Vivaldi - The Enigmatic Socialite",
+      "card_id": "ad01e28e-d7bb-4f1a-bea2-9501540185d7",
+      "card_type": "item",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/ad01e28e-d7bb-4f1a-bea2-9501540185d7.png"
+    },
+    {
+      "card_title": "Isabella's Compact Mirror",
+      "card_contents": "An ornate silver compact mirror encrusted with tiny rubies along its edge. Inside, faint fingerprints are visible, and a small, folded note is tucked behind the mirror's glass.",
+      "linked_character": "Isabella Vivaldi - The Enigmatic Socialite",
+      "card_id": "648c1d6c-deb9-4d14-8837-e9fde7537c90",
+      "card_type": "item",
+      "act": 3,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/648c1d6c-deb9-4d14-8837-e9fde7537c90.png"
+    },
+    {
+      "card_title": "Matteo's Silver Crucifix",
+      "card_contents": "A tarnished silver crucifix hangs from a worn leather cord. The back bears faint scorch marks, and the front is etched with a faded Latin prayer. It feels cold to the touch, unnervingly so in the warm ballroom.",
+      "linked_character": "Father Matteo Russo - The Fallen Cleric",
+      "card_id": "39d29d2e-046b-4505-93d9-c7826ef53bd2",
+      "card_type": "item",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/39d29d2e-046b-4505-93d9-c7826ef53bd2.png"
+    },
+    {
+      "card_title": "Bloodstained Confessional Note",
+      "card_contents": "A small, folded piece of parchment stained with dark red blotches. The handwriting is hurried and shaky, containing fragmented confessions and cryptic references to forbidden secrets within the coven.",
+      "linked_character": "Father Matteo Russo - The Fallen Cleric",
+      "card_id": "94b057d9-8ad3-446b-bfe6-60ccaa5b71e9",
+      "card_type": "item",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/94b057d9-8ad3-446b-bfe6-60ccaa5b71e9.png"
+    },
+    {
+      "card_title": "Vial of Crimson Elixir",
+      "card_contents": "A delicate glass vial filled with a thick, dark red liquid that glimmers faintly under the light. The stopper is sealed with black wax bearing an unfamiliar sigil. The vial feels unnaturally cold when held.",
+      "linked_character": "Father Matteo Russo - The Fallen Cleric",
+      "card_id": "fe83593c-7f75-4152-8fd2-10f66214fa3d",
+      "card_type": "item",
+      "act": 3,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/fe83593c-7f75-4152-8fd2-10f66214fa3d.png"
+    },
+    {
+      "card_title": "Serafina's Black Mask",
+      "card_contents": "A sleek black mask with narrow eye slits, concealing Serafina's identity. The inside is lined with soft velvet, and faint traces of a crimson powder dust the edges. The mask is lightweight but sturdy, designed for both concealment and intimidation.",
+      "linked_character": "Serafina Bellini - The Silent Enforcer",
+      "card_id": "3a40d10d-680a-46b8-a027-09e7154e0048",
+      "card_type": "item",
+      "act": 1,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/3a40d10d-680a-46b8-a027-09e7154e0048.png"
+    },
+    {
+      "card_title": "Silent Enforcer's Letter Opener",
+      "card_contents": "A slender, silver letter opener engraved with intricate gothic patterns. The blade is sharp and stained with a faint reddish tint. The handle bears a small emblem resembling a coiled serpent. It fits discreetly in a hidden sheath beneath Serafina's gown.",
+      "linked_character": "Serafina Bellini - The Silent Enforcer",
+      "card_id": "3b24d6e5-de1e-4621-a393-ef1a69e73585",
+      "card_type": "item",
+      "act": 2,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/3b24d6e5-de1e-4621-a393-ef1a69e73585.png"
+    },
+    {
+      "card_title": "Encrypted Ledger Fragment",
+      "card_contents": "A torn page from a leather-bound ledger, filled with cryptic symbols and coded entries. Some lines are underlined in red ink, while others are crossed out hastily. The paper feels aged but carefully preserved, with a faint scent of sandalwood.",
+      "linked_character": "Serafina Bellini - The Silent Enforcer",
+      "card_id": "82b47295-beec-4349-9400-856670e7676e",
+      "card_type": "item",
+      "act": 3,
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/item/82b47295-beec-4349-9400-856670e7676e.png"
+    },
+    {
+      "card_title": "A Night of Masks and Murmurs",
+      "card_contents": "As the Masquerade of the Crimson Veil unfolds within the crimson-draped halls of Palazzo Rosso, tensions simmer beneath the glittering chandeliers. Lorenzo di Moretti, the Patriarch of Shadows, asserts his unyielding grip on the coven, wary of any who might challenge tradition. Nearby, Serafina Bellini moves silently, her presence a stark reminder of the coven's ruthless enforcement. Suddenly, a brutal murder shatters the night's fragile balance. Whispers swirl — was it a power play to preserve old order, or something more personal? The Silent Canal and the Archivum, with their hidden secrets, beckon questions about the victim’s last movements and what forbidden knowledge might have been unearthed. Who stands to gain from this deadly act?",
+      "act": 1,
+      "card_id": "2b99be5b-3e66-4ec6-9f08-886fdfaf38ba",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story_act/2b99be5b-3e66-4ec6-9f08-886fdfaf38ba.png"
+    },
+    {
+      "card_title": "Shadows of Ambition and Doubt",
+      "card_contents": "Isabella Vivaldi’s arrival has unsettled the coven’s delicate equilibrium. Her charm and ties to mortal society spark both fascination and suspicion. Conflicting accounts emerge: some claim she sought secret meetings near the Silent Canal, while others whisper of clandestine visits to the Archivum. Meanwhile, Lorenzo’s rigid adherence to tradition clashes with Isabella’s modern ambitions, deepening divides. Serafina’s silence grows heavier — is her loyalty absolute, or does she harbor hidden grudges? Amid these contradictions, the murder’s motive blurs: was it an act to suppress change, a personal vendetta, or a desperate bid for power? The night thickens with uncertainty as alliances shift and secrets threaten to surface.",
+      "act": 2,
+      "card_id": "a05bf114-03a0-4169-a4f6-eaec798e0d16",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story_act/a05bf114-03a0-4169-a4f6-eaec798e0d16.png"
+    },
+    {
+      "card_title": "Crossroads of Faith and Fury",
+      "card_contents": "Father Matteo Russo’s presence at the Masquerade casts a shadow over the coven’s ancient rituals. Once a man of faith, now a vampire wrestling with his cursed nature, Matteo pursues truths that others would kill to conceal. His inquiries into the murder lead him toward the Archivum’s forbidden tomes, but his motives remain veiled — is he seeking redemption, revenge, or something darker? Lorenzo’s authority is challenged not only by Matteo’s questions but by Isabella’s rising influence and Serafina’s enigmatic actions. As the night wanes, the coven’s fragile facade cracks, forcing each to confront their loyalties and secrets. Yet, the true catalyst behind the murder remains elusive, leaving all paths open and suspicion unresolved.",
+      "act": 3,
+      "card_id": "f84deec1-40bd-4c13-9c71-3fc8990cd46b",
+      "card_type": "story_act",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story_act/f84deec1-40bd-4c13-9c71-3fc8990cd46b.png"
+    },
+    {
+      "card_id": "cb8266bc-e657-4f83-87bd-f2965dbec75c",
+      "card_type": "clue",
+      "card_title": "Crimson Veil Fragment",
+      "murder_canon": {
+        "victim": "Marco Bellini",
+        "location": "the grand ballroom beneath the chandeliers"
+      },
+      "card_contents": "A delicate fragment of a crimson veil mask lies on the polished ballroom floor, its edges singed and stained. This torn piece hints at someone wearing the distinctive mask being very close to the victim during the murder.",
+      "target_name": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "target_id": "lorenzo_di_moretti_the_patriarch_of_shadows",
+      "weight": "high",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/clue/cb8266bc-e657-4f83-87bd-f2965dbec75c.png"
+    },
+    {
+      "card_id": "66db346c-57aa-4418-b974-57f1639c3272",
+      "card_type": "clue",
+      "card_title": "Encrypted Diary Entry",
+      "murder_canon": {
+        "victim": "Marco Bellini",
+        "location": "the grand ballroom beneath the chandeliers"
+      },
+      "card_contents": "Within a locked drawer, a partially decoded diary page reveals cryptic notes about secret meetings and veiled threats exchanged with the victim. These passages suggest simmering tensions that might have escalated.",
+      "target_name": "Isabella Vivaldi - The Enigmatic Socialite",
+      "target_id": "isabella_vivaldi_the_enigmatic_socialite",
+      "weight": "mid",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/clue/66db346c-57aa-4418-b974-57f1639c3272.png"
+    },
+    {
+      "card_id": "c54edbb9-5b0c-4753-bf7d-78c54d984a87",
+      "card_type": "clue",
+      "card_title": "Sacred Relic with Blood Smear",
+      "murder_canon": {
+        "victim": "Marco Bellini",
+        "location": "the grand ballroom beneath the chandeliers"
+      },
+      "card_contents": "A tarnished silver pendant engraved with ancient symbols is smeared with fresh blood, found discarded near a side exit. This sacred relic implies a violent struggle possibly involving the fallen cleric.",
+      "target_name": "Father Matteo Russo - The Fallen Cleric",
+      "target_id": "father_matteo_russo_the_fallen_cleric",
+      "weight": "mid",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/clue/c54edbb9-5b0c-4753-bf7d-78c54d984a87.png"
+    },
+    {
+      "card_id": "b013bf4f-8cb8-4a7e-9b79-913c02bd82f3",
+      "card_type": "clue",
+      "card_title": "Silent Enforcer's Glove",
+      "murder_canon": {
+        "victim": "Marco Bellini",
+        "location": "the grand ballroom beneath the chandeliers"
+      },
+      "card_contents": "A sleek black leather glove embossed with the Bellini family crest lies abandoned beneath a velvet curtain. Its fingers bear faint traces of blood, hinting at a protective yet potentially aggressive role in the night's events.",
+      "target_name": "Serafina Bellini - The Silent Enforcer",
+      "target_id": "serafina_bellini_the_silent_enforcer",
+      "weight": "low",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/clue/b013bf4f-8cb8-4a7e-9b79-913c02bd82f3.png"
+    },
+    {
+      "card_title": "Veil of Authority",
+      "card_contents": "Approach a player who seems most rebellious or suspicious. Deliver a chilling, poetic warning about the consequences of defying tradition, while maintaining your cold, commanding presence. Then, subtly challenge them to prove their loyalty by revealing a secret or performing a small act of obedience.",
+      "linked_character": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "target_character": null,
+      "target_character_id": null,
+      "card_id": "c0e6e2da-34ba-4d74-9e8e-eb738670c389",
+      "card_type": "game_card",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/game_card/c0e6e2da-34ba-4d74-9e8e-eb738670c389.png"
+    },
+    {
+      "card_title": "Veiled Compliment",
+      "card_contents": "Approach another player and deliver a lavish compliment that hints at a hidden agenda or secret. Use your charm to make it sound sincere, then watch their reaction carefully to glean clues or unsettle them.",
+      "linked_character": "Isabella Vivaldi - The Enigmatic Socialite",
+      "target_character": null,
+      "target_character_id": null,
+      "card_id": "35522f78-6078-4991-bd6a-e62191eb074a",
+      "card_type": "game_card",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/game_card/35522f78-6078-4991-bd6a-e62191eb074a.png"
+    },
+    {
+      "card_title": "Confess a Sin",
+      "card_contents": "Step aside from the crowd and deliver a brief, haunting confession about a dark secret from Father Matteo's past—real or invented. Use this moment to unsettle another player nearby, hinting you know more about their hidden sins than you let on. Watch their reaction closely and decide if you want to press further or retreat into the shadows.",
+      "linked_character": "Father Matteo Russo - The Fallen Cleric",
+      "target_character": "Father Matteo Russo - The Fallen Cleric",
+      "target_character_id": "father_matteo_russo_the_fallen_cleric",
+      "card_id": "d551eff2-6c68-4cb7-bc0b-446b64de7566",
+      "card_type": "game_card",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/game_card/d551eff2-6c68-4cb7-bc0b-446b64de7566.png"
+    },
+    {
+      "card_title": "Silent Warning",
+      "card_contents": "Without uttering a word, approach a player you suspect and fix them with your piercing gaze. Then, subtly place a black feather on their table or person as a silent warning. Watch their reaction carefully and decide if they are friend or foe.",
+      "linked_character": "Serafina Bellini - The Silent Enforcer",
+      "target_character": null,
+      "target_character_id": null,
+      "card_id": "d9733b86-a7e1-4a57-a1cb-2313783c0a1a",
+      "card_type": "game_card",
+      "image_url": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/game_card/d9733b86-a7e1-4a57-a1cb-2313783c0a1a.png"
+    }
+  ],
+  "storyBlurb": "Beneath the glittering chandeliers of a secluded Venetian palazzo, the city's elite gather for the annual Masquerade of the Crimson Veil—a secretive ball where the wealthy hide more than just their identities. Within this opulent world of silk and shadows, a modern vampire coven rules with ruthless elegance, balancing centuries-old traditions against the ruthless demands of the 21st century. As alliances shift and ancient grudges surface, a sudden, brutal murder threatens to unravel their carefully crafted facade. In a game where trust is a luxury and betrayal a deadly art, who will survive the night when the masks come off?",
+  "story_title": "Masquerade of the Crimson Veil",
+  "story_description": "Step into the opulent world of a secretive Venetian ball where ancient traditions clash with modern intrigue. Amidst glittering chandeliers and hidden identities, a sudden murder threatens to expose deadly secrets. Can you unravel the mystery before the night ends and the masks come off?",
+  "story_rating": "Adult 18+",
+  "story_themes": "vampires, mystery, masquerade, gothic, thriller, ensemble cast",
+  "storyImage": "https://pub-9c79c8328d194e7eb1e10f856c145b3d.r2.dev/images/Secret Modern Vampire Coven-1775570521042-eqy5mr/story/story.png",
+  "world": "Venice, a city suspended between water and stone, where labyrinthine canals reflect the fractured light of a fading empire. Here, beneath the veneer of Renaissance grandeur and tourist bustle, an ancient nocturnal society thrives in the shadows of palazzi whose walls whisper secrets of blood and power. The Masquerade of the Crimson Veil unfolds within one such hidden palace, its gilded halls a stage for the eternal dance between tradition and survival. The air is thick with the scent of aged velvet, spiced wine, and something darker—an undercurrent of menace beneath the chandeliers' cold glow. This is a city where time folds, where centuries-old vendettas simmer beneath the veneer of civility, and where the night is both sanctuary and battlefield for a coven whose survival depends on secrecy and ruthlessness.",
+  "worldEntities": {
+    "people": [
+      {
+        "name": "Donato Vellini",
+        "summary": "The enigmatic patriarch of the Venetian vampire coven, Donato embodies centuries of ruthless leadership. His charm masks a calculating mind that balances ancient codes with the demands of the modern world, enforcing order within the Masquerade with an iron will beneath his silk-clad exterior."
+      },
+      {
+        "name": "Isabella Moretti",
+        "summary": "A rising figure within the coven, Isabella is a master of social manipulation and espionage. Her knowledge of Venice's underworld and high society alike makes her indispensable—and dangerous. She navigates the Masquerade with a smile that conceals both ambition and hidden scars."
+      },
+      {
+        "name": "Father Lorenzo",
+        "summary": "A conflicted priest who serves as the coven's reluctant spiritual advisor, wrestling with his own faith and the darkness he witnesses. His presence at the palazzo is a paradox, embodying the fragile truce between sacred tradition and unholy existence."
+      }
+    ],
+    "locations": [
+      {
+        "name": "Palazzo Rosso",
+        "summary": "The ancestral home of the coven and the venue for the Masquerade of the Crimson Veil. Its crimson-draped halls and mirrored chambers hold centuries of secrets, with hidden passages and cryptic frescoes that hint at the coven's dark history and the power struggles beneath the surface."
+      },
+      {
+        "name": "The Silent Canal",
+        "summary": "A narrow, shadowed waterway behind the palazzo, known only to the coven and their trusted allies. It serves as a discreet escape route and a place for clandestine meetings, its still waters reflecting the duality of Venice itself—beauty and danger intertwined."
+      },
+      {
+        "name": "The Archivum",
+        "summary": "A secret chamber within the palazzo housing ancient tomes, blood-bound contracts, and relics of the coven's origins. Access is tightly controlled, for the knowledge contained within could upend the delicate balance of power if revealed."
+      }
+    ],
+    "items": [
+      {
+        "name": "The Crimson Veil Mask",
+        "summary": "An ornate mask worn exclusively during the Masquerade, crafted from crimson silk and encrusted with garnets. Beyond its aesthetic allure, it symbolizes the wearer's rank and allegiance within the coven, concealing identity while broadcasting subtle signals to insiders."
+      },
+      {
+        "name": "The Blood Ledger",
+        "summary": "A meticulously kept record of debts, favors, and transgressions among the coven members. Written in a cipher only a few can decode, this ledger is both a tool of control and a potential weapon, holding the keys to alliances and betrayals alike."
+      },
+      {
+        "name": "The Obsidian Dagger",
+        "summary": "A ceremonial blade rumored to be forged from volcanic glass and blessed in forgotten rites. It is both a symbol of authority and a weapon of execution within the coven, its presence a chilling reminder of the consequences of disloyalty."
+      }
+    ]
+  },
+  "coreTruth": {
+    "murder": {
+      "killer": "Lorenzo di Moretti - The Patriarch of Shadows",
+      "victim": "Marco Bellini",
+      "location": "the grand ballroom beneath the chandeliers",
+      "method": "a poisoned glass of spiced wine",
+      "motive": "to eliminate a rival threatening the coven's ancient order",
+      "opportunity": "during the masked toast when attention was diverted",
+      "window": "the opening moments of the Masquerade",
+      "window_start": "shortly after the guests gathered for the toast",
+      "window_end": "before the first dance began",
+      "murder_solution": "Marco Bellini, a non-playable nobleman rumored to challenge the coven's authority, was poisoned by Lorenzo di Moretti during the opening toast of the Masquerade. Lorenzo, intent on preserving the ancient traditions and his control over the Venetian coven, used the distraction of the masked gathering to slip poison into Marco's glass of spiced wine. The grand ballroom's opulence and the guests' focus on the ceremonial toast provided Lorenzo the perfect cover to commit the murder without immediate suspicion. This calculated act was meant to quash any emerging threats to his reign and maintain the fragile balance of power within the secretive vampire society."
+    },
+    "treasure": {
+      "object": "The Crimson Veil Pendant",
+      "hiding_place": "hidden compartment behind a fresco in the private chambers",
+      "treasure_solution": "The Crimson Veil Pendant is a centuries-old artifact symbolizing the coven's leadership and holds encrypted secrets about their origins and vulnerabilities. Players can discover it by investigating the private chambers where the fresco conceals a hidden compartment. Unlocking this treasure reveals critical information that could shift power dynamics and expose hidden truths about the vampire society, making it a key to understanding the deeper layers of the Masquerade."
+    }
+  }
+}

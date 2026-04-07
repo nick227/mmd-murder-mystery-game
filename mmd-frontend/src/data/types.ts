@@ -96,12 +96,20 @@ export interface ObjectiveItem {
   group?: boolean
   act?: number
   intent?: 'instruction' | 'clue' | 'puzzle' | 'reveal' | 'info'
+  /** Optional media. Backward compatible with legacy keys like `image_url`. */
+  image?: string
+  image_url?: string
+  imageUrl?: string
 }
 
 export interface ProfileCardItem {
   id: string
   label: string
   value: string
+  /** Optional media. Backward compatible with legacy keys like `image_url`. */
+  image?: string
+  image_url?: string
+  imageUrl?: string
 }
 
 export interface EvidenceItem {
@@ -111,6 +119,8 @@ export interface EvidenceItem {
   text: string
   act?: number
   image?: string
+  image_url?: string
+  imageUrl?: string
 }
 
 export interface ActionItem {

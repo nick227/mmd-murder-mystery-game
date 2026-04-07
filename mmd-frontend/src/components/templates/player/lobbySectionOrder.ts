@@ -3,15 +3,14 @@
  * Reorder by moving ids in this array only — `renderLobbySection` in `lobbySectionLayout.tsx` stays in sync by id.
  */
 export const LOBBY_SECTION_ORDER = [
+  'story',
   'meta',
-  'join',
   'room',
+  'join',
   'host',
   'status',
-  'story',
-  'profile',
   'act',
-  'players',
+  'profile',
   'evidence',
   'composer',
   'feed',

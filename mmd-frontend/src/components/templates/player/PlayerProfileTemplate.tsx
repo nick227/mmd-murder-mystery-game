@@ -33,13 +33,49 @@ function ProfilePanel({ data }: { data: PlayerProfileTemplateProps['profile'] })
 }
 
 function ProfileList({ title, items, emptyText }: { title: string; items: ProfileCardItem[]; emptyText: string }) {
+  const imageFromItem = (item: ProfileCardItem): string | undefined => {
+    const anyItem = item as unknown as {
+      image?: unknown
+      image_url?: unknown
+      imageUrl?: unknown
+      card_image?: unknown
+    }
+    const candidates = [anyItem.image, anyItem.image_url, anyItem.imageUrl, anyItem.card_image]
+    for (const candidate of candidates) {
+      if (typeof candidate === 'string' && candidate.trim().length > 0) return candidate.trim()
+    }
+    return undefined
+  }
+
   return (
     <Panel>
       <PanelHeader title={title} meta={String(items.length)} />
       {!items.length ? <EmptyState text={emptyText} /> : null}
       <div className="list-block">
         {items.map(item => (
-          <div key={item.id} className="list-row">
+          <div
+            key={item.id}
+            className={[
+              'list-row',
+              imageFromItem(item) ? 'list-row--with-thumb' : '',
+            ].filter(Boolean).join(' ')}
+          >
+            {imageFromItem(item) ? (
+              <div className="list-row__thumb">
+                <Media
+                  kind="image"
+                  src={imageFromItem(item)}
+                  alt={`${title}: ${item.label}`}
+                  ratio="1:1"
+                  variant="card"
+                  fit="cover"
+                  priority={false}
+                  sizes="(max-width: 768px) 96px, 140px"
+                  role="decorative"
+                  fallback={{ type: 'icon', label: title }}
+                />
+              </div>
+            ) : null}
             <div className="list-row__main">
               <div className="list-row__title">{item.label}</div>
               <div className="list-row__text">
@@ -78,4 +114,3 @@ export function PlayerProfileTemplate({ profile, embedded }: PlayerProfileTempla
     </Surface>
   )
 }
-

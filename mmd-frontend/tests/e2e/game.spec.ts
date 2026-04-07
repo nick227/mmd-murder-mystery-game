@@ -101,6 +101,15 @@ for (const storyTitle of await storyTitlesToTest()) {
     const hasClue = (await lobbyEvidence.locator('.list-row__title').filter({ hasText: 'Clue' }).count()) > 0
     expect(hasPuzzle || hasClue).toBeTruthy()
 
+    // Regression guard: card image URLs must be safe to embed in <img src="...">.
+    // In particular, spaces in the raw attribute value can cause browsers to treat the URL as invalid.
+    const firstEvidenceImg = lobbyEvidence.locator('img.media__img').first()
+    if ((await firstEvidenceImg.count()) > 0) {
+      const raw = await firstEvidenceImg.getAttribute('src')
+      expect(raw).toBeTruthy()
+      expect(raw).not.toMatch(/\\s/)
+    }
+
     // Minimal structured post: player posts to feed, host sees it (composer on lobby).
     await playerPage.getByTestId('composer-panel').locator('textarea').fill('study')
     await playerPage.getByTestId('composer-panel').getByRole('button', { name: 'Post' }).click()

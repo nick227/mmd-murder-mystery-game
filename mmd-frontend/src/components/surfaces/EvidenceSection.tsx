@@ -41,6 +41,19 @@ export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemC
   if (!items.length) return null
 
   const visibleItems = ordered.filter(item => item.kind === activeKind)
+  const imageFromEvidence = (item: EvidenceItem): string | undefined => {
+    const anyItem = item as unknown as {
+      image?: unknown
+      image_url?: unknown
+      imageUrl?: unknown
+      card_image?: unknown
+    }
+    const candidates = [anyItem.image, anyItem.image_url, anyItem.imageUrl, anyItem.card_image]
+    for (const candidate of candidates) {
+      if (typeof candidate === 'string' && candidate.trim().length > 0) return candidate.trim()
+    }
+    return undefined
+  }
 
   return (
     <Panel testId="evidence-section">
@@ -66,8 +79,10 @@ export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemC
         ))}
       </div>
       <div className="list-block">
-        {visibleItems.map(item => (
-          item.kind === 'reveal' && item.image ? (
+        {visibleItems.map(item => {
+          const imageSrc = imageFromEvidence(item)
+
+          return item.kind === 'reveal' && imageSrc ? (
             <div
               key={item.id}
               className={[
@@ -86,7 +101,7 @@ export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemC
             >
               <Media
                 kind="image"
-                src={item.image}
+                src={imageSrc}
                 alt={item.title}
                 ratio="16:9"
                 variant="hero"
@@ -107,6 +122,7 @@ export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemC
               key={item.id}
               className={[
                 'list-row',
+                imageSrc ? 'list-row--with-thumb' : '',
                 item.kind === 'reveal' ? 'list-row--reveal' : '',
                 currentAct !== undefined && item.kind === 'reveal' && item.act === currentAct ? 'list-row--reveal-new' : '',
                 onItemClick ? 'is-clickable' : '',
@@ -120,25 +136,25 @@ export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemC
                 if (e.key === 'Enter' || e.key === ' ') onItemClick(item)
               } : undefined}
             >
+              {imageSrc ? (
+                <div className="list-row__thumb">
+                  <Media
+                    kind="image"
+                    src={imageSrc}
+                    alt={item.title}
+                    ratio="1:1"
+                    variant="card"
+                    fit="cover"
+                    priority={false}
+                    sizes="(max-width: 768px) 96px, 140px"
+                    role="content"
+                    fallback={{ type: 'icon', label: 'Evidence' }}
+                  />
+                </div>
+              ) : null}
               <div className="list-row__main">
                 <div className="list-row__meta">
                 </div>
-                {item.image ? (
-                  <div style={{ marginTop: 8, marginBottom: 8 }}>
-                    <Media
-                      kind="image"
-                      src={item.image}
-                      alt={item.title}
-                      ratio="auto"
-                      variant="card"
-                      fit="contain"
-                      priority={false}
-                      sizes="(max-width: 768px) 100vw, 480px"
-                      role="content"
-                      fallback={{ type: 'icon', label: 'Evidence' }}
-                    />
-                  </div>
-                ) : null}
                 <div className="list-row__title">{item.title}</div>
                 <div className="list-row__text">
                   <span className="list-row__text-inner">{item.text}</span>
@@ -146,7 +162,7 @@ export function EvidenceSection({ items, title = 'Evidence', currentAct, onItemC
               </div>
             </div>
           )
-        ))}
+        })}
       </div>
     </Panel>
   )

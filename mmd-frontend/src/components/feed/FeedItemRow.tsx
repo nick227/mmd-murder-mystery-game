@@ -56,7 +56,7 @@ export function FeedItemRow({ item, stage, onClick }: Props) {
       <div className="feed-item__top">
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
           {item.authorPortrait ? (
-            <span style={{ width: 28, height: 28, flex: '0 0 28px' }}>
+            <span style={{ width: 60, height: 60, flex: '0 0 60px' }}>
               <Media
                 kind="image"
                 src={item.authorPortrait}
@@ -65,7 +65,7 @@ export function FeedItemRow({ item, stage, onClick }: Props) {
                 variant="thumb"
                 fit="cover"
                 role="avatar"
-                sizes="28px"
+                sizes="60px"
                 fallback={{ type: 'initials', label: item.author ?? '?' }}
               />
             </span>
